@@ -43,7 +43,7 @@ This project is a collaborative research initiative between the Psychology, Neur
 
   - Clone the repository:
 
-  - git clone https://github.com/YOUR_USERNAME/VIBES-LAB.git
+  - git clone https://github.com/YOUR_USERNAME/VR-LAB.git
     
   - cd VIBES-Lab
     
@@ -62,11 +62,17 @@ This project is a collaborative research initiative between the Psychology, Neur
 
 - Lauren Dunlap - Psychologist, Baldwin Wallace University
 
+- Gavin Miller - Software Engineer, Baldwin Wallace University
+
 - Albert Selby - Data Scientist, Baldwin Wallace University
 
 - Marissa Brigger - Neuroscientist, Baldwin Wallace University
 
+- Sophia Ott - Neuroscientist, Baldwin Wallace University
+
 - Alexa Gossett - Neuroscientist, Baldwin Wallace University
+
+- Elizabeth Bell - Psychologist, Baldwin Wallace University
 
 - Jace Lander - Software Engineer, Baldwin Wallace University
 
