@@ -21,6 +21,7 @@ public class BetManager : MonoBehaviour
     public TogglePressInteractable TogglePressInteractable1;
     public TogglePressInteractable TogglePressInteractable2;
     public TogglePressInteractable TogglePressInteractable3;
+    public Leaderboard leaderboard;
     static float seconds = 5;
 
 
@@ -149,7 +150,7 @@ public class BetManager : MonoBehaviour
         }
         return payout;
     }
-    
+
     public void StartSubmit()
     {
         StartCoroutine(Submit());
@@ -158,7 +159,7 @@ public class BetManager : MonoBehaviour
 
     public IEnumerator Submit()
     {
-        if(oddsArray.Count < 2)
+        if (oddsArray.Count < 2)
         {
             TurnOffUI();
             ErrorMessage.text = "Please select at least 2 bets\n for a parlay.";
@@ -212,14 +213,17 @@ public class BetManager : MonoBehaviour
             UpdateOddsText();
 
         }
-        
-        void UpdateOddsText()
+
+        leaderboard.SetMoney("You", wallet);
+
+    }
+    
+    void UpdateOddsText()
         {
             TogglePressInteractable1.UpdateUI();
             TogglePressInteractable2.UpdateUI();
             TogglePressInteractable3.UpdateUI();
         }
-    }
 
 
 
