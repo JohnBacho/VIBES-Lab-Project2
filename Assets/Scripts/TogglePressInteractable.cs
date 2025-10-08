@@ -28,7 +28,7 @@ public class TogglePressInteractable : MonoBehaviour
     {
         float currentTime = Time.time;
         float timeSinceLast = currentTime - lastActivationTime;
-
+        UpdateUI();
         if (timeSinceLast > cooldownTime)
         {
             lastActivationTime = currentTime;
@@ -46,7 +46,7 @@ public class TogglePressInteractable : MonoBehaviour
         }
     }
 
-    void UpdateUI()
+    public void UpdateUI()
     {
         if (OddsText != null)
         {

@@ -14,10 +14,20 @@ public class BetManager : MonoBehaviour
     public TextMeshPro betText;
     public TextMeshPro ToggledOdds;
     public TextMeshPro EstimatedPayout;
+    public TextMeshPro WinText;
+    public TextMeshPro LossText;
+    public TextMeshPro ErrorMessage;
+
+    public TogglePressInteractable TogglePressInteractable1;
+    public TogglePressInteractable TogglePressInteractable2;
+    public TogglePressInteractable TogglePressInteractable3;
+    static float seconds = 5;
+
 
 
     private List<int> oddsArray = new List<int>();
-    private List<double> PercentagesArray = new List<double>();
+    private List<float> decimalOddsList = new List<float>();
+
 
     void Start()
     {
@@ -28,7 +38,7 @@ public class BetManager : MonoBehaviour
     {
         if (walletText != null)
         {
-            walletText.text = "Wallet $" + wallet;
+            walletText.text = $"Wallet ${wallet:0.00}";
         }
         if (betText != null)
         {
@@ -41,6 +51,26 @@ public class BetManager : MonoBehaviour
         if (EstimatedPayout != null)
         {
             CalculateParlayPayout();
+        }
+    }
+
+    void TurnOffUI()
+    {
+        if (walletText != null)
+        {
+            walletText.text = "";
+        }
+        if (betText != null)
+        {
+            betText.text = "";
+        }
+        if (ToggledOdds != null)
+        {
+            ToggledOdds.text = "";
+        }
+        if (EstimatedPayout != null)
+        {
+            EstimatedPayout.text = "";
         }
     }
 
@@ -91,7 +121,7 @@ public class BetManager : MonoBehaviour
     public float CalculateParlayPayout()
     {
         float totalMultiplier = 1f;
-
+        decimalOddsList.Clear();
         foreach (int odds in oddsArray)
         {
             float decimalOdds = 0f;
@@ -108,48 +138,41 @@ public class BetManager : MonoBehaviour
             {
                 decimalOdds = 1f;
             }
-            
+
             totalMultiplier *= decimalOdds;
+            decimalOddsList.Add(decimalOdds);
         }
         float payout = currentBet * totalMultiplier;
         if (EstimatedPayout != null)
         {
             EstimatedPayout.text = $"Current Payout: ${payout:0.00}";
         }
-        UpdateUI();
         return payout;
     }
-
-    public void CalculatePercentage()
+    
+    public void StartSubmit()
     {
-        PercentagesArray.Clear();
-
-        for (int i = 0; i < oddsArray.Count; i++)
-        {
-            int odds = oddsArray[i];
-            double probability;
-
-            if (odds < 0)
-            {
-                probability = (double)Math.Abs(odds) / (Math.Abs(odds) + 100);
-            }
-            else
-            {
-                probability = 100.0 / (odds + 100);
-            }
-
-            PercentagesArray.Add(probability * 100);
-        }
+        StartCoroutine(Submit());
     }
 
-    public void submit()
+
+    public IEnumerator Submit()
     {
-        CalculatePercentage();
-        int counter = 0;
-        foreach (double chance in PercentagesArray)
+        if(oddsArray.Count < 2)
         {
-            int result = RandomWithChance((int)chance);
-            if (result == 1)
+            TurnOffUI();
+            ErrorMessage.text = "Please select at least 2 bets\n for a parlay.";
+            yield return new WaitForSeconds(seconds);
+            ErrorMessage.text = "";
+            yield break;
+        }
+        float Payout = 0f;
+        int counter = 0;
+        foreach (float decimalOdds in decimalOddsList)
+        {
+            float probability = (1 / decimalOdds);
+            float roll = UnityEngine.Random.value;
+            if (roll <= probability)
             {
                 counter++;
             }
@@ -159,33 +182,47 @@ public class BetManager : MonoBehaviour
             }
         }
 
-        if (counter == PercentagesArray.Count)
+        if (counter == decimalOddsList.Count)
         {
-            Debug.Log("You Win!");
-            wallet += currentBet * 2;
+            Payout = CalculateParlayPayout();
+            wallet += Payout;
+            TurnOffUI();
+            WinText.text = $"You Win! Payout: ${Payout:0.00},\n your total wallet is now ${wallet:0.00}";
+            yield return new WaitForSeconds(seconds);
+            WinText.text = "";
             currentBet = 0;
             oddsArray.Clear();
-            PercentagesArray.Clear();
+            decimalOddsList.Clear();
             sxr.NextTrial();
             UpdateUI();
+            UpdateOddsText();
         }
         else
         {
             Debug.Log("You Lose!");
             currentBet = 0;
+            TurnOffUI();
+            LossText.text = $"You Lose! your total wallet\nis now ${wallet:0.00}";
+            yield return new WaitForSeconds(seconds);
+            LossText.text = "";
             oddsArray.Clear();
-            PercentagesArray.Clear();
+            decimalOddsList.Clear();
             sxr.NextTrial();
             UpdateUI();
+            UpdateOddsText();
+
+        }
+        
+        void UpdateOddsText()
+        {
+            TogglePressInteractable1.UpdateUI();
+            TogglePressInteractable2.UpdateUI();
+            TogglePressInteractable3.UpdateUI();
         }
     }
 
 
-    int RandomWithChance(int percent)
-    {
-        int roll = UnityEngine.Random.Range(0, 100);
-        return (roll < percent) ? 1 : 0;
-    }
+
 
 
 }
