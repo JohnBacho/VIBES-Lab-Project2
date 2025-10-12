@@ -3,21 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using UnityEngine.UI;
 
 
 public class BetManager : MonoBehaviour
 {
     public float wallet = 100;
-    public int currentBet = 0;
-    public int betIncrement = 10;
+    public float currentBet = 0;
     public TextMeshPro walletText;
     public TextMeshPro betText;
-    public TextMeshPro ToggledOdds;
     public TextMeshPro EstimatedPayout;
     public TextMeshPro WinText;
     public TextMeshPro LossText;
     public TextMeshPro ErrorMessage;
+    public Slider mySlider;
+    private float previousSliderValue = 0f;
 
+private bool sliderInitialized = false;
     public TogglePressInteractable TogglePressInteractable1;
     public TogglePressInteractable TogglePressInteractable2;
     public TogglePressInteractable TogglePressInteractable3;
@@ -30,10 +32,22 @@ public class BetManager : MonoBehaviour
     private List<float> decimalOddsList = new List<float>();
 
 
-    void Start()
+void Start()
+{
+    UpdateUI();
+
+    if (mySlider != null)
     {
-        UpdateUI();
+        mySlider.maxValue = wallet;
+        mySlider.minValue = 0;
+        mySlider.SetValueWithoutNotify(0f); // start at 0 so no phantom delta
+        previousSliderValue = 0f;
+
+        mySlider.onValueChanged.AddListener(OnSliderChanged);
+        sliderInitialized = true;
     }
+}
+
 
     void UpdateUI()
     {
@@ -43,11 +57,7 @@ public class BetManager : MonoBehaviour
         }
         if (betText != null)
         {
-            betText.text = "Bet $" + currentBet;
-        }
-        if (ToggledOdds != null)
-        {
-            ToggledOdds.text = "Selected Odds: " + string.Join(", ", oddsArray);
+            betText.text = "$" + currentBet;
         }
         if (EstimatedPayout != null)
         {
@@ -65,10 +75,6 @@ public class BetManager : MonoBehaviour
         {
             betText.text = "";
         }
-        if (ToggledOdds != null)
-        {
-            ToggledOdds.text = "";
-        }
         if (EstimatedPayout != null)
         {
             EstimatedPayout.text = "";
@@ -76,37 +82,25 @@ public class BetManager : MonoBehaviour
     }
 
 
+void OnSliderChanged(float newValue)
+{
+    if (!sliderInitialized || mySlider == null) return;
 
-    public void IncreaseBet()
-    {
-        if ((wallet - betIncrement) >= 0)
-        {
-            currentBet += betIncrement;
-            wallet -= betIncrement;
-            UpdateUI();
-        }
-        else
-        {
-            Debug.Log("invaild funds");
-        }
+    float maxAllowed = wallet + previousSliderValue;
+    float clampedValue = Mathf.Clamp(newValue, 0f, maxAllowed);
+    float delta = clampedValue - previousSliderValue;
 
-    }
+    wallet -= delta;
+    wallet = Mathf.Max(wallet, 0f);
 
-    public void DecreaseBet()
-    {
-        if (!(currentBet <= 0))
-        {
-            currentBet -= betIncrement;
-            wallet += betIncrement;
-            UpdateUI();
-        }
-        else
-        {
-            Debug.Log("no more");
-        }
+    currentBet = clampedValue;
+    previousSliderValue = clampedValue;
 
-    }
+    if (Math.Abs(clampedValue - newValue) > 0.0001f)
+        mySlider.SetValueWithoutNotify(clampedValue);
 
+    UpdateUI();
+}
     public void AddToCalculateOdds(int odds)
     {
         oddsArray.Add(odds);
@@ -146,7 +140,7 @@ public class BetManager : MonoBehaviour
         float payout = currentBet * totalMultiplier;
         if (EstimatedPayout != null)
         {
-            EstimatedPayout.text = $"Current Payout: ${payout:0.00}";
+            EstimatedPayout.text = $"${payout:0.00}";
         }
         return payout;
     }
@@ -201,6 +195,7 @@ public class BetManager : MonoBehaviour
         else
         {
             Debug.Log("You Lose!");
+            wallet = currentBet;
             currentBet = 0;
             TurnOffUI();
             LossText.text = $"You Lose! your total wallet\nis now ${wallet:0.00}";
@@ -215,6 +210,12 @@ public class BetManager : MonoBehaviour
         }
 
         leaderboard.SetMoney("You", wallet);
+        currentBet = 0f;
+        previousSliderValue = 0f;
+        mySlider.SetValueWithoutNotify(0f);
+        mySlider.maxValue = wallet; // update max to reflect new wallet
+
+
 
     }
     
@@ -224,9 +225,4 @@ public class BetManager : MonoBehaviour
             TogglePressInteractable2.UpdateUI();
             TogglePressInteractable3.UpdateUI();
         }
-
-
-
-
-
 }

@@ -1,0 +1,52 @@
+using UnityEngine;
+using TMPro;
+using System.Collections.Generic;
+
+public class CardManager : MonoBehaviour
+{
+    public GameObject CardPrefab; // assign your card prefab
+    public Transform CardParent; // usually a Vertical Layout Group
+    private List<GameObject> activeCards = new List<GameObject>();
+    private Dictionary<TogglePressInteractable, GameObject> cardMap = new Dictionary<TogglePressInteractable, GameObject>();
+
+public void SpawnCard(string team1, string team2, int odds, TogglePressInteractable toggle)
+{
+    GameObject newCard = Instantiate(CardPrefab, CardParent);
+    newCard.transform.SetAsLastSibling();
+
+    var cardScript = newCard.GetComponent<TogglePressInteractable>();
+    if (cardScript != null)
+    {
+        cardScript.isSpawnedCard = true;
+    }
+    
+    TextMeshPro oddsText = null;
+    foreach (var tmp in newCard.GetComponentsInChildren<TextMeshPro>(true))
+    {
+        if (tmp.name == "Odds") oddsText = tmp;
+    }
+
+    TextMeshPro team1Text = newCard.transform.Find("Team1").GetComponent<TextMeshPro>();
+    TextMeshPro team2Text = newCard.transform.Find("Team2").GetComponent<TextMeshPro>();
+
+
+        oddsText.text = odds.ToString();
+    Debug.Log("Odds Text set to: " + odds.ToString());
+    team1Text.text = team1;
+    team2Text.text = team2;
+
+    cardMap[toggle] = newCard;
+}
+
+
+
+    public void RemoveCard(TogglePressInteractable toggle)
+    {
+        if (cardMap.TryGetValue(toggle, out GameObject card))
+        {
+            activeCards.Remove(card);
+            Destroy(card);
+            cardMap.Remove(toggle);
+        }
+    }
+}
