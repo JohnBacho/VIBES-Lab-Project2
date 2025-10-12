@@ -181,29 +181,28 @@ void OnSliderChanged(float newValue)
         }
         else
         {
-            wallet = currentBet;
             TurnOffUI();
             LossText.text = $"You Lose! \nyour total wallet\nis now ${wallet:0.00}";
             yield return new WaitForSeconds(seconds);
             LossText.text = "";
         }
-        CardManager.RemoveAllCards();
-        MiddleUI.SetActive(true);
         currentBet = 0;
+        previousSliderValue = 0f;
+    
+        CardManager.RemoveAllCards();
         oddsArray.Clear();
         decimalOddsList.Clear();
-        sxr.NextTrial();
-        UpdateUI();
-        UpdateOddsText();
-
-        leaderboard.SetMoney("You", wallet);
-        previousSliderValue = 0f;
+        mySlider.onValueChanged.RemoveListener(OnSliderChanged);
         mySlider.maxValue = wallet;
         mySlider.minValue = 0;
         mySlider.SetValueWithoutNotify(0f);
-        mySlider.value = 0f;
+        sxr.NextTrial();
 
-
+        leaderboard.SetMoney("You", wallet);
+        mySlider.onValueChanged.AddListener(OnSliderChanged);
+        MiddleUI.SetActive(true);
+        UpdateUI();
+        UpdateOddsText();
     }
     
     void UpdateOddsText()
