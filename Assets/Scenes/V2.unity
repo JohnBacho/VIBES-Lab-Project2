@@ -226,7 +226,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: 0
+  m_Spacing: -8.5
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -246,7 +246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a02fec2794e4f6245b877db55151793e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardPrefab: {fileID: 7084577436573915515, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
+  CardPrefab: {fileID: 1312999938128257829, guid: 48d69b321f8ac974b95af15ec8423bdf, type: 3}
   CardParent: {fileID: 78341565}
 --- !u!1 &151063766
 GameObject:
@@ -323,6 +323,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 151063766}
   m_CullTransparentMesh: 1
+--- !u!114 &152960149 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7754665781832509095, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
+  m_PrefabInstance: {fileID: 1639307719}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &206288614
 GameObject:
   m_ObjectHideFlags: 0
@@ -1448,6 +1459,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &803113729 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8214215684689086544, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
+  m_PrefabInstance: {fileID: 1744705736}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &836306711
 GameObject:
   m_ObjectHideFlags: 0
@@ -2499,6 +2521,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1217745951}
   m_CullTransparentMesh: 1
+--- !u!114 &1224001522 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7754665781832509095, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
+  m_PrefabInstance: {fileID: 1744705736}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1260530844
 GameObject:
   m_ObjectHideFlags: 0
@@ -2797,6 +2830,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1394710742 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7754665781832509095, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
+  m_PrefabInstance: {fileID: 7410829460918577112}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1401425946 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 897525465158637388, guid: 34c12b16e3cad5542bd2d6f0a98ee900, type: 3}
@@ -2930,6 +2974,17 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: -1
   m_TargetDisplay: 0
+--- !u!114 &1445278132 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8214215684689086544, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
+  m_PrefabInstance: {fileID: 1639307719}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1480706494
 GameObject:
   m_ObjectHideFlags: 0
@@ -3030,7 +3085,7 @@ Transform:
   m_GameObject: {fileID: 1481866811}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.0786002, y: 1.710773, z: -0.5333431}
+  m_LocalPosition: {x: 2.0786002, y: 1.710773, z: -0.299}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3339,6 +3394,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 657640165}
     m_Modifications:
     - target: {fileID: 2770924693785062849, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
+      propertyPath: Team1Text
+      value: 
+      objectReference: {fileID: 152960149}
+    - target: {fileID: 2770924693785062849, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
+      propertyPath: Team2Text
+      value: 
+      objectReference: {fileID: 1445278132}
+    - target: {fileID: 2770924693785062849, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
       propertyPath: TeamName1
       value: Jets
       objectReference: {fileID: 0}
@@ -3353,6 +3416,38 @@ PrefabInstance:
     - target: {fileID: 2770924693785062849, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
       propertyPath: 'ListOfOdds.Array.data[0]'
       value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770924693785062849, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
+      propertyPath: ListOfTeamName1.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770924693785062849, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
+      propertyPath: ListOfTeamName2.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770924693785062849, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
+      propertyPath: 'ListOfTeamName1.Array.data[0]'
+      value: Saints
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770924693785062849, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
+      propertyPath: 'ListOfTeamName1.Array.data[1]'
+      value: Saints
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770924693785062849, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
+      propertyPath: 'ListOfTeamName1.Array.data[2]'
+      value: Saints
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770924693785062849, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
+      propertyPath: 'ListOfTeamName2.Array.data[0]'
+      value: Ravens
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770924693785062849, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
+      propertyPath: 'ListOfTeamName2.Array.data[1]'
+      value: Ravens
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770924693785062849, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
+      propertyPath: 'ListOfTeamName2.Array.data[2]'
+      value: Ravens
       objectReference: {fileID: 0}
     - target: {fileID: 3474356188857542322, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
       propertyPath: m_Pivot.x
@@ -3469,6 +3564,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3474356188857542322, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
   m_PrefabInstance: {fileID: 1639307719}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1639307721 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2770924693785062849, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
+  m_PrefabInstance: {fileID: 1639307719}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1f208133cefafd4f81fa50cbf347b71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1652352472
 GameObject:
   m_ObjectHideFlags: 0
@@ -3654,6 +3760,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 657640165}
     m_Modifications:
     - target: {fileID: 2770924693785062849, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
+      propertyPath: OddsText
+      value: 
+      objectReference: {fileID: 1840142096}
+    - target: {fileID: 2770924693785062849, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
+      propertyPath: Team1Text
+      value: 
+      objectReference: {fileID: 1224001522}
+    - target: {fileID: 2770924693785062849, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
+      propertyPath: Team2Text
+      value: 
+      objectReference: {fileID: 803113729}
+    - target: {fileID: 2770924693785062849, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
       propertyPath: TeamName1
       value: Giants
       objectReference: {fileID: 0}
@@ -3668,6 +3786,38 @@ PrefabInstance:
     - target: {fileID: 2770924693785062849, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
       propertyPath: 'ListOfOdds.Array.data[0]'
       value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770924693785062849, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
+      propertyPath: ListOfTeamName1.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770924693785062849, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
+      propertyPath: ListOfTeamName2.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770924693785062849, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
+      propertyPath: 'ListOfTeamName1.Array.data[0]'
+      value: Giants
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770924693785062849, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
+      propertyPath: 'ListOfTeamName1.Array.data[1]'
+      value: Giants
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770924693785062849, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
+      propertyPath: 'ListOfTeamName1.Array.data[2]'
+      value: Giants
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770924693785062849, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
+      propertyPath: 'ListOfTeamName2.Array.data[0]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770924693785062849, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
+      propertyPath: 'ListOfTeamName2.Array.data[1]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770924693785062849, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
+      propertyPath: 'ListOfTeamName2.Array.data[2]'
+      value: Jets
       objectReference: {fileID: 0}
     - target: {fileID: 3474356188857542322, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
       propertyPath: m_Pivot.x
@@ -3772,6 +3922,28 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3474356188857542322, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
   m_PrefabInstance: {fileID: 1744705736}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1744705738 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2770924693785062849, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
+  m_PrefabInstance: {fileID: 1744705736}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1f208133cefafd4f81fa50cbf347b71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1840142096 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5521832338521518793, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
+  m_PrefabInstance: {fileID: 1744705736}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1843340491
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4329,6 +4501,17 @@ MonoBehaviour:
   xrRig: {fileID: 1843859215}
   xrCamera: {fileID: 1843859214}
   cameraSpawnPoint: {fileID: 2110663370}
+--- !u!114 &1845090101 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8214215684689086544, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
+  m_PrefabInstance: {fileID: 7410829460918577112}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1847609427
 GameObject:
   m_ObjectHideFlags: 0
@@ -4502,8 +4685,8 @@ MonoBehaviour:
   ErrorMessage: {fileID: 0}
   mySlider: {fileID: 987472864}
   TogglePressInteractable1: {fileID: 4947384810926824389}
-  TogglePressInteractable2: {fileID: 0}
-  TogglePressInteractable3: {fileID: 0}
+  TogglePressInteractable2: {fileID: 1639307721}
+  TogglePressInteractable3: {fileID: 1744705738}
   leaderboard: {fileID: 1970160410}
 --- !u!114 &1970160410
 MonoBehaviour:
@@ -5093,6 +5276,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 657640165}
     m_Modifications:
     - target: {fileID: 2770924693785062849, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
+      propertyPath: Team1Text
+      value: 
+      objectReference: {fileID: 1394710742}
+    - target: {fileID: 2770924693785062849, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
+      propertyPath: Team2Text
+      value: 
+      objectReference: {fileID: 1845090101}
+    - target: {fileID: 2770924693785062849, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
       propertyPath: betManager
       value: 
       objectReference: {fileID: 1970160409}
@@ -5101,8 +5292,44 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 78341568}
     - target: {fileID: 2770924693785062849, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
+      propertyPath: isSpawnedCard
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770924693785062849, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
       propertyPath: 'ListOfOdds.Array.data[0]'
       value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770924693785062849, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
+      propertyPath: ListOfTeamName1.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770924693785062849, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
+      propertyPath: ListOfTeamName2.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770924693785062849, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
+      propertyPath: 'ListOfTeamName1.Array.data[0]'
+      value: Browns
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770924693785062849, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
+      propertyPath: 'ListOfTeamName1.Array.data[1]'
+      value: Browns
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770924693785062849, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
+      propertyPath: 'ListOfTeamName1.Array.data[2]'
+      value: Browns
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770924693785062849, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
+      propertyPath: 'ListOfTeamName2.Array.data[0]'
+      value: Jags
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770924693785062849, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
+      propertyPath: 'ListOfTeamName2.Array.data[1]'
+      value: Jags
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770924693785062849, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
+      propertyPath: 'ListOfTeamName2.Array.data[2]'
+      value: Jags
       objectReference: {fileID: 0}
     - target: {fileID: 3474356188857542322, guid: b58070063c169314097e5cfb09dab5f1, type: 3}
       propertyPath: m_Pivot.x

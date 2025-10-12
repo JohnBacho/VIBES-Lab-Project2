@@ -13,40 +13,40 @@ public void SpawnCard(string team1, string team2, int odds, TogglePressInteracta
 {
     GameObject newCard = Instantiate(CardPrefab, CardParent);
     newCard.transform.SetAsLastSibling();
-
-    var cardScript = newCard.GetComponent<TogglePressInteractable>();
-    if (cardScript != null)
-    {
-        cardScript.isSpawnedCard = true;
-    }
     
-    TextMeshPro oddsText = null;
-    foreach (var tmp in newCard.GetComponentsInChildren<TextMeshPro>(true))
-    {
-        if (tmp.name == "Odds") oddsText = tmp;
-    }
-
+    TextMeshPro oddsText = newCard.transform.Find("Odds").GetComponent<TextMeshPro>();
     TextMeshPro team1Text = newCard.transform.Find("Team1").GetComponent<TextMeshPro>();
     TextMeshPro team2Text = newCard.transform.Find("Team2").GetComponent<TextMeshPro>();
-
-
-        oddsText.text = odds.ToString();
+    
+    oddsText.text = odds.ToString();
     Debug.Log("Odds Text set to: " + odds.ToString());
     team1Text.text = team1;
     team2Text.text = team2;
-
+    
+    RemoveCard removeCardScript = newCard.GetComponent<RemoveCard>();
+    if (removeCardScript != null)
+    {
+        removeCardScript.Initialize(toggle, this);
+    }
+    
     cardMap[toggle] = newCard;
 }
 
-
-
-    public void RemoveCard(TogglePressInteractable toggle)
+public void RemoveCard(TogglePressInteractable toggle)
+{
+    if (cardMap.TryGetValue(toggle, out GameObject card))
     {
-        if (cardMap.TryGetValue(toggle, out GameObject card))
+        activeCards.Remove(card);
+        cardMap.Remove(toggle);
+        
+        if (toggle != null)
         {
-            activeCards.Remove(card);
-            Destroy(card);
-            cardMap.Remove(toggle);
+            int selectedOdds = toggle.ListOfOdds[sxr.GetTrial()];
+            toggle.betManager.RemoveFromCalculateOdds(selectedOdds);
+            toggle.SetPressed(false);
         }
+        
+        Destroy(card);
     }
+}
 }

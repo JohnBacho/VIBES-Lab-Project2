@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-
 public class ToggleButton : MonoBehaviour
 {
     public Color normalColor = Color.white;
@@ -13,7 +12,7 @@ public class ToggleButton : MonoBehaviour
     void Start()
     {
         button = GetComponent<Button>();
-        
+       
         // If you didn't assign targetImage in Inspector, try to get it from this object
         if (targetImage == null)
         {
@@ -21,7 +20,7 @@ public class ToggleButton : MonoBehaviour
         }
        
         button.onClick.AddListener(Toggle);
-        
+       
         if (targetImage != null)
         {
             targetImage.color = normalColor;
@@ -31,7 +30,7 @@ public class ToggleButton : MonoBehaviour
     void Toggle()
     {
         isToggled = !isToggled;
-        
+       
         if (targetImage != null)
         {
             targetImage.color = isToggled ? toggledColor : normalColor;
@@ -41,5 +40,16 @@ public class ToggleButton : MonoBehaviour
     public bool IsToggled()
     {
         return isToggled;
+    }
+    
+    // Add this new method
+    public void SetToggled(bool toggled)
+    {
+        isToggled = toggled;
+        
+        if (targetImage != null)
+        {
+            targetImage.color = isToggled ? toggledColor : normalColor;
+        }
     }
 }

@@ -6,20 +6,18 @@ public class TogglePressInteractable : MonoBehaviour
 
     public int[] ListOfOdds;
     private bool isPressed = false;
-    public string TeamName1;
-    public string TeamName2;
+    public string[] ListOfTeamName1;
+    public string[] ListOfTeamName2;
     public BetManager betManager;
-    public CardManager cardManager;    
-     public TextMeshPro OddsText;
+    public CardManager cardManager;
+    public TextMeshPro OddsText;
+    public TextMeshPro Team1Text;
 
-  public bool isSpawnedCard = false; // Add this flag
-    
+    public TextMeshPro Team2Text;
+
     void Start()
     {
-        if (!isSpawnedCard) // Only update if it's not a spawned card
-        {
-            UpdateUI();
-        }
+        UpdateUI();
     }
 
     public void OnClick()
@@ -27,6 +25,8 @@ public class TogglePressInteractable : MonoBehaviour
         isPressed = !isPressed;
 
         int selectedOdds = ListOfOdds[sxr.GetTrial()];
+        string TeamName1 = ListOfTeamName1[sxr.GetTrial()];
+        string TeamName2 = ListOfTeamName2[sxr.GetTrial()];
 
         if (isPressed)
         {
@@ -39,6 +39,19 @@ public class TogglePressInteractable : MonoBehaviour
             cardManager.RemoveCard(this);
         }
 
+
+        UpdateUI();
+    }
+    
+    public void SetPressed(bool pressed)
+    {
+        isPressed = pressed;
+        
+        ToggleButton toggleButton = GetComponent<ToggleButton>();
+        if (toggleButton != null)
+        {
+            toggleButton.SetToggled(pressed);
+        }
         
         UpdateUI();
     }
@@ -49,6 +62,14 @@ public class TogglePressInteractable : MonoBehaviour
         if (OddsText != null)
         {
             OddsText.text = ListOfOdds[sxr.GetTrial()].ToString();
+        }
+        if (Team1Text != null)
+        {
+            Team1Text.text = ListOfTeamName1[sxr.GetTrial()];
+        }
+        if (Team2Text != null)
+        {
+            Team2Text.text = ListOfTeamName2[sxr.GetTrial()];
         }
     }
 }

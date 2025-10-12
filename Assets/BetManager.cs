@@ -212,9 +212,10 @@ void OnSliderChanged(float newValue)
         leaderboard.SetMoney("You", wallet);
         currentBet = 0f;
         previousSliderValue = 0f;
-        mySlider.SetValueWithoutNotify(0f);
-        mySlider.maxValue = wallet; // update max to reflect new wallet
-
+        mySlider.maxValue = wallet; // Set max first
+        mySlider.minValue = 0;       // Ensure min is still 0
+        mySlider.SetValueWithoutNotify(0f); // Reset to 0
+        mySlider.value = 0f;         // Force visual update
 
 
     }
