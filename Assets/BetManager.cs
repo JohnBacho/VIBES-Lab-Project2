@@ -16,13 +16,16 @@ public class BetManager : MonoBehaviour
     public TextMeshPro WinText;
     public TextMeshPro LossText;
     public TextMeshPro ErrorMessage;
+    public GameObject MiddleUI;
     public Slider mySlider;
     private float previousSliderValue = 0f;
 
-private bool sliderInitialized = false;
+    private bool sliderInitialized = false;
     public TogglePressInteractable TogglePressInteractable1;
     public TogglePressInteractable TogglePressInteractable2;
     public TogglePressInteractable TogglePressInteractable3;
+    public CardManager CardManager;
+
     public Leaderboard leaderboard;
     static float seconds = 5;
 
@@ -67,18 +70,7 @@ void Start()
 
     void TurnOffUI()
     {
-        if (walletText != null)
-        {
-            walletText.text = "";
-        }
-        if (betText != null)
-        {
-            betText.text = "";
-        }
-        if (EstimatedPayout != null)
-        {
-            EstimatedPayout.text = "";
-        }
+       MiddleUI.SetActive(false);
     }
 
 
@@ -156,9 +148,10 @@ void OnSliderChanged(float newValue)
         if (oddsArray.Count < 2)
         {
             TurnOffUI();
-            ErrorMessage.text = "Please select at least 2 bets\n for a parlay.";
+            ErrorMessage.text = "Please select at\nleast 2 bets\nfor a parlay.";
             yield return new WaitForSeconds(seconds);
             ErrorMessage.text = "";
+            MiddleUI.SetActive(true);
             yield break;
         }
         float Payout = 0f;
@@ -182,46 +175,42 @@ void OnSliderChanged(float newValue)
             Payout = CalculateParlayPayout();
             wallet += Payout;
             TurnOffUI();
-            WinText.text = $"You Win! Payout: ${Payout:0.00},\n your total wallet is now ${wallet:0.00}";
+            WinText.text = $"You Win! \n Payout: ${Payout:0.00},\nyour total wallet\nis now ${wallet:0.00}";
             yield return new WaitForSeconds(seconds);
             WinText.text = "";
-            currentBet = 0;
-            oddsArray.Clear();
-            decimalOddsList.Clear();
-            sxr.NextTrial();
-            UpdateUI();
-            UpdateOddsText();
         }
         else
         {
-            Debug.Log("You Lose!");
             wallet = currentBet;
-            currentBet = 0;
             TurnOffUI();
-            LossText.text = $"You Lose! your total wallet\nis now ${wallet:0.00}";
+            LossText.text = $"You Lose! \nyour total wallet\nis now ${wallet:0.00}";
             yield return new WaitForSeconds(seconds);
             LossText.text = "";
-            oddsArray.Clear();
-            decimalOddsList.Clear();
-            sxr.NextTrial();
-            UpdateUI();
-            UpdateOddsText();
-
         }
+        CardManager.RemoveAllCards();
+        MiddleUI.SetActive(true);
+        currentBet = 0;
+        oddsArray.Clear();
+        decimalOddsList.Clear();
+        sxr.NextTrial();
+        UpdateUI();
+        UpdateOddsText();
 
         leaderboard.SetMoney("You", wallet);
-        currentBet = 0f;
         previousSliderValue = 0f;
-        mySlider.maxValue = wallet; // Set max first
-        mySlider.minValue = 0;       // Ensure min is still 0
-        mySlider.SetValueWithoutNotify(0f); // Reset to 0
-        mySlider.value = 0f;         // Force visual update
+        mySlider.maxValue = wallet;
+        mySlider.minValue = 0;
+        mySlider.SetValueWithoutNotify(0f);
+        mySlider.value = 0f;
 
 
     }
     
     void UpdateOddsText()
         {
+            TogglePressInteractable1.ResetToggle();
+            TogglePressInteractable2.ResetToggle();
+            TogglePressInteractable3.ResetToggle();
             TogglePressInteractable1.UpdateUI();
             TogglePressInteractable2.UpdateUI();
             TogglePressInteractable3.UpdateUI();

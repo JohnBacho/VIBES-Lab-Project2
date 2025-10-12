@@ -39,7 +39,7 @@ public class TogglePressInteractable : MonoBehaviour
             cardManager.RemoveCard(this);
         }
 
-
+        SetPressed(isPressed);
         UpdateUI();
     }
     
@@ -71,5 +71,12 @@ public class TogglePressInteractable : MonoBehaviour
         {
             Team2Text.text = ListOfTeamName2[sxr.GetTrial()];
         }
+    }
+
+    public void ResetToggle()
+    {
+        isPressed = false;
+        SetPressed(false);
+        UpdateUI();
     }
 }

@@ -19,7 +19,6 @@ public void SpawnCard(string team1, string team2, int odds, TogglePressInteracta
     TextMeshPro team2Text = newCard.transform.Find("Team2").GetComponent<TextMeshPro>();
     
     oddsText.text = odds.ToString();
-    Debug.Log("Odds Text set to: " + odds.ToString());
     team1Text.text = team1;
     team2Text.text = team2;
     
@@ -32,21 +31,45 @@ public void SpawnCard(string team1, string team2, int odds, TogglePressInteracta
     cardMap[toggle] = newCard;
 }
 
-public void RemoveCard(TogglePressInteractable toggle)
-{
-    if (cardMap.TryGetValue(toggle, out GameObject card))
+    public void RemoveCard(TogglePressInteractable toggle)
     {
-        activeCards.Remove(card);
-        cardMap.Remove(toggle);
-        
-        if (toggle != null)
+        if (cardMap.TryGetValue(toggle, out GameObject card))
         {
-            int selectedOdds = toggle.ListOfOdds[sxr.GetTrial()];
-            toggle.betManager.RemoveFromCalculateOdds(selectedOdds);
-            toggle.SetPressed(false);
+            activeCards.Remove(card);
+            cardMap.Remove(toggle);
+
+            if (toggle != null)
+            {
+                int selectedOdds = toggle.ListOfOdds[sxr.GetTrial()];
+                toggle.betManager.RemoveFromCalculateOdds(selectedOdds);
+                toggle.SetPressed(false);
+            }
+
+            Destroy(card);
         }
-        
-        Destroy(card);
     }
-}
+    public void RemoveAllCards()
+    {
+        var toggles = new List<TogglePressInteractable>(cardMap.Keys);
+
+        foreach (var toggle in toggles)
+        {
+            if (toggle == null)
+                continue;
+
+            if (cardMap.TryGetValue(toggle, out GameObject card))
+            {
+                activeCards.Remove(card);
+
+                int selectedOdds = toggle.ListOfOdds[sxr.GetTrial()];
+                toggle.betManager.RemoveFromCalculateOdds(selectedOdds);
+                toggle.SetPressed(true);
+                Destroy(card);
+                cardMap.Remove(toggle);
+            }
+        }
+        activeCards.Clear();
+        cardMap.Clear();
+    }
+
 }
