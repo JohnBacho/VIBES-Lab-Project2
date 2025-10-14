@@ -156,10 +156,14 @@ void OnSliderChanged(float newValue)
         }
         float Payout = 0f;
         int counter = 0;
+
         foreach (float decimalOdds in decimalOddsList)
         {
             float probability = (1 / decimalOdds);
+            Debug.Log($"Probability: {probability}");
+
             float roll = UnityEngine.Random.value;
+            Debug.Log($"Roll: {roll}");
             if (roll <= probability)
             {
                 counter++;
@@ -169,7 +173,8 @@ void OnSliderChanged(float newValue)
                 break;
             }
         }
-
+        
+        Debug.Log($"Counter: {counter}, Needed: {decimalOddsList.Count}");
         if (counter == decimalOddsList.Count)
         {
             Payout = CalculateParlayPayout();

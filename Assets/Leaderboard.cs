@@ -9,9 +9,9 @@ public class Leaderboard : MonoBehaviour
     // List of players with name, score, and money
     private List<PlayerData> players = new List<PlayerData>
     {
-        new PlayerData("Thomas", 500.25f),
+        new PlayerData("Thomas", 120.25f),
         new PlayerData("Lauren", 620.10f),
-        new PlayerData("Alexa", 110.00f),
+        new PlayerData("Alexa", 1100.00f),
         new PlayerData("You", 100.00f)
     };
 
