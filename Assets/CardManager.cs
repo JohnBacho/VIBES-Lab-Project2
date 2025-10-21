@@ -10,6 +10,58 @@ public class CardManager : MonoBehaviour
     public Transform CardParent;
     private List<GameObject> activeCards = new List<GameObject>();
     private Dictionary<TogglePressInteractable, GameObject> cardMap = new Dictionary<TogglePressInteractable, GameObject>();
+    
+    private GridLayoutGroup gridLayout;
+    private ContentSizeFitter contentSizeFitter;
+
+    void Awake()
+    {
+        // Get or add GridLayoutGroup
+        gridLayout = CardParent.GetComponent<GridLayoutGroup>();
+        if (gridLayout == null)
+        {
+            gridLayout = CardParent.gameObject.AddComponent<GridLayoutGroup>();
+        }
+        
+        // Get or add ContentSizeFitter
+        contentSizeFitter = CardParent.GetComponent<ContentSizeFitter>();
+        if (contentSizeFitter == null)
+        {
+            contentSizeFitter = CardParent.gameObject.AddComponent<ContentSizeFitter>();
+        }
+        
+        // Configure ContentSizeFitter
+        contentSizeFitter.horizontalFit = ContentSizeFitter.FitMode.PreferredSize;
+        contentSizeFitter.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+        
+        // Initial grid setup
+        ConfigureGridLayout();
+    }
+
+    private void ConfigureGridLayout()
+    {
+        int cardCount = activeCards.Count;
+        
+        gridLayout.spacing = new Vector2(-50, -5);
+        gridLayout.padding = new RectOffset(-2, -2, -2, -2);
+        
+        gridLayout.cellSize = new Vector2(150, 30);
+        
+        if (cardCount <= 3)
+        {
+            gridLayout.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
+            gridLayout.constraintCount = 1;
+            gridLayout.startAxis = GridLayoutGroup.Axis.Vertical;
+        }
+        else
+        {
+            gridLayout.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
+            gridLayout.constraintCount = 2;
+            gridLayout.startAxis = GridLayoutGroup.Axis.Vertical;
+        }
+        
+        gridLayout.childAlignment = TextAnchor.UpperCenter;
+    }
 
     public void SpawnCard(string team1, string team2, int odds, TogglePressInteractable toggle)
     {
@@ -33,6 +85,12 @@ public class CardManager : MonoBehaviour
         }
 
         cardMap[toggle] = newCard;
+        
+        // Update grid layout based on new card count
+        ConfigureGridLayout();
+        
+        // Force rebuild the layout
+        LayoutRebuilder.ForceRebuildLayoutImmediate(CardParent as RectTransform);
     }
 
     public void RemoveCard(TogglePressInteractable toggle)
@@ -50,8 +108,12 @@ public class CardManager : MonoBehaviour
             }
 
             Destroy(card);
+            
+            ConfigureGridLayout();
+            LayoutRebuilder.ForceRebuildLayoutImmediate(CardParent as RectTransform);
         }
     }
+    
     public void RemoveAllCards()
     {
         var toggles = new List<TogglePressInteractable>(cardMap.Keys);
@@ -74,6 +136,9 @@ public class CardManager : MonoBehaviour
         }
         activeCards.Clear();
         cardMap.Clear();
+        
+        // Reset grid layout
+        ConfigureGridLayout();
     }
 
 public void AnimateCardsColor(List<int> colorValues)

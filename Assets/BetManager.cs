@@ -17,6 +17,7 @@ public class BetManager : MonoBehaviour
     public TextMeshPro WinText;
     public TextMeshPro LossText;
     public TextMeshPro ErrorMessage;
+    public TextMeshPro CashOutPayoutText;
     public GameObject MiddleUI;
     public GameObject CashOutWrapper;
     public GameObject MiddleParlayUI;
@@ -206,7 +207,14 @@ public class BetManager : MonoBehaviour
         canCashOut = !canCashOut;
         CashOutWrapper.SetActive(canCashOut);
         MiddleUI.SetActive(false);
-
+        if (canCashOut)
+        {
+            CashOutPayoutText.text = $"Cash Out Now For: ${CalculateParlayPayout() * 0.50f:0.00}";
+        }
+        else
+        {
+            CashOutPayoutText.text = $"";
+        }
     }
 
     private IEnumerator HandleNearMiss(List<int> legWins)
