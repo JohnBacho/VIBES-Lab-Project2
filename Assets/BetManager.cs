@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using System;
 using UnityEngine.UI;
+using System.Linq;
 
 
 public class BetManager : MonoBehaviour
@@ -17,17 +18,21 @@ public class BetManager : MonoBehaviour
     public TextMeshPro LossText;
     public TextMeshPro ErrorMessage;
     public GameObject MiddleUI;
+    public GameObject CashOutWrapper;
+    public GameObject MiddleParlayUI;
     public Slider mySlider;
     private float previousSliderValue = 0f;
 
     private bool sliderInitialized = false;
-    public TogglePressInteractable TogglePressInteractable1;
-    public TogglePressInteractable TogglePressInteractable2;
-    public TogglePressInteractable TogglePressInteractable3;
+    public List<TogglePressInteractable> togglePressInteractables;
     public CardManager CardManager;
 
     public Leaderboard leaderboard;
-    static float seconds = 5;
+    static float seconds = 4;
+    private bool canCashOut = false;
+
+    private List<int> lastLegWins;
+
 
 
 
@@ -35,21 +40,21 @@ public class BetManager : MonoBehaviour
     private List<float> decimalOddsList = new List<float>();
 
 
-void Start()
-{
-    UpdateUI();
-
-    if (mySlider != null)
+    void Start()
     {
-        mySlider.maxValue = wallet;
-        mySlider.minValue = 0;
-        mySlider.SetValueWithoutNotify(0f); // start at 0 so no phantom delta
-        previousSliderValue = 0f;
+        UpdateUI();
 
-        mySlider.onValueChanged.AddListener(OnSliderChanged);
-        sliderInitialized = true;
+        if (mySlider != null)
+        {
+            mySlider.maxValue = wallet;
+            mySlider.minValue = 0;
+            mySlider.SetValueWithoutNotify(0f); // start at 0 so no phantom delta
+            previousSliderValue = 0f;
+
+            mySlider.onValueChanged.AddListener(OnSliderChanged);
+            sliderInitialized = true;
+        }
     }
-}
 
 
     void UpdateUI()
@@ -70,29 +75,30 @@ void Start()
 
     void TurnOffUI()
     {
-       MiddleUI.SetActive(false);
+        MiddleUI.SetActive(false);
+        MiddleParlayUI.SetActive(false);
     }
 
 
-void OnSliderChanged(float newValue)
-{
-    if (!sliderInitialized || mySlider == null) return;
+    void OnSliderChanged(float newValue)
+    {
+        if (!sliderInitialized || mySlider == null) return;
 
-    float maxAllowed = wallet + previousSliderValue;
-    float clampedValue = Mathf.Clamp(newValue, 0f, maxAllowed);
-    float delta = clampedValue - previousSliderValue;
+        float maxAllowed = wallet + previousSliderValue;
+        float clampedValue = Mathf.Clamp(newValue, 0f, maxAllowed);
+        float delta = clampedValue - previousSliderValue;
 
-    wallet -= delta;
-    wallet = Mathf.Max(wallet, 0f);
+        wallet -= delta;
+        wallet = Mathf.Max(wallet, 0f);
 
-    currentBet = clampedValue;
-    previousSliderValue = clampedValue;
+        currentBet = clampedValue;
+        previousSliderValue = clampedValue;
 
-    if (Math.Abs(clampedValue - newValue) > 0.0001f)
-        mySlider.SetValueWithoutNotify(clampedValue);
+        if (Math.Abs(clampedValue - newValue) > 0.0001f)
+            mySlider.SetValueWithoutNotify(clampedValue);
 
-    UpdateUI();
-}
+        UpdateUI();
+    }
     public void AddToCalculateOdds(int odds)
     {
         oddsArray.Add(odds);
@@ -154,8 +160,7 @@ void OnSliderChanged(float newValue)
             MiddleUI.SetActive(true);
             yield break;
         }
-        float Payout = 0f;
-        int counter = 0;
+        List<int> LegWins = new List<int>();
 
         foreach (float decimalOdds in decimalOddsList)
         {
@@ -166,37 +171,132 @@ void OnSliderChanged(float newValue)
             Debug.Log($"Roll: {roll}");
             if (roll <= probability)
             {
-                counter++;
+                LegWins.Add(1);
             }
             else
             {
-                break;
+                LegWins.Add(0);
             }
         }
-        
-        Debug.Log($"Counter: {counter}, Needed: {decimalOddsList.Count}");
-        if (counter == decimalOddsList.Count)
+
+        if ((LegWins.Sum() == decimalOddsList.Count - 1 || LegWins.Sum() == decimalOddsList.Count) && decimalOddsList.Count >= 3)
+        {
+            Debug.Log("Near miss");
+            lastLegWins = new List<int>(LegWins);
+            StartCoroutine(HandleNearMiss(LegWins));
+            yield break;
+        }
+
+
+        yield return ResolveBet(LegWins, false);
+    }
+
+    void UpdateOddsText()
+    {
+
+        for (int i = 0; i < togglePressInteractables.Count; i++)
+        {
+            togglePressInteractables[i].ResetToggle();
+            togglePressInteractables[i].UpdateUI();
+        }
+    }
+
+    void CashOutUIToggle()
+    {
+        canCashOut = !canCashOut;
+        CashOutWrapper.SetActive(canCashOut);
+        MiddleUI.SetActive(false);
+
+    }
+
+    private IEnumerator HandleNearMiss(List<int> legWins)
+    {
+        if (legWins.All(x => x == 1))
+        {
+            Debug.Log("All wins - removing one for near miss");
+            legWins[UnityEngine.Random.Range(0, legWins.Count)] = 0;
+            CardManager.AnimateCardsExceptUnrevealed(legWins);
+        }
+        else
+        {
+            CardManager.AnimateCardsExceptUnrevealed(legWins);
+        }
+        CashOutUIToggle(); 
+        yield return null;
+    }
+
+    public void YesToCashout()
+    {
+        CashOutUIToggle();
+        StartCoroutine(FinishNearMissRound());
+    }
+
+    public void NoToCashout()
+    {
+        CashOutUIToggle();
+        StartCoroutine(ResolveBet(lastLegWins, true));
+    }
+
+
+    private IEnumerator FinishNearMissRound()
+    {
+        Debug.Log($"[YES] lastLegWins = {(lastLegWins == null ? "null" : string.Join(",", lastLegWins))}");
+        CardManager.RevealUnrevealedCards(lastLegWins);
+
+        yield return new WaitForSeconds(seconds);
+        TurnOffUI();
+        float partialPayout = CalculateParlayPayout() * 0.50f; // cash-out 50%
+        Debug.Log($"Cashed out for ${partialPayout:0.00}");
+        wallet += partialPayout;
+        WinText.text = $"You cashed out early!\nWon ${partialPayout:0.00}\nWallet: ${wallet:0.00}";
+        yield return new WaitForSeconds(seconds);
+        WinText.text = "";
+        ResetRound();
+        lastLegWins = null;
+    }
+
+
+    private IEnumerator ResolveBet(List<int> LegWins, bool isNearMiss)
+    {
+        float Payout = 0f;
+        if (isNearMiss)
+        {
+            CardManager.RevealUnrevealedCards(LegWins);
+        }
+        else
+            CardManager.AnimateCardsColor(LegWins);
+
+        yield return new WaitForSeconds(seconds);
+
+        if (LegWins.Sum() == decimalOddsList.Count)
         {
             Payout = CalculateParlayPayout();
             wallet += Payout;
             TurnOffUI();
-            WinText.text = $"You Win! \n Payout: ${Payout:0.00},\nyour total wallet\nis now ${wallet:0.00}";
+            WinText.text = $"You Win! \n Payout: ${Payout:0.00}\nWallet: ${wallet:0.00}";
             yield return new WaitForSeconds(seconds);
             WinText.text = "";
         }
         else
         {
             TurnOffUI();
-            LossText.text = $"You Lose! \nyour total wallet\nis now ${wallet:0.00}";
+            LossText.text = $"You Lose!\nWallet: ${wallet:0.00}";
             yield return new WaitForSeconds(seconds);
             LossText.text = "";
         }
+
+        ResetRound();
+    }
+
+    private void ResetRound()
+    {
         currentBet = 0;
         previousSliderValue = 0f;
-    
+
         CardManager.RemoveAllCards();
         oddsArray.Clear();
         decimalOddsList.Clear();
+
         mySlider.onValueChanged.RemoveListener(OnSliderChanged);
         mySlider.maxValue = wallet;
         mySlider.minValue = 0;
@@ -206,17 +306,9 @@ void OnSliderChanged(float newValue)
         leaderboard.SetMoney("You", wallet);
         mySlider.onValueChanged.AddListener(OnSliderChanged);
         MiddleUI.SetActive(true);
+        MiddleParlayUI.SetActive(true);
         UpdateUI();
         UpdateOddsText();
     }
-    
-    void UpdateOddsText()
-        {
-            TogglePressInteractable1.ResetToggle();
-            TogglePressInteractable2.ResetToggle();
-            TogglePressInteractable3.ResetToggle();
-            TogglePressInteractable1.UpdateUI();
-            TogglePressInteractable2.UpdateUI();
-            TogglePressInteractable3.UpdateUI();
-        }
+
 }

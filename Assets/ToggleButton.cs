@@ -5,7 +5,6 @@ public class ToggleButton : MonoBehaviour
     public Color normalColor = Color.white;
     public Color toggledColor = Color.green;
     public Image targetImage; 
-    private int counter = 0;
    
     private bool isToggled = false;
     private Button button;
