@@ -1,92 +1,105 @@
+# Virtual Immersive Behavioral Sciences (VIBES) Lab – **Project 2: VR Sports Gambling Study**
+
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/aa04e915-eb9d-4558-b735-069c5ad0871e" alt="VIBES_LAB_Logo-Transparent" width="300"/>
+<img width="450" alt="VIBES Lab Logo" src="https://github.com/user-attachments/assets/89824d3a-373a-448f-9b5c-256f4c459466" />
+
+[![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
+[![Unity Version](https://img.shields.io/badge/Unity-2023.1.5f1-blue.svg)](https://unity.com/)
+[![Platform](https://img.shields.io/badge/Platform-VR-brightgreen.svg)](https://github.com/)
+
 </div>
 
+---
 
-# Virtual Immersive Behavioral Sciences (VIBES) Lab
+## 📖 Overview
 
-## Overview
+**Project 2** is an early-stage VIBES Lab research initiative focused on studying **decision-making and behavioral patterns during simulated sports-gambling tasks in VR**.
 
-This project is a collaborative research initiative between the Psychology, Neuroscience, and Computer Science departments at Baldwin Wallace University. Our goal is to develop realistic 3D environments using the Unity Engine to study fear conditioning and fear extinction in a controlled virtual setting. By leveraging VR technology, we aim to provide new insights into how fear responses can be triggered and diminished over time.
+This project builds upon our VR infrastructure from Project 1 but introduces new interactive environments designed to model:
 
-## Features
+* Risk evaluation
+* Reward sensitivity
+* Choice patterns during betting-style scenarios
 
-- Realistic 3D Environments: Built using Unity with assets from the Unity Asset Store.
+> ⚠️ **Active Development:** This repository is under heavy construction. Systems, scenes, and data-collection workflows will evolve significantly over time.
 
-- Eye & Camera Tracking: Utilizes the HTC VIVE Pro Eye to gather precise tracking data.
+---
 
-- SimpleOmnia Integration: Developed by Justin Kasowski, SimpleOmnia accelerates development and enhances our ability to collect eye-tracking and camera-tracking data efficiently.
+## 🎮 Core Features (Work in Progress)
 
-- Fear Conditioning & Extinction Models: Designed to simulate real-world scenarios that induce and measure fear responses.
+* **Fully VR-based experimental environment** (HTC VIVE Pro Eye)
+* **Real-time gaze and head-tracking** through SRanipal + SimpleOmnia
+* **Interactive sports-betting UI** designed for behavioral research
+* **Event-timed data collection** for choice dynamics and visual attention
 
-- Developed Python scripts to map and analyze eye-tracking data for visual behavior insights
+More detail will be added as the project stabilizes.
 
-![Screen Recording 2025-03-27 at 3 53 53 PM 2](https://github.com/user-attachments/assets/ee3b9917-993f-42b7-bbb1-4edee87478eb)
+---
 
-## Technology Stack
+## 🛠️ Technology Stack
 
-- Game Engine: [Unity](https://unity.com/)
+| Component       | Technology        |
+| --------------- | ----------------- |
+| Game Engine     | Unity 2023.1.5f1  |
+| VR Hardware     | HTC VIVE Pro Eye  |
+| Data Collection | SimpleOmnia       |
+| SDKs            | SteamVR, SRanipal |
+| Programming     | C#, Python        |
 
-- VR Hardware: HTC VIVE Pro Eye
+---
 
-- Data Collection: [SimpleOmnia](https://github.com/simpleOmnia/sXR?tab=readme-ov-file)
+## 📥 Quick Start
 
-- SDKs & Libraries: SteamVr, [SRanipal](https://docs.vrcft.io/docs/v4.0/hardware/VIVE/sranipal)
+```bash
+git clone https://github.com/JohnBacho/VIBES-Lab-Project2.git
+cd VIBES-Lab-Project2
+```
 
-- Programming Languages: C#, Unity Scripts, Python
+1. Open in **Unity 2023.1.5f1**
+2. Install SRanipal + runtime (included in Project 1 instructions)
+3. Launch test scene (will change frequently during development)
 
-<img src="https://github.com/user-attachments/assets/25181e6c-d4bd-42f2-bacc-719134e4decb" width="500"/>
+---
 
-## Collaboration: GitHub for version control and project management
+## 👥 Core Team
 
-- Installation & Setup
+| Name                 | Major                           |
+| -------------------- | ------------------------------- |
+| **Dr. Brian Thomas** | Psychology                      |
+| **John Bacho**       | Computer Science                |
+| **Lauren Dunlap**    | Psychology                      |
+| **Albert Selby**     | Computer Science / Data Science |
+| **Marissa Brigger**  | Neuroscience                    |
+| **Alexa Gossett**    | Neuroscience / Psychology       |
+| **Jace Lander**      | Software Engineer               |
+| **Corey Schwarz**    | Computer Science / Data Science                      |
+| **Cydney Hudson**    | Neuroscience                      |
+| **Olivia Mullins**   | Neuroscience                      |
 
-  - Clone the repository:
+---
 
-  - git clone https://github.com/YOUR_USERNAME/VR-LAB.git
-    
-  - cd VIBES-Lab
-    
-  - Open the project in Unity (recommended version: 2023.1.5f1).
+## 🙏 Acknowledgments
 
-  - Ensure that the HTC VIVE Pro Eye is properly set up and recognized by SteamVR and SRanipal if using eyetracking.
+* **Justin Kasowski** – SimpleOmnia Framework
+* **HTC VIVE** – Eye-tracking SDKs
+* **Unity Asset Store** – Environmental and UI assets
 
-  - Install SimpleOmnia package following the [instructions](https://github.com/simpleOmnia/sXR/wiki/Installation) provided by Justin Kasowski.
+---
 
-  - Run the project and start experimenting!
+## 📄 License
 
-## Contributors
-- Dr. Brian Thomas- Professor of Psycology, Baldwin Wallace University
+This project is licensed under **CC BY-NC 4.0**.
+Includes SimpleOmnia components under the same license.
 
-- John Bacho – Computer Scientist, Baldwin Wallace University
+---
 
-- Lauren Dunlap - Psychologist, Baldwin Wallace University
+## 📧 Contact
 
-- Gavin Miller - Software Engineer, Baldwin Wallace University
+* **Email:** [jbacho22@bw.edu](mailto:jbacho22@bw.edu)
+* **Issues:** GitHub Issues tab in this repository
 
-- Albert Selby - Data Scientist, Baldwin Wallace University
+---
 
-- Marissa Brigger - Neuroscientist, Baldwin Wallace University
-
-- Sophia Ott - Neuroscientist, Baldwin Wallace University
-
-- Alexa Gossett - Neuroscientist, Baldwin Wallace University
-
-- Elizabeth Bell - Psychologist, Baldwin Wallace University
-
-- Jace Lander - Software Engineer, Baldwin Wallace University
-
-## Acknowledgments
-
-- Justin Kasowski – Developer of SimpleOmnia
-  
-- Unity Asset Store for providing high-quality assets that enhance our VR environments.
-
-## License & Attribution
-
-This project includes materials licensed under the Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0) license.
-
-    The repository makes use of simpleOmnia by Justin Kasowski, licensed under CC BY-NC 4.0.
-    Original repository: https://github.com/simpleOmnia/sXR?tab=readme-ov-file
-
-For more details on the license, see [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/deed.en).
+<div align="center">
+Made with ❤️ by the VIBES Lab Team
+</div>
