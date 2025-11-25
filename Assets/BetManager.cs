@@ -2,15 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using System;
 using UnityEngine.UI;
 using System.Linq;
 
-
 public class BetManager : MonoBehaviour
 {
-    public float wallet = 100;
-    public float currentBet = 0;
+    public float currentBet = 0f;
     public TextMeshPro walletText;
     public TextMeshPro betText;
     public TextMeshPro EstimatedPayout;
@@ -18,28 +15,25 @@ public class BetManager : MonoBehaviour
     public TextMeshPro LossText;
     public TextMeshPro ErrorMessage;
     public TextMeshPro CashOutPayoutText;
+
     public GameObject MiddleUI;
     public GameObject CashOutWrapper;
     public GameObject MiddleParlayUI;
+
     public Slider mySlider;
     private float previousSliderValue = 0f;
-
     private bool sliderInitialized = false;
+
     public List<TogglePressInteractable> togglePressInteractables;
     public CardManager CardManager;
-
     public Leaderboard leaderboard;
-    static float seconds = 4;
+
+    private static float seconds = 4f;
     private bool canCashOut = false;
-
     private List<int> lastLegWins;
-
-
-
 
     private List<int> oddsArray = new List<int>();
     private List<float> decimalOddsList = new List<float>();
-
 
     void Start()
     {
@@ -47,9 +41,9 @@ public class BetManager : MonoBehaviour
 
         if (mySlider != null)
         {
-            mySlider.maxValue = wallet;
+            mySlider.maxValue = GameManager.Instance.wallet;
             mySlider.minValue = 0;
-            mySlider.SetValueWithoutNotify(0f); // start at 0 so no phantom delta
+            mySlider.SetValueWithoutNotify(0f);
             previousSliderValue = 0f;
 
             mySlider.onValueChanged.AddListener(OnSliderChanged);
@@ -57,21 +51,16 @@ public class BetManager : MonoBehaviour
         }
     }
 
-
-    void UpdateUI()
+    public void UpdateUI()
     {
         if (walletText != null)
-        {
-            walletText.text = $"Wallet ${wallet:0.00}";
-        }
+            walletText.text = $"Wallet ${GameManager.Instance.wallet:0.00}";
+
         if (betText != null)
-        {
-            betText.text = "$" + currentBet;
-        }
+            betText.text = $"${currentBet:0.00}";
+
         if (EstimatedPayout != null)
-        {
             CalculateParlayPayout();
-        }
     }
 
     void TurnOffUI()
@@ -80,26 +69,25 @@ public class BetManager : MonoBehaviour
         MiddleParlayUI.SetActive(false);
     }
 
-
     void OnSliderChanged(float newValue)
     {
         if (!sliderInitialized || mySlider == null) return;
 
-        float maxAllowed = wallet + previousSliderValue;
+        float maxAllowed = GameManager.Instance.wallet + previousSliderValue;
         float clampedValue = Mathf.Clamp(newValue, 0f, maxAllowed);
         float delta = clampedValue - previousSliderValue;
 
-        wallet -= delta;
-        wallet = Mathf.Max(wallet, 0f);
+        GameManager.Instance.RemoveWallet(delta);
 
         currentBet = clampedValue;
         previousSliderValue = clampedValue;
 
-        if (Math.Abs(clampedValue - newValue) > 0.0001f)
+        if (Mathf.Abs(clampedValue - newValue) > 0.0001f)
             mySlider.SetValueWithoutNotify(clampedValue);
 
         UpdateUI();
     }
+
     public void AddToCalculateOdds(int odds)
     {
         oddsArray.Add(odds);
@@ -116,31 +104,25 @@ public class BetManager : MonoBehaviour
     {
         float totalMultiplier = 1f;
         decimalOddsList.Clear();
+
         foreach (int odds in oddsArray)
         {
-            float decimalOdds = 0f;
+            float decimalOdds = 1f;
 
             if (odds > 0)
-            {
                 decimalOdds = 1f + (odds / 100f);
-            }
             else if (odds < 0)
-            {
                 decimalOdds = 1f + (100f / Mathf.Abs(odds));
-            }
-            else
-            {
-                decimalOdds = 1f;
-            }
 
             totalMultiplier *= decimalOdds;
             decimalOddsList.Add(decimalOdds);
         }
+
         float payout = currentBet * totalMultiplier;
+
         if (EstimatedPayout != null)
-        {
             EstimatedPayout.text = $"${payout:0.00}";
-        }
+
         return payout;
     }
 
@@ -148,7 +130,6 @@ public class BetManager : MonoBehaviour
     {
         StartCoroutine(Submit());
     }
-
 
     public IEnumerator Submit()
     {
@@ -161,40 +142,29 @@ public class BetManager : MonoBehaviour
             MiddleUI.SetActive(true);
             yield break;
         }
+
         List<int> LegWins = new List<int>();
 
         foreach (float decimalOdds in decimalOddsList)
         {
-            float probability = (1 / decimalOdds);
-            Debug.Log($"Probability: {probability}");
+            float probability = 1f / decimalOdds;
+            float roll = Random.value;
 
-            float roll = UnityEngine.Random.value;
-            Debug.Log($"Roll: {roll}");
-            if (roll <= probability)
-            {
-                LegWins.Add(1);
-            }
-            else
-            {
-                LegWins.Add(0);
-            }
+            LegWins.Add(roll <= probability ? 1 : 0);
         }
 
         if ((LegWins.Sum() == decimalOddsList.Count - 1 || LegWins.Sum() == decimalOddsList.Count) && decimalOddsList.Count >= 3)
         {
-            Debug.Log("Near miss");
             lastLegWins = new List<int>(LegWins);
             StartCoroutine(HandleNearMiss(LegWins));
             yield break;
         }
-
 
         yield return ResolveBet(LegWins, false);
     }
 
     void UpdateOddsText()
     {
-
         for (int i = 0; i < togglePressInteractables.Count; i++)
         {
             togglePressInteractables[i].ResetToggle();
@@ -206,30 +176,21 @@ public class BetManager : MonoBehaviour
     {
         canCashOut = !canCashOut;
         CashOutWrapper.SetActive(canCashOut);
-        MiddleUI.SetActive(false);
+        MiddleUI.SetActive(!canCashOut);
+
         if (canCashOut)
-        {
             CashOutPayoutText.text = $"Cash Out Now For: ${CalculateParlayPayout() * 0.50f:0.00}";
-        }
         else
-        {
-            CashOutPayoutText.text = $"";
-        }
+            CashOutPayoutText.text = "";
     }
 
     private IEnumerator HandleNearMiss(List<int> legWins)
     {
         if (legWins.All(x => x == 1))
-        {
-            Debug.Log("All wins - removing one for near miss");
-            legWins[UnityEngine.Random.Range(0, legWins.Count)] = 0;
-            CardManager.AnimateCardsExceptUnrevealed(legWins);
-        }
-        else
-        {
-            CardManager.AnimateCardsExceptUnrevealed(legWins);
-        }
-        CashOutUIToggle(); 
+            legWins[Random.Range(0, legWins.Count)] = 0;
+
+        CardManager.AnimateCardsExceptUnrevealed(legWins);
+        CashOutUIToggle();
         yield return null;
     }
 
@@ -245,32 +206,29 @@ public class BetManager : MonoBehaviour
         StartCoroutine(ResolveBet(lastLegWins, true));
     }
 
-
     private IEnumerator FinishNearMissRound()
     {
-        Debug.Log($"[YES] lastLegWins = {(lastLegWins == null ? "null" : string.Join(",", lastLegWins))}");
         CardManager.RevealUnrevealedCards(lastLegWins);
-
         yield return new WaitForSeconds(seconds);
+
         TurnOffUI();
-        float partialPayout = CalculateParlayPayout() * 0.50f; // cash-out 50%
-        Debug.Log($"Cashed out for ${partialPayout:0.00}");
-        wallet += partialPayout;
-        WinText.text = $"You cashed out early!\nWon ${partialPayout:0.00}\nWallet: ${wallet:0.00}";
+        float partialPayout = CalculateParlayPayout() * 0.50f;
+        GameManager.Instance.AddWallet(partialPayout);
+
+        WinText.text = $"You cashed out early!\nWon ${partialPayout:0.00}\nWallet: ${GameManager.Instance.wallet:0.00}";
         yield return new WaitForSeconds(seconds);
         WinText.text = "";
+
         ResetRound();
         lastLegWins = null;
     }
 
-
     private IEnumerator ResolveBet(List<int> LegWins, bool isNearMiss)
     {
         float Payout = 0f;
+
         if (isNearMiss)
-        {
             CardManager.RevealUnrevealedCards(LegWins);
-        }
         else
             CardManager.AnimateCardsColor(LegWins);
 
@@ -279,16 +237,17 @@ public class BetManager : MonoBehaviour
         if (LegWins.Sum() == decimalOddsList.Count)
         {
             Payout = CalculateParlayPayout();
-            wallet += Payout;
+            GameManager.Instance.AddWallet(Payout);
+
             TurnOffUI();
-            WinText.text = $"You Win! \n Payout: ${Payout:0.00}\nWallet: ${wallet:0.00}";
+            WinText.text = $"You Win!\nPayout: ${Payout:0.00}\nWallet: ${GameManager.Instance.wallet:0.00}";
             yield return new WaitForSeconds(seconds);
             WinText.text = "";
         }
         else
         {
             TurnOffUI();
-            LossText.text = $"You Lose!\nWallet: ${wallet:0.00}";
+            LossText.text = $"You Lose!\nWallet: ${GameManager.Instance.wallet:0.00}";
             yield return new WaitForSeconds(seconds);
             LossText.text = "";
         }
@@ -305,18 +264,21 @@ public class BetManager : MonoBehaviour
         oddsArray.Clear();
         decimalOddsList.Clear();
 
-        mySlider.onValueChanged.RemoveListener(OnSliderChanged);
-        mySlider.maxValue = wallet;
-        mySlider.minValue = 0;
-        mySlider.SetValueWithoutNotify(0f);
-        sxr.NextTrial();
+        if (mySlider != null)
+        {
+            mySlider.onValueChanged.RemoveAllListeners();
+            mySlider.maxValue = GameManager.Instance.wallet;
+            mySlider.minValue = 0;
+            mySlider.SetValueWithoutNotify(0f);
+            mySlider.onValueChanged.AddListener(OnSliderChanged);
+        }
 
-        leaderboard.SetMoney("You", wallet);
-        mySlider.onValueChanged.AddListener(OnSliderChanged);
+        leaderboard.SetMoney("You", GameManager.Instance.wallet);
+
         MiddleUI.SetActive(true);
         MiddleParlayUI.SetActive(true);
+
         UpdateUI();
         UpdateOddsText();
     }
-
 }
