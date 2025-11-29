@@ -90,4 +90,15 @@ public class Handle : MonoBehaviour
         if (angle > 180f) angle -= 360f;
         return angle;
     }
+
+    public void ResetHandle()
+    {
+        handleDown = false;
+        rb.angularVelocity = Vector3.zero;
+        rb.freezeRotation = true;
+        handleTransform.eulerAngles = Vector3.zero;
+        EnableGrab(); 
+    }
+
+
 }

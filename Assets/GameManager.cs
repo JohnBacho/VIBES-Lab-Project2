@@ -85,7 +85,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        // Allow next spin
+        handle.ResetHandle();
         coinInserted = false;
     }
 }
