@@ -1,19 +1,28 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using TMPro;
 
 public class VRBikePump : MonoBehaviour
 {
+
     public Transform pumpHandle;
     
+
     public Transform pumpBody;
-    
-    public float maxPumpDistance = 0.3f;
-    public float minPumpDistance = 0.05f;
-    public float pumpThreshold = 0.15f;
+
+    public GameObject Balloon;
+
+    public TextMeshPro CounterText;
+
+    public float maxPumpDistance = 0.4f;
+    public float minPumpDistance = 0.2f;
+    public float pumpThreshold = 0.25f;
     public float resetSpeed = 2f;
-    
+    private int pumpCount = 0;
+
     public AudioSource pumpSound;
     
+    [Tooltip("Drag the ParticleSystem component here (on HoseConnection GameObject)")]
     public ParticleSystem airParticles;
     
     private XRGrabInteractable grabInteractable;
@@ -25,6 +34,7 @@ public class VRBikePump : MonoBehaviour
     {
         if (pumpHandle == null || pumpBody == null)
         {
+            Debug.LogError("VRBikePump: Missing pump components! Check Inspector assignments.");
             enabled = false;
             return;
         }
@@ -115,8 +125,10 @@ public class VRBikePump : MonoBehaviour
         }
         
         TriggerHaptic();
+        InflateBalloon();
         
         Debug.Log("Pump action executed!");
+        UpdateCounterText();
     }
     
     void ReturnHandleToRest()
@@ -152,11 +164,28 @@ public class VRBikePump : MonoBehaviour
     
     void OnDestroy()
     {
-        // Clean up event listeners
         if (grabInteractable != null)
         {
             grabInteractable.selectEntered.RemoveListener(OnGrab);
             grabInteractable.selectExited.RemoveListener(OnRelease);
+        }
+    }
+
+    void InflateBalloon()
+    {
+        if (Balloon != null)
+        {
+            Balloon.transform.localScale += new Vector3(0.05f, 0.05f, 0.05f);
+            Debug.Log("Balloon inflated!");
+        }
+    }
+
+    void UpdateCounterText()
+    {
+        if (CounterText != null)
+        {
+            pumpCount++;
+            CounterText.text = $"Pumps:\n{pumpCount}";
         }
     }
 }
