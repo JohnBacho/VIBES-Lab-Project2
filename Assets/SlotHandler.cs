@@ -17,11 +17,8 @@ public class SlotHandler : MonoBehaviour
 
     public void UpdateUI()
     {
-        if (walletText != null)
-            walletText.text = $"Wallet ${GameManager.Instance.wallet:0.00}";
-
         if (betText != null)
-            betText.text = $"${currentBet:0.00}";
+            betText.text = $"Wager: ${currentBet:0.00}";
 
         if (EstimatedPayout != null)
             CalculatePayout();
@@ -33,7 +30,7 @@ public class SlotHandler : MonoBehaviour
         float payout = currentBet * multiplier;
 
         if (EstimatedPayout != null)
-            EstimatedPayout.text = $"Payout: ${payout:0.00}";
+            EstimatedPayout.text = $"To Win: ${payout:0.00}";
         
         return payout;
     }
