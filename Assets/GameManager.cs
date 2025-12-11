@@ -6,13 +6,23 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public BetManager betManager;
+
+    int[][] outcomeRows = new int[][]
+    {
+        new int[] {1, 1, 1},
+        new int[] {2, 4, 1},
+        new int[] {5, 3, 8},
+        new int[] {7, 7, 7}
+    };
     
     public float wallet = 100f;
 
-    // Whether spinning is allowed
     private bool coinInserted = false;
 
-    // References to slot machine components
+    public int[] results;
+
+    public bool TrialCompleted = false;
+
     [SerializeField] private Handle handle;
     [SerializeField] private Reel[] reels;
 
@@ -42,7 +52,6 @@ public class GameManager : MonoBehaviour
         betManager.UpdateUI();
     }
 
-    // Called when the handle is pulled
     public void SpinReceived()
     {
         foreach (Reel reel in reels)
@@ -53,39 +62,36 @@ public class GameManager : MonoBehaviour
         StartCoroutine(StopReels());
     }
 
-    // Awards winnings
-    public void SpawnCoins(int amount)
+    public void Win(int amount)
     {
         AddWallet(amount);
     }
 
-    private IEnumerator StopReels()
+    public void SetOutcome(int[] outcome)
     {
-        int[] results = new int[3];
+        results = outcome;
 
-        // Stop each reel with a 1 second delay between them
+    }
+
+private IEnumerator StopReels()
+    {
         for (int i = 0; i < reels.Length; i++)
         {
-            yield return new WaitForSeconds(1);
-            int result = Random.Range(0, 10);
-            results[i] = result;
-            reels[i].StopSpin(result);
+            yield return new WaitForSeconds(1); 
+            reels[i].StopSpin(results[i]);
         }
-
-        // Check for matches and award coins
-        int distinctCount = results.Distinct().Count();
         
-        if (distinctCount < results.Length) // At least 2 matching
-        {
-            SpawnCoins(3);
-            
-            if (distinctCount == 1) // All 3 matching (jackpot)
-            {
-                SpawnCoins(17); // Total of 20 coins
-            }
-        }
+        yield return new WaitForSeconds(1); 
+
+        TrialCompleted = true;
+        Driver driver = FindObjectOfType<Driver>();
 
         handle.ResetHandle();
-        coinInserted = false;
+        
+    }
+
+    public void StartNewTrial()
+    {
+        TrialCompleted = false;
     }
 }

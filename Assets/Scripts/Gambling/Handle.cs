@@ -21,6 +21,8 @@ public class Handle : MonoBehaviour
         handle.enabled = false;
         rb.constraints = RigidbodyConstraints.None;
         rb.useGravity = false;
+
+        Debug.Log("[Handle] Awake: Grab disabled, Rigidbody unconstrained, gravity off.");
     }
 
     private void Start()
@@ -28,6 +30,8 @@ public class Handle : MonoBehaviour
         EnableGrab();
         handle.onSelectEntered.AddListener(OnGrabbed);
         handle.onSelectExited.AddListener(OnReleased);
+
+        Debug.Log("[Handle] Start: Grab enabled, listeners attached.");
     }
 
     private void Update()
@@ -39,6 +43,7 @@ public class Handle : MonoBehaviour
         {
             DisableGrab();
             handleDown = true;
+            Debug.Log($"[Handle] Handle pulled down detected at angle {angle}°");
             gameManager.SpinReceived();
         }
 
@@ -46,6 +51,7 @@ public class Handle : MonoBehaviour
         if (handleDown && !isGrabbed)
         {
             rb.angularVelocity = Vector3.up * returnSpeed * Time.deltaTime;
+            Debug.Log($"[Handle] Returning up. Angular velocity: {rb.angularVelocity}");
         }
 
         // Handle back upright
@@ -58,19 +64,20 @@ public class Handle : MonoBehaviour
                              RigidbodyConstraints.FreezeRotationZ;
 
             EnableGrab();
+            Debug.Log("[Handle] Handle returned upright. Grab re-enabled, rotations frozen.");
         }
     }
 
     private void OnGrabbed(XRBaseInteractor interactor)
     {
         isGrabbed = true;
-        Debug.Log("Handle grabbed");
+        Debug.Log("[Handle] Handle grabbed");
     }
 
     private void OnReleased(XRBaseInteractor interactor)
     {
         isGrabbed = false;
-        Debug.Log("Handle released");
+        Debug.Log("[Handle] Handle released");
     }
 
     public void EnableGrab()
@@ -78,16 +85,21 @@ public class Handle : MonoBehaviour
         handle.enabled = true;
         rb.angularVelocity = Vector3.zero;
         rb.constraints = RigidbodyConstraints.None;
+
+        Debug.Log("[Handle] EnableGrab called: Grab enabled, angular velocity reset, Rigidbody unconstrained");
     }
 
     private void DisableGrab()
     {
         handle.enabled = false;
+        Debug.Log("[Handle] DisableGrab called: Grab disabled");
     }
 
     private float NormalizeAngle(float angle)
     {
         if (angle > 180f) angle -= 360f;
+        // Debug only occasional calls if needed
+        // Debug.Log($"[Handle] NormalizeAngle: Input {angle + (angle > 180f ? 360f : 0)}, Output {angle}");
         return angle;
     }
 
@@ -97,8 +109,8 @@ public class Handle : MonoBehaviour
         rb.angularVelocity = Vector3.zero;
         rb.freezeRotation = true;
         handleTransform.eulerAngles = Vector3.zero;
-        EnableGrab(); 
+        EnableGrab();
+
+        Debug.Log("[Handle] ResetHandle called: Handle state reset, rotations frozen, grab re-enabled");
     }
-
-
 }
