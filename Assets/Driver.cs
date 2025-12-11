@@ -18,16 +18,25 @@ public class Driver : MonoBehaviour
 
     private int[][] outcomeRows = new int[][]
     {
-        new int[] {3, 3, 1}, // Win
-        new int[] {1, 1, 1}, // Lose
+        new int[] {3, 3, 1}, // NearMiss
+        new int[] {5, 5, 5}, // Win
         new int[] {5, 3, 8}, // Lose
         new int[] {7, 7, 7},  // Win
-        new int[] {1, 1, 1} // Win
+        new int[] {2, 5, 9}, // Lose
+        new int[] {5, 7, 6}, // Lose
+        new int[] {0, 0, 0}, // Dummy for Effort Task
+        new int[] {6, 7, 6}
+
     };
 
     private OutcomeType[] outcomes = new OutcomeType[]
     {
+        OutcomeType.NearMiss,
+        OutcomeType.Lose,
         OutcomeType.Win,
+        OutcomeType.Lose,
+        OutcomeType.Win,
+        OutcomeType.NearMiss,
         OutcomeType.Lose,
         OutcomeType.Win,
         OutcomeType.Lose,
@@ -36,7 +45,6 @@ public class Driver : MonoBehaviour
 
     void Start()
     {
-        // Start with slot machine active
         SlotMachine.SetActive(true);
         Parlay.SetActive(false);
         EffortTask.SetActive(false);
@@ -44,14 +52,21 @@ public class Driver : MonoBehaviour
         StartNextTrial();
     }
 
-    // Call this from GameManager when a trial is done
     public void StartNextTrial()
     {
         if (sxr.GetTrial() >= outcomes.Length)
         {
-            Debug.Log("All trials complete!");
+            Debug.Log("Slot trials complete!");
             return;
         }
+
+        if(sxr.GetTrial() == 6)
+        {
+            Debug.Log("Running Effort Task Trial");
+            StartCoroutine(RunEffortTaskTrial());
+            return;
+        }
+
 
         StartCoroutine(RunSlotTrial(outcomes[sxr.GetTrial()], outcomeRows[sxr.GetTrial()]));
         sxr.NextTrial();
@@ -72,10 +87,29 @@ public class Driver : MonoBehaviour
 
         Debug.Log($"Trial {sxr.GetTrial()} complete");
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
 
         slotHandler.StartNewTrial();
 
+        StartNextTrial();
+    }
+
+    private IEnumerator RunEffortTaskTrial()
+    {
+        sxr.NextTrial();
+        Debug.Log("Starting Effort Task Trial");
+        SlotMachine.SetActive(false);
+        Parlay.SetActive(false);
+        EffortTask.SetActive(true);
+        FindObjectOfType<BallSpawner>().StartSpawning();
+        FindObjectOfType<CountdownTimer>().StartCountdown();
+        yield return new WaitForSeconds(60f);
+        Debug.Log("Effort Task Trial complete");
+        FindObjectOfType<BallSpawner>().StopSpawning();
+        FindObjectOfType<BallSpawner>().DestroyAllBalls();
+
+        EffortTask.SetActive(false);
+        SlotMachine.SetActive(true);
         StartNextTrial();
     }
 }

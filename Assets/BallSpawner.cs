@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BallSpawner : MonoBehaviour
@@ -9,10 +10,18 @@ public class BallSpawner : MonoBehaviour
 
     public BallType[] ballTypes;
 
-    private void Start()
+    private List<GameObject> spawnedBalls = new List<GameObject>();
+
+
+    public void StopSpawning()
+    {
+        StopAllCoroutines();
+    }
+
+    public void StartSpawning()
     {
         StartCoroutine(SpawnBalls());
-    }
+    }   
 
     IEnumerator SpawnBalls()
     {
@@ -33,7 +42,20 @@ public class BallSpawner : MonoBehaviour
 
         GameObject newBall = Instantiate(ballPrefab, spawnPos, Quaternion.identity);
 
+        spawnedBalls.Add(newBall);
+
         Ball ballScript = newBall.GetComponent<Ball>();
         ballScript.ballType = ballTypes[Random.Range(0, ballTypes.Length)];
+    }
+
+    public void DestroyAllBalls()
+    {
+        foreach (GameObject ball in spawnedBalls)
+        {
+            if (ball != null)
+                Destroy(ball);
+        }
+
+        spawnedBalls.Clear();
     }
 }

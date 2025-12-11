@@ -27,13 +27,11 @@ public class SlotHandler : MonoBehaviour
         UpdateUI();
     }
 
-    // Called by Driver
     public void SetOutcome(int[] row)
     {
         storedOutcome = row;
     }
 
-    // Called by Handle when pulled down
     public void SpinReceived()
     {
         if (storedOutcome == null)
