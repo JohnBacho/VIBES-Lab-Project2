@@ -47,9 +47,7 @@ public class PokeButton : MonoBehaviour
     private void OnPokeExited(HoverExitEventArgs args)
     {
         if (args.interactorObject is XRPokeInteractor)
-        {
-            Debug.Log("Button released - ready for next press");
-            
+        {            
             onButtonReleased?.Invoke();
             
             hasTriggered = false;

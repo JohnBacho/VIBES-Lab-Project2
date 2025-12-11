@@ -1,8 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
 
 public class SlotHandler : MonoBehaviour
 {
@@ -12,8 +10,89 @@ public class SlotHandler : MonoBehaviour
     public TextMeshPro WinText;
     public TextMeshPro LossText;
     public TextMeshPro ErrorMessage;
-    private int multiplier = 2;
+
     public float currentBet = 0f;
+    private int multiplier = 2;
+
+    [SerializeField] private Reel[] reels;
+    [SerializeField] private Handle handle;
+    [SerializeField] private Driver driver;
+
+    private int[] storedOutcome;
+    public bool TrialCompleted => trialCompleted;
+    private bool trialCompleted = false;
+
+    private void Awake()
+    {
+        UpdateUI();
+    }
+
+    // Called by Driver
+    public void SetOutcome(int[] row)
+    {
+        storedOutcome = row;
+    }
+
+    // Called by Handle when pulled down
+    public void SpinReceived()
+    {
+        if (storedOutcome == null)
+        {
+            Debug.LogError("No outcome set from Driver!");
+            return;
+        }
+
+        foreach (Reel r in reels)
+            r.Spin();
+
+        StartCoroutine(StopReelsRoutine());
+    }
+
+    private IEnumerator StopReelsRoutine()
+    {
+        for (int i = 0; i < reels.Length; i++)
+        {
+            yield return new WaitForSeconds(1f);
+            reels[i].StopSpin(storedOutcome[i]);
+        }
+
+        yield return new WaitForSeconds(1f);
+
+        yield return StartCoroutine(ResolveOutcome());
+        trialCompleted = true;
+
+        handle.ResetHandle();
+    }
+
+    private IEnumerator ResolveOutcome()
+    {
+        bool isWin = storedOutcome[0] == storedOutcome[1] && storedOutcome[1] == storedOutcome[2];
+        EstimatedPayout.text = "";
+        betText.text = "";
+        if (isWin)
+        {
+            float winnings = currentBet * multiplier;
+            GameManager.Instance.AddWallet(winnings + currentBet);
+            WinText.text = $"YOU WIN ${winnings}";
+            LossText.text = "";
+        }
+        else
+        {
+            LossText.text = $"YOU LOST ${currentBet}";
+            WinText.text = "";
+        }
+
+        walletText.text = $"Wallet: ${GameManager.Instance.wallet:0.00}";
+        yield return new WaitForSeconds(3f);
+        WinText.text = "";
+        LossText.text = "";
+        walletText.text = "";
+        currentBet = 0f;
+        UpdateUI();
+    }
+
+
+    // === UI & Betting ===
 
     public void UpdateUI()
     {
@@ -21,41 +100,34 @@ public class SlotHandler : MonoBehaviour
             betText.text = $"Wager: ${currentBet:0.00}";
 
         if (EstimatedPayout != null)
-            CalculatePayout();
+            EstimatedPayout.text = $"To Win: ${currentBet * multiplier:0.00}";
     }
-
-
-    float CalculatePayout()
-    {
-        float payout = currentBet * multiplier;
-
-        if (EstimatedPayout != null)
-            EstimatedPayout.text = $"To Win: ${payout:0.00}";
-        
-        return payout;
-    }
-
 
     public void IncreaseBet()
     {
-        if(GameManager.Instance.wallet <= 1f)
-            // Place error text here - John 
-            return;
-        currentBet += 1f;        
-        GameManager.Instance.RemoveWallet(1f);        
-        Debug.Log("Bet Increased");
+        if (GameManager.Instance.wallet < 1f) return;
+
+        currentBet += 1f;
+        GameManager.Instance.RemoveWallet(1f);
         UpdateUI();
     }
 
     public void DecreaseBet()
     {
-        if (currentBet <= 0f)
-            // Place error text here - John 
-            return;
+        if (currentBet <= 0f) return;
+
         currentBet -= 1f;
         GameManager.Instance.AddWallet(1f);
-        Debug.Log("Bet Decreased");
         UpdateUI();
     }
 
+    public void MarkTrialComplete()
+    {
+        trialCompleted = true;
+    }
+
+    public void StartNewTrial()
+    {
+        trialCompleted = false;
+    }
 }

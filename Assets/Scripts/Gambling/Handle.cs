@@ -5,10 +5,10 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class Handle : MonoBehaviour
 {
-    [SerializeField] GameManager gameManager;
     [SerializeField] XRGrabInteractable handle;
     [SerializeField] Rigidbody rb;
     [SerializeField] Transform handleTransform;
+    [SerializeField] SlotHandler slotHandler;
 
     bool handleDown = false;
     float returnSpeed = 150f;
@@ -44,7 +44,7 @@ public class Handle : MonoBehaviour
             DisableGrab();
             handleDown = true;
             Debug.Log($"[Handle] Handle pulled down detected at angle {angle}°");
-            gameManager.SpinReceived();
+            slotHandler.SpinReceived();
         }
 
         // Handle returning up, only if not grabbed

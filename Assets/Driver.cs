@@ -19,7 +19,7 @@ public class Driver : MonoBehaviour
     private int[][] outcomeRows = new int[][]
     {
         new int[] {3, 3, 1}, // Win
-        new int[] {2, 4, 1}, // Lose
+        new int[] {1, 1, 1}, // Lose
         new int[] {5, 3, 8}, // Lose
         new int[] {7, 7, 7},  // Win
         new int[] {1, 1, 1} // Win
@@ -61,9 +61,11 @@ public class Driver : MonoBehaviour
     {
         Debug.Log($"Starting trial {sxr.GetTrial()} with outcome: {outcome}");
 
-        GameManager.Instance.SetOutcome(outcomeRow);
+        slotHandler.SetOutcome(outcomeRow);
+        slotHandler.StartNewTrial();
 
-        while (!GameManager.Instance.TrialCompleted)
+
+        while (!slotHandler.TrialCompleted)
         {
             yield return null;
         }
@@ -72,7 +74,7 @@ public class Driver : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        GameManager.Instance.TrialCompleted = false;
+        slotHandler.StartNewTrial();
 
         StartNextTrial();
     }
