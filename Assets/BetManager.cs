@@ -131,36 +131,24 @@ public class BetManager : MonoBehaviour
         StartCoroutine(Submit());
     }
 
+    public void SetOutcome(List<int> legWins)
+    {
+        lastLegWins = legWins;
+    }
+
     public IEnumerator Submit()
     {
-        if (oddsArray.Count < 2)
+        if (oddsArray.Count < 3)
         {
             TurnOffUI();
-            ErrorMessage.text = "Please select at\nleast 2 bets\nfor a parlay.";
+            ErrorMessage.text = "Please select at\nleast 3 bets\nfor a parlay.";
             yield return new WaitForSeconds(seconds);
             ErrorMessage.text = "";
             MiddleUI.SetActive(true);
             yield break;
         }
 
-        List<int> LegWins = new List<int>();
-
-        foreach (float decimalOdds in decimalOddsList)
-        {
-            float probability = 1f / decimalOdds;
-            float roll = Random.value;
-
-            LegWins.Add(roll <= probability ? 1 : 0);
-        }
-
-        if ((LegWins.Sum() == decimalOddsList.Count - 1 || LegWins.Sum() == decimalOddsList.Count) && decimalOddsList.Count >= 3)
-        {
-            lastLegWins = new List<int>(LegWins);
-            StartCoroutine(HandleNearMiss(LegWins));
-            yield break;
-        }
-
-        yield return ResolveBet(LegWins, false);
+        yield return ResolveBet(lastLegWins);
     }
 
     void UpdateOddsText()
@@ -184,53 +172,11 @@ public class BetManager : MonoBehaviour
             CashOutPayoutText.text = "";
     }
 
-    private IEnumerator HandleNearMiss(List<int> legWins)
-    {
-        if (legWins.All(x => x == 1))
-            legWins[Random.Range(0, legWins.Count)] = 0;
-
-        CardManager.AnimateCardsExceptUnrevealed(legWins);
-        CashOutUIToggle();
-        yield return null;
-    }
-
-    public void YesToCashout()
-    {
-        CashOutUIToggle();
-        StartCoroutine(FinishNearMissRound());
-    }
-
-    public void NoToCashout()
-    {
-        CashOutUIToggle();
-        StartCoroutine(ResolveBet(lastLegWins, true));
-    }
-
-    private IEnumerator FinishNearMissRound()
-    {
-        CardManager.RevealUnrevealedCards(lastLegWins);
-        yield return new WaitForSeconds(seconds);
-
-        TurnOffUI();
-        float partialPayout = CalculateParlayPayout() * 0.50f;
-        GameManager.Instance.AddWallet(partialPayout);
-
-        WinText.text = $"You cashed out early!\nWon ${partialPayout:0.00}\nWallet: ${GameManager.Instance.wallet:0.00}";
-        yield return new WaitForSeconds(seconds);
-        WinText.text = "";
-
-        ResetRound();
-        lastLegWins = null;
-    }
-
-    private IEnumerator ResolveBet(List<int> LegWins, bool isNearMiss)
+    private IEnumerator ResolveBet(List<int> LegWins)
     {
         float Payout = 0f;
 
-        if (isNearMiss)
-            CardManager.RevealUnrevealedCards(LegWins);
-        else
-            CardManager.AnimateCardsColor(LegWins);
+        CardManager.AnimateCardsColor(LegWins);
 
         yield return new WaitForSeconds(seconds);
 

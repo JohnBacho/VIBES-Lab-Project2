@@ -24,7 +24,7 @@ public class ToggleButton : MonoBehaviour
         }
     }
    
-    void Toggle()
+    public void Toggle()
     {
         isToggled = !isToggled;
         if (targetImage != null)
@@ -33,7 +33,7 @@ public class ToggleButton : MonoBehaviour
         }
     }
    
-    public bool IsToggled()
+    bool IsToggled()
     {
         return isToggled;
     }
