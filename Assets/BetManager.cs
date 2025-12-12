@@ -8,17 +8,22 @@ using System.Linq;
 public class BetManager : MonoBehaviour
 {
     public float currentBet = 0f;
-    public TextMeshPro walletText;
-    public TextMeshPro betText;
-    public TextMeshPro EstimatedPayout;
+    public TextMeshPro WagerText;
+    public TextMeshPro ToWinText;
+    public TextMeshProUGUI PlaceBetText;
     public TextMeshPro WinText;
     public TextMeshPro LossText;
     public TextMeshPro ErrorMessage;
     public TextMeshPro CashOutPayoutText;
+    public Image PlaceBetButtonImage;
+    public Button PlaceBetButton;
 
     public GameObject MiddleUI;
     public GameObject CashOutWrapper;
     public GameObject MiddleParlayUI;
+
+    public GameObject ParlayUI;
+    public GameObject BetslipUI;
 
     public Slider mySlider;
     private float previousSliderValue = 0f;
@@ -35,32 +40,32 @@ public class BetManager : MonoBehaviour
     private List<int> oddsArray = new List<int>();
     private List<float> decimalOddsList = new List<float>();
 
-    void Start()
-    {
-        UpdateUI();
-
-        if (mySlider != null)
-        {
-            mySlider.maxValue = GameManager.Instance.wallet;
-            mySlider.minValue = 0;
-            mySlider.SetValueWithoutNotify(0f);
-            previousSliderValue = 0f;
-
-            mySlider.onValueChanged.AddListener(OnSliderChanged);
-            sliderInitialized = true;
-        }
-    }
-
     public void UpdateUI()
     {
-        if (walletText != null)
-            walletText.text = $"Wallet ${GameManager.Instance.wallet:0.00}";
+        if (WagerText != null)
+            WagerText.text = $"${currentBet:0.00}";
 
-        if (betText != null)
-            betText.text = $"${currentBet:0.00}";
-
-        if (EstimatedPayout != null)
+        if (ToWinText != null)
             CalculateParlayPayout();
+        if (PlaceBetText != null)
+        {
+            if (currentBet <= 0f)
+            {
+                PlaceBetButton.interactable = false;
+                PlaceBetButtonImage.color = new Color(0.5471698f, 0.5471698f, 0.5471698f, 1f); // Gray color
+                PlaceBetText.text = $"Enter a wager to place a bet";
+            }
+            else
+            {
+                PlaceBetButton.interactable = true;   
+                PlaceBetButtonImage.color = new Color(0.1058824f, 0.6235294f, 0.2745098f, 1f); // Green color
+                PlaceBetText.text = $"Place ${currentBet:0} Bet";
+            }
+
+
+        }
+        
+            PlaceBetText.text = $"Place ${currentBet:0} Bet";
     }
 
     void TurnOffUI()
@@ -91,7 +96,6 @@ public class BetManager : MonoBehaviour
     public void AddToCalculateOdds(int odds)
     {
         oddsArray.Add(odds);
-        UpdateUI();
     }
 
     public void RemoveFromCalculateOdds(int odds)
@@ -120,14 +124,16 @@ public class BetManager : MonoBehaviour
 
         float payout = currentBet * totalMultiplier;
 
-        if (EstimatedPayout != null)
-            EstimatedPayout.text = $"${payout:0.00}";
+        if (ToWinText != null)
+            ToWinText.text = $"${payout:0.00}";
 
         return payout;
     }
 
     public void StartSubmit()
     {
+        if(currentBet == 0f)
+            return;
         StartCoroutine(Submit());
     }
 
@@ -147,7 +153,8 @@ public class BetManager : MonoBehaviour
             MiddleUI.SetActive(true);
             yield break;
         }
-
+        List<int> Bob = new List<int> { 0, 0, 1 };
+        SetOutcome(Bob);
         yield return ResolveBet(lastLegWins);
     }
 
@@ -160,17 +167,17 @@ public class BetManager : MonoBehaviour
         }
     }
 
-    void CashOutUIToggle()
-    {
-        canCashOut = !canCashOut;
-        CashOutWrapper.SetActive(canCashOut);
-        MiddleUI.SetActive(!canCashOut);
+    // void CashOutUIToggle()
+    // {
+    //     canCashOut = !canCashOut;
+    //     CashOutWrapper.SetActive(canCashOut);
+    //     MiddleUI.SetActive(!canCashOut);
 
-        if (canCashOut)
-            CashOutPayoutText.text = $"Cash Out Now For: ${CalculateParlayPayout() * 0.50f:0.00}";
-        else
-            CashOutPayoutText.text = "";
-    }
+    //     if (canCashOut)
+    //         CashOutPayoutText.text = $"Cash Out Now For: ${CalculateParlayPayout() * 0.50f:0.00}";
+    //     else
+    //         CashOutPayoutText.text = "";
+    // }
 
     private IEnumerator ResolveBet(List<int> LegWins)
     {
@@ -226,5 +233,18 @@ public class BetManager : MonoBehaviour
 
         UpdateUI();
         UpdateOddsText();
+    }
+
+    public void ViewBetslip()
+    {
+        BetslipUI.SetActive(true);
+        ParlayUI.SetActive(false);
+        UpdateUI();
+    }
+
+    public void ViewParlays()
+    {
+        BetslipUI.SetActive(false);
+        ParlayUI.SetActive(true);
     }
 }

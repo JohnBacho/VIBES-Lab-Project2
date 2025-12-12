@@ -63,7 +63,7 @@ public class CardManager : MonoBehaviour
         gridLayout.childAlignment = TextAnchor.UpperCenter;
     }
 
-    public void SpawnCard(string team1, string team2, int odds, TogglePressInteractable toggle)
+    public void SpawnCard(string team1, int odds, TogglePressInteractable toggle)
     {
         GameObject newCard = Instantiate(CardPrefab, CardParent);
         newCard.transform.SetAsLastSibling();
@@ -72,11 +72,13 @@ public class CardManager : MonoBehaviour
 
         TextMeshPro oddsText = newCard.transform.Find("Odds").GetComponent<TextMeshPro>();
         TextMeshPro team1Text = newCard.transform.Find("Team1").GetComponent<TextMeshPro>();
-        TextMeshPro team2Text = newCard.transform.Find("Team2").GetComponent<TextMeshPro>();
-
+        
+        if (odds > 0)
+            oddsText.text = "+" + odds.ToString();
+        else
         oddsText.text = odds.ToString();
+
         team1Text.text = team1;
-        team2Text.text = team2;
 
         RemoveCard removeCardScript = newCard.GetComponent<RemoveCard>();
         if (removeCardScript != null)
@@ -86,10 +88,8 @@ public class CardManager : MonoBehaviour
 
         cardMap[toggle] = newCard;
         
-        // Update grid layout based on new card count
         ConfigureGridLayout();
         
-        // Force rebuild the layout
         LayoutRebuilder.ForceRebuildLayoutImmediate(CardParent as RectTransform);
     }
 
