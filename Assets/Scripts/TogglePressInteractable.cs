@@ -27,6 +27,7 @@ public class TogglePressInteractable : MonoBehaviour
     private bool team1Selected = false;
     private bool team2Selected = false;
     public int teamIndex;
+    private Color TextColorNormal = new Color32(0x1F, 0x37, 0x5B, 0xFF);
 
 
     void Start()
@@ -49,6 +50,8 @@ public class TogglePressInteractable : MonoBehaviour
                 DisableButton(ButtonTeam2);
                 EnableButton(ButtonTeam1);
             Debug.Log("Team 1 Selected: " + team1Selected);
+                OddsTextTeam1.color = Color.white;
+                OddsTextTeam2.color = Color.white;
 
                 int odds = Team1Odds[trial];
                 betManager.AddToCalculateOdds(odds);
@@ -58,6 +61,9 @@ public class TogglePressInteractable : MonoBehaviour
             {
                 EnableButton(ButtonTeam2);
                 int odds = Team1Odds[trial];
+                OddsTextTeam1.color = TextColorNormal;
+                OddsTextTeam2.color = TextColorNormal;
+                Debug.Log("Team 1 Selected: " + team1Selected);
                 betManager.RemoveFromCalculateOdds(odds);
                 cardManager.RemoveCard(this);
             }
@@ -74,6 +80,8 @@ public class TogglePressInteractable : MonoBehaviour
                 DisableButton(ButtonTeam1);
                 EnableButton(ButtonTeam2);
             Debug.Log("Team 2 Selected: " + team2Selected);
+                OddsTextTeam1.color = Color.white;
+                OddsTextTeam2.color = Color.white;
 
                 int odds = Team2Odds[trial];
                 betManager.AddToCalculateOdds(odds);
@@ -83,6 +91,8 @@ public class TogglePressInteractable : MonoBehaviour
             {
                 EnableButton(ButtonTeam1);
                 int odds = Team2Odds[trial];
+                OddsTextTeam1.color = TextColorNormal;
+                OddsTextTeam2.color = TextColorNormal;
                 betManager.RemoveFromCalculateOdds(odds);
                 cardManager.RemoveCard(this);
             }
@@ -138,6 +148,8 @@ public class TogglePressInteractable : MonoBehaviour
         team2Selected = false;
         EnableButton(ButtonTeam1);
         EnableButton(ButtonTeam2);
+        OddsTextTeam1.color = TextColorNormal;
+        OddsTextTeam2.color = TextColorNormal;
         UpdateUI();
     }
 
@@ -164,6 +176,9 @@ public class TogglePressInteractable : MonoBehaviour
             {
                 ButtonTeam1.interactable = false;
             }
+            OddsTextTeam1.color = Color.white;
+            OddsTextTeam2.color = Color.white;
+
         }
         else
         {

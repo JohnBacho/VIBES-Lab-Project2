@@ -247,4 +247,22 @@ public class BetManager : MonoBehaviour
         BetslipUI.SetActive(false);
         ParlayUI.SetActive(true);
     }
+
+        public void IncreaseParlayBet()
+    {
+        if (GameManager.Instance.wallet < 1f) return;
+
+        currentBet += 1f;
+        GameManager.Instance.RemoveWallet(1f);
+        UpdateUI();
+    }
+
+    public void DecreaseParlayBet()
+    {
+        if (currentBet <= 0f) return;
+
+        currentBet -= 1f;
+        GameManager.Instance.AddWallet(1f);
+        UpdateUI();
+    }
 }
