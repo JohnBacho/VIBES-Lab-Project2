@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using System.Collections.Generic;
 
 public enum OutcomeType
 {
@@ -16,7 +17,7 @@ public class Driver : MonoBehaviour
     public BetManager betManager;
     public SlotHandler slotHandler;
 
-    private int[][] outcomeRows = new int[][]
+    private int[][] SlotOutcomeRows = new int[][]
     {
         new int[] {3, 3, 1}, // NearMiss
         new int[] {5, 5, 5}, // Win
@@ -28,6 +29,27 @@ public class Driver : MonoBehaviour
         new int[] {6, 7, 6}
 
     };
+    private int[][] Parlay3Leg = new int[][]
+    {
+        new int[] {1, 1, 1}, // Win
+        new int[] {1, 1, 0}, // NearMiss
+        new int[] {0, 0, 1}, // Lose
+    };
+
+    private int[][] Parlay4Leg = new int[][]
+    {
+        new int[] {1, 1, 1, 1}, // Win
+        new int[] {1, 1, 1, 0}, // NearMiss
+        new int[] {0, 1, 0, 0}, // Lose
+    };
+
+    private int[][] Parlay5Leg = new int[][]
+    {
+        new int[] {1, 1, 1, 1, 1}, // Win
+        new int[] {1, 1, 1, 1, 0}, // NearMiss
+        new int[] {1, 0, 1, 0, 0}, // Lose
+    };
+
 
     private OutcomeType[] outcomes = new OutcomeType[]
     {
@@ -45,11 +67,11 @@ public class Driver : MonoBehaviour
 
     void Start()
     {
-        SlotMachine.SetActive(true);
-        Parlay.SetActive(false);
+        SlotMachine.SetActive(false);
+        Parlay.SetActive(true);
         EffortTask.SetActive(false);
-
-        StartNextTrial();
+        StartNextParlayTrial();
+        // StartNextTrial();
     }
 
     public void StartNextTrial()
@@ -67,9 +89,8 @@ public class Driver : MonoBehaviour
             return;
         }
 
-
-        StartCoroutine(RunSlotTrial(outcomes[sxr.GetTrial()], outcomeRows[sxr.GetTrial()]));
-        sxr.NextTrial();
+        Debug.Log($"Starting Slot Trial {sxr.GetTrial()}");
+        StartCoroutine(RunSlotTrial(outcomes[sxr.GetTrial()], SlotOutcomeRows[sxr.GetTrial()]));
     }
 
     private IEnumerator RunSlotTrial(OutcomeType outcome, int[] outcomeRow)
@@ -90,7 +111,7 @@ public class Driver : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         slotHandler.StartNewTrial();
-
+        sxr.NextTrial();
         StartNextTrial();
     }
 
@@ -112,4 +133,75 @@ public class Driver : MonoBehaviour
         SlotMachine.SetActive(true);
         StartNextTrial();
     }
+
+    public void ParlayOutcome(int legCount)
+    {
+        int index = sxr.GetTrial();
+        List<int> Outcome = null;
+
+        switch (legCount)
+        {
+            case 3:
+                Outcome = new List<int>(Parlay3Leg[index]);
+                break;
+
+            case 4:
+                Outcome = new List<int>(Parlay4Leg[index]);
+                break;
+
+            case 5:
+                Outcome = new List<int>(Parlay5Leg[index]);
+                break;
+
+            default:
+                Debug.LogError("Invalid parlay size");
+                return;
+        }
+
+        betManager.SetOutcome(Outcome);
+    }
+
+
+    public void StartNextParlayTrial()
+    {
+        if (sxr.GetTrial() >= Parlay4Leg.Length)
+        {
+            Debug.Log("Parlay trials complete!");
+            return;
+        }
+
+        if(sxr.GetTrial() == 6)
+        {
+            Debug.Log("Running Effort Task Trial");
+            StartCoroutine(RunEffortTaskTrial());
+            return;
+        }
+        Debug.Log($"Starting Parlay Trial {sxr.GetTrial()}");
+        StartCoroutine(RunParlayTrial(outcomes[sxr.GetTrial()]));
+
+    }
+
+    private IEnumerator RunParlayTrial(OutcomeType outcome)
+    {
+        Debug.Log($"Starting trial {sxr.GetTrial()} with outcome: {outcome}");
+
+        betManager.StartNewTrial();
+
+
+        while (!betManager.TrialCompleted)
+        {
+            yield return null;
+        }
+
+        Debug.Log($"Trial {sxr.GetTrial()} complete");
+
+        yield return new WaitForSeconds(0.5f);
+
+        betManager.StartNewTrial();
+        
+        sxr.NextTrial();
+        StartNextTrial();
+    }
+
+
 }

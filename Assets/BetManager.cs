@@ -25,13 +25,16 @@ public class BetManager : MonoBehaviour
     public GameObject ParlayUI;
     public GameObject BetslipUI;
 
-    public Slider mySlider;
-    private float previousSliderValue = 0f;
-    private bool sliderInitialized = false;
-
     public List<TogglePressInteractable> togglePressInteractables;
+    public List<ToggleButton> toggleButton;
+
     public CardManager CardManager;
     public Leaderboard leaderboard;
+    public Driver driver;
+
+    public bool TrialCompleted => trialCompleted;
+    private bool trialCompleted = false;
+
 
     private static float seconds = 4f;
     private bool canCashOut = false;
@@ -74,23 +77,10 @@ public class BetManager : MonoBehaviour
         MiddleParlayUI.SetActive(false);
     }
 
-    void OnSliderChanged(float newValue)
+    void TurnOnUI()
     {
-        if (!sliderInitialized || mySlider == null) return;
-
-        float maxAllowed = GameManager.Instance.wallet + previousSliderValue;
-        float clampedValue = Mathf.Clamp(newValue, 0f, maxAllowed);
-        float delta = clampedValue - previousSliderValue;
-
-        GameManager.Instance.RemoveWallet(delta);
-
-        currentBet = clampedValue;
-        previousSliderValue = clampedValue;
-
-        if (Mathf.Abs(clampedValue - newValue) > 0.0001f)
-            mySlider.SetValueWithoutNotify(clampedValue);
-
-        UpdateUI();
+        MiddleUI.SetActive(true);
+        MiddleParlayUI.SetActive(true);
     }
 
     public void AddToCalculateOdds(int odds)
@@ -153,8 +143,7 @@ public class BetManager : MonoBehaviour
             MiddleUI.SetActive(true);
             yield break;
         }
-        List<int> Bob = new List<int> { 0, 0, 1 };
-        SetOutcome(Bob);
+        driver.ParlayOutcome(oddsArray.Count);
         yield return ResolveBet(lastLegWins);
     }
 
@@ -167,18 +156,6 @@ public class BetManager : MonoBehaviour
         }
     }
 
-    // void CashOutUIToggle()
-    // {
-    //     canCashOut = !canCashOut;
-    //     CashOutWrapper.SetActive(canCashOut);
-    //     MiddleUI.SetActive(!canCashOut);
-
-    //     if (canCashOut)
-    //         CashOutPayoutText.text = $"Cash Out Now For: ${CalculateParlayPayout() * 0.50f:0.00}";
-    //     else
-    //         CashOutPayoutText.text = "";
-    // }
-
     private IEnumerator ResolveBet(List<int> LegWins)
     {
         float Payout = 0f;
@@ -186,6 +163,7 @@ public class BetManager : MonoBehaviour
         CardManager.AnimateCardsColor(LegWins);
 
         yield return new WaitForSeconds(seconds);
+        MarkTrialComplete();
 
         if (LegWins.Sum() == decimalOddsList.Count)
         {
@@ -204,40 +182,37 @@ public class BetManager : MonoBehaviour
             yield return new WaitForSeconds(seconds);
             LossText.text = "";
         }
-
         ResetRound();
     }
 
     private void ResetRound()
     {
         currentBet = 0;
-        previousSliderValue = 0f;
-
         CardManager.RemoveAllCards();
         oddsArray.Clear();
         decimalOddsList.Clear();
 
-        if (mySlider != null)
-        {
-            mySlider.onValueChanged.RemoveAllListeners();
-            mySlider.maxValue = GameManager.Instance.wallet;
-            mySlider.minValue = 0;
-            mySlider.SetValueWithoutNotify(0f);
-            mySlider.onValueChanged.AddListener(OnSliderChanged);
-        }
-
         leaderboard.SetMoney("You", GameManager.Instance.wallet);
 
-        MiddleUI.SetActive(true);
-        MiddleParlayUI.SetActive(true);
-
+        BetslipUI.SetActive(false);
+        ParlayUI.SetActive(true);
         UpdateUI();
         UpdateOddsText();
+        for (int i = 0; i < toggleButton.Count; i++)
+        {
+            toggleButton[i].SetToggled(false);
+        }
+        for (int i = 0; i < togglePressInteractables.Count; i++)
+        {
+            togglePressInteractables[i].UpdateUI();
+        }
+
     }
 
     public void ViewBetslip()
     {
         BetslipUI.SetActive(true);
+        TurnOnUI();
         ParlayUI.SetActive(false);
         UpdateUI();
     }
@@ -248,7 +223,7 @@ public class BetManager : MonoBehaviour
         ParlayUI.SetActive(true);
     }
 
-        public void IncreaseParlayBet()
+    public void IncreaseParlayBet()
     {
         if (GameManager.Instance.wallet < 1f) return;
 
@@ -264,5 +239,15 @@ public class BetManager : MonoBehaviour
         currentBet -= 1f;
         GameManager.Instance.AddWallet(1f);
         UpdateUI();
+    }
+
+    public void MarkTrialComplete()
+    {
+        trialCompleted = true;
+    }
+
+    public void StartNewTrial()
+    {
+        trialCompleted = false;
     }
 }
