@@ -10,6 +10,8 @@ public class SlotHandler : MonoBehaviour
     public TextMeshPro WinText;
     public TextMeshPro LossText;
     public TextMeshPro ErrorMessage;
+    public AudioSource audioSource;
+
 
     public float currentBet = 0f;
     private int multiplier = 2;
@@ -71,15 +73,25 @@ public class SlotHandler : MonoBehaviour
         {
             float winnings = currentBet * multiplier;
             GameManager.Instance.AddWallet(winnings + currentBet);
+            audioSource.Play();
+            walletText.text = $"Wallet: ${GameManager.Instance.wallet:0.00}";
+            for(int i = 0; i < 4; i++)
+            {
+                yield return new WaitForSeconds(0.5f);
+                WinText.text = $"YOU WIN ${winnings}";
+                yield return new WaitForSeconds(0.5f);
+                WinText.text = "";
+            }
             WinText.text = $"YOU WIN ${winnings}";
-            LossText.text = "";
+            walletText.text = $"Wallet: ${GameManager.Instance.wallet:0.00}";
+
         }
         else
         {
             LossText.text = $"YOU LOST ${currentBet}";
             WinText.text = "";
         }
-
+        audioSource.Stop();
         walletText.text = $"Wallet: ${GameManager.Instance.wallet:0.00}";
         yield return new WaitForSeconds(3f);
         WinText.text = "";

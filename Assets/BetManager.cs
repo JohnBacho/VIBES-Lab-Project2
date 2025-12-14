@@ -31,6 +31,8 @@ public class BetManager : MonoBehaviour
     public CardManager CardManager;
     public Leaderboard leaderboard;
     public Driver driver;
+    public AudioSource WinningAudioSource;
+
 
     public bool TrialCompleted => trialCompleted;
     private bool trialCompleted = false;
@@ -171,8 +173,10 @@ public class BetManager : MonoBehaviour
             GameManager.Instance.AddWallet(Payout);
 
             TurnOffUI();
+            WinningAudioSource.Play();
             WinText.text = $"You Win!\nPayout: ${Payout:0.00}\nWallet: ${GameManager.Instance.wallet:0.00}";
             yield return new WaitForSeconds(seconds);
+            WinningAudioSource.Stop();
             WinText.text = "";
         }
         else

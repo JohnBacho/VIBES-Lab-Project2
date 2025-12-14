@@ -9,8 +9,11 @@ public class Handle : MonoBehaviour
     [SerializeField] Rigidbody rb;
     [SerializeField] Transform handleTransform;
     [SerializeField] SlotHandler slotHandler;
+    [SerializeField] AudioSource audioSource;
+
 
     bool handleDown = false;
+    bool AudioPlayed = false;
     float returnSpeed = 150f;
 
     private bool isGrabbed = false;
@@ -38,16 +41,22 @@ public class Handle : MonoBehaviour
     {
         float angle = NormalizeAngle(handleTransform.localEulerAngles.x);
 
-        // Detect handle pulled down
-        if (angle <= -60f && !handleDown)
-        {
-            DisableGrab();
-            handleDown = true;
-            Debug.Log($"[Handle] Handle pulled down detected at angle {angle}°");
-            slotHandler.SpinReceived();
-        }
+    if (angle <= -40f && !AudioPlayed)
+    {
+        audioSource.Play();
+        AudioPlayed = true;
+    }
 
-        // Handle returning up, only if not grabbed
+
+    if (angle <= -60f && !handleDown)
+    {
+        DisableGrab();
+        handleDown = true;
+        slotHandler.SpinReceived();
+
+    }
+
+
         if (handleDown && !isGrabbed)
         {
             rb.angularVelocity = Vector3.up * returnSpeed * Time.deltaTime;
@@ -59,6 +68,7 @@ public class Handle : MonoBehaviour
         {
             rb.angularVelocity = Vector3.zero;
             handleDown = false;
+            AudioPlayed = false;
             rb.constraints = RigidbodyConstraints.FreezeRotationX |
                              RigidbodyConstraints.FreezeRotationY |
                              RigidbodyConstraints.FreezeRotationZ;
@@ -71,6 +81,7 @@ public class Handle : MonoBehaviour
     private void OnGrabbed(XRBaseInteractor interactor)
     {
         isGrabbed = true;
+        
         Debug.Log("[Handle] Handle grabbed");
     }
 
@@ -106,6 +117,7 @@ public class Handle : MonoBehaviour
     public void ResetHandle()
     {
         handleDown = false;
+        AudioPlayed = false;
         rb.angularVelocity = Vector3.zero;
         rb.freezeRotation = true;
         handleTransform.eulerAngles = Vector3.zero;
@@ -113,4 +125,5 @@ public class Handle : MonoBehaviour
 
         Debug.Log("[Handle] ResetHandle called: Handle state reset, rotations frozen, grab re-enabled");
     }
+
 }

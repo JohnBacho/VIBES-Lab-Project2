@@ -24,6 +24,9 @@ public class TogglePressInteractable : MonoBehaviour
     public BetManager betManager;
     public CardManager cardManager;
 
+    public AudioSource audioSource;
+
+
     private bool team1Selected = false;
     private bool team2Selected = false;
     public int teamIndex;
@@ -40,7 +43,7 @@ public class TogglePressInteractable : MonoBehaviour
     private void OnTeamSelected(int team)
     {
         int trial = sxr.GetTrial();
-
+        audioSource.Play();
         if (team == 1)
         {
             team1Selected = !team1Selected;

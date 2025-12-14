@@ -9,6 +9,7 @@ public class Bucket : MonoBehaviour
     public BallType bucketType;
     public TextMeshPro label;
     private Coroutine currentFade;
+    public AudioSource source;
     private void OnTriggerEnter(Collider other)
     {
         Ball ball = other.GetComponent<Ball>();
@@ -19,6 +20,7 @@ public class Bucket : MonoBehaviour
                 Debug.Log("Correct!");
                 GameManager.Instance.AddWallet(1);
                 ShowText("+1", Color.green, 1f);
+                source.Play();
 
             }
             else

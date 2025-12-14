@@ -1,6 +1,8 @@
 using System.Collections;
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.XR.Interaction.Toolkit;
+
 
 public enum OutcomeType
 {
@@ -16,11 +18,11 @@ public class Driver : MonoBehaviour
     public GameObject EffortTask;
     public BetManager betManager;
     public SlotHandler slotHandler;
-
+[SerializeField] XRInteractorLineVisual rayLineVisual;
     private int[][] SlotOutcomeRows = new int[][]
     {
         new int[] {3, 3, 1}, // NearMiss
-        new int[] {5, 5, 5}, // Win
+        // new int[] {5, 5, 5}, // Win
         // new int[] {5, 3, 8}, // Lose
         // new int[] {7, 7, 7},  // Win
         // new int[] {2, 5, 9}, // Lose
@@ -87,6 +89,8 @@ public class Driver : MonoBehaviour
             SwitchGamblingtype();
             return;
         }
+        HideRayLine();
+
 
         if(sxr.GetTrial() == 6)
         {
@@ -127,12 +131,14 @@ public class Driver : MonoBehaviour
         SlotMachine.SetActive(!SlotMachine.activeSelf);
         Parlay.SetActive(!Parlay.activeSelf);
         GameManager.Instance.SetWallet(100f);
+        ShowRayLine();
         StartNextParlayTrial();
     }
 
     private IEnumerator RunEffortTaskTrial()
     {
         sxr.NextTrial();
+        HideRayLine();
         Debug.Log("Starting Effort Task Trial");
         SlotMachine.SetActive(false);
         Parlay.SetActive(false);
@@ -140,7 +146,6 @@ public class Driver : MonoBehaviour
         FindObjectOfType<BallSpawner>().StartSpawning();
         FindObjectOfType<CountdownTimer>().StartCountdown();
         yield return new WaitForSeconds(60f);
-        Debug.Log("Effort Task Trial complete");
         FindObjectOfType<BallSpawner>().StopSpawning();
         FindObjectOfType<BallSpawner>().DestroyAllBalls();
 
@@ -216,6 +221,20 @@ public class Driver : MonoBehaviour
         sxr.NextTrial();
         StartNextParlayTrial();
     }
+
+    void HideRayLine()
+    {
+        if (rayLineVisual != null)
+            rayLineVisual.enabled = false;
+    }
+
+    void ShowRayLine()
+    {
+        if (rayLineVisual != null)
+            rayLineVisual.enabled = true;
+    }
+
+
 
 
 }
