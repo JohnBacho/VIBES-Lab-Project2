@@ -26,4 +26,11 @@ public class GameManager : MonoBehaviour
         wallet = Mathf.Max(0, wallet);
         betManager.UpdateUI();
     }
+
+    public void SetWallet(float amount)
+    {
+        wallet = amount;
+        wallet = Mathf.Max(0, wallet);
+        betManager.UpdateUI();
+    }
 }

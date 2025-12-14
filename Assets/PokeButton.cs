@@ -35,9 +35,7 @@ public class PokeButton : MonoBehaviour
     private void OnPokeEntered(HoverEnterEventArgs args)
     {
         if (args.interactorObject is XRPokeInteractor && !hasTriggered)
-        {
-            Debug.Log("Button pressed!");
-            
+        {            
             onButtonPressed?.Invoke();
             
             hasTriggered = true;

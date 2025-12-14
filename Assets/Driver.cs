@@ -21,12 +21,12 @@ public class Driver : MonoBehaviour
     {
         new int[] {3, 3, 1}, // NearMiss
         new int[] {5, 5, 5}, // Win
-        new int[] {5, 3, 8}, // Lose
-        new int[] {7, 7, 7},  // Win
-        new int[] {2, 5, 9}, // Lose
-        new int[] {5, 7, 6}, // Lose
-        new int[] {0, 0, 0}, // Dummy for Effort Task
-        new int[] {6, 7, 6}
+        // new int[] {5, 3, 8}, // Lose
+        // new int[] {7, 7, 7},  // Win
+        // new int[] {2, 5, 9}, // Lose
+        // new int[] {5, 7, 6}, // Lose
+        // new int[] {0, 0, 0}, // Dummy for Effort Task
+        // new int[] {6, 7, 6} // Lose
 
     };
     private int[][] Parlay3Leg = new int[][]
@@ -34,6 +34,8 @@ public class Driver : MonoBehaviour
         new int[] {1, 1, 1}, // Win
         new int[] {1, 1, 0}, // NearMiss
         new int[] {0, 0, 1}, // Lose
+        new int[] {0, 0, 1}, // Lose
+
     };
 
     private int[][] Parlay4Leg = new int[][]
@@ -41,6 +43,7 @@ public class Driver : MonoBehaviour
         new int[] {1, 1, 1, 1}, // Win
         new int[] {1, 1, 1, 0}, // NearMiss
         new int[] {0, 1, 0, 0}, // Lose
+        new int[] {1, 0, 0, 0}, // Lose
     };
 
     private int[][] Parlay5Leg = new int[][]
@@ -48,37 +51,40 @@ public class Driver : MonoBehaviour
         new int[] {1, 1, 1, 1, 1}, // Win
         new int[] {1, 1, 1, 1, 0}, // NearMiss
         new int[] {1, 0, 1, 0, 0}, // Lose
+        new int[] {0, 0, 0, 1, 0}, // Lose
     };
 
 
     private OutcomeType[] outcomes = new OutcomeType[]
     {
-        OutcomeType.NearMiss,
-        OutcomeType.Lose,
-        OutcomeType.Win,
-        OutcomeType.Lose,
         OutcomeType.Win,
         OutcomeType.NearMiss,
         OutcomeType.Lose,
-        OutcomeType.Win,
         OutcomeType.Lose,
+        OutcomeType.Win,
+        OutcomeType.Win,
+        OutcomeType.NearMiss,
+        OutcomeType.Lose,
+        OutcomeType.Lose,
+        OutcomeType.Win,
         OutcomeType.Win
+
     };
 
     void Start()
     {
-        SlotMachine.SetActive(false);
-        Parlay.SetActive(true);
+        SlotMachine.SetActive(true);
+        Parlay.SetActive(false);
         EffortTask.SetActive(false);
-        StartNextParlayTrial();
-        // StartNextTrial();
+        StartNextTrial();
     }
 
     public void StartNextTrial()
     {
-        if (sxr.GetTrial() >= outcomes.Length)
+        if (sxr.GetTrial() >= SlotOutcomeRows.Length)
         {
-            Debug.Log("Slot trials complete!");
+            Debug.Log("Slot trials complete! Starting Parlay trials...");
+            SwitchGamblingtype();
             return;
         }
 
@@ -113,6 +119,15 @@ public class Driver : MonoBehaviour
         slotHandler.StartNewTrial();
         sxr.NextTrial();
         StartNextTrial();
+    }
+
+    private void SwitchGamblingtype()
+    {
+        sxr.NextPhase();
+        SlotMachine.SetActive(!SlotMachine.activeSelf);
+        Parlay.SetActive(!Parlay.activeSelf);
+        GameManager.Instance.SetWallet(100f);
+        StartNextParlayTrial();
     }
 
     private IEnumerator RunEffortTaskTrial()
@@ -187,7 +202,6 @@ public class Driver : MonoBehaviour
 
         betManager.StartNewTrial();
 
-
         while (!betManager.TrialCompleted)
         {
             yield return null;
@@ -200,7 +214,7 @@ public class Driver : MonoBehaviour
         betManager.StartNewTrial();
         
         sxr.NextTrial();
-        StartNextTrial();
+        StartNextParlayTrial();
     }
 
 
