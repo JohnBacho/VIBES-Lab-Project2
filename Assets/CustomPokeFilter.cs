@@ -33,13 +33,11 @@ public class CustomPokeFilter : MonoBehaviour, IXRHoverFilter, IXRSelectFilter
 
     public bool canProcess => isActiveAndEnabled;
 
-    // Block non-poke interactors from hovering
     public bool Process(IXRHoverInteractor interactor, IXRHoverInteractable interactable)
     {
         return interactor is XRPokeInteractor;
     }
 
-    // Block non-poke interactors from selecting
     public bool Process(IXRSelectInteractor interactor, IXRSelectInteractable interactable)
     {
         return interactor is XRPokeInteractor;

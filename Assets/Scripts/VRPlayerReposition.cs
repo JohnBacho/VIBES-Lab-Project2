@@ -29,8 +29,7 @@ public class VRPlayerReposition : MonoBehaviour
     // Step 2: Compute how far off it is from where we want the camera to be
     Vector3 offset = cameraSpawnPoint.position - currentCameraWorldPos;
 
-    // Step 3: Only apply X and Z offset, keep current Y position
-    offset.y = 0;
+
 
     // Step 4: Apply the offset to the XR Rig
     xrRig.position += offset;

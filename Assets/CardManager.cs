@@ -13,9 +13,24 @@ public class CardManager : MonoBehaviour
     
     private GridLayoutGroup gridLayout;
     private ContentSizeFitter contentSizeFitter;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip suspenseLoop;
+    [SerializeField] private AudioClip winClip;
+    [SerializeField] private AudioClip loseClip;
+
+    [Range(0f, 1f)]
+    [SerializeField] private float suspenseVolume = 0.3f;
+
+    [Range(0f, 1f)]
+    [SerializeField] private float resultVolume = 0.6f;
+
 
     void Awake()
     {
+    if (audioSource == null)
+        audioSource = GetComponent<AudioSource>();
+
+        audioSource.loop = false;
         // Get or add GridLayoutGroup
         gridLayout = CardParent.GetComponent<GridLayoutGroup>();
         if (gridLayout == null)
@@ -146,25 +161,38 @@ public void AnimateCardsColor(List<int> colorValues)
     StartCoroutine(AnimateCardsSequentially(colorValues));
 }
 
-    private IEnumerator AnimateCardsSequentially(List<int> colorValues)
+private IEnumerator AnimateCardsSequentially(List<int> colorValues)
+{
+    if (colorValues.Count != activeCards.Count)
     {
-        if (colorValues.Count != activeCards.Count)
-        {
-            Debug.LogWarning($"Number of colors doesn't match number of cards {colorValues.Count} vs {activeCards.Count}");
-            yield break;
-        }
-
-        for (int i = 0; i < activeCards.Count; i++)
-        {
-            GameObject card = activeCards[i];
-            if (card != null)
-            {
-                bool isGreen = colorValues[i] == 1;
-                StartCoroutine(AnimateSingleCardColorWithDelay(card, isGreen, i * 0.3f)); // 0.2s delay between cards
-            }
-        }
-
+        Debug.LogWarning($"Number of colors doesn't match number of cards {colorValues.Count} vs {activeCards.Count}");
+        yield break;
     }
+
+    PlaySuspense();
+
+    for (int i = 0; i < activeCards.Count; i++)
+    {
+        GameObject card = activeCards[i];
+        if (card != null)
+        {
+            bool isGreen = colorValues[i] == 1;
+            StartCoroutine(
+                AnimateSingleCardColorWithDelay(card, isGreen, i * 0.3f)
+            );
+        }
+    }
+
+    float totalTime =
+        (activeCards.Count * 0.3f) + 
+        (0.6f) + 
+        (20 * 0.05f); 
+
+    yield return new WaitForSeconds(totalTime);
+
+    StopSuspense();
+}
+
 
     private IEnumerator AnimateSingleCardColorWithDelay(GameObject card, bool isGreen, float delay)
     {
@@ -175,13 +203,12 @@ public void AnimateCardsColor(List<int> colorValues)
     public IEnumerator AnimateSingleCardColor(GameObject card, bool isGreen)
     {
         Color targetColor = isGreen ? Color.green : Color.red;
-        Renderer cardRenderer = card.GetComponent<Renderer>();
         Image cardImage = card.GetComponent<Image>();
         if (cardImage == null) yield break;
 
-
         Transform cardTransform = card.transform;
         Vector3 originalScale = cardTransform.localScale;
+
         float duration = 0.3f;
         float elapsed = 0f;
 
@@ -204,6 +231,7 @@ public void AnimateCardsColor(List<int> colorValues)
 
         int flashes = 20;
         float flashSpeed = 0.05f;
+
         for (int i = 0; i < flashes; i++)
         {
             cardImage.color = (i % 2 == 0) ? Color.red : Color.green;
@@ -212,6 +240,7 @@ public void AnimateCardsColor(List<int> colorValues)
 
         cardImage.color = targetColor;
 
+        PlayResultSound(isGreen);
     }
 
     public void AnimateCardsExceptUnrevealed(List<int> legWins)
@@ -249,5 +278,31 @@ public void AnimateCardsColor(List<int> colorValues)
         }
     }
 
+    private void PlaySuspense()
+    {
+        if (suspenseLoop == null || audioSource.isPlaying)
+            return;
+
+        audioSource.clip = suspenseLoop;
+        audioSource.volume = suspenseVolume;
+        audioSource.loop = true;
+        audioSource.Play();
+    }
+
+    private void StopSuspense()
+    {
+        if (!audioSource.loop) return;
+
+        audioSource.Stop();
+        audioSource.loop = false;
+    }
+    private void PlayResultSound(bool isGreen)
+    {
+        AudioClip clip = isGreen ? winClip : loseClip;
+        if (clip == null) return;
+        audioSource.pitch = isGreen ? 1.2f : 0.8f;
+        audioSource.PlayOneShot(clip, resultVolume);
+        audioSource.pitch = 1f;
+    }
 
 }

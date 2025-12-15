@@ -14,6 +14,7 @@ public class BetManager : MonoBehaviour
     public TextMeshPro WinText;
     public TextMeshPro LossText;
     public TextMeshPro ErrorMessage;
+    public TextMeshPro WalletText;
     public TextMeshPro CashOutPayoutText;
     public Image PlaceBetButtonImage;
     public Button PlaceBetButton;
@@ -174,17 +175,28 @@ public class BetManager : MonoBehaviour
 
             TurnOffUI();
             WinningAudioSource.Play();
-            WinText.text = $"You Win!\nPayout: ${Payout:0.00}\nWallet: ${GameManager.Instance.wallet:0.00}";
-            yield return new WaitForSeconds(seconds);
+            WalletText.text = $"Wallet: ${GameManager.Instance.wallet:0.00}";
+            for(int i = 0; i < 4; i++)
+            {
+                yield return new WaitForSeconds(0.5f);
+                WinText.text = $"YOU WIN ${Payout:0.00}";
+                yield return new WaitForSeconds(0.5f);
+                WinText.text = "";
+            }
+            WinText.text = $"YOU WIN ${Payout:0.00}";
+            yield return new WaitForSeconds(1.5f);
             WinningAudioSource.Stop();
             WinText.text = "";
+            WalletText.text = "";
         }
         else
         {
             TurnOffUI();
-            LossText.text = $"You Lose!\nWallet: ${GameManager.Instance.wallet:0.00}";
+            LossText.text = $"You Lose!";
+            WalletText.text = $"Wallet: ${GameManager.Instance.wallet:0.00}";
             yield return new WaitForSeconds(seconds);
             LossText.text = "";
+            WalletText.text = "";
         }
         ResetRound();
     }
