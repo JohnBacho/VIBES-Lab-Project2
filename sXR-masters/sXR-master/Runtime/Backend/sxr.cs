@@ -305,9 +305,16 @@ public static class sxr
     /// Returns the current "trial" in the experiment. (Phase > Block > Trial > Step)
     /// </summary>
     /// <returns></returns>
-    public static string GetStage(){return ExperimentHandler.Instance.stageInTrial; }
+    public static string GetOutcomeInTrial(){return ExperimentHandler.Instance.OutcomeInTrial; }
 
-    public static string GetContext(){return ExperimentHandler.Instance.currentContext; }
+    public static string GetGamblingType(){return ExperimentHandler.Instance.currentGamblingType; }
+
+    public static float GetBetAmount(){return ExperimentHandler.Instance.BetAmount; }
+
+    public static float GetPayout(){return ExperimentHandler.Instance.CurrentPayout; }
+
+    public static float GetWallet(){return ExperimentHandler.Instance.wallet; }
+
 
 
     /// <summary>
@@ -348,13 +355,18 @@ public static class sxr
     /// Sets the current "step" to the specified number
     /// </summary>
     /// <param name="stage"></param>
-    public static void SetStage(string stage) { ExperimentHandler.Instance.stageInTrial = stage; }
+    public static void SetOutcome(string Outcome) { ExperimentHandler.Instance.OutcomeInTrial = Outcome; }
 
         /// <summary>
     /// Sets the current "step" to the specified number
     /// </summary>
-    /// <param name="context"></param>
-    public static void SetContext(string context) { ExperimentHandler.Instance.currentContext = context; }
+    /// <param name="OutCome"></param>
+    public static void SetGamblingType(string GamblingType) { ExperimentHandler.Instance.currentGamblingType = GamblingType; }
+    public static void SetBetAmount(float BetAmount) { ExperimentHandler.Instance.BetAmount = BetAmount; }
+    public static void SetPayout(float Payout) { ExperimentHandler.Instance.CurrentPayout = Payout; }
+
+    public static void SetWallet(float wallet) { ExperimentHandler.Instance.wallet = wallet; }
+
     /// <summary>
     /// Starts a timer with the provided name. Will return "true" and the timer will be
     /// deleted if CheckTimer() is used. If no name is provided, uses the default trial

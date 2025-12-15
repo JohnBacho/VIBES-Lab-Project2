@@ -9,6 +9,14 @@ public enum OutcomeType
     Win,
     Lose,
     NearMiss,
+    EffortTask,
+}
+
+public enum GamblingType
+{
+    Slot,
+    Parlay,
+    EffortTask
 }
 
 public class Driver : MonoBehaviour
@@ -18,6 +26,8 @@ public class Driver : MonoBehaviour
     public GameObject EffortTask;
     public BetManager betManager;
     public SlotHandler slotHandler;
+    private string headers = "Parlay1, Parlay2, Parlay3, Parlay4, Parlay5";
+    private int counter = 0;
 [SerializeField] XRInteractorLineVisual rayLineVisual;
     private int[][] SlotOutcomeRows = new int[][]
     {
@@ -109,7 +119,7 @@ public class Driver : MonoBehaviour
         OutcomeType.Win,      // {7, 7, 7}
         OutcomeType.Lose,     // {2, 5, 9}
         OutcomeType.Lose,     // {5, 7, 6}
-        OutcomeType.Lose,     // {0, 0, 0} Dummy for Effort Task
+        OutcomeType.EffortTask,     // {0, 0, 0} Dummy for Effort Task
         OutcomeType.Lose,     // {6, 7, 6}
         OutcomeType.Lose,     // {2, 7, 5}
         OutcomeType.Win,      // {1, 1, 1}
@@ -125,7 +135,7 @@ public class Driver : MonoBehaviour
         OutcomeType.Win,      // {7, 7, 7}
         OutcomeType.Lose,     // {2, 5, 9}
         OutcomeType.Lose,     // {5, 7, 6}
-        OutcomeType.Lose,     // {0, 0, 0} Dummy for Effort Task
+        OutcomeType.EffortTask,     // {0, 0, 0} Dummy for Effort Task
         OutcomeType.Lose,     // {6, 7, 6}
         OutcomeType.Lose,     // {2, 7, 5}
         OutcomeType.Win,      // {1, 1, 1}
@@ -143,7 +153,33 @@ public class Driver : MonoBehaviour
         SlotMachine.SetActive(true);
         Parlay.SetActive(false);
         EffortTask.SetActive(false);
+        StartDataTrackers();
         StartNextTrial();
+    }
+
+    void StartDataTrackers()
+    {
+        sxr.StartRecordingCameraPos();
+        sxr.StartRecordingEyeTrackerInfo();
+        sxr.WriteHeaderToTaggedFile("SummaryGambling", headers);
+        SetGamblingType();
+    }
+
+    void SetGamblingType()
+    {
+        if (SlotMachine.activeSelf)
+        {
+            sxr.SetGamblingType(GamblingType.Slot.ToString());
+        }
+        else if (Parlay.activeSelf)
+        {
+            sxr.SetGamblingType(GamblingType.Parlay.ToString());
+        }
+        else
+        {
+            sxr.SetGamblingType(GamblingType.EffortTask.ToString());
+        }
+
     }
 
     public void StartNextTrial()
@@ -155,8 +191,7 @@ public class Driver : MonoBehaviour
             return;
         }
         HideRayLine();
-
-
+        SetTypeOutcome();
         if(sxr.GetTrial() == 6)
         {
             Debug.Log("Running Effort Task Trial");
@@ -196,8 +231,17 @@ public class Driver : MonoBehaviour
         SlotMachine.SetActive(!SlotMachine.activeSelf);
         Parlay.SetActive(!Parlay.activeSelf);
         GameManager.Instance.SetWallet(100f);
-        ShowRayLine();
-        StartNextParlayTrial();
+        SetGamblingType();
+        if (SlotMachine.activeSelf)
+        {
+            HideRayLine();
+            StartNextTrial();
+        }
+        else
+        {
+            ShowRayLine();
+            StartNextParlayTrial();   
+        }
     }
 
     private IEnumerator RunEffortTaskTrial(bool isSlot)
@@ -218,13 +262,15 @@ public class Driver : MonoBehaviour
         if(isSlot)
         {
             SlotMachine.SetActive(true);
-            StartNextTrial();            
+            StartNextTrial();
+            SetGamblingType();            
         }
         else
         {
             Parlay.SetActive(true);
             ShowRayLine();
             StartNextParlayTrial();
+            SetGamblingType();
         }
 
     }
@@ -264,7 +310,7 @@ public class Driver : MonoBehaviour
             Debug.Log("Parlay trials complete!");
             return;
         }
-
+        SetTypeOutcome();
         if(sxr.GetTrial() == 6)
         {
             Debug.Log("Running Effort Task Trial");
@@ -309,7 +355,10 @@ public class Driver : MonoBehaviour
             rayLineVisual.enabled = true;
     }
 
-
-
+    void SetTypeOutcome()
+    {
+        sxr.SetOutcome(outcomes[counter].ToString());
+        counter++;
+    }
 
 }

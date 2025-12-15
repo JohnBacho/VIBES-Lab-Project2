@@ -50,6 +50,7 @@ public class BetManager : MonoBehaviour
     {
         if (WagerText != null)
             WagerText.text = $"${currentBet:0.00}";
+            sxr.SetBetAmount(currentBet);
 
         if (ToWinText != null)
             CalculateParlayPayout();
@@ -116,7 +117,7 @@ public class BetManager : MonoBehaviour
         }
 
         float payout = currentBet * totalMultiplier;
-
+        sxr.SetPayout(payout);
         if (ToWinText != null)
             ToWinText.text = $"${payout:0.00}";
 
@@ -204,6 +205,8 @@ public class BetManager : MonoBehaviour
     private void ResetRound()
     {
         currentBet = 0;
+        sxr.SetBetAmount(0);
+        sxr.SetPayout(0);
         CardManager.RemoveAllCards();
         oddsArray.Clear();
         decimalOddsList.Clear();

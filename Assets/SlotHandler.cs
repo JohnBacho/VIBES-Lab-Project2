@@ -103,6 +103,8 @@ public class SlotHandler : MonoBehaviour
         LossText.text = "";
         walletText.text = "";
         currentBet = 0f;
+        sxr.SetBetAmount(currentBet);   
+        sxr.SetPayout(currentBet * multiplier);   
         UpdateUI();
     }
 
@@ -112,10 +114,15 @@ public class SlotHandler : MonoBehaviour
     public void UpdateUI()
     {
         if (betText != null)
+        {
             betText.text = $"Wager: ${currentBet:0.00}";
-
+            sxr.SetBetAmount(currentBet);   
+        }
         if (EstimatedPayout != null)
+        {
+            sxr.SetPayout(currentBet * multiplier);   
             EstimatedPayout.text = $"To Win: ${currentBet * multiplier:0.00}";
+        }
     }
 
     public void IncreaseBet()

@@ -12,8 +12,12 @@ namespace sxr_internal
         public int block;
         public int trial;
         public int stepInTrial;
-        public string stageInTrial;
-        public string currentContext;
+        public string OutcomeInTrial;
+        public string currentGamblingType;
+        public float BetAmount;
+        public float CurrentPayout;
+        public float wallet;
+
 
         private string experimentName = "";
         private string subjectFile = "";
@@ -104,7 +108,7 @@ namespace sxr_internal
         public void WriteHeaderToTaggedFile(string tag, string headerInfo)
         {
             if (subjectFile == "") { ParseFileNames(); }
-            headerInfo = "SubjectID,Date,LocalTime,UnityTime,Phase,BlockNumber,TrialNumber,Step,TrialTime,Stage,Context," + headerInfo;
+            headerInfo = "SubjectID,Date,LocalTime,UnityTime,Phase,TrialNumber,TrialTime,Outcome,GamblingType,CurrentBet,CurrentPayout,Wallet," + headerInfo;
             fh.AppendLine(subjectFile + "_" + tag + ".csv", headerInfo);
             if (backupFile != "") fh.AppendLine(backupFile + "_" + tag + ".csv", headerInfo); }
         
@@ -118,8 +122,8 @@ namespace sxr_internal
         public string timeStepToWriteInfo()
         {
             return subjectID + "," + DateTime.Today.Month + "_" + DateTime.Today.Day + "," + DateTime.Now.Hour + "_" +
-                   DateTime.Now.Minute + "_" + DateTime.Now.Second + "," + Time.time + "," + phase + "," + block + "," +
-                   trial + "," + stepInTrial + "," + trialTimer.GetTimePassed() + "," + stageInTrial + "," + currentContext + ",";
+                   DateTime.Now.Minute + "_" + DateTime.Now.Second + "," + Time.time + "," + phase + "," +
+                   trial + "," + trialTimer.GetTimePassed() + "," + OutcomeInTrial + "," + currentGamblingType + "," + BetAmount + "," + CurrentPayout + "," + wallet;
         }
 
         // Singleton initiated on Awake()
