@@ -1198,12 +1198,56 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 78341568}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: Team1Odds.Array.size
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: Team2Odds.Array.size
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: Team1Names.Array.size
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: Team2Names.Array.size
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: 'Team1Odds.Array.data[0]'
       value: -120
       objectReference: {fileID: 0}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: 'Team1Odds.Array.data[1]'
       value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[3]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[4]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[5]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[6]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[7]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[8]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[9]'
+      value: -402
       objectReference: {fileID: 0}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: 'Team2Odds.Array.data[0]'
@@ -1214,12 +1258,92 @@ PrefabInstance:
       value: -142
       objectReference: {fileID: 0}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[3]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[4]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[5]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[6]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[7]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[8]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[9]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: 'Team1Names.Array.data[0]'
       value: Bills
       objectReference: {fileID: 0}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: 'Team1Names.Array.data[1]'
       value: 49ers
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[3]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[4]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[5]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[6]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[7]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[8]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[9]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[10]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[11]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[12]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[13]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[14]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[15]'
+      value: -402
       objectReference: {fileID: 0}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: 'Team2Names.Array.data[0]'
@@ -1229,9 +1353,113 @@ PrefabInstance:
       propertyPath: 'Team2Names.Array.data[1]'
       value: Eagles
       objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[3]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[4]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[5]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[6]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[7]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[8]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[9]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[10]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[11]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[12]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[13]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[14]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[15]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[10]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[11]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[12]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[13]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[14]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[15]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[10]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[11]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[12]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[13]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[14]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[15]'
+      value: Colts
+      objectReference: {fileID: 0}
     - target: {fileID: 7172657327384213367, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: m_Name
       value: NFLParlay4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8531460375300010652, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_Colors.m_NormalColor.a
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3373,7 +3601,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 882a3bcc555dc134d9add685b44a2614, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.8
   m_Pitch: 0.8
   Loop: 0
@@ -7725,12 +7953,56 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 78341568}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: Team1Odds.Array.size
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: Team2Odds.Array.size
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: Team1Names.Array.size
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: Team2Names.Array.size
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: 'Team1Odds.Array.data[0]'
       value: -110
       objectReference: {fileID: 0}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: 'Team1Odds.Array.data[1]'
       value: 240
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[3]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[4]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[5]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[6]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[7]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[8]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[9]'
+      value: -402
       objectReference: {fileID: 0}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: 'Team2Odds.Array.data[0]'
@@ -7741,6 +8013,34 @@ PrefabInstance:
       value: -625
       objectReference: {fileID: 0}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[3]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[4]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[5]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[6]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[7]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[8]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[9]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: 'Team1Names.Array.data[0]'
       value: 49ers
       objectReference: {fileID: 0}
@@ -7749,12 +8049,168 @@ PrefabInstance:
       value: Browns
       objectReference: {fileID: 0}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[3]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[4]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[5]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[6]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[7]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[8]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[9]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[10]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[11]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[12]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[13]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[14]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[15]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: 'Team2Names.Array.data[0]'
       value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[3]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[4]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[5]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[6]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[7]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[8]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[9]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[10]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[11]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[12]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[13]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[14]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[15]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[10]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[11]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[12]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[13]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[14]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[15]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[10]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[11]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[12]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[13]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[14]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[15]'
+      value: Colts
       objectReference: {fileID: 0}
     - target: {fileID: 7172657327384213367, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: m_Name
       value: NFLParlay3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8531460375300010652, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_Colors.m_NormalColor.a
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11732,12 +12188,56 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 78341568}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: Team1Odds.Array.size
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: Team2Odds.Array.size
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: Team1Names.Array.size
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: Team2Names.Array.size
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: 'Team1Odds.Array.data[0]'
       value: 700
       objectReference: {fileID: 0}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: 'Team1Odds.Array.data[1]'
       value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[3]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[4]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[5]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[6]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[7]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[8]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[9]'
+      value: -402
       objectReference: {fileID: 0}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: 'Team2Odds.Array.data[0]'
@@ -11748,12 +12248,92 @@ PrefabInstance:
       value: 205
       objectReference: {fileID: 0}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[3]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[4]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[5]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[6]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[7]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[8]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[9]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: 'Team1Names.Array.data[0]'
       value: Bears
       objectReference: {fileID: 0}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: 'Team1Names.Array.data[1]'
       value: Vikings
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[3]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[4]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[5]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[6]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[7]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[8]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[9]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[10]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[11]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[12]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[13]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[14]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[15]'
+      value: -402
       objectReference: {fileID: 0}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: 'Team2Names.Array.data[0]'
@@ -11763,9 +12343,113 @@ PrefabInstance:
       propertyPath: 'Team2Names.Array.data[1]'
       value: Charger
       objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[3]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[4]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[5]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[6]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[7]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[8]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[9]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[10]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[11]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[12]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[13]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[14]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[15]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[10]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[11]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[12]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[13]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[14]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[15]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[10]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[11]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[12]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[13]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[14]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[15]'
+      value: Colts
+      objectReference: {fileID: 0}
     - target: {fileID: 7172657327384213367, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: m_Name
       value: NFLParlay5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8531460375300010652, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_Colors.m_NormalColor.a
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19177,6 +19861,22 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 78341568}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: Team1Odds.Array.size
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: Team2Odds.Array.size
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: Team1Names.Array.size
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: Team2Names.Array.size
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: 'Team1Odds.Array.data[0]'
       value: 520
       objectReference: {fileID: 0}
@@ -19186,6 +19886,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: 'Team1Odds.Array.data[2]'
+      value: -650
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[3]'
+      value: -650
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[4]'
+      value: -650
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[5]'
+      value: -650
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[6]'
+      value: -650
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[7]'
+      value: -650
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[8]'
+      value: -650
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[9]'
       value: -650
       objectReference: {fileID: 0}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
@@ -19201,6 +19929,34 @@ PrefabInstance:
       value: 850
       objectReference: {fileID: 0}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[3]'
+      value: 850
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[4]'
+      value: 850
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[5]'
+      value: 850
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[6]'
+      value: 850
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[7]'
+      value: 850
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[8]'
+      value: 850
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[9]'
+      value: 850
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: 'Team1Names.Array.data[0]'
       value: Colts
       objectReference: {fileID: 0}
@@ -19213,6 +19969,58 @@ PrefabInstance:
       value: Ravens
       objectReference: {fileID: 0}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[3]'
+      value: Ravens
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[4]'
+      value: Ravens
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[5]'
+      value: Ravens
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[6]'
+      value: Ravens
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[7]'
+      value: Ravens
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[8]'
+      value: Ravens
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[9]'
+      value: Ravens
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[10]'
+      value: -650
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[11]'
+      value: -650
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[12]'
+      value: -650
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[13]'
+      value: -650
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[14]'
+      value: -650
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[15]'
+      value: -650
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: 'Team2Names.Array.data[0]'
       value: Cheifs
       objectReference: {fileID: 0}
@@ -19220,9 +20028,113 @@ PrefabInstance:
       propertyPath: 'Team2Names.Array.data[1]'
       value: Steelers
       objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[3]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[4]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[5]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[6]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[7]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[8]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[9]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[10]'
+      value: 850
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[11]'
+      value: 850
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[12]'
+      value: 850
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[13]'
+      value: 850
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[14]'
+      value: 850
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[15]'
+      value: 850
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[10]'
+      value: Ravens
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[11]'
+      value: Ravens
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[12]'
+      value: Ravens
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[13]'
+      value: Ravens
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[14]'
+      value: Ravens
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[15]'
+      value: Ravens
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[10]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[11]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[12]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[13]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[14]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[15]'
+      value: Colts
+      objectReference: {fileID: 0}
     - target: {fileID: 7172657327384213367, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: m_Name
       value: NFLParlay2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8531460375300010652, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_Colors.m_NormalColor.a
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22636,6 +23548,230 @@ PrefabInstance:
       propertyPath: cardManager
       value: 
       objectReference: {fileID: 78341568}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: Team1Odds.Array.size
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: Team2Odds.Array.size
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: Team1Names.Array.size
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: Team2Names.Array.size
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[3]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[4]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[5]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[6]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[7]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[8]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[9]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[3]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[4]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[5]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[6]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[7]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[8]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[9]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[3]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[4]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[5]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[6]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[7]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[8]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[9]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[10]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[11]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[12]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[13]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[14]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Odds.Array.data[15]'
+      value: -402
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[3]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[4]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[5]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[6]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[7]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[8]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[9]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[10]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[11]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[12]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[13]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[14]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Odds.Array.data[15]'
+      value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[10]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[11]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[12]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[13]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[14]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[15]'
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[10]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[11]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[12]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[13]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[14]'
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[15]'
+      value: Colts
+      objectReference: {fileID: 0}
     - target: {fileID: 7050347404024987161, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -22643,6 +23779,10 @@ PrefabInstance:
     - target: {fileID: 7172657327384213367, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: m_Name
       value: NFLParlay1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8531460375300010652, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_Colors.m_NormalColor.a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8762626291521699997, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: m_Enabled

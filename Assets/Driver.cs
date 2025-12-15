@@ -22,56 +22,121 @@ public class Driver : MonoBehaviour
     private int[][] SlotOutcomeRows = new int[][]
     {
         new int[] {3, 3, 1}, // NearMiss
-        // new int[] {5, 5, 5}, // Win
-        // new int[] {5, 3, 8}, // Lose
-        // new int[] {7, 7, 7},  // Win
-        // new int[] {2, 5, 9}, // Lose
-        // new int[] {5, 7, 6}, // Lose
-        // new int[] {0, 0, 0}, // Dummy for Effort Task
-        // new int[] {6, 7, 6} // Lose
-
+        new int[] {5, 5, 5}, // Win
+        new int[] {5, 3, 8}, // Lose
+        new int[] {7, 7, 7},  // Win
+        new int[] {2, 5, 9}, // Lose
+        new int[] {5, 7, 6}, // Lose
+        new int[] {0, 0, 0}, // Dummy for Effort Task
+        new int[] {6, 7, 6}, // Lose
+        new int[] {2, 7, 5}, // Lose
+        new int[] {1, 1, 1}, // Win
+        new int[] {4, 4, 4},  // Win
+        new int[] {4, 5, 4}, // NearMiss
+        new int[] {0, 8, 3}, // Lose
+        new int[] {6, 6, 6},  // Win
+        new int[] {6, 3, 1}, // Lose
+        new int[] {0,1,1} // NearMiss
     };
     private int[][] Parlay3Leg = new int[][]
     {
-        new int[] {1, 1, 1}, // Win
         new int[] {1, 1, 0}, // NearMiss
+        new int[] {1, 1, 1}, // Win
         new int[] {0, 0, 1}, // Lose
+        new int[] {1, 1, 1}, // Win
+        new int[] {0, 1, 0}, // Lose
+        new int[] {1, 0, 0}, // Lose
+        new int[] {0, 0, 0}, // Dummy for Effort Task
+        new int[] {0, 0, 0}, // Lose
         new int[] {0, 0, 1}, // Lose
-
+        new int[] {1, 1, 1}, // Win
+        new int[] {1, 1, 1}, // Win
+        new int[] {1, 0, 1}, // NearMiss
+        new int[] {0, 0, 1}, // Lose
+        new int[] {1, 1, 1}, // Win
+        new int[] {0, 0, 0}, // Lose
+        new int[] {0, 0, 0} // NearMiss
     };
 
     private int[][] Parlay4Leg = new int[][]
     {
-        new int[] {1, 1, 1, 1}, // Win
         new int[] {1, 1, 1, 0}, // NearMiss
+        new int[] {1, 1, 1, 1}, // Win
+        new int[] {0, 0, 1, 1}, // Lose
+        new int[] {1, 1, 1, 1}, // Win
+        new int[] {0, 1, 1, 0}, // Lose
+        new int[] {1, 0, 1, 0}, // Lose
+        new int[] {0, 0, 0, 0}, // Dummy for Effort Task
+        new int[] {0, 0, 1, 0}, // Lose
+        new int[] {0, 0, 1, 1}, // Lose
+        new int[] {1, 1, 1, 1}, // Win
+        new int[] {1, 1, 1, 1}, // Win
+        new int[] {1, 0, 1, 1}, // NearMiss
+        new int[] {0, 0, 1, 1}, // Lose
+        new int[] {1, 1, 1, 1}, // Win
         new int[] {0, 1, 0, 0}, // Lose
-        new int[] {1, 0, 0, 0}, // Lose
+        new int[] {0, 1, 1, 1} // NearMiss
+
     };
 
     private int[][] Parlay5Leg = new int[][]
     {
-        new int[] {1, 1, 1, 1, 1}, // Win
         new int[] {1, 1, 1, 1, 0}, // NearMiss
-        new int[] {1, 0, 1, 0, 0}, // Lose
-        new int[] {0, 0, 0, 1, 0}, // Lose
+        new int[] {1, 1, 1, 1, 1}, // Win
+        new int[] {0, 0, 1, 1, 0}, // Lose
+        new int[] {1, 1, 1, 1, 1}, // Win
+        new int[] {0, 1, 1, 0, 0}, // Lose
+        new int[] {0, 0, 1, 1, 0}, // Lose
+        new int[] {0, 0, 0, 0, 0}, // Dummy for Effort Task
+        new int[] {0, 0, 0, 0, 1}, // Lose
+        new int[] {0, 0, 0, 1, 1}, // Lose
+        new int[] {1, 1, 1, 1, 1}, // Win
+        new int[] {1, 1, 1, 1, 1}, // Win
+        new int[] {1, 0, 1, 1, 1}, // NearMiss
+        new int[] {0, 0, 0, 1, 1}, // Lose
+        new int[] {1, 1, 1, 1, 1}, // Win
+        new int[] {0, 1, 0, 1, 0}, // Lose
+        new int[] {0, 1, 1, 1, 1} // NearMiss
+
     };
 
 
     private OutcomeType[] outcomes = new OutcomeType[]
     {
-        OutcomeType.Win,
-        OutcomeType.NearMiss,
-        OutcomeType.Lose,
-        OutcomeType.Lose,
-        OutcomeType.Win,
-        OutcomeType.Win,
-        OutcomeType.NearMiss,
-        OutcomeType.Lose,
-        OutcomeType.Lose,
-        OutcomeType.Win,
-        OutcomeType.Win
-
+        OutcomeType.NearMiss, // {3, 3, 1}
+        OutcomeType.Win,      // {5, 5, 5}
+        OutcomeType.Lose,     // {5, 3, 8}
+        OutcomeType.Win,      // {7, 7, 7}
+        OutcomeType.Lose,     // {2, 5, 9}
+        OutcomeType.Lose,     // {5, 7, 6}
+        OutcomeType.Lose,     // {0, 0, 0} Dummy for Effort Task
+        OutcomeType.Lose,     // {6, 7, 6}
+        OutcomeType.Lose,     // {2, 7, 5}
+        OutcomeType.Win,      // {1, 1, 1}
+        OutcomeType.Win,      // {4, 4, 4}
+        OutcomeType.NearMiss, // {4, 5, 4}
+        OutcomeType.Lose,     // {0, 8, 3}
+        OutcomeType.Win,      // {6, 6, 6}
+        OutcomeType.Lose,     // {6, 3, 1}
+        OutcomeType.NearMiss,  // {0, 1, 1}
+        OutcomeType.NearMiss, // {3, 3, 1} // Start of Parlay
+        OutcomeType.Win,      // {5, 5, 5}
+        OutcomeType.Lose,     // {5, 3, 8}
+        OutcomeType.Win,      // {7, 7, 7}
+        OutcomeType.Lose,     // {2, 5, 9}
+        OutcomeType.Lose,     // {5, 7, 6}
+        OutcomeType.Lose,     // {0, 0, 0} Dummy for Effort Task
+        OutcomeType.Lose,     // {6, 7, 6}
+        OutcomeType.Lose,     // {2, 7, 5}
+        OutcomeType.Win,      // {1, 1, 1}
+        OutcomeType.Win,      // {4, 4, 4}
+        OutcomeType.NearMiss, // {4, 5, 4}
+        OutcomeType.Lose,     // {0, 8, 3}
+        OutcomeType.Win,      // {6, 6, 6}
+        OutcomeType.Lose,     // {6, 3, 1}
+        OutcomeType.NearMiss  // {0, 1, 1}
     };
+
 
     void Start()
     {
