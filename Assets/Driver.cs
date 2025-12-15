@@ -22,21 +22,21 @@ public class Driver : MonoBehaviour
     private int[][] SlotOutcomeRows = new int[][]
     {
         new int[] {3, 3, 1}, // NearMiss
-        new int[] {5, 5, 5}, // Win
-        new int[] {5, 3, 8}, // Lose
-        new int[] {7, 7, 7},  // Win
-        new int[] {2, 5, 9}, // Lose
-        new int[] {5, 7, 6}, // Lose
-        new int[] {0, 0, 0}, // Dummy for Effort Task
-        new int[] {6, 7, 6}, // Lose
-        new int[] {2, 7, 5}, // Lose
-        new int[] {1, 1, 1}, // Win
-        new int[] {4, 4, 4},  // Win
-        new int[] {4, 5, 4}, // NearMiss
-        new int[] {0, 8, 3}, // Lose
-        new int[] {6, 6, 6},  // Win
-        new int[] {6, 3, 1}, // Lose
-        new int[] {0,1,1} // NearMiss
+        // new int[] {5, 5, 5}, // Win
+        // new int[] {5, 3, 8}, // Lose
+        // new int[] {7, 7, 7},  // Win
+        // new int[] {2, 5, 9}, // Lose
+        // new int[] {5, 7, 6}, // Lose
+        // new int[] {0, 0, 0}, // Dummy for Effort Task
+        // new int[] {6, 7, 6}, // Lose
+        // new int[] {2, 7, 5}, // Lose
+        // new int[] {1, 1, 1}, // Win
+        // new int[] {4, 4, 4},  // Win
+        // new int[] {4, 5, 4}, // NearMiss
+        // new int[] {0, 8, 3}, // Lose
+        // new int[] {6, 6, 6},  // Win
+        // new int[] {6, 3, 1}, // Lose
+        // new int[] {0,1,1} // NearMiss
     };
     private int[][] Parlay3Leg = new int[][]
     {
@@ -160,7 +160,7 @@ public class Driver : MonoBehaviour
         if(sxr.GetTrial() == 6)
         {
             Debug.Log("Running Effort Task Trial");
-            StartCoroutine(RunEffortTaskTrial());
+            StartCoroutine(RunEffortTaskTrial(true));
             return;
         }
 
@@ -200,7 +200,7 @@ public class Driver : MonoBehaviour
         StartNextParlayTrial();
     }
 
-    private IEnumerator RunEffortTaskTrial()
+    private IEnumerator RunEffortTaskTrial(bool isSlot)
     {
         sxr.NextTrial();
         HideRayLine();
@@ -210,13 +210,23 @@ public class Driver : MonoBehaviour
         EffortTask.SetActive(true);
         FindObjectOfType<BallSpawner>().StartSpawning();
         FindObjectOfType<CountdownTimer>().StartCountdown();
-        yield return new WaitForSeconds(60f);
+        yield return new WaitForSeconds(45f);
         FindObjectOfType<BallSpawner>().StopSpawning();
         FindObjectOfType<BallSpawner>().DestroyAllBalls();
 
         EffortTask.SetActive(false);
-        SlotMachine.SetActive(true);
-        StartNextTrial();
+        if(isSlot)
+        {
+            SlotMachine.SetActive(true);
+            StartNextTrial();            
+        }
+        else
+        {
+            Parlay.SetActive(true);
+            ShowRayLine();
+            StartNextParlayTrial();
+        }
+
     }
 
     public void ParlayOutcome(int legCount)
@@ -258,7 +268,7 @@ public class Driver : MonoBehaviour
         if(sxr.GetTrial() == 6)
         {
             Debug.Log("Running Effort Task Trial");
-            StartCoroutine(RunEffortTaskTrial());
+            StartCoroutine(RunEffortTaskTrial(false));
             return;
         }
         Debug.Log($"Starting Parlay Trial {sxr.GetTrial()}");
@@ -271,7 +281,7 @@ public class Driver : MonoBehaviour
         Debug.Log($"Starting trial {sxr.GetTrial()} with outcome: {outcome}");
 
         betManager.StartNewTrial();
-
+        betManager.UpdateOddsText();
         while (!betManager.TrialCompleted)
         {
             yield return null;

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+
 public class ToggleButton : MonoBehaviour
 {
     public Color normalColor = Color.white;
@@ -8,6 +9,7 @@ public class ToggleButton : MonoBehaviour
    
     private bool isToggled = false;
     private Button button;
+    private ColorBlock originalColors;
    
     void Start()
     {
@@ -17,23 +19,22 @@ public class ToggleButton : MonoBehaviour
         {
             targetImage = GetComponent<Image>();
         }
-              
-        if (targetImage != null)
+        
+        if (button != null)
         {
-            targetImage.color = normalColor;
+            originalColors = button.colors;
         }
+              
+        UpdateButtonColors(false);
     }
    
     public void Toggle()
     {
         isToggled = !isToggled;
-        if (targetImage != null)
-        {
-            targetImage.color = isToggled ? toggledColor : normalColor;
-        }
+        UpdateButtonColors(isToggled);
     }
    
-    bool IsToggled()
+    public bool IsToggled()
     {
         return isToggled;
     }
@@ -41,9 +42,23 @@ public class ToggleButton : MonoBehaviour
     public void SetToggled(bool toggled)
     {
         isToggled = toggled;
-        if (targetImage != null)
+        UpdateButtonColors(isToggled);
+    }
+    
+    private void UpdateButtonColors(bool toggled)
+    {
+        if (button != null)
         {
-            targetImage.color = isToggled ? toggledColor : normalColor;
+            ColorBlock colors = button.colors;
+            Color baseColor = toggled ? toggledColor : normalColor;
+            
+            colors.normalColor = baseColor;
+            colors.highlightedColor = baseColor * 1.2f; // Slightly brighter on hover
+            colors.pressedColor = baseColor * 0.8f; // Slightly darker when pressed
+            colors.selectedColor = baseColor;
+            colors.disabledColor = baseColor * 0.5f;
+            
+            button.colors = colors;
         }
     }
 }

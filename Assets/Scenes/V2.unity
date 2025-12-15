@@ -8860,7 +8860,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countdownText: {fileID: 813323060}
-  startTime: 60
+  startTime: 45
 --- !u!4 &1033840004 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3295782612324876925, guid: 34c12b16e3cad5542bd2d6f0a98ee900, type: 3}
@@ -9734,7 +9734,7 @@ Transform:
   m_GameObject: {fileID: 1104954267}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -24.561714, y: -55.1, z: -120.3}
+  m_LocalPosition: {x: -24.561714, y: -45.4, z: -120.3}
   m_LocalScale: {x: 74.01396, y: 74.01396, z: 74.01396}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -20029,32 +20029,36 @@ PrefabInstance:
       value: Steelers
       objectReference: {fileID: 0}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team2Names.Array.data[2]'
+      value: 49ers
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: 'Team2Names.Array.data[3]'
-      value: Colts
+      value: 49ers
       objectReference: {fileID: 0}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: 'Team2Names.Array.data[4]'
-      value: Colts
+      value: 49ers
       objectReference: {fileID: 0}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: 'Team2Names.Array.data[5]'
-      value: Colts
+      value: 49ers
       objectReference: {fileID: 0}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: 'Team2Names.Array.data[6]'
-      value: Colts
+      value: 49ers
       objectReference: {fileID: 0}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: 'Team2Names.Array.data[7]'
-      value: Colts
+      value: 49ers
       objectReference: {fileID: 0}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: 'Team2Names.Array.data[8]'
-      value: Colts
+      value: 49ers
       objectReference: {fileID: 0}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: 'Team2Names.Array.data[9]'
-      value: Colts
+      value: 49ers
       objectReference: {fileID: 0}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: 'Team2Odds.Array.data[10]'
@@ -20106,27 +20110,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: 'Team2Names.Array.data[10]'
-      value: Colts
+      value: 49ers
       objectReference: {fileID: 0}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: 'Team2Names.Array.data[11]'
-      value: Colts
+      value: 49ers
       objectReference: {fileID: 0}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: 'Team2Names.Array.data[12]'
-      value: Colts
+      value: 49ers
       objectReference: {fileID: 0}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: 'Team2Names.Array.data[13]'
-      value: Colts
+      value: 49ers
       objectReference: {fileID: 0}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: 'Team2Names.Array.data[14]'
-      value: Colts
+      value: 49ers
       objectReference: {fileID: 0}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: 'Team2Names.Array.data[15]'
-      value: Colts
+      value: 49ers
       objectReference: {fileID: 0}
     - target: {fileID: 7172657327384213367, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: m_Name
@@ -21448,6 +21452,10 @@ PrefabInstance:
       propertyPath: rightLaser
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3295782610802991642, guid: 34c12b16e3cad5542bd2d6f0a98ee900, type: 3}
+      propertyPath: field of view
+      value: 155
+      objectReference: {fileID: 0}
     - target: {fileID: 3295782611278818921, guid: 34c12b16e3cad5542bd2d6f0a98ee900, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -22411,8 +22419,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1970160397}
-  - component: {fileID: 1970160413}
   - component: {fileID: 1970160412}
+  - component: {fileID: 1970160413}
   - component: {fileID: 1970160411}
   - component: {fileID: 1970160407}
   - component: {fileID: 1970160408}
@@ -23318,7 +23326,7 @@ Transform:
   m_GameObject: {fileID: 2110663369}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.353, y: 0.918, z: -0.801}
+  m_LocalPosition: {x: 2.353, y: 0.918, z: -0.888}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -23446,7 +23454,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 277694335575078779, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1300316775083640998, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: m_Pivot.x
@@ -23534,7 +23542,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5880665110841025472, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: betManager
@@ -23619,6 +23627,10 @@ PrefabInstance:
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: 'Team2Odds.Array.data[9]'
       value: 152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'Team1Names.Array.data[1]'
+      value: Bears
       objectReference: {fileID: 0}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: 'Team1Names.Array.data[3]'
@@ -23774,7 +23786,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7050347404024987161, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7172657327384213367, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: m_Name
@@ -23786,7 +23798,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8762626291521699997, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

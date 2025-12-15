@@ -5,7 +5,7 @@ using TMPro;
 public class CountdownTimer : MonoBehaviour
 {
     public TextMeshPro countdownText;
-    public float startTime = 60f;
+    public float startTime = 45f;
 
     private float currentTime;
 

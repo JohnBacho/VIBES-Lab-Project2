@@ -150,7 +150,7 @@ public class BetManager : MonoBehaviour
         yield return ResolveBet(lastLegWins);
     }
 
-    void UpdateOddsText()
+    public void UpdateOddsText()
     {
         for (int i = 0; i < togglePressInteractables.Count; i++)
         {
