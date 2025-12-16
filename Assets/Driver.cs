@@ -222,6 +222,7 @@ public class Driver : MonoBehaviour
 
         slotHandler.StartNewTrial();
         sxr.NextTrial();
+        slotHandler.rest();
         StartNextTrial();
     }
 
@@ -340,6 +341,7 @@ public class Driver : MonoBehaviour
         betManager.StartNewTrial();
         
         sxr.NextTrial();
+        betManager.ResetRound();
         StartNextParlayTrial();
     }
 

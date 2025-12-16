@@ -59,7 +59,7 @@ public class TogglePressInteractable : MonoBehaviour
 
                 int odds = Team1Odds[trial];
                 teamIndex = 1;
-                betManager.AddToCalculateOdds(odds, this); // Pass 'this' reference
+                betManager.AddToCalculateOdds(odds, this);
                 cardManager.SpawnCard(Team1Names[trial], odds, this);
             }
             else
@@ -69,7 +69,7 @@ public class TogglePressInteractable : MonoBehaviour
                 OddsTextTeam1.color = TextColorNormal;
                 OddsTextTeam2.color = TextColorNormal;
                 Debug.Log("Team 1 Deselected: " + team1Selected);
-                betManager.RemoveFromCalculateOdds(odds, this); // Pass 'this' reference
+                betManager.RemoveFromCalculateOdds(odds, this);
                 cardManager.RemoveCard(this);
                 teamIndex = 0;
             }
@@ -90,7 +90,7 @@ public class TogglePressInteractable : MonoBehaviour
 
                 int odds = Team2Odds[trial];
                 teamIndex = 2;
-                betManager.AddToCalculateOdds(odds, this); // Pass 'this' reference
+                betManager.AddToCalculateOdds(odds, this);
                 cardManager.SpawnCard(Team2Names[trial], odds, this);
             }
             else
@@ -100,7 +100,7 @@ public class TogglePressInteractable : MonoBehaviour
                 OddsTextTeam1.color = TextColorNormal;
                 OddsTextTeam2.color = TextColorNormal;
                 Debug.Log("Team 2 Deselected: " + team2Selected);
-                betManager.RemoveFromCalculateOdds(odds, this); // Pass 'this' reference
+                betManager.RemoveFromCalculateOdds(odds, this);
                 cardManager.RemoveCard(this);
                 teamIndex = 0;
             }

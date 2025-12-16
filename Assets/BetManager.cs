@@ -180,7 +180,6 @@ public class BetManager : MonoBehaviour
         CardManager.AnimateCardsColor(LegWins);
 
         yield return new WaitForSeconds(seconds);
-        MarkTrialComplete();
 
         if (LegWins.Sum() == decimalOddsList.Count)
         {
@@ -212,10 +211,10 @@ public class BetManager : MonoBehaviour
             LossText.text = "";
             WalletText.text = "";
         }
-        ResetRound();
+        MarkTrialComplete();
     }
 
-    private void ResetRound()
+    public void ResetRound()
     {
         currentBet = 0;
         sxr.SetBetAmount(0);

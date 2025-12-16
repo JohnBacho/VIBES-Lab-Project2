@@ -60,7 +60,7 @@ public class SlotHandler : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         yield return StartCoroutine(ResolveOutcome());
-        trialCompleted = true;
+        MarkTrialComplete();
 
         handle.ResetHandle();
     }
@@ -98,14 +98,18 @@ public class SlotHandler : MonoBehaviour
         }
         WinAudioSource.Stop();
         LoseAudioSource.Stop();
+    }
 
+    public void rest()
+    {
+        UpdateUI();
         WinText.text = "";
         LossText.text = "";
         walletText.text = "";
         currentBet = 0f;
         sxr.SetBetAmount(currentBet);   
-        sxr.SetPayout(currentBet * multiplier);   
-        UpdateUI();
+        sxr.SetPayout(currentBet * multiplier);
+        UpdateUI();   
     }
 
 

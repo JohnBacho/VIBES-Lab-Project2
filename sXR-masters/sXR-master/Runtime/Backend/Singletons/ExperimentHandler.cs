@@ -123,7 +123,7 @@ namespace sxr_internal
         {
             return subjectID + "," + DateTime.Today.Month + "_" + DateTime.Today.Day + "," + DateTime.Now.Hour + "_" +
                    DateTime.Now.Minute + "_" + DateTime.Now.Second + "," + Time.time + "," + phase + "," +
-                   trial + "," + trialTimer.GetTimePassed() + "," + OutcomeInTrial + "," + currentGamblingType + "," + BetAmount + "," + CurrentPayout + "," + wallet;
+                   trial + "," + trialTimer.GetTimePassed() + "," + OutcomeInTrial + "," + currentGamblingType + "," + BetAmount + "," + CurrentPayout + "," + wallet + ",";
         }
 
         // Singleton initiated on Awake()
