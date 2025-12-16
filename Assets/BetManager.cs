@@ -18,6 +18,10 @@ public class BetManager : MonoBehaviour
     public TextMeshPro CashOutPayoutText;
     public Image PlaceBetButtonImage;
     public Button PlaceBetButton;
+    public Image BetSlipButtonImage;
+    public Button BetSlipButton;
+    public TextMeshProUGUI BetSlipText;
+
 
     public GameObject MiddleUI;
     public GameObject CashOutWrapper;
@@ -39,7 +43,7 @@ public class BetManager : MonoBehaviour
     private bool trialCompleted = false;
 
 
-    private static float seconds = 4f;
+    private static float seconds = 4.5f;
     private bool canCashOut = false;
     private List<int> lastLegWins;
 
@@ -69,12 +73,20 @@ public class BetManager : MonoBehaviour
                 PlaceBetButtonImage.color = new Color(0.1058824f, 0.6235294f, 0.2745098f, 1f); // Green color
                 PlaceBetText.text = $"Place ${currentBet:0} Bet";
             }
-
-
         }
-        
-            PlaceBetText.text = $"Place ${currentBet:0} Bet";
-    }
+        if (oddsArray.Count < 3)
+        {
+            BetSlipButton.interactable = false;
+            BetSlipButtonImage.color = new Color(0.5471698f, 0.5471698f, 0.5471698f, 1f); // Gray color
+            BetSlipText.text = $"Select 3 or more parlays";
+        }
+        else
+        {
+            BetSlipButton.interactable = true;   
+            BetSlipButtonImage.color = new Color(0.1058824f, 0.6235294f, 0.2745098f, 1f); // Green color
+            BetSlipText.text = $"View Betslip";
+        }
+}
 
     void TurnOffUI()
     {
@@ -96,7 +108,6 @@ public class BetManager : MonoBehaviour
             activeToggles[toggle] = odds;
         }
         UpdateUI();
-
     }
 
     public void RemoveFromCalculateOdds(int odds, TogglePressInteractable toggle)
@@ -106,7 +117,6 @@ public class BetManager : MonoBehaviour
             int storedOdds = activeToggles[toggle];
             oddsArray.Remove(storedOdds);
             activeToggles.Remove(toggle);
-            Debug.Log($"Removed odds {storedOdds} from toggle. Total bets: {oddsArray.Count}");
         }
         UpdateUI();
     }
@@ -197,7 +207,7 @@ public class BetManager : MonoBehaviour
                 WinText.text = "";
             }
             WinText.text = $"YOU WIN ${Payout:0.00}";
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(.5f);
             WinningAudioSource.Stop();
             WinText.text = "";
             WalletText.text = "";
@@ -207,7 +217,7 @@ public class BetManager : MonoBehaviour
             TurnOffUI();
             LossText.text = $"You Lose!";
             WalletText.text = $"Wallet: ${GameManager.Instance.wallet:0.00}";
-            yield return new WaitForSeconds(seconds);
+            yield return new WaitForSeconds(4.5f);
             LossText.text = "";
             WalletText.text = "";
         }

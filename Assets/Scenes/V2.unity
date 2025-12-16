@@ -9758,7 +9758,7 @@ GameObject:
   - component: {fileID: 1125223871}
   - component: {fileID: 1125223875}
   m_Layer: 6
-  m_Name: SubmitButton
+  m_Name: ViewBetslip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9773,7 +9773,7 @@ RectTransform:
   m_GameObject: {fileID: 1125223869}
   m_LocalRotation: {x: 0.19707163, y: -0, z: -0, w: 0.9803891}
   m_LocalPosition: {x: 0, y: 0, z: -6.2}
-  m_LocalScale: {x: 0.45074502, y: 0.5366012, z: 0.41743872}
+  m_LocalScale: {x: 0.45074502, y: 0.8051164, z: 0.41743872}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1165940872}
@@ -9842,7 +9842,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1125223873}
   m_OnClick:
     m_PersistentCalls:
@@ -9884,7 +9884,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -10058,14 +10058,14 @@ RectTransform:
   m_GameObject: {fileID: 1165940871}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.92626894, y: 0.77736324, z: 1}
+  m_LocalScale: {x: 0.92626894, y: 0.518104, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1125223870}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000015258789, y: -5.0726223}
+  m_AnchoredPosition: {x: 0, y: -3}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1165940873
@@ -10088,7 +10088,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: View Betslip
+  m_text: Select 3 or more parlays
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -10097,8 +10097,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -19264,8 +19264,8 @@ Transform:
   m_GameObject: {fileID: 1632042486}
   serializedVersion: 2
   m_LocalRotation: {x: 0.09003188, y: 0.70135176, z: 0.09003188, w: 0.70135176}
-  m_LocalPosition: {x: 0.351, y: 1.155, z: -0.419}
-  m_LocalScale: {x: 0.24499997, y: 0.053048097, z: 0.119481415}
+  m_LocalPosition: {x: 0.351, y: 1.147, z: -0.421}
+  m_LocalScale: {x: 0.24499997, y: 0.058135413, z: 0.119481415}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 849091839}
@@ -22498,6 +22498,9 @@ MonoBehaviour:
   CashOutPayoutText: {fileID: 68805306}
   PlaceBetButtonImage: {fileID: 2026048117}
   PlaceBetButton: {fileID: 2026048116}
+  BetSlipButtonImage: {fileID: 1125223873}
+  BetSlipButton: {fileID: 1125223872}
+  BetSlipText: {fileID: 1165940873}
   MiddleUI: {fileID: 613081695}
   CashOutWrapper: {fileID: 1622314191}
   MiddleParlayUI: {fileID: 78341564}
@@ -22695,7 +22698,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 2026048117}
   m_OnClick:
     m_PersistentCalls:

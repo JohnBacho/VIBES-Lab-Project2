@@ -32,21 +32,21 @@ public class Driver : MonoBehaviour
     private int[][] SlotOutcomeRows = new int[][]
     {
         new int[] {3, 3, 1}, // NearMiss
-        // new int[] {5, 5, 5}, // Win
-        // new int[] {5, 3, 8}, // Lose
-        // new int[] {7, 7, 7},  // Win
-        // new int[] {2, 5, 9}, // Lose
-        // new int[] {5, 7, 6}, // Lose
-        // new int[] {0, 0, 0}, // Dummy for Effort Task
-        // new int[] {6, 7, 6}, // Lose
-        // new int[] {2, 7, 5}, // Lose
-        // new int[] {1, 1, 1}, // Win
-        // new int[] {4, 4, 4},  // Win
-        // new int[] {4, 5, 4}, // NearMiss
-        // new int[] {0, 8, 3}, // Lose
-        // new int[] {6, 6, 6},  // Win
-        // new int[] {6, 3, 1}, // Lose
-        // new int[] {0,1,1} // NearMiss
+        new int[] {5, 5, 5}, // Win
+        new int[] {5, 3, 8}, // Lose
+        new int[] {7, 7, 7},  // Win
+        new int[] {2, 5, 9}, // Lose
+        new int[] {5, 7, 6}, // Lose
+        new int[] {0, 0, 0}, // Dummy for Effort Task
+        new int[] {6, 7, 6}, // Lose
+        new int[] {2, 7, 5}, // Lose
+        new int[] {1, 1, 1}, // Win
+        new int[] {4, 4, 4},  // Win
+        new int[] {4, 5, 4}, // NearMiss
+        new int[] {0, 8, 3}, // Lose
+        new int[] {6, 6, 6},  // Win
+        new int[] {6, 3, 1}, // Lose
+        new int[] {0,1,1} // NearMiss
     };
     private int[][] Parlay3Leg = new int[][]
     {
