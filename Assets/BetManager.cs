@@ -45,6 +45,7 @@ public class BetManager : MonoBehaviour
 
     private List<int> oddsArray = new List<int>();
     private List<float> decimalOddsList = new List<float>();
+    private Dictionary<TogglePressInteractable, int> activeToggles = new Dictionary<TogglePressInteractable, int>();
 
     public void UpdateUI()
     {
@@ -87,14 +88,26 @@ public class BetManager : MonoBehaviour
         MiddleParlayUI.SetActive(true);
     }
 
-    public void AddToCalculateOdds(int odds)
+    public void AddToCalculateOdds(int odds, TogglePressInteractable toggle)
     {
-        oddsArray.Add(odds);
+        if (!activeToggles.ContainsKey(toggle))
+        {
+            oddsArray.Add(odds);
+            activeToggles[toggle] = odds;
+        }
+        UpdateUI();
+
     }
 
-    public void RemoveFromCalculateOdds(int odds)
+    public void RemoveFromCalculateOdds(int odds, TogglePressInteractable toggle)
     {
-        oddsArray.Remove(odds);
+        if (activeToggles.ContainsKey(toggle))
+        {
+            int storedOdds = activeToggles[toggle];
+            oddsArray.Remove(storedOdds);
+            activeToggles.Remove(toggle);
+            Debug.Log($"Removed odds {storedOdds} from toggle. Total bets: {oddsArray.Count}");
+        }
         UpdateUI();
     }
 
@@ -210,6 +223,7 @@ public class BetManager : MonoBehaviour
         CardManager.RemoveAllCards();
         oddsArray.Clear();
         decimalOddsList.Clear();
+        activeToggles.Clear();
 
         leaderboard.SetMoney("You", GameManager.Instance.wallet);
 
