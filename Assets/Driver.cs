@@ -153,15 +153,21 @@ public class Driver : MonoBehaviour
         SlotMachine.SetActive(true);
         Parlay.SetActive(false);
         EffortTask.SetActive(false);
+        StartCoroutine(DelayedStart());
+    }
+
+    IEnumerator DelayedStart()
+    {
+        yield return null;
         StartDataTrackers();
         StartNextTrial();
     }
+
 
     void StartDataTrackers()
     {
         sxr.StartRecordingCameraPos();
         sxr.StartRecordingEyeTrackerInfo();
-        sxr.WriteHeaderToTaggedFile("SummaryGambling", headers);
         SetGamblingType();
     }
 
@@ -250,6 +256,7 @@ public class Driver : MonoBehaviour
         sxr.NextTrial();
         HideRayLine();
         Debug.Log("Starting Effort Task Trial");
+        sxr.SetGamblingType(GamblingType.EffortTask.ToString());
         SlotMachine.SetActive(false);
         Parlay.SetActive(false);
         EffortTask.SetActive(true);

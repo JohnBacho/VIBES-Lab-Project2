@@ -7,7 +7,7 @@ using System.Linq;
 
 public class BetManager : MonoBehaviour
 {
-    public float currentBet = 0f;
+    private float currentBet = 0f;
     public TextMeshPro WagerText;
     public TextMeshPro ToWinText;
     public TextMeshProUGUI PlaceBetText;
@@ -203,7 +203,7 @@ public class BetManager : MonoBehaviour
             {
                 yield return new WaitForSeconds(0.5f);
                 WinText.text = $"YOU WIN ${Payout:0.00}";
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(0.35f);
                 WinText.text = "";
             }
             WinText.text = $"YOU WIN ${Payout:0.00}";
@@ -217,7 +217,7 @@ public class BetManager : MonoBehaviour
             TurnOffUI();
             LossText.text = $"You Lose!";
             WalletText.text = $"Wallet: ${GameManager.Instance.wallet:0.00}";
-            yield return new WaitForSeconds(4.5f);
+            yield return new WaitForSeconds(4f);
             LossText.text = "";
             WalletText.text = "";
         }

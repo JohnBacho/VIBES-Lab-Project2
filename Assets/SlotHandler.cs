@@ -14,7 +14,7 @@ public class SlotHandler : MonoBehaviour
     public AudioSource LoseAudioSource;
 
 
-    public float currentBet = 0f;
+    private float currentBet = 0f;
     private int multiplier = 2;
 
     [SerializeField] private Reel[] reels;
@@ -24,7 +24,7 @@ public class SlotHandler : MonoBehaviour
     private int[] storedOutcome;
     public bool TrialCompleted => trialCompleted;
     private bool trialCompleted = false;
-
+    private bool betPlaced = false;
     private void Awake()
     {
         UpdateUI();
@@ -61,8 +61,6 @@ public class SlotHandler : MonoBehaviour
 
         yield return StartCoroutine(ResolveOutcome());
         MarkTrialComplete();
-
-        handle.ResetHandle();
     }
 
     private IEnumerator ResolveOutcome()
@@ -80,7 +78,7 @@ public class SlotHandler : MonoBehaviour
             {
                 yield return new WaitForSeconds(0.5f);
                 WinText.text = $"YOU WIN ${winnings}";
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(0.35f);
                 WinText.text = "";
             }
             WinText.text = $"YOU WIN ${winnings}";
@@ -102,14 +100,16 @@ public class SlotHandler : MonoBehaviour
 
     public void rest()
     {
-        UpdateUI();
+        handle.ResetHandle();
         WinText.text = "";
         LossText.text = "";
         walletText.text = "";
         currentBet = 0f;
         sxr.SetBetAmount(currentBet);   
         sxr.SetPayout(currentBet * multiplier);
-        UpdateUI();   
+        UpdateUI();
+        betPlaced = false;
+        StartCoroutine(PlaceBetText());
     }
 
 
@@ -120,12 +120,35 @@ public class SlotHandler : MonoBehaviour
         if (betText != null)
         {
             betText.text = $"Wager: ${currentBet:0.00}";
-            sxr.SetBetAmount(currentBet);   
+            sxr.SetBetAmount(currentBet);  
         }
         if (EstimatedPayout != null)
         {
             sxr.SetPayout(currentBet * multiplier);   
             EstimatedPayout.text = $"To Win: ${currentBet * multiplier:0.00}";
+        }
+
+        if (sxr.GetTrial() == 0 & !betPlaced)
+        {
+            StartCoroutine(PlaceBetText());
+        } 
+    }
+
+    IEnumerator PlaceBetText()
+    {
+        EstimatedPayout.text = "";
+        while (!betPlaced)
+        {
+            if (!betPlaced)
+            {
+                betText.text = "Place a bet\nTo Continue";                
+            }
+            yield return new WaitForSeconds(0.8f);
+            if (!betPlaced)
+            {
+                betText.text = "";                
+            }
+            yield return new WaitForSeconds(0.5f);
         }
     }
 
@@ -135,6 +158,7 @@ public class SlotHandler : MonoBehaviour
 
         currentBet += 1f;
         GameManager.Instance.RemoveWallet(1f);
+        betPlaced = true;
         UpdateUI();
     }
 
