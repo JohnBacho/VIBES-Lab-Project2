@@ -253,7 +253,6 @@ public class Driver : MonoBehaviour
 
     private IEnumerator RunEffortTaskTrial(bool isSlot)
     {
-        sxr.NextTrial();
         HideRayLine();
         Debug.Log("Starting Effort Task Trial");
         sxr.SetGamblingType(GamblingType.EffortTask.ToString());
@@ -265,6 +264,7 @@ public class Driver : MonoBehaviour
         yield return new WaitForSeconds(45f);
         FindObjectOfType<BallSpawner>().StopSpawning();
         FindObjectOfType<BallSpawner>().DestroyAllBalls();
+        sxr.NextTrial();
 
         EffortTask.SetActive(false);
         if(isSlot)
