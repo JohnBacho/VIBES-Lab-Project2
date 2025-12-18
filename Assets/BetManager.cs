@@ -60,7 +60,6 @@ public class BetManager : MonoBehaviour
 
 
     private static float seconds = 4.5f;
-    private bool canCashOut = false;
     private List<int> lastLegWins;
 
     private List<int> oddsArray = new List<int>();
@@ -82,7 +81,7 @@ public class BetManager : MonoBehaviour
             {
                 PlaceBetButton.interactable = false;
                 PlaceBetButtonImage.color = new Color(0.5471698f, 0.5471698f, 0.5471698f, 1f); // Gray color
-                PlaceBetText.text = $"Enter a wager to place a bet";
+                PlaceBetText.text = $"Place a bet\nto continue";
             }
             else
             {
@@ -123,7 +122,7 @@ public class BetManager : MonoBehaviour
         {
             oddsArray.Add(odds);
             activeToggles[toggle] = odds;
-            currentParlaySelections.Add(new ParlaySelection(teamName, odds, toggle)); // Pass toggle
+            currentParlaySelections.Add(new ParlaySelection(teamName, odds, toggle));
             sxr.SetParlaySelection(GetParlayDataString());
         }
         UpdateUI();

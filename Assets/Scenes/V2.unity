@@ -431,6 +431,177 @@ Transform:
   - {fileID: 1449148824}
   m_Father: {fileID: 1549538952}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &45082237
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 45082238}
+  - component: {fileID: 45082240}
+  - component: {fileID: 45082239}
+  m_Layer: 6
+  m_Name: Team2Odds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &45082238
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45082237}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.6}
+  m_LocalScale: {x: 7.3936768, y: 3.3983262, z: 7.3936768}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 924004254}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 38, y: -6.600012}
+  m_SizeDelta: {x: 9.47, y: 4.22}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &45082239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45082237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: +350
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: cf3647e1b9094ce4981b4de9fbd5396f, type: 2}
+  m_sharedMaterial: {fileID: 3465709256470760089, guid: cf3647e1b9094ce4981b4de9fbd5396f, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4284167967
+  m_fontColor: {r: 0.12156863, g: 0.21568628, b: 0.35686275, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 40
+  m_fontSizeBase: 40
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 1
+  m_HorizontalAlignment: 4
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 2.71
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 0
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  _SortingLayer: 0
+  _SortingLayerID: 0
+  _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 45082240}
+  m_maskType: 0
+--- !u!23 &45082240
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45082237}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 3465709256470760089, guid: cf3647e1b9094ce4981b4de9fbd5396f, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &68228383
 GameObject:
   m_ObjectHideFlags: 0
@@ -1105,6 +1276,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 684920260}
     m_Modifications:
+    - target: {fileID: 850327783043880787, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
     - target: {fileID: 1300316775083640998, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1185,6 +1360,98 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1584128334903261816, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 9.7295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1584128334903261816, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 3.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 1584128334903261816, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1584128334903261816, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -35.971
+      objectReference: {fileID: 0}
+    - target: {fileID: 1584128334903261816, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -7.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 2518535115860824292, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_fontSize
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 2518535115860824292, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 2518535115860824292, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2518535115860824292, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131798584209589225, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 9.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131798584209589225, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 3.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131798584209589225, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131798584209589225, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -35
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131798584209589225, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 6.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641772175378503868, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_fontSize
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641772175378503868, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+    - target: {fileID: 4641772175378503868, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641772175378503868, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641772175378503868, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+    - target: {fileID: 4641772175378503868, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641772175378503868, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: Team1Text
+      value: 
+      objectReference: {fileID: 1193860144}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: Team2Text
+      value: 
+      objectReference: {fileID: 1453420972}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: betManager
       value: 
@@ -1197,6 +1464,14 @@ PrefabInstance:
       propertyPath: cardManager
       value: 
       objectReference: {fileID: 78341568}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: OddsTextTeam1
+      value: 
+      objectReference: {fileID: 426555786}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: OddsTextTeam2
+      value: 
+      objectReference: {fileID: 1136705608}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: Team1Odds.Array.size
       value: 16
@@ -1453,6 +1728,250 @@ PrefabInstance:
       propertyPath: 'Team2Names.Array.data[15]'
       value: Colts
       objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team1Name
+      value: Packers
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team1Odds
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team2Name
+      value: Bears
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team2Odds
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team1Name
+      value: Chiefs
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team1Odds
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team2Name
+      value: Titans
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team2Odds
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[2].Team1Name
+      value: Chiefs
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[2].Team1Odds
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[2].Team2Name
+      value: Titans
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[2].Team2Odds
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[3].Team1Name
+      value: Chiefs
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[3].Team1Odds
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[3].Team2Name
+      value: Titans
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[3].Team2Odds
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[4].Team1Name
+      value: Chiefs
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[4].Team1Odds
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[4].Team2Name
+      value: Titans
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[4].Team2Odds
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[5].Team1Name
+      value: Chiefs
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[5].Team1Odds
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[5].Team2Name
+      value: Titans
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[5].Team2Odds
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[6].Team1Name
+      value: Chiefs
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[6].Team1Odds
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[6].Team2Name
+      value: Titans
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[6].Team2Odds
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[7].Team1Name
+      value: Chiefs
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[7].Team1Odds
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[7].Team2Name
+      value: Titans
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[7].Team2Odds
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[8].Team1Name
+      value: Chiefs
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[8].Team1Odds
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[8].Team2Name
+      value: Titans
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[8].Team2Odds
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[9].Team1Name
+      value: Chiefs
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[9].Team1Odds
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[9].Team2Name
+      value: Titans
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[9].Team2Odds
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[10].Team1Name
+      value: Chiefs
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[10].Team1Odds
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[10].Team2Name
+      value: Titans
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[10].Team2Odds
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[11].Team1Name
+      value: Chiefs
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[11].Team1Odds
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[11].Team2Name
+      value: Titans
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[11].Team2Odds
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[12].Team1Name
+      value: Chiefs
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[12].Team1Odds
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[12].Team2Name
+      value: Titans
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[12].Team2Odds
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[13].Team1Name
+      value: Chiefs
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[13].Team1Odds
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[13].Team2Name
+      value: Titans
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[13].Team2Odds
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[14].Team1Name
+      value: Chiefs
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[14].Team1Odds
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[14].Team2Name
+      value: Titans
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[14].Team2Odds
+      value: 130
+      objectReference: {fileID: 0}
     - target: {fileID: 7172657327384213367, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: m_Name
       value: NFLParlay4
@@ -1462,8 +1981,24 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5900737991013920678, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+    - {fileID: 2692669918974398897, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+    - {fileID: 8319287849180815933, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+    - {fileID: 692642374899291978, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1300316775083640998, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1193860143}
+    - targetCorrespondingSourceObject: {fileID: 1300316775083640998, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1453420971}
+    - targetCorrespondingSourceObject: {fileID: 1300316775083640998, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 426555785}
+    - targetCorrespondingSourceObject: {fileID: 1300316775083640998, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1136705607}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7172657327384213367, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       insertIndex: -1
@@ -1472,18 +2007,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 1977928885123793838, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 692642374899291978, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 8319287849180815933, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 2692669918974398897, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 5900737991013920678, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
@@ -1824,14 +2347,14 @@ RectTransform:
   m_GameObject: {fileID: 145444046}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2345573, y: 1, z: 1}
+  m_LocalScale: {x: 1.5791825, y: 1.3107704, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1182217482}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 14.4, y: 0}
+  m_AnchoredPosition: {x: -6.3, y: -0.000030517578}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &145444048
@@ -1856,8 +2379,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Go Back
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
+  m_sharedMaterial: {fileID: -5539102107483663143, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1881,8 +2404,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 17
+  m_fontSizeBase: 17
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2332,6 +2855,177 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 177096596}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &178065222
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 178065223}
+  - component: {fileID: 178065225}
+  - component: {fileID: 178065224}
+  m_Layer: 6
+  m_Name: Team2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &178065223
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178065222}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.50000954}
+  m_LocalScale: {x: 7.3936768, y: 3.3983262, z: 7.3936768}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1710458147}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -35.899982, y: -7.2}
+  m_SizeDelta: {x: 9.75, y: 3.06}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &178065224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178065222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Jets
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
+  m_sharedMaterial: {fileID: -5539102107483663143, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 25.25
+  m_fontSizeBase: 24
+  m_fontWeight: 400
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 20
+  m_fontSizeMax: 26
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 0
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  _SortingLayer: 0
+  _SortingLayerID: 0
+  _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 178065225}
+  m_maskType: 0
+--- !u!23 &178065225
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178065222}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: -5539102107483663143, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &186654297
 GameObject:
   m_ObjectHideFlags: 0
@@ -2548,8 +3242,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
+  m_sharedMaterial: {fileID: -5539102107483663143, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2638,7 +3332,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: -5539102107483663143, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2749,15 +3443,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: WAGER
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
+  m_sharedMaterial: {fileID: -5539102107483663143, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4289769648
+  m_fontColor: {r: 0.6901961, g: 0.6901961, b: 0.6901961, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2774,8 +3468,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 71.8
-  m_fontSizeBase: 71.8
+  m_fontSize: 55
+  m_fontSizeBase: 55
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2839,7 +3533,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: -5539102107483663143, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3910,6 +4604,177 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1991661435528208516, guid: ee10902f936fcae41a04432dd2e0aacd, type: 3}
   m_PrefabInstance: {fileID: 246862861}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &426555784
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 426555785}
+  - component: {fileID: 426555787}
+  - component: {fileID: 426555786}
+  m_Layer: 6
+  m_Name: Team1Odds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &426555785
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426555784}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.6}
+  m_LocalScale: {x: 7.3936768, y: 3.3983262, z: 7.3936768}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 81987170}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 34.6, y: 8.100007}
+  m_SizeDelta: {x: 10.32, y: 3.76}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &426555786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426555784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: -350
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: cf3647e1b9094ce4981b4de9fbd5396f, type: 2}
+  m_sharedMaterial: {fileID: 3465709256470760089, guid: cf3647e1b9094ce4981b4de9fbd5396f, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4284167967
+  m_fontColor: {r: 0.12156863, g: 0.21568628, b: 0.35686275, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 40
+  m_fontSizeBase: 40
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 1
+  m_HorizontalAlignment: 4
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 4
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 0
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  _SortingLayer: 0
+  _SortingLayerID: 0
+  _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 426555787}
+  m_maskType: 0
+--- !u!23 &426555787
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426555784}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 3465709256470760089, guid: cf3647e1b9094ce4981b4de9fbd5396f, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!4 &428155926 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2549993465544934099, guid: ee10902f936fcae41a04432dd2e0aacd, type: 3}
@@ -4841,6 +5706,348 @@ Transform:
   - {fileID: 2097142141}
   m_Father: {fileID: 1549538952}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &575331582
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 575331583}
+  - component: {fileID: 575331585}
+  - component: {fileID: 575331584}
+  m_Layer: 6
+  m_Name: Team1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &575331583
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575331582}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.6}
+  m_LocalScale: {x: 7.3936768, y: 3.3983262, z: 7.3936768}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 924004254}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -35.2, y: 4.000004}
+  m_SizeDelta: {x: 9.88, y: 4.97}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &575331584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575331582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Browns
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
+  m_sharedMaterial: {fileID: -5539102107483663143, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 26
+  m_fontSizeBase: 24
+  m_fontWeight: 400
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 20
+  m_fontSizeMax: 26
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 0
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  _SortingLayer: 0
+  _SortingLayerID: 0
+  _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 575331585}
+  m_maskType: 0
+--- !u!23 &575331585
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575331582}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: -5539102107483663143, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &595766540
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 595766541}
+  - component: {fileID: 595766543}
+  - component: {fileID: 595766542}
+  m_Layer: 6
+  m_Name: Team2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &595766541
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595766540}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.6}
+  m_LocalScale: {x: 7.3936768, y: 3.3983262, z: 7.3936768}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 924004254}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -35.7, y: -7.4000015}
+  m_SizeDelta: {x: 9.75, y: 3.06}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &595766542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595766540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Jets
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
+  m_sharedMaterial: {fileID: -5539102107483663143, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 25.25
+  m_fontSizeBase: 24
+  m_fontWeight: 400
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 20
+  m_fontSizeMax: 26
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 0
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  _SortingLayer: 0
+  _SortingLayerID: 0
+  _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 595766543}
+  m_maskType: 0
+--- !u!23 &595766543
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595766540}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: -5539102107483663143, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1001 &598299011
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5322,7 +6529,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.431, y: -0.6840002}
+  m_AnchoredPosition: {x: -0.431, y: -0.6670001}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &624065553
@@ -5345,7 +6552,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 3465709256470760089, guid: cf3647e1b9094ce4981b4de9fbd5396f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5389,8 +6596,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: $1000
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cf3647e1b9094ce4981b4de9fbd5396f, type: 2}
+  m_sharedMaterial: {fileID: 3465709256470760089, guid: cf3647e1b9094ce4981b4de9fbd5396f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5414,8 +6621,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 71.8
-  m_fontSizeBase: 71.8
+  m_fontSize: 85
+  m_fontSizeBase: 85
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5424,7 +6631,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: 8
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -5879,7 +7086,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10.5, y: 52.333447}
+  m_AnchoredPosition: {x: 12.8, y: 55.1}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &671023161
@@ -5904,8 +7111,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Parlays
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
+  m_sharedMaterial: {fileID: -5539102107483663143, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5929,8 +7136,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5994,7 +7201,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: -5539102107483663143, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6045,7 +7252,7 @@ Transform:
   m_LocalScale: {x: 74.01396, y: 74.01396, z: 74.01396}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 730821206844592974}
+  - {fileID: 1030657854734029223}
   - {fileID: 1710458147}
   - {fileID: 924004254}
   - {fileID: 81987170}
@@ -6774,14 +7981,14 @@ RectTransform:
   m_GameObject: {fileID: 774206607}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2345573, y: 1, z: 1}
+  m_LocalScale: {x: 1.5791825, y: 1.3107704, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1182217482}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -61.52531, y: 5}
+  m_AnchoredPosition: {x: -62.91655, y: 6.5538445}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &774206609
@@ -7141,8 +8348,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cf3647e1b9094ce4981b4de9fbd5396f, type: 2}
+  m_sharedMaterial: {fileID: 3465709256470760089, guid: cf3647e1b9094ce4981b4de9fbd5396f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7176,7 +8383,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: 9
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -7231,7 +8438,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 3465709256470760089, guid: cf3647e1b9094ce4981b4de9fbd5396f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7269,7 +8476,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.041, y: -0.073}
+  m_AnchoredPosition: {x: -0.041, y: -0.201}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &825040806
@@ -7940,6 +9147,86 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1584128334903261816, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 9.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 1584128334903261816, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 3.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1584128334903261816, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1584128334903261816, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -35.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 1584128334903261816, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -7.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 2518535115860824292, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_fontSize
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 2518535115860824292, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 2518535115860824292, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2518535115860824292, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131798584209589225, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 9.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131798584209589225, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 3.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131798584209589225, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.49999878
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131798584209589225, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -35.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131798584209589225, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 6.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641772175378503868, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_fontSize
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641772175378503868, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641772175378503868, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641772175378503868, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: Team1Text
+      value: 
+      objectReference: {fileID: 575331584}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: Team2Text
+      value: 
+      objectReference: {fileID: 595766542}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: betManager
       value: 
@@ -7952,6 +9239,14 @@ PrefabInstance:
       propertyPath: cardManager
       value: 
       objectReference: {fileID: 78341568}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: OddsTextTeam1
+      value: 
+      objectReference: {fileID: 2129903451}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: OddsTextTeam2
+      value: 
+      objectReference: {fileID: 45082239}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: Team1Odds.Array.size
       value: 16
@@ -8204,6 +9499,250 @@ PrefabInstance:
       propertyPath: 'Team2Names.Array.data[15]'
       value: Colts
       objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team1Name
+      value: Dophins
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team1Odds
+      value: 380
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team2Name
+      value: Cots
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team2Odds
+      value: -320
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team1Name
+      value: Rams
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team1Odds
+      value: -110
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team2Name
+      value: Seahawks
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team2Odds
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[2].Team1Name
+      value: Rams
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[2].Team1Odds
+      value: -110
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[2].Team2Name
+      value: Seahawks
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[2].Team2Odds
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[3].Team1Name
+      value: Rams
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[3].Team1Odds
+      value: -110
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[3].Team2Name
+      value: Seahawks
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[3].Team2Odds
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[4].Team1Name
+      value: Rams
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[4].Team1Odds
+      value: -110
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[4].Team2Name
+      value: Seahawks
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[4].Team2Odds
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[5].Team1Name
+      value: Rams
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[5].Team1Odds
+      value: -110
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[5].Team2Name
+      value: Seahawks
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[5].Team2Odds
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[6].Team1Name
+      value: Rams
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[6].Team1Odds
+      value: -110
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[6].Team2Name
+      value: Seahawks
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[6].Team2Odds
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[7].Team1Name
+      value: Rams
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[7].Team1Odds
+      value: -110
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[7].Team2Name
+      value: Seahawks
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[7].Team2Odds
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[8].Team1Name
+      value: Rams
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[8].Team1Odds
+      value: -110
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[8].Team2Name
+      value: Seahawks
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[8].Team2Odds
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[9].Team1Name
+      value: Rams
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[9].Team1Odds
+      value: -110
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[9].Team2Name
+      value: Seahawks
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[9].Team2Odds
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[10].Team1Name
+      value: Rams
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[10].Team1Odds
+      value: -110
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[10].Team2Name
+      value: Seahawks
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[10].Team2Odds
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[11].Team1Name
+      value: Rams
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[11].Team1Odds
+      value: -110
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[11].Team2Name
+      value: Seahawks
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[11].Team2Odds
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[12].Team1Name
+      value: Rams
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[12].Team1Odds
+      value: -110
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[12].Team2Name
+      value: Seahawks
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[12].Team2Odds
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[13].Team1Name
+      value: Rams
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[13].Team1Odds
+      value: -110
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[13].Team2Name
+      value: Seahawks
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[13].Team2Odds
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[14].Team1Name
+      value: Rams
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[14].Team1Odds
+      value: -110
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[14].Team2Name
+      value: Seahawks
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[14].Team2Odds
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 7172657327384213367, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: m_Name
       value: NFLParlay3
@@ -8213,8 +9752,24 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5900737991013920678, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+    - {fileID: 2692669918974398897, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+    - {fileID: 8319287849180815933, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+    - {fileID: 692642374899291978, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1300316775083640998, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 575331583}
+    - targetCorrespondingSourceObject: {fileID: 1300316775083640998, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 595766541}
+    - targetCorrespondingSourceObject: {fileID: 1300316775083640998, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2129903450}
+    - targetCorrespondingSourceObject: {fileID: 1300316775083640998, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 45082238}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7172657327384213367, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       insertIndex: -1
@@ -8223,18 +9778,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 1977928885123793838, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 692642374899291978, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 8319287849180815933, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 2692669918974398897, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 5900737991013920678, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
@@ -8558,8 +10101,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: LeaderBoard
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
+  m_sharedMaterial: {fileID: -5539102107483663143, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8648,7 +10191,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: -5539102107483663143, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8791,6 +10334,177 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1003943237}
   m_CullTransparentMesh: 1
+--- !u!1 &1019297567
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1019297568}
+  - component: {fileID: 1019297570}
+  - component: {fileID: 1019297569}
+  m_Layer: 6
+  m_Name: Team1Odds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1019297568
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019297567}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.5000085}
+  m_LocalScale: {x: 7.3936768, y: 3.3983262, z: 7.3936768}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1710458147}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 35.069984, y: 8.1}
+  m_SizeDelta: {x: 10.32, y: 3.76}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1019297569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019297567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: -350
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: cf3647e1b9094ce4981b4de9fbd5396f, type: 2}
+  m_sharedMaterial: {fileID: 3465709256470760089, guid: cf3647e1b9094ce4981b4de9fbd5396f, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4284167967
+  m_fontColor: {r: 0.12156863, g: 0.21568628, b: 0.35686275, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 40
+  m_fontSizeBase: 40
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 1
+  m_HorizontalAlignment: 4
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 4
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 0
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  _SortingLayer: 0
+  _SortingLayerID: 0
+  _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 1019297570}
+  m_maskType: 0
+--- !u!23 &1019297570
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019297567}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 3465709256470760089, guid: cf3647e1b9094ce4981b4de9fbd5396f, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &1022177981 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8918200562544729728, guid: 34c12b16e3cad5542bd2d6f0a98ee900, type: 3}
@@ -9067,7 +10781,7 @@ Transform:
   m_GameObject: {fileID: 1063176350}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.657, y: -0.396, z: 1.017}
+  m_LocalPosition: {x: 0.657, y: -0.518, z: 1.017}
   m_LocalScale: {x: 0.009689523, y: 0.009689523, z: 0.009689523}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10026,6 +11740,177 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ba1b8ed2e853fb4c8b81d2ced9c088d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1136705606
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1136705607}
+  - component: {fileID: 1136705609}
+  - component: {fileID: 1136705608}
+  m_Layer: 6
+  m_Name: Team2Odds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1136705607
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136705606}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.6}
+  m_LocalScale: {x: 7.3936768, y: 3.3983262, z: 7.3936768}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 81987170}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 37.3, y: -6.4000072}
+  m_SizeDelta: {x: 9.47, y: 4.22}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1136705608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136705606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: +350
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: cf3647e1b9094ce4981b4de9fbd5396f, type: 2}
+  m_sharedMaterial: {fileID: 3465709256470760089, guid: cf3647e1b9094ce4981b4de9fbd5396f, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4284167967
+  m_fontColor: {r: 0.12156863, g: 0.21568628, b: 0.35686275, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 40
+  m_fontSizeBase: 40
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 1
+  m_HorizontalAlignment: 4
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 2.71
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 0
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  _SortingLayer: 0
+  _SortingLayerID: 0
+  _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 1136705609}
+  m_maskType: 0
+--- !u!23 &1136705609
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136705606}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 3465709256470760089, guid: cf3647e1b9094ce4981b4de9fbd5396f, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!4 &1144362723 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8270855663187062767, guid: 1392f805216c47742996d4742c80721c, type: 3}
@@ -10090,8 +11975,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Select 3 or more parlays
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
+  m_sharedMaterial: {fileID: -5539102107483663143, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10195,7 +12080,7 @@ RectTransform:
   m_GameObject: {fileID: 1182217481}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.6}
-  m_LocalScale: {x: 0.33812827, y: 0.41743878, z: 0.41743878}
+  m_LocalScale: {x: 0.26433852, y: 0.3184682, z: 0.41743878}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 145444047}
@@ -10204,7 +12089,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -33.1, y: 66.7}
+  m_AnchoredPosition: {x: -39.6, y: 66.7}
   m_SizeDelta: {x: 160.00003, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1182217483
@@ -10439,6 +12324,177 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d2d48ca3cd84034aa73bf331bddd5d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1193860142
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1193860143}
+  - component: {fileID: 1193860145}
+  - component: {fileID: 1193860144}
+  m_Layer: 6
+  m_Name: Team1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1193860143
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193860142}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.6}
+  m_LocalScale: {x: 7.3936768, y: 3.3983262, z: 7.3936768}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 81987170}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -35.9, y: 4.199998}
+  m_SizeDelta: {x: 9.88, y: 4.97}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1193860144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193860142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Browns
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
+  m_sharedMaterial: {fileID: -5539102107483663143, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 26
+  m_fontSizeBase: 24
+  m_fontWeight: 400
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 20
+  m_fontSizeMax: 26
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 0
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  _SortingLayer: 0
+  _SortingLayerID: 0
+  _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 1193860145}
+  m_maskType: 0
+--- !u!23 &1193860145
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193860142}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: -5539102107483663143, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &1217745951
 GameObject:
   m_ObjectHideFlags: 0
@@ -10473,7 +12529,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000015258789, y: -5.0726223}
+  m_AnchoredPosition: {x: -0.000015258789, y: -4.3}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1217745953
@@ -10496,10 +12552,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Enter a wager to place a bet
+  m_text: Place a bet\nto continue
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
+  m_sharedMaterial: {fileID: -5539102107483663143, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10535,7 +12591,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: -11.89
+  m_lineSpacing: -25.39
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -11831,8 +13887,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Parlay
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
+  m_sharedMaterial: {fileID: -5539102107483663143, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -11921,7 +13977,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: -5539102107483663143, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12095,6 +14151,66 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 684920260}
     m_Modifications:
+    - target: {fileID: 434089675720607257, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 622743580069541069, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_fontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 622743580069541069, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: cf3647e1b9094ce4981b4de9fbd5396f, type: 2}
+    - target: {fileID: 622743580069541069, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 622743580069541069, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 3465709256470760089, guid: cf3647e1b9094ce4981b4de9fbd5396f, type: 2}
+    - target: {fileID: 622743580069541069, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 850327783043880787, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -5539102107483663143, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
+    - target: {fileID: 1002227204776561773, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_fontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002227204776561773, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: cf3647e1b9094ce4981b4de9fbd5396f, type: 2}
+    - target: {fileID: 1002227204776561773, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002227204776561773, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002227204776561773, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 3465709256470760089, guid: cf3647e1b9094ce4981b4de9fbd5396f, type: 2}
+    - target: {fileID: 1002227204776561773, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_characterSpacing
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002227204776561773, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002227204776561773, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1300316775083640998, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -12175,6 +14291,154 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1584128334903261816, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 9.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1584128334903261816, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 3.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 1584128334903261816, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1584128334903261816, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -35.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1584128334903261816, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -7.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 2518535115860824292, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_fontSize
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 2518535115860824292, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
+    - target: {fileID: 2518535115860824292, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2518535115860824292, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2518535115860824292, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2518535115860824292, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2518535115860824292, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 2518535115860824292, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2518535115860824292, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -5539102107483663143, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
+    - target: {fileID: 2518535115860824292, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2518535115860824292, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
+      objectReference: {fileID: 0}
+    - target: {fileID: 2518535115860824292, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131798584209589225, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 9.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131798584209589225, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 4.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131798584209589225, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131798584209589225, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -35.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131798584209589225, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 4.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 3687184318323549046, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 9.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 3687184318323549046, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 4.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 3687184318323549046, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 37.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3687184318323549046, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -6.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 4222387182975280382, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 3465709256470760089, guid: cf3647e1b9094ce4981b4de9fbd5396f, type: 2}
+    - target: {fileID: 4641772175378503868, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_text
+      value: Jets
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641772175378503868, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_fontSize
+      value: 25.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641772175378503868, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
+    - target: {fileID: 4641772175378503868, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641772175378503868, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641772175378503868, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641772175378503868, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -5539102107483663143, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
+    - target: {fileID: 4641772175378503868, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641772175378503868, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5225730063425364115, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -5539102107483663143, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: betManager
       value: 
@@ -12443,9 +14707,277 @@ PrefabInstance:
       propertyPath: 'Team2Names.Array.data[15]'
       value: Colts
       objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team1Name
+      value: Lions
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team1Odds
+      value: -260
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team2Name
+      value: 49ers
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team2Odds
+      value: 210
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team1Name
+      value: Bills
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team1Odds
+      value: -300
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team2Name
+      value: 49ers
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team2Odds
+      value: 240
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[2].Team1Name
+      value: Bills
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[2].Team1Odds
+      value: -300
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[2].Team2Name
+      value: 49ers
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[2].Team2Odds
+      value: 240
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[3].Team1Name
+      value: Bills
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[3].Team1Odds
+      value: -300
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[3].Team2Name
+      value: 49ers
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[3].Team2Odds
+      value: 240
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[4].Team1Name
+      value: Bills
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[4].Team1Odds
+      value: -300
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[4].Team2Name
+      value: 49ers
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[4].Team2Odds
+      value: 240
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[5].Team1Name
+      value: Bills
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[5].Team1Odds
+      value: -300
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[5].Team2Name
+      value: 49ers
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[5].Team2Odds
+      value: 240
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[6].Team1Name
+      value: Bills
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[6].Team1Odds
+      value: -300
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[6].Team2Name
+      value: 49ers
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[6].Team2Odds
+      value: 240
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[7].Team1Name
+      value: Bills
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[7].Team1Odds
+      value: -300
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[7].Team2Name
+      value: 49ers
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[7].Team2Odds
+      value: 240
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[8].Team1Name
+      value: Bills
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[8].Team1Odds
+      value: -300
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[8].Team2Name
+      value: 49ers
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[8].Team2Odds
+      value: 240
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[9].Team1Name
+      value: Bills
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[9].Team1Odds
+      value: -300
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[9].Team2Name
+      value: 49ers
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[9].Team2Odds
+      value: 240
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[10].Team1Name
+      value: Bills
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[10].Team1Odds
+      value: -300
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[10].Team2Name
+      value: 49ers
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[10].Team2Odds
+      value: 240
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[11].Team1Name
+      value: Bills
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[11].Team1Odds
+      value: -300
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[11].Team2Name
+      value: 49ers
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[11].Team2Odds
+      value: 240
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[12].Team1Name
+      value: Bills
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[12].Team1Odds
+      value: -300
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[12].Team2Name
+      value: 49ers
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[12].Team2Odds
+      value: 240
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[13].Team1Name
+      value: Bills
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[13].Team1Odds
+      value: -300
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[13].Team2Name
+      value: 49ers
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[13].Team2Odds
+      value: 240
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[14].Team1Name
+      value: Bills
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[14].Team1Odds
+      value: -300
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[14].Team2Name
+      value: 49ers
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[14].Team2Odds
+      value: 240
+      objectReference: {fileID: 0}
+    - target: {fileID: 6282571808196795610, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 3465709256470760089, guid: cf3647e1b9094ce4981b4de9fbd5396f, type: 2}
     - target: {fileID: 7172657327384213367, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: m_Name
       value: NFLParlay5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8520060363609836545, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 10.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 8520060363609836545, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 3.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 8520060363609836545, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8520060363609836545, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 35.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 8520060363609836545, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 7.997
       objectReference: {fileID: 0}
     - target: {fileID: 8531460375300010652, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: m_Colors.m_NormalColor.a
@@ -17417,6 +19949,177 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!1 &1453420970
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1453420971}
+  - component: {fileID: 1453420973}
+  - component: {fileID: 1453420972}
+  m_Layer: 6
+  m_Name: Team2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1453420971
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1453420970}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.6}
+  m_LocalScale: {x: 7.3936768, y: 3.3983262, z: 7.3936768}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 81987170}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -36.4, y: -7.200008}
+  m_SizeDelta: {x: 9.75, y: 3.06}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1453420972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1453420970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Jets
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
+  m_sharedMaterial: {fileID: -5539102107483663143, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 25.25
+  m_fontSizeBase: 24
+  m_fontWeight: 400
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 20
+  m_fontSizeMax: 26
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 0
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  _SortingLayer: 0
+  _SortingLayerID: 0
+  _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 1453420973}
+  m_maskType: 0
+--- !u!23 &1453420973
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1453420970}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: -5539102107483663143, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &1477498921 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4181120595086301118, guid: ee10902f936fcae41a04432dd2e0aacd, type: 3}
@@ -17622,15 +20325,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: TO WIN
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
+  m_sharedMaterial: {fileID: -5539102107483663143, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4289769648
+  m_fontColor: {r: 0.6901961, g: 0.6901961, b: 0.6901961, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -17647,8 +20350,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 71.8
-  m_fontSizeBase: 71.8
+  m_fontSize: 55
+  m_fontSizeBase: 55
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -17712,7 +20415,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: -5539102107483663143, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -19065,8 +21768,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
+  m_sharedMaterial: {fileID: -5539102107483663143, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -19096,11 +21799,11 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: -2.23
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -19155,7 +21858,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: -5539102107483663143, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -19196,11 +21899,177 @@ RectTransform:
   m_AnchoredPosition: {x: 0.4, y: -2.73}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1615618241 stripped
+--- !u!1 &1605065412
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 7172657327384213367, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-  m_PrefabInstance: {fileID: 2037323492217903361}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1605065413}
+  - component: {fileID: 1605065415}
+  - component: {fileID: 1605065414}
+  m_Layer: 6
+  m_Name: Team2Odds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1605065413
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605065412}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.5000106}
+  m_LocalScale: {x: 7.3936768, y: 3.3983262, z: 7.3936768}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1710458147}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 37.75, y: -6.4}
+  m_SizeDelta: {x: 9.47, y: 4.22}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1605065414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605065412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: +350
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: cf3647e1b9094ce4981b4de9fbd5396f, type: 2}
+  m_sharedMaterial: {fileID: 3465709256470760089, guid: cf3647e1b9094ce4981b4de9fbd5396f, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4284167967
+  m_fontColor: {r: 0.12156863, g: 0.21568628, b: 0.35686275, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 40
+  m_fontSizeBase: 40
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 1
+  m_HorizontalAlignment: 4
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 2.71
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 0
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  _SortingLayer: 0
+  _SortingLayerID: 0
+  _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 1605065415}
+  m_maskType: 0
+--- !u!23 &1605065415
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605065412}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 3465709256470760089, guid: cf3647e1b9094ce4981b4de9fbd5396f, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &1622314191
 GameObject:
   m_ObjectHideFlags: 0
@@ -19848,6 +22717,86 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1584128334903261816, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 9.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 1584128334903261816, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 2.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 1584128334903261816, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1584128334903261816, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -35.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 1584128334903261816, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -7.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 2518535115860824292, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_fontSize
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 2518535115860824292, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 2518535115860824292, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2518535115860824292, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131798584209589225, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 9.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131798584209589225, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 4.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131798584209589225, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131798584209589225, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -35.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131798584209589225, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 3.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641772175378503868, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_fontSize
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641772175378503868, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641772175378503868, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641772175378503868, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: Team1Text
+      value: 
+      objectReference: {fileID: 2126811081}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: Team2Text
+      value: 
+      objectReference: {fileID: 178065224}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: betManager
       value: 
@@ -19860,6 +22809,14 @@ PrefabInstance:
       propertyPath: cardManager
       value: 
       objectReference: {fileID: 78341568}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: OddsTextTeam1
+      value: 
+      objectReference: {fileID: 1019297569}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: OddsTextTeam2
+      value: 
+      objectReference: {fileID: 1605065414}
     - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: Team1Odds.Array.size
       value: 16
@@ -20132,6 +23089,250 @@ PrefabInstance:
       propertyPath: 'Team2Names.Array.data[15]'
       value: 49ers
       objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team1Name
+      value: Falcons
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team1Odds
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team2Name
+      value: Bucs
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team2Odds
+      value: -150
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team1Name
+      value: Bengals
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team1Odds
+      value: 410
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team2Name
+      value: Browns
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team2Odds
+      value: -360
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[2].Team1Name
+      value: Bengals
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[2].Team1Odds
+      value: 410
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[2].Team2Name
+      value: Browns
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[2].Team2Odds
+      value: -360
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[3].Team1Name
+      value: Bengals
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[3].Team1Odds
+      value: 410
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[3].Team2Name
+      value: Browns
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[3].Team2Odds
+      value: -360
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[4].Team1Name
+      value: Bengals
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[4].Team1Odds
+      value: 410
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[4].Team2Name
+      value: Browns
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[4].Team2Odds
+      value: -360
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[5].Team1Name
+      value: Bengals
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[5].Team1Odds
+      value: 410
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[5].Team2Name
+      value: Browns
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[5].Team2Odds
+      value: -360
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[6].Team1Name
+      value: Bengals
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[6].Team1Odds
+      value: 410
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[6].Team2Name
+      value: Browns
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[6].Team2Odds
+      value: -360
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[7].Team1Name
+      value: Bengals
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[7].Team1Odds
+      value: 410
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[7].Team2Name
+      value: Browns
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[7].Team2Odds
+      value: -360
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[8].Team1Name
+      value: Bengals
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[8].Team1Odds
+      value: 410
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[8].Team2Name
+      value: Browns
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[8].Team2Odds
+      value: -360
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[9].Team1Name
+      value: Bengals
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[9].Team1Odds
+      value: 410
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[9].Team2Name
+      value: Browns
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[9].Team2Odds
+      value: -360
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[10].Team1Name
+      value: Bengals
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[10].Team1Odds
+      value: 410
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[10].Team2Name
+      value: Browns
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[10].Team2Odds
+      value: -360
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[11].Team1Name
+      value: Bengals
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[11].Team1Odds
+      value: 410
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[11].Team2Name
+      value: Browns
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[11].Team2Odds
+      value: -360
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[12].Team1Name
+      value: Bengals
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[12].Team1Odds
+      value: 410
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[12].Team2Name
+      value: Browns
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[12].Team2Odds
+      value: -360
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[13].Team1Name
+      value: Bengals
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[13].Team1Odds
+      value: 410
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[13].Team2Name
+      value: Browns
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[13].Team2Odds
+      value: -360
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[14].Team1Name
+      value: Bengals
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[14].Team1Odds
+      value: 410
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[14].Team2Name
+      value: Browns
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[14].Team2Odds
+      value: -360
+      objectReference: {fileID: 0}
     - target: {fileID: 7172657327384213367, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       propertyPath: m_Name
       value: NFLParlay2
@@ -20141,8 +23342,24 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5900737991013920678, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+    - {fileID: 2692669918974398897, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+    - {fileID: 8319287849180815933, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+    - {fileID: 692642374899291978, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1300316775083640998, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2126811080}
+    - targetCorrespondingSourceObject: {fileID: 1300316775083640998, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 178065223}
+    - targetCorrespondingSourceObject: {fileID: 1300316775083640998, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1019297568}
+    - targetCorrespondingSourceObject: {fileID: 1300316775083640998, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1605065413}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7172657327384213367, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       insertIndex: -1
@@ -20151,18 +23368,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 1977928885123793838, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 692642374899291978, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 8319287849180815933, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 2692669918974398897, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 5900737991013920678, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
@@ -20855,7 +24060,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.373, y: -0.68400013}
+  m_AnchoredPosition: {x: 0.373, y: -0.667}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &1834423853
@@ -20878,7 +24083,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 3465709256470760089, guid: cf3647e1b9094ce4981b4de9fbd5396f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -20922,8 +24127,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: $5:5000
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cf3647e1b9094ce4981b4de9fbd5396f, type: 2}
+  m_sharedMaterial: {fileID: 3465709256470760089, guid: cf3647e1b9094ce4981b4de9fbd5396f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -20947,8 +24152,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 71.8
-  m_fontSizeBase: 71.8
+  m_fontSize: 85
+  m_fontSizeBase: 85
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -20957,7 +24162,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: 8
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -21118,8 +24323,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1.5
-  m_fontSizeBase: 1.5
+  m_fontSize: 1.25
+  m_fontSizeBase: 1.25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -21769,7 +24974,7 @@ Transform:
   m_GameObject: {fileID: 1847609427}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.3420201, z: -0, w: 0.9396927}
-  m_LocalPosition: {x: 1.735, y: -0.393, z: 0.657}
+  m_LocalPosition: {x: 1.735, y: -0.522, z: 0.657}
   m_LocalScale: {x: 0.009689523, y: 0.009689523, z: 0.009689523}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -22506,14 +25711,14 @@ MonoBehaviour:
   ParlayUI: {fileID: 1063176350}
   BetslipUI: {fileID: 2058050052}
   togglePressInteractables:
-  - {fileID: 774200675951147321}
+  - {fileID: 5306286662097788001}
   - {fileID: 1710458148}
   - {fileID: 924004255}
   - {fileID: 81987171}
   - {fileID: 1429495464}
   toggleButton:
-  - {fileID: 2999740620349686645}
-  - {fileID: 3471300934954080158}
+  - {fileID: 3172773968819038582}
+  - {fileID: 3877764320689237276}
   - {fileID: 970524757}
   - {fileID: 211020068}
   - {fileID: 707316595}
@@ -22591,6 +25796,8 @@ MonoBehaviour:
   ErrorMessage: {fileID: 206288615}
   WinAudioSource: {fileID: 825040808}
   LoseAudioSource: {fileID: 319132313}
+  IncreaseBetButton: {fileID: 113710540}
+  DecreaseBetButton: {fileID: 598299014}
   reels:
   - {fileID: 323475715}
   - {fileID: 1186119116}
@@ -23044,7 +26251,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -6.6}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2080544360
@@ -23333,119 +26540,376 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!224 &730821206844592974 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1300316775083640998, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-  m_PrefabInstance: {fileID: 2037323492217903361}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &774200675951147321 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-  m_PrefabInstance: {fileID: 2037323492217903361}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1615618241}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1f208133cefafd4f81fa50cbf347b71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!82 &774200675951147324
-AudioSource:
+--- !u!1 &2126811079
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1615618241}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2126811080}
+  - component: {fileID: 2126811082}
+  - component: {fileID: 2126811081}
+  m_Layer: 6
+  m_Name: Team1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2126811080
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2126811079}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.5000075}
+  m_LocalScale: {x: 7.3936768, y: 3.3983262, z: 7.3936768}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1710458147}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -35.440025, y: 4.2}
+  m_SizeDelta: {x: 9.88, y: 4.97}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2126811081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2126811079}
   m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 7c941ae367aae334c97c5341170d7127, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 0.2
-  m_Pitch: 2.19
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 10
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Browns
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
+  m_sharedMaterial: {fileID: -5539102107483663143, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
     serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
     serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
+    rgba: 4294967295
+  m_fontSize: 26
+  m_fontSizeBase: 24
+  m_fontWeight: 400
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 20
+  m_fontSizeMax: 26
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 0
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  _SortingLayer: 0
+  _SortingLayerID: 0
+  _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 2126811082}
+  m_maskType: 0
+--- !u!23 &2126811082
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2126811079}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: -5539102107483663143, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &2129903449
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2129903450}
+  - component: {fileID: 2129903452}
+  - component: {fileID: 2129903451}
+  m_Layer: 6
+  m_Name: Team1Odds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2129903450
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129903449}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.6}
+  m_LocalScale: {x: 7.3936768, y: 3.3983262, z: 7.3936768}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 924004254}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 35.3, y: 7.900002}
+  m_SizeDelta: {x: 10.32, y: 3.76}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2129903451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129903449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: -350
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: cf3647e1b9094ce4981b4de9fbd5396f, type: 2}
+  m_sharedMaterial: {fileID: 3465709256470760089, guid: cf3647e1b9094ce4981b4de9fbd5396f, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
     serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
+    rgba: 4284167967
+  m_fontColor: {r: 0.12156863, g: 0.21568628, b: 0.35686275, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
     serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!1001 &2037323492217903361
+    rgba: 4294967295
+  m_fontSize: 40
+  m_fontSizeBase: 40
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 1
+  m_HorizontalAlignment: 4
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 4
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 0
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  _SortingLayer: 0
+  _SortingLayerID: 0
+  _SortingOrder: 0
+  m_hasFontAssetChanged: 0
+  m_renderer: {fileID: 2129903452}
+  m_maskType: 0
+--- !u!23 &2129903452
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129903449}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 3465709256470760089, guid: cf3647e1b9094ce4981b4de9fbd5396f, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!224 &1030657854734029223 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+  m_PrefabInstance: {fileID: 4020378493082167059}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3172773968819038582 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 863198638175931656, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+  m_PrefabInstance: {fileID: 4020378493082167059}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ba1b8ed2e853fb4c8b81d2ced9c088d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3877764320689237276 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9189695549809179684, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+  m_PrefabInstance: {fileID: 4020378493082167059}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ba1b8ed2e853fb4c8b81d2ced9c088d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &4020378493082167059
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -23453,400 +26917,130 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 684920260}
     m_Modifications:
-    - target: {fileID: 277694335575078779, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1300316775083640998, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1300316775083640998, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1300316775083640998, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1300316775083640998, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1300316775083640998, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1300316775083640998, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1300316775083640998, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 160.00003
-      objectReference: {fileID: 0}
-    - target: {fileID: 1300316775083640998, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 1300316775083640998, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1300316775083640998, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1300316775083640998, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.142
-      objectReference: {fileID: 0}
-    - target: {fileID: 1300316775083640998, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9396927
-      objectReference: {fileID: 0}
-    - target: {fileID: 1300316775083640998, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1300316775083640998, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.3420201
-      objectReference: {fileID: 0}
-    - target: {fileID: 1300316775083640998, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1300316775083640998, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.054
-      objectReference: {fileID: 0}
-    - target: {fileID: 1300316775083640998, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.187
-      objectReference: {fileID: 0}
-    - target: {fileID: 1300316775083640998, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1300316775083640998, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1300316775083640998, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3095739153982881873, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5880665110841025472, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       propertyPath: betManager
       value: 
       objectReference: {fileID: 1970160409}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: audioSource
-      value: 
-      objectReference: {fileID: 774200675951147324}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       propertyPath: cardManager
       value: 
       objectReference: {fileID: 78341568}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: Team1Odds.Array.size
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: Team2Odds.Array.size
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: Team1Names.Array.size
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: Team2Names.Array.size
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team1Odds.Array.data[3]'
-      value: -402
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team1Odds.Array.data[4]'
-      value: -402
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team1Odds.Array.data[5]'
-      value: -402
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team1Odds.Array.data[6]'
-      value: -402
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team1Odds.Array.data[7]'
-      value: -402
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team1Odds.Array.data[8]'
-      value: -402
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team1Odds.Array.data[9]'
-      value: -402
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team2Odds.Array.data[3]'
-      value: 152
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team2Odds.Array.data[4]'
-      value: 152
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team2Odds.Array.data[5]'
-      value: 152
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team2Odds.Array.data[6]'
-      value: 152
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team2Odds.Array.data[7]'
-      value: 152
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team2Odds.Array.data[8]'
-      value: 152
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team2Odds.Array.data[9]'
-      value: 152
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team1Names.Array.data[1]'
-      value: Bears
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team1Names.Array.data[3]'
-      value: Jets
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team1Names.Array.data[4]'
-      value: Jets
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team1Names.Array.data[5]'
-      value: Jets
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team1Names.Array.data[6]'
-      value: Jets
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team1Names.Array.data[7]'
-      value: Jets
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team1Names.Array.data[8]'
-      value: Jets
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team1Names.Array.data[9]'
-      value: Jets
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team1Odds.Array.data[10]'
-      value: -402
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team1Odds.Array.data[11]'
-      value: -402
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team1Odds.Array.data[12]'
-      value: -402
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team1Odds.Array.data[13]'
-      value: -402
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team1Odds.Array.data[14]'
-      value: -402
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team1Odds.Array.data[15]'
-      value: -402
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team2Names.Array.data[3]'
-      value: Colts
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team2Names.Array.data[4]'
-      value: Colts
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team2Names.Array.data[5]'
-      value: Colts
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team2Names.Array.data[6]'
-      value: Colts
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team2Names.Array.data[7]'
-      value: Colts
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team2Names.Array.data[8]'
-      value: Colts
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team2Names.Array.data[9]'
-      value: Colts
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team2Odds.Array.data[10]'
-      value: 152
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team2Odds.Array.data[11]'
-      value: 152
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team2Odds.Array.data[12]'
-      value: 152
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team2Odds.Array.data[13]'
-      value: 152
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team2Odds.Array.data[14]'
-      value: 152
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team2Odds.Array.data[15]'
-      value: 152
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team1Names.Array.data[10]'
-      value: Jets
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team1Names.Array.data[11]'
-      value: Jets
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team1Names.Array.data[12]'
-      value: Jets
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team1Names.Array.data[13]'
-      value: Jets
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team1Names.Array.data[14]'
-      value: Jets
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team1Names.Array.data[15]'
-      value: Jets
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team2Names.Array.data[10]'
-      value: Colts
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team2Names.Array.data[11]'
-      value: Colts
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team2Names.Array.data[12]'
-      value: Colts
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team2Names.Array.data[13]'
-      value: Colts
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team2Names.Array.data[14]'
-      value: Colts
-      objectReference: {fileID: 0}
-    - target: {fileID: 6189548387357918560, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: 'Team2Names.Array.data[15]'
-      value: Colts
-      objectReference: {fileID: 0}
-    - target: {fileID: 7050347404024987161, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7172657327384213367, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+    - target: {fileID: 1936011731812208240, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       propertyPath: m_Name
       value: NFLParlay1
       objectReference: {fileID: 0}
-    - target: {fileID: 8531460375300010652, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: m_Colors.m_NormalColor.a
-      value: 1
+    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 8762626291521699997, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      propertyPath: m_Enabled
-      value: 1
+    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 160.00003
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.142
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9396927
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.3420201
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.054
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.187
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7172657327384213367, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 774200675951147324}
-    - targetCorrespondingSourceObject: {fileID: 2755576701716060315, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 5208872722375300842, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 1977928885123793838, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 212335479642155369, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 692642374899291978, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 319199031938529032, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 8319287849180815933, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 8631828040576096037, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 2692669918974398897, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 7932964459905996584, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 5900737991013920678, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 2322707887146752726, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
-  m_SourcePrefab: {fileID: 100100000, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
---- !u!114 &2999740620349686645 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+--- !u!114 &5306286662097788001 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3477328605097521271, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-  m_PrefabInstance: {fileID: 2037323492217903361}
+  m_CorrespondingSourceObject: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+  m_PrefabInstance: {fileID: 4020378493082167059}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ba1b8ed2e853fb4c8b81d2ced9c088d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3471300934954080158 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2996741991509357597, guid: b756e74f26ffbca47891f0d855d3c80e, type: 3}
-  m_PrefabInstance: {fileID: 2037323492217903361}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ba1b8ed2e853fb4c8b81d2ced9c088d, type: 3}
+  m_Script: {fileID: 11500000, guid: e1f208133cefafd4f81fa50cbf347b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807

@@ -30,7 +30,6 @@ public class Handle : MonoBehaviour
 
     private void Start()
     {
-        EnableGrab();
         handle.onSelectEntered.AddListener(OnGrabbed);
         handle.onSelectExited.AddListener(OnReleased);
 
@@ -100,7 +99,7 @@ public class Handle : MonoBehaviour
         Debug.Log("[Handle] EnableGrab called: Grab enabled, angular velocity reset, Rigidbody unconstrained");
     }
 
-    private void DisableGrab()
+    public void DisableGrab()
     {
         handle.enabled = false;
         Debug.Log("[Handle] DisableGrab called: Grab disabled");
@@ -109,8 +108,6 @@ public class Handle : MonoBehaviour
     private float NormalizeAngle(float angle)
     {
         if (angle > 180f) angle -= 360f;
-        // Debug only occasional calls if needed
-        // Debug.Log($"[Handle] NormalizeAngle: Input {angle + (angle > 180f ? 360f : 0)}, Output {angle}");
         return angle;
     }
 
@@ -121,8 +118,6 @@ public class Handle : MonoBehaviour
         rb.angularVelocity = Vector3.zero;
         rb.freezeRotation = true;
         handleTransform.eulerAngles = Vector3.zero;
-        EnableGrab();
-
         Debug.Log("[Handle] ResetHandle called: Handle state reset, rotations frozen, grab re-enabled");
     }
 

@@ -1,14 +1,29 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System;
+using System.Collections.Generic;
+
+[Serializable]
+public class ParlayManager
+{
+    public List<Parlay> Parlays;
+}
+
+
+[Serializable]
+public class Parlay
+{
+    public string Team1Name;
+    public int Team1Odds;
+    public string Team2Name;
+    public int Team2Odds;
+
+}
 
 public class TogglePressInteractable : MonoBehaviour
 {
-    [Header("Odds & Team Names")]
-    public int[] Team1Odds;
-    public int[] Team2Odds;
-    public string[] Team1Names;
-    public string[] Team2Names;
+    public ParlayManager parlayManager;
 
     [Header("Buttons")]
     public Button ButtonTeam1;
@@ -42,7 +57,7 @@ public class TogglePressInteractable : MonoBehaviour
 
     private void OnTeamSelected(int team)
     {
-        int trial = sxr.GetTrial();
+        Parlay currentParlay = parlayManager.Parlays[sxr.GetTrial()];
         audioSource.Play();
         
         if (team == 1)
@@ -57,19 +72,17 @@ public class TogglePressInteractable : MonoBehaviour
                 OddsTextTeam1.color = Color.white;
                 OddsTextTeam2.color = Color.white;
 
-                int odds = Team1Odds[trial];
                 teamIndex = 1;
-                betManager.AddToCalculateOdds(odds, this, Team1Names[trial]);
-                cardManager.SpawnCard(Team1Names[trial], odds, this);
+                betManager.AddToCalculateOdds(currentParlay.Team1Odds, this, currentParlay.Team1Name);
+                cardManager.SpawnCard(currentParlay.Team1Name, currentParlay.Team1Odds, this);
             }
             else
             {
                 EnableButton(ButtonTeam2);
-                int odds = Team1Odds[trial];
                 OddsTextTeam1.color = TextColorNormal;
                 OddsTextTeam2.color = TextColorNormal;
                 Debug.Log("Team 1 Deselected: " + team1Selected);
-                betManager.RemoveFromCalculateOdds(odds, this);
+                betManager.RemoveFromCalculateOdds(currentParlay.Team1Odds, this);
                 cardManager.RemoveCard(this);
                 teamIndex = 0;
             }
@@ -88,19 +101,17 @@ public class TogglePressInteractable : MonoBehaviour
                 OddsTextTeam1.color = Color.white;
                 OddsTextTeam2.color = Color.white;
 
-                int odds = Team2Odds[trial];
                 teamIndex = 2;
-                betManager.AddToCalculateOdds(odds, this, Team2Names[trial]);
-                cardManager.SpawnCard(Team2Names[trial], odds, this);
+                betManager.AddToCalculateOdds(currentParlay.Team2Odds, this, currentParlay.Team2Name);
+                cardManager.SpawnCard(currentParlay.Team2Name, currentParlay.Team2Odds, this);
             }
             else
             {
                 EnableButton(ButtonTeam1);
-                int odds = Team2Odds[trial];
                 OddsTextTeam1.color = TextColorNormal;
                 OddsTextTeam2.color = TextColorNormal;
                 Debug.Log("Team 2 Deselected: " + team2Selected);
-                betManager.RemoveFromCalculateOdds(odds, this);
+                betManager.RemoveFromCalculateOdds(currentParlay.Team2Odds, this);
                 cardManager.RemoveCard(this);
                 teamIndex = 0;
             }
@@ -123,31 +134,32 @@ public class TogglePressInteractable : MonoBehaviour
 
     public void UpdateUI()
     {
-        int trial = sxr.GetTrial();
+        Parlay currentParlay = parlayManager.Parlays[sxr.GetTrial()];
+
 
         if (OddsTextTeam1 != null)
-            if(Team1Odds[trial] > 0)
+            if(currentParlay.Team1Odds > 0)
             {
-                OddsTextTeam1.text = "+" + Team1Odds[trial].ToString();
+                OddsTextTeam1.text = "+" + currentParlay.Team1Odds.ToString();
             }
             else
             {
-            OddsTextTeam1.text = Team1Odds[trial].ToString();
+            OddsTextTeam1.text = currentParlay.Team1Odds.ToString();
             }
         if (OddsTextTeam2 != null)
-            if(Team2Odds[trial] > 0)
+            if(currentParlay.Team2Odds > 0)
             {
-                OddsTextTeam2.text = "+" + Team2Odds[trial].ToString();
+                OddsTextTeam2.text = "+" + currentParlay.Team2Odds.ToString();
             }
             else
             {
-            OddsTextTeam2.text = Team2Odds[trial].ToString();
+            OddsTextTeam2.text = currentParlay.Team2Odds.ToString();
             }
         if (Team1Text != null)
-            Team1Text.text = Team1Names[trial];
+            Team1Text.text = currentParlay.Team1Name;
 
         if (Team2Text != null)
-            Team2Text.text = Team2Names[trial];
+            Team2Text.text = currentParlay.Team2Name;
     }
 
     public void ResetToggle()
@@ -164,8 +176,9 @@ public class TogglePressInteractable : MonoBehaviour
 
     public int GetSelectedOdds()
     {
-        int trial = sxr.GetTrial();
-        return teamIndex == 1 ? Team1Odds[trial] : Team2Odds[trial];
+        Parlay currentParlay = parlayManager.Parlays[sxr.GetTrial()];
+
+        return teamIndex == 1 ? currentParlay.Team1Odds : currentParlay.Team1Odds;
     }
 
     public void SetPressed(bool pressed)

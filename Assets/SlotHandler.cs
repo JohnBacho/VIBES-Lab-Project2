@@ -1,6 +1,9 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+using System.Linq;
 
 public class SlotHandler : MonoBehaviour
 {
@@ -12,6 +15,9 @@ public class SlotHandler : MonoBehaviour
     public TextMeshPro ErrorMessage;
     public AudioSource WinAudioSource;
     public AudioSource LoseAudioSource;
+    public PokeButton IncreaseBetButton;
+    public PokeButton DecreaseBetButton;
+
 
 
     private float currentBet = 0f;
@@ -42,6 +48,8 @@ public class SlotHandler : MonoBehaviour
             Debug.LogError("No outcome set from Driver!");
             return;
         }
+        IncreaseBetButton.DisableButton();
+        DecreaseBetButton.DisableButton();
 
         foreach (Reel r in reels)
             r.Spin();
@@ -103,6 +111,8 @@ public class SlotHandler : MonoBehaviour
         LossText.text = "";
         walletText.text = "";
         currentBet = 0f;
+        IncreaseBetButton.EnableButton();
+        DecreaseBetButton.EnableButton();
         sxr.SetBetAmount(currentBet);   
         sxr.SetPayout(currentBet * multiplier);
         UpdateUI();
@@ -135,12 +145,14 @@ public class SlotHandler : MonoBehaviour
 
     IEnumerator PlaceBetText()
     {
+        yield return null;
+        handle.DisableGrab();
         EstimatedPayout.text = "";
         while (!betPlaced)
         {
             if (!betPlaced)
             {
-                betText.text = "Place a bet\nTo Continue";                
+                betText.text = "Place a bet\nto continue";                
             }
             yield return new WaitForSeconds(0.8f);
             if (!betPlaced)
@@ -154,7 +166,7 @@ public class SlotHandler : MonoBehaviour
     public void IncreaseBet()
     {
         if (GameManager.Instance.wallet < 1f) return;
-
+        handle.EnableGrab();
         currentBet += 1f;
         GameManager.Instance.RemoveWallet(1f);
         betPlaced = true;
@@ -163,7 +175,11 @@ public class SlotHandler : MonoBehaviour
 
     public void DecreaseBet()
     {
-        if (currentBet <= 0f) return;
+    if (currentBet <= 0f)
+        {
+            handle.DisableGrab();
+            return;
+        }
 
         currentBet -= 1f;
         GameManager.Instance.AddWallet(1f);

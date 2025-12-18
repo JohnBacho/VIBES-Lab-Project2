@@ -257,11 +257,11 @@ public class Driver : MonoBehaviour
         SlotMachine.SetActive(false);
         Parlay.SetActive(false);
         EffortTask.SetActive(true);
-        FindObjectOfType<BallSpawner>().StartSpawning();
-        FindObjectOfType<CountdownTimer>().StartCountdown();
+        Object.FindAnyObjectByType<BallSpawner>().StartSpawning();
+        Object.FindAnyObjectByType<CountdownTimer>().StartCountdown();
         yield return new WaitForSeconds(45f);
-        FindObjectOfType<BallSpawner>().StopSpawning();
-        FindObjectOfType<BallSpawner>().DestroyAllBalls();
+        Object.FindAnyObjectByType<BallSpawner>().StopSpawning();
+        Object.FindAnyObjectByType<BallSpawner>().DestroyAllBalls();
         sxr.NextTrial();
 
         EffortTask.SetActive(false);
