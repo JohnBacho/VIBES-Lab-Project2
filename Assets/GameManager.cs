@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour
     {
         wallet += amount;
         sxr.SetWallet(wallet);
-        betManager.UpdateUI();
     }
 
     public void RemoveWallet(float amount)
@@ -26,7 +25,6 @@ public class GameManager : MonoBehaviour
         wallet -= amount;
         wallet = Mathf.Max(0, wallet);
         sxr.SetWallet(wallet);
-        betManager.UpdateUI();
     }
 
     public void SetWallet(float amount)
@@ -34,6 +32,5 @@ public class GameManager : MonoBehaviour
         wallet = amount;
         wallet = Mathf.Max(0, wallet);
         sxr.SetWallet(wallet);
-        betManager.UpdateUI();
     }
 }

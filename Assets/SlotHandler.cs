@@ -59,8 +59,7 @@ public class SlotHandler : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        yield return StartCoroutine(ResolveOutcome());
-        MarkTrialComplete();
+        StartCoroutine(ResolveOutcome());
     }
 
     private IEnumerator ResolveOutcome()
@@ -83,7 +82,6 @@ public class SlotHandler : MonoBehaviour
             }
             WinText.text = $"YOU WIN ${winnings}";
             walletText.text = $"Wallet: ${GameManager.Instance.wallet:0.00}";
-
         }
         else
         {
@@ -92,10 +90,10 @@ public class SlotHandler : MonoBehaviour
             walletText.text = $"Wallet: ${GameManager.Instance.wallet:0.00}";
             LoseAudioSource.Play();
             yield return new WaitForSeconds(4f);
-
         }
         WinAudioSource.Stop();
         LoseAudioSource.Stop();
+        MarkTrialComplete();
     }
 
     public void rest()
@@ -120,6 +118,7 @@ public class SlotHandler : MonoBehaviour
         if (betText != null)
         {
             betText.text = $"Wager: ${currentBet:0.00}";
+            Debug.Log("BetUpdated");
             sxr.SetBetAmount(currentBet);  
         }
         if (EstimatedPayout != null)

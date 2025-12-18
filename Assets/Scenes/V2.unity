@@ -22482,12 +22482,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1970160395}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d10324fc77f8fd94b90d9ae6260099b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentBet: 0
   WagerText: {fileID: 624065554}
   ToWinText: {fileID: 1834423854}
   PlaceBetText: {fileID: 1217745953}
@@ -22592,7 +22591,6 @@ MonoBehaviour:
   ErrorMessage: {fileID: 206288615}
   WinAudioSource: {fileID: 825040808}
   LoseAudioSource: {fileID: 319132313}
-  currentBet: 0
   reels:
   - {fileID: 323475715}
   - {fileID: 1186119116}

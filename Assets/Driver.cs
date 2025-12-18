@@ -224,8 +224,6 @@ public class Driver : MonoBehaviour
 
         Debug.Log($"Trial {sxr.GetTrial()} complete");
 
-        yield return new WaitForSeconds(0.5f);
-
         slotHandler.StartNewTrial();
         sxr.NextTrial();
         slotHandler.rest();
