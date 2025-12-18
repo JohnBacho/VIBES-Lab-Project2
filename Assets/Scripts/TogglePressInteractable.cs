@@ -59,7 +59,7 @@ public class TogglePressInteractable : MonoBehaviour
 
                 int odds = Team1Odds[trial];
                 teamIndex = 1;
-                betManager.AddToCalculateOdds(odds, this);
+                betManager.AddToCalculateOdds(odds, this, Team1Names[trial]);
                 cardManager.SpawnCard(Team1Names[trial], odds, this);
             }
             else
@@ -90,7 +90,7 @@ public class TogglePressInteractable : MonoBehaviour
 
                 int odds = Team2Odds[trial];
                 teamIndex = 2;
-                betManager.AddToCalculateOdds(odds, this);
+                betManager.AddToCalculateOdds(odds, this, Team2Names[trial]);
                 cardManager.SpawnCard(Team2Names[trial], odds, this);
             }
             else

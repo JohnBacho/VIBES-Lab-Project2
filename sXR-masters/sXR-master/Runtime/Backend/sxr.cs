@@ -367,6 +367,9 @@ public static class sxr
 
     public static void SetWallet(float wallet) { ExperimentHandler.Instance.wallet = wallet; }
 
+    public static void SetParlaySelection(String ParlaySelection) { ExperimentHandler.Instance.ParlaySelection = ParlaySelection; }
+
+
     /// <summary>
     /// Starts a timer with the provided name. Will return "true" and the timer will be
     /// deleted if CheckTimer() is used. If no name is provided, uses the default trial

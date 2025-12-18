@@ -5,6 +5,22 @@ using TMPro;
 using UnityEngine.UI;
 using System.Linq;
 
+
+[System.Serializable]
+public class ParlaySelection
+{
+    public string teamName;
+    public int odds;
+    public TogglePressInteractable toggle; 
+    
+    public ParlaySelection(string name, int oddsValue, TogglePressInteractable associatedToggle)
+    {
+        teamName = name;
+        odds = oddsValue;
+        toggle = associatedToggle;
+    }
+}
+
 public class BetManager : MonoBehaviour
 {
     private float currentBet = 0f;
@@ -50,6 +66,7 @@ public class BetManager : MonoBehaviour
     private List<int> oddsArray = new List<int>();
     private List<float> decimalOddsList = new List<float>();
     private Dictionary<TogglePressInteractable, int> activeToggles = new Dictionary<TogglePressInteractable, int>();
+    private List<ParlaySelection> currentParlaySelections = new List<ParlaySelection>();
 
     public void UpdateUI()
     {
@@ -100,15 +117,18 @@ public class BetManager : MonoBehaviour
         MiddleParlayUI.SetActive(true);
     }
 
-    public void AddToCalculateOdds(int odds, TogglePressInteractable toggle)
+    public void AddToCalculateOdds(int odds, TogglePressInteractable toggle, string teamName)
     {
         if (!activeToggles.ContainsKey(toggle))
         {
             oddsArray.Add(odds);
             activeToggles[toggle] = odds;
+            currentParlaySelections.Add(new ParlaySelection(teamName, odds, toggle)); // Pass toggle
+            sxr.SetParlaySelection(GetParlayDataString());
         }
         UpdateUI();
     }
+
 
     public void RemoveFromCalculateOdds(int odds, TogglePressInteractable toggle)
     {
@@ -116,6 +136,9 @@ public class BetManager : MonoBehaviour
         {
             int storedOdds = activeToggles[toggle];
             oddsArray.Remove(storedOdds);
+            
+            currentParlaySelections.RemoveAll(p => p.toggle == toggle);
+            sxr.SetParlaySelection(GetParlayDataString());
             activeToggles.Remove(toggle);
         }
         UpdateUI();
@@ -233,6 +256,7 @@ public class BetManager : MonoBehaviour
         oddsArray.Clear();
         decimalOddsList.Clear();
         activeToggles.Clear();
+        currentParlaySelections.Clear();
 
         leaderboard.SetMoney("You", GameManager.Instance.wallet);
 
@@ -291,5 +315,25 @@ public class BetManager : MonoBehaviour
     public void StartNewTrial()
     {
         trialCompleted = false;
+    }
+
+    public string GetParlayDataString()
+    {
+        string parlayData = "";
+        
+        for (int i = 0; i < 5; i++)
+        {
+            if (i < currentParlaySelections.Count)
+            {
+                parlayData += currentParlaySelections[i].teamName + "," + 
+                            currentParlaySelections[i].odds + ",";
+            }
+            else
+            {
+                parlayData += ",,";
+            }
+        }
+        
+        return parlayData;
     }
 }

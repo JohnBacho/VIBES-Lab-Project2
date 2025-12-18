@@ -26,7 +26,6 @@ public class Driver : MonoBehaviour
     public GameObject EffortTask;
     public BetManager betManager;
     public SlotHandler slotHandler;
-    private string headers = "Parlay1, Parlay2, Parlay3, Parlay4, Parlay5";
     private int counter = 0;
 [SerializeField] XRInteractorLineVisual rayLineVisual;
     private int[][] SlotOutcomeRows = new int[][]
@@ -190,6 +189,7 @@ public class Driver : MonoBehaviour
 
     public void StartNextTrial()
     {
+        sxr.SetParlaySelection(",,,,,,,,,,");
         if (sxr.GetTrial() >= SlotOutcomeRows.Length)
         {
             Debug.Log("Slot trials complete! Starting Parlay trials...");
