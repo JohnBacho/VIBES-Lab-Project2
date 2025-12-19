@@ -47,7 +47,7 @@ public class BetManager : MonoBehaviour
     public GameObject BetslipUI;
 
     public List<TogglePressInteractable> togglePressInteractables;
-    public List<ToggleButton> toggleButton;
+    public List<XRPokeToggleButton> toggleButton;
 
     public CardManager CardManager;
     public Leaderboard leaderboard;
@@ -265,7 +265,7 @@ public class BetManager : MonoBehaviour
         UpdateOddsText();
         for (int i = 0; i < toggleButton.Count; i++)
         {
-            toggleButton[i].SetToggled(false);
+            toggleButton[i].SetNormalColor();
         }
         for (int i = 0; i < togglePressInteractables.Count; i++)
         {
