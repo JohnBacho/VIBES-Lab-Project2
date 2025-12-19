@@ -12,14 +12,12 @@ public class PokeButton : MonoBehaviour
     [Header("Button Events")]
     [Tooltip("Triggered once when the button is pressed down")]
     public UnityEvent onButtonPressed;
-
     [Tooltip("Triggered when the button is released")]
     public UnityEvent onButtonReleased;
 
-    void Start()
+    void Awake()  // Changed from Start() to Awake()
     {
         interactable = GetComponent<XRSimpleInteractable>();
-
         interactable.hoverEntered.AddListener(OnPokeEntered);
         interactable.hoverExited.AddListener(OnPokeExited);
     }
@@ -57,11 +55,13 @@ public class PokeButton : MonoBehaviour
 
     public void DisableButton()
     {
-        interactable.enabled = false;
+        if (interactable != null)  // Added null check as extra safety
+            interactable.enabled = false;
     }
 
     public void EnableButton()
     {
-        interactable.enabled = true;
+        if (interactable != null)  // Added null check as extra safety
+            interactable.enabled = true;
     }
 }

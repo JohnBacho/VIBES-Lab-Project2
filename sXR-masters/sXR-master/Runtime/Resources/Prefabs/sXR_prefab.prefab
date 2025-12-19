@@ -567,8 +567,12 @@ MonoBehaviour:
   block: 0
   trial: 0
   stepInTrial: 0
-  stageInTrial: 
-  currentContext: 
+  OutcomeInTrial: 
+  currentGamblingType: 
+  BetAmount: 0
+  CurrentPayout: 0
+  wallet: 0
+  ParlaySelection: 
 --- !u!114 &7212701274430900276
 MonoBehaviour:
   m_ObjectHideFlags: 0

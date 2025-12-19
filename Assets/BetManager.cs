@@ -33,7 +33,7 @@ public class BetManager : MonoBehaviour
     public TextMeshPro WalletText;
     public TextMeshPro CashOutPayoutText;
     public Image PlaceBetButtonImage;
-    public Button PlaceBetButton;
+    public PokeButton PlaceBetButton;
     public Image BetSlipButtonImage;
     public PokeButton BetSlipButton;
     public TextMeshProUGUI BetSlipText;
@@ -79,13 +79,13 @@ public class BetManager : MonoBehaviour
         {
             if (currentBet <= 0f)
             {
-                PlaceBetButton.interactable = false;
+                PlaceBetButton.DisableButton();
                 PlaceBetButtonImage.color = new Color(0.5471698f, 0.5471698f, 0.5471698f, 1f); // Gray color
                 PlaceBetText.text = $"Place a bet\nto continue";
             }
             else
             {
-                PlaceBetButton.interactable = true;   
+                PlaceBetButton.EnableButton();   
                 PlaceBetButtonImage.color = new Color(0.1058824f, 0.6235294f, 0.2745098f, 1f); // Green color
                 PlaceBetText.text = $"Place ${currentBet:0} Bet";
             }

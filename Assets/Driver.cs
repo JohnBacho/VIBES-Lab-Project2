@@ -168,6 +168,7 @@ public class Driver : MonoBehaviour
         yield return null;
         StartDataTrackers();
         StartNextSlotTrial();
+        HideRayLine();
     }
 
     IEnumerator switchContextAfterDelay()
@@ -178,14 +179,14 @@ public class Driver : MonoBehaviour
         {
             SlotMachine.SetActive(true);
             Parlay.SetActive(false);
-            HideRayLine();
+    
             StartNextSlotTrial();
         }
         else
         {
             SlotMachine.SetActive(false);
             Parlay.SetActive(true);
-            ShowRayLine();
+            
             StartNextParlayTrial();
         }
     }
@@ -267,19 +268,19 @@ public class Driver : MonoBehaviour
         SetGamblingType();
         if (SlotMachine.activeSelf)
         {
-            HideRayLine();
+    
             StartNextSlotTrial();
         }
         else
         {
-            ShowRayLine();
+            
             StartNextParlayTrial();   
         }
     }
 
     private IEnumerator RunEffortTaskTrial(bool isSlot)
     {
-        HideRayLine();
+
         Debug.Log("Starting Effort Task Trial");
         sxr.SetGamblingType(GamblingType.EffortTask.ToString());
         SlotMachine.SetActive(false);
@@ -302,7 +303,7 @@ public class Driver : MonoBehaviour
         else
         {
             Parlay.SetActive(true);
-            ShowRayLine();
+            
             StartNextParlayTrial();
             SetGamblingType();
         }
@@ -383,12 +384,6 @@ public class Driver : MonoBehaviour
     {
         if (rayLineVisual != null)
             rayLineVisual.enabled = false;
-    }
-
-    void ShowRayLine()
-    {
-        if (rayLineVisual != null)
-            rayLineVisual.enabled = true;
     }
 
     void SetTypeOutcome()

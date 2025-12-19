@@ -376,7 +376,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.1000137, y: -2.4284859}
+  m_AnchoredPosition: {x: 3.6, y: -2.4284859}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &2230975898403967875
@@ -682,9 +682,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ba1b8ed2e853fb4c8b81d2ced9c088d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetImage: {fileID: 3378442454979493339}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   toggledColor: {r: 0, g: 1, b: 0, a: 1}
-  targetImage: {fileID: 3378442454979493339}
+  onToggledOn:
+    m_PersistentCalls:
+      m_Calls: []
+  onToggledOff:
+    m_PersistentCalls:
+      m_Calls: []
+  enableDebugLog: 1
 --- !u!114 &2770924693785062849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -697,9 +704,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1f208133cefafd4f81fa50cbf347b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ListOfOdds: a2feffff640000002c010000
-  TeamName1: Browns
-  TeamName2: Jags
+  parlayManager:
+    Parlays: []
+  ToggleTeam1: {fileID: 0}
+  ToggleTeam2: {fileID: 0}
+  OddsTextTeam1: {fileID: 0}
+  OddsTextTeam2: {fileID: 0}
+  Team1Text: {fileID: 0}
+  Team2Text: {fileID: 0}
   betManager: {fileID: 0}
   cardManager: {fileID: 0}
-  OddsText: {fileID: 5521832338521518793}
+  audioSource: {fileID: 0}
+  teamIndex: 0

@@ -53,30 +53,34 @@ public class CardManager : MonoBehaviour
         ConfigureGridLayout();
     }
 
-    private void ConfigureGridLayout()
+private void ConfigureGridLayout()
+{
+    int cardCount = activeCards.Count;
+    
+    gridLayout.spacing = new Vector2(-50, -5);
+    gridLayout.padding = new RectOffset(-2, -2, -2, -2);
+    
+    // Adjust cell size based on card count
+    if (cardCount <= 4)
     {
-        int cardCount = activeCards.Count;
-        
-        gridLayout.spacing = new Vector2(-50, -5);
-        gridLayout.padding = new RectOffset(-2, -2, -2, -2);
-        
         gridLayout.cellSize = new Vector2(150, 30);
-        
-        if (cardCount <= 3)
-        {
-            gridLayout.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
-            gridLayout.constraintCount = 1;
-            gridLayout.startAxis = GridLayoutGroup.Axis.Vertical;
-        }
-        else
-        {
-            gridLayout.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
-            gridLayout.constraintCount = 2;
-            gridLayout.startAxis = GridLayoutGroup.Axis.Vertical;
-        }
-        
-        gridLayout.childAlignment = TextAnchor.UpperCenter;
     }
+    else
+    {
+        // Scale down the cards when there are more than 4
+        float scaleFactor = Mathf.Max(0.5f, 1f - ((cardCount - 4) * 0.1f));
+        // Make width proportionally wider when shrunk
+        float widthMultiplier = 1f + (1f - scaleFactor) * 0.3f;
+        gridLayout.cellSize = new Vector2(150 * scaleFactor * widthMultiplier, 30 * scaleFactor);
+    }
+    
+    // Always use single column layout
+    gridLayout.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
+    gridLayout.constraintCount = 1;
+    gridLayout.startAxis = GridLayoutGroup.Axis.Vertical;
+    
+    gridLayout.childAlignment = TextAnchor.UpperCenter;
+}
 
     public void SpawnCard(string team1, int odds, TogglePressInteractable toggle)
     {
