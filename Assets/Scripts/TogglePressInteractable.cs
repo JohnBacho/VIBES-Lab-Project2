@@ -177,9 +177,14 @@ public class TogglePressInteractable : MonoBehaviour
     public int GetSelectedOdds()
     {
         Parlay currentParlay = parlayManager.Parlays[sxr.GetTrial()];
+        if (teamIndex == 1)
+            return currentParlay.Team1Odds;
+        if (teamIndex == 2)
+            return currentParlay.Team2Odds;
 
-        return teamIndex == 1 ? currentParlay.Team1Odds : currentParlay.Team1Odds;
+        return 0;
     }
+
 
     public void SetPressed(bool pressed)
     {
