@@ -1,64 +1,115 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
+using UnityEngine.XR.Interaction.Toolkit;
 
-public class ToggleButton : MonoBehaviour
+public class XRPokeToggleButton : MonoBehaviour
 {
+    private XRSimpleInteractable interactable;
+    private bool hasTriggered = false;
+    private bool isToggled = false;
+
+    [Header("Visuals")]
+    public Image targetImage;
     public Color normalColor = Color.white;
     public Color toggledColor = Color.green;
-    public Image targetImage; 
-   
-    private bool isToggled = false;
-    private Button button;
-    private ColorBlock originalColors;
-   
+
+    private Color disabledColor = Color.grey;
+
+
+    [Header("Toggle Events")]
+    public UnityEvent onToggledOn;
+    public UnityEvent onToggledOff;
+
+    [Header("Debug")]
+    public bool enableDebugLog = true;
+
     void Start()
     {
-        button = GetComponent<Button>();
-       
+        interactable = GetComponent<XRSimpleInteractable>();
+
+        interactable.hoverEntered.AddListener(OnPokeEntered);
+        interactable.hoverExited.AddListener(OnPokeExited);
+
         if (targetImage == null)
-        {
             targetImage = GetComponent<Image>();
+
+        // Initialize to normal color
+        SetNormalColor();
         }
-        
-        if (button != null)
+
+    void OnDestroy()
+    {
+        if (interactable != null)
         {
-            originalColors = button.colors;
+            interactable.hoverEntered.RemoveListener(OnPokeEntered);
+            interactable.hoverExited.RemoveListener(OnPokeExited);
         }
-              
-        UpdateButtonColors(false);
     }
-   
-    public void Toggle()
+
+    private void OnPokeEntered(HoverEnterEventArgs args)
     {
-        isToggled = !isToggled;
-        UpdateButtonColors(isToggled);
-    }
-   
-    public bool IsToggled()
-    {
-        return isToggled;
-    }
-    
-    public void SetToggled(bool toggled)
-    {
-        isToggled = toggled;
-        UpdateButtonColors(isToggled);
-    }
-    
-    private void UpdateButtonColors(bool toggled)
-    {
-        if (button != null)
+        if (!interactable.enabled) return;
+
+        if (args.interactorObject is XRPokeInteractor && !hasTriggered)
         {
-            ColorBlock colors = button.colors;
-            Color baseColor = toggled ? toggledColor : normalColor;
-            
-            colors.normalColor = baseColor;
-            colors.highlightedColor = baseColor * 1.2f; // Slightly brighter on hover
-            colors.pressedColor = baseColor * 0.8f; // Slightly darker when pressed
-            colors.selectedColor = baseColor;
-            colors.disabledColor = baseColor * 0.5f;
-            
-            button.colors = colors;
+            hasTriggered = true;
+            isToggled = !isToggled;
+
+            if (enableDebugLog)
+            {
+                Debug.Log(
+                    $"[XRPokeToggleButton] '{gameObject.name}' toggled → {isToggled}",
+                    this
+                );
+            }
+
+            if (isToggled)
+                onToggledOn?.Invoke();
+            else
+                onToggledOff?.Invoke();
         }
     }
+
+    private void OnPokeExited(HoverExitEventArgs args)
+    {
+        if (!interactable.enabled) return;
+
+        if (args.interactorObject is XRPokeInteractor)
+        {
+            hasTriggered = false;
+        }
+    }
+
+    public bool IsToggled() => isToggled;
+
+    public void SetToggledColor()
+    {
+        if (targetImage != null)
+            targetImage.color = toggledColor;
+
+    if (interactable != null)
+        interactable.enabled = true;
+    }
+
+    public void SetNormalColor()
+    {
+        if (targetImage != null)
+            targetImage.color = normalColor;
+
+    if (interactable != null)
+        interactable.enabled = true;
+    }
+
+    public void SetDisableColor()
+    {
+        if (targetImage != null)
+            targetImage.color = disabledColor;
+
+    if (interactable != null)
+        interactable.enabled = false;
+    }
+
+    
+
 }

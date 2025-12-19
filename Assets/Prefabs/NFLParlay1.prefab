@@ -353,8 +353,6 @@ GameObject:
   - component: {fileID: 6661295828732161097}
   - component: {fileID: 5974959310539633250}
   - component: {fileID: 5037872188904005504}
-  - component: {fileID: 7754309989631449962}
-  - component: {fileID: 8048285080173780874}
   - component: {fileID: 863198638175931656}
   - component: {fileID: 7080275514476321564}
   - component: {fileID: 1617283198420732619}
@@ -423,81 +421,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7754309989631449962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 684713425953954845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 0.92, g: 0.92, b: 0.92156863, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 1, g: 0.009433985, b: 0.009433985, a: 1}
-    m_DisabledColor: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 5037872188904005504}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 863198638175931656}
-        m_TargetAssemblyTypeName: ToggleButton, Assembly-CSharp
-        m_MethodName: Toggle
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &8048285080173780874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 684713425953954845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7951c64acb0fa62458bf30a60089fe2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 0
-  m_CheckFor2DOcclusion: 0
-  m_CheckFor3DOcclusion: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RaycastTriggerInteraction: 1
 --- !u!114 &863198638175931656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -510,9 +433,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ba1b8ed2e853fb4c8b81d2ced9c088d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetImage: {fileID: 5037872188904005504}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   toggledColor: {r: 0, g: 0.4784314, b: 0.90196085, a: 1}
-  targetImage: {fileID: 5037872188904005504}
+  onToggledOn:
+    m_PersistentCalls:
+      m_Calls: []
+  onToggledOff:
+    m_PersistentCalls:
+      m_Calls: []
+  enableDebugLog: 1
 --- !u!114 &7080275514476321564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -555,7 +485,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 171ad9f3121edc14daec972eb3f3d1b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverScale: 1.05
   pressedScale: 0.95
   smoothSpeed: 12
 --- !u!1 &1936011731812208240
@@ -717,8 +646,8 @@ MonoBehaviour:
       Team1Odds: 210
       Team2Name: Eagles
       Team2Odds: -300
-  ButtonTeam1: {fileID: 7754309989631449962}
-  ButtonTeam2: {fileID: 6061670871450725030}
+  ButtonTeam1: {fileID: 0}
+  ButtonTeam2: {fileID: 0}
   OddsTextTeam1: {fileID: 1489273485001641907}
   OddsTextTeam2: {fileID: 2345777593869495405}
   Team1Text: {fileID: 2599154306477484966}
@@ -1005,8 +934,6 @@ GameObject:
   - component: {fileID: 1871441983423275152}
   - component: {fileID: 8318115065105109788}
   - component: {fileID: 4961302929105504337}
-  - component: {fileID: 6061670871450725030}
-  - component: {fileID: 782658897272136660}
   - component: {fileID: 9189695549809179684}
   - component: {fileID: 3958412633357874331}
   - component: {fileID: 8707916962599342964}
@@ -1075,81 +1002,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6061670871450725030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2408204531872295607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 0.92156863, g: 0.92156863, b: 0.92156863, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 1, g: 0.009433985, b: 0.009433985, a: 1}
-    m_DisabledColor: {r: 0.4509804, g: 0.4509804, b: 0.4509804, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 4961302929105504337}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 9189695549809179684}
-        m_TargetAssemblyTypeName: ToggleButton, Assembly-CSharp
-        m_MethodName: Toggle
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &782658897272136660
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2408204531872295607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7951c64acb0fa62458bf30a60089fe2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 0
-  m_CheckFor2DOcclusion: 0
-  m_CheckFor3DOcclusion: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RaycastTriggerInteraction: 1
 --- !u!114 &9189695549809179684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1162,9 +1014,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ba1b8ed2e853fb4c8b81d2ced9c088d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetImage: {fileID: 4961302929105504337}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   toggledColor: {r: 0, g: 0.47843137, b: 0.9019608, a: 1}
-  targetImage: {fileID: 4961302929105504337}
+  onToggledOn:
+    m_PersistentCalls:
+      m_Calls: []
+  onToggledOff:
+    m_PersistentCalls:
+      m_Calls: []
+  enableDebugLog: 1
 --- !u!114 &3958412633357874331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1207,7 +1066,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 171ad9f3121edc14daec972eb3f3d1b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverScale: 1.05
   pressedScale: 0.95
   smoothSpeed: 12
 --- !u!1 &5208872722375300842

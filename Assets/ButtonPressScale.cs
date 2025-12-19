@@ -1,26 +1,23 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
+using UnityEngine.XR.Interaction.Toolkit;
 
-public class VRButtonSmoothScale : MonoBehaviour,
-    IPointerEnterHandler,
-    IPointerExitHandler,
-    IPointerDownHandler,
-    IPointerUpHandler
+public class XRPokeSmoothScale : MonoBehaviour
 {
-    [Header("Scales")]
-    public float hoverScale = 1.05f;
     public float pressedScale = 0.95f;
-
-    [Header("Smoothing")]
-    public float smoothSpeed = 12f; // higher = snappier
+    public float smoothSpeed = 12f;
 
     private Vector3 startScale;
     private Vector3 targetScale;
+    private XRSimpleInteractable interactable;
 
     void Awake()
     {
         startScale = transform.localScale;
         targetScale = startScale;
+
+        interactable = GetComponent<XRSimpleInteractable>();
+        interactable.selectEntered.AddListener(_ => Press());
+        interactable.selectExited.AddListener(_ => Release());
     }
 
     void Update()
@@ -32,23 +29,13 @@ public class VRButtonSmoothScale : MonoBehaviour,
         );
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        targetScale = startScale * hoverScale;
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        targetScale = startScale;
-    }
-
-    public void OnPointerDown(PointerEventData eventData)
+    private void Press()
     {
         targetScale = startScale * pressedScale;
     }
 
-    public void OnPointerUp(PointerEventData eventData)
+    private void Release()
     {
-        targetScale = startScale * hoverScale;
+        targetScale = startScale;
     }
 }
