@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 928f429c0a8473046b68993097d3e65e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 167401
+  packageName: Tablet based Single Camera System
+  packageVersion: 2.0
+  assetPath: Assets/Security Systems/Free Version/Scripts/FreebieCameraHookupScript.cs
+  uploadId: 591620
