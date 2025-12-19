@@ -27,11 +27,31 @@ public class CardManager : MonoBehaviour
 
     void Awake()
     {
-    if (audioSource == null)
-        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+            audioSource = GetComponent<AudioSource>();
 
         audioSource.loop = false;
-        // Get or add GridLayoutGroup
+        
+        // Initial setup - will be re-checked when needed
+        EnsureLayoutComponentsInitialized();
+    }
+    
+    private void EnsureLayoutComponentsInitialized()
+    {
+        // Ensure CardParent is assigned
+        if (CardParent == null)
+        {
+            Debug.LogError("CardParent is not assigned in CardManager!");
+            return;
+        }
+        
+        // Make sure CardParent is active before trying to access components
+        if (!CardParent.gameObject.activeInHierarchy)
+        {
+            CardParent.gameObject.SetActive(true);
+        }
+        
+        // Get or add GridLayoutGroup - always re-fetch to handle active/inactive transitions
         gridLayout = CardParent.GetComponent<GridLayoutGroup>();
         if (gridLayout == null)
         {
@@ -53,37 +73,76 @@ public class CardManager : MonoBehaviour
         ConfigureGridLayout();
     }
 
-private void ConfigureGridLayout()
-{
-    int cardCount = activeCards.Count;
-    
-    gridLayout.spacing = new Vector2(-50, -5);
-    gridLayout.padding = new RectOffset(-2, -2, -2, -2);
-    
-    // Adjust cell size based on card count
-    if (cardCount <= 4)
+    private void ConfigureGridLayout()
     {
-        gridLayout.cellSize = new Vector2(150, 30);
+        // Re-fetch gridLayout reference to handle active/inactive transitions
+        if (CardParent != null)
+        {
+            gridLayout = CardParent.GetComponent<GridLayoutGroup>();
+        }
+        
+        if (gridLayout == null)
+        {
+            if (CardParent == null)
+            {
+                Debug.LogError("CardParent is null in ConfigureGridLayout!");
+                return;
+            }
+            
+            // Ensure parent is active before adding component
+            bool wasInactive = !CardParent.gameObject.activeSelf;
+            if (wasInactive)
+            {
+                CardParent.gameObject.SetActive(true);
+            }
+            
+            gridLayout = CardParent.GetComponent<GridLayoutGroup>();
+            if (gridLayout == null)
+            {
+                gridLayout = CardParent.gameObject.AddComponent<GridLayoutGroup>();
+                Debug.LogWarning("GridLayout was null, re-initializing...");
+            }
+        }
+        
+        int cardCount = activeCards.Count;
+        
+        gridLayout.spacing = new Vector2(-50, -5);
+        gridLayout.padding = new RectOffset(-2, -2, -2, -2);
+        
+        // Adjust cell size based on card count
+        if (cardCount <= 4)
+        {
+            gridLayout.cellSize = new Vector2(150, 30);
+        }
+        else
+        {
+            // Scale down the cards when there are more than 4
+            float scaleFactor = Mathf.Max(0.5f, 1f - ((cardCount - 4) * 0.1f));
+            // Make width proportionally wider when shrunk
+            float widthMultiplier = 1f + (1f - scaleFactor) * 0.3f;
+            gridLayout.cellSize = new Vector2(150 * scaleFactor * widthMultiplier, 30 * scaleFactor);
+        }
+        
+        // Always use single column layout
+        gridLayout.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
+        gridLayout.constraintCount = 1;
+        gridLayout.startAxis = GridLayoutGroup.Axis.Vertical;
+        
+        gridLayout.childAlignment = TextAnchor.UpperCenter;
     }
-    else
-    {
-        // Scale down the cards when there are more than 4
-        float scaleFactor = Mathf.Max(0.5f, 1f - ((cardCount - 4) * 0.1f));
-        // Make width proportionally wider when shrunk
-        float widthMultiplier = 1f + (1f - scaleFactor) * 0.3f;
-        gridLayout.cellSize = new Vector2(150 * scaleFactor * widthMultiplier, 30 * scaleFactor);
-    }
-    
-    // Always use single column layout
-    gridLayout.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
-    gridLayout.constraintCount = 1;
-    gridLayout.startAxis = GridLayoutGroup.Axis.Vertical;
-    
-    gridLayout.childAlignment = TextAnchor.UpperCenter;
-}
 
     public void SpawnCard(string team1, int odds, TogglePressInteractable toggle)
     {
+        // Add safety check
+        if (CardPrefab == null || CardParent == null)
+        {
+            Debug.LogError("CardPrefab or CardParent is not assigned!");
+            return;
+        }
+        
+        // Ensure gridLayout is initialized before use
+        EnsureLayoutComponentsInitialized();
+        
         GameObject newCard = Instantiate(CardPrefab, CardParent);
         newCard.transform.SetAsLastSibling();
 
@@ -95,7 +154,7 @@ private void ConfigureGridLayout()
         if (odds > 0)
             oddsText.text = "+" + odds.ToString();
         else
-        oddsText.text = odds.ToString();
+            oddsText.text = odds.ToString();
 
         team1Text.text = team1;
 
@@ -109,7 +168,10 @@ private void ConfigureGridLayout()
         
         ConfigureGridLayout();
         
-        LayoutRebuilder.ForceRebuildLayoutImmediate(CardParent as RectTransform);
+        if (CardParent is RectTransform rectTransform)
+        {
+            LayoutRebuilder.ForceRebuildLayoutImmediate(rectTransform);
+        }
     }
 
     public void RemoveCard(TogglePressInteractable toggle)
@@ -129,7 +191,11 @@ private void ConfigureGridLayout()
             Destroy(card);
             
             ConfigureGridLayout();
-            LayoutRebuilder.ForceRebuildLayoutImmediate(CardParent as RectTransform);
+            
+            if (CardParent is RectTransform rectTransform)
+            {
+                LayoutRebuilder.ForceRebuildLayoutImmediate(rectTransform);
+            }
         }
     }
     
@@ -160,42 +226,42 @@ private void ConfigureGridLayout()
         ConfigureGridLayout();
     }
 
-public void AnimateCardsColor(List<int> colorValues)
-{
-    StartCoroutine(AnimateCardsSequentially(colorValues));
-}
-
-private IEnumerator AnimateCardsSequentially(List<int> colorValues)
-{
-    if (colorValues.Count != activeCards.Count)
+    public void AnimateCardsColor(List<int> colorValues)
     {
-        Debug.LogWarning($"Number of colors doesn't match number of cards {colorValues.Count} vs {activeCards.Count}");
-        yield break;
+        StartCoroutine(AnimateCardsSequentially(colorValues));
     }
 
-    PlaySuspense();
-
-    for (int i = 0; i < activeCards.Count; i++)
+    private IEnumerator AnimateCardsSequentially(List<int> colorValues)
     {
-        GameObject card = activeCards[i];
-        if (card != null)
+        if (colorValues.Count != activeCards.Count)
         {
-            bool isGreen = colorValues[i] == 1;
-            StartCoroutine(
-                AnimateSingleCardColorWithDelay(card, isGreen, i * 0.3f)
-            );
+            Debug.LogWarning($"Number of colors doesn't match number of cards {colorValues.Count} vs {activeCards.Count}");
+            yield break;
         }
+
+        PlaySuspense();
+
+        for (int i = 0; i < activeCards.Count; i++)
+        {
+            GameObject card = activeCards[i];
+            if (card != null)
+            {
+                bool isGreen = colorValues[i] == 1;
+                StartCoroutine(
+                    AnimateSingleCardColorWithDelay(card, isGreen, i * 0.3f)
+                );
+            }
+        }
+
+        float totalTime =
+            (activeCards.Count * 0.3f) + 
+            (0.6f) + 
+            (20 * 0.05f); 
+
+        yield return new WaitForSeconds(totalTime);
+
+        StopSuspense();
     }
-
-    float totalTime =
-        (activeCards.Count * 0.3f) + 
-        (0.6f) + 
-        (20 * 0.05f); 
-
-    yield return new WaitForSeconds(totalTime);
-
-    StopSuspense();
-}
 
 
     private IEnumerator AnimateSingleCardColorWithDelay(GameObject card, bool isGreen, float delay)
@@ -300,6 +366,7 @@ private IEnumerator AnimateCardsSequentially(List<int> colorValues)
         audioSource.Stop();
         audioSource.loop = false;
     }
+    
     private void PlayResultSound(bool isGreen)
     {
         AudioClip clip = isGreen ? winClip : loseClip;
@@ -308,5 +375,4 @@ private IEnumerator AnimateCardsSequentially(List<int> colorValues)
         audioSource.PlayOneShot(clip, resultVolume);
         audioSource.pitch = 1f;
     }
-
 }

@@ -362,7 +362,6 @@ GameObject:
   - component: {fileID: 6841476736905210359}
   - component: {fileID: 8625416634510749901}
   - component: {fileID: 1987671159798655031}
-  - component: {fileID: 7519512458596498723}
   m_Layer: 0
   m_Name: ButtonOdds1
   m_TagString: Untagged
@@ -674,19 +673,6 @@ MonoBehaviour:
   onButtonReleased:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &7519512458596498723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 684713425953954845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f4297b5dc9fba64da7e2fa504fba4c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pokeFilter: {fileID: 6841476736905210359}
 --- !u!1 &1936011731812208240
 GameObject:
   m_ObjectHideFlags: 0
@@ -1147,7 +1133,6 @@ GameObject:
   - component: {fileID: 4563177515776139309}
   - component: {fileID: 1267182806012210796}
   - component: {fileID: 8892534528405853633}
-  - component: {fileID: 5236928309885517242}
   m_Layer: 6
   m_Name: ButtonOdds2
   m_TagString: Untagged
@@ -1459,19 +1444,6 @@ MonoBehaviour:
   onButtonReleased:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &5236928309885517242
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2408204531872295607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f4297b5dc9fba64da7e2fa504fba4c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pokeFilter: {fileID: 0}
 --- !u!1 &5208872722375300842
 GameObject:
   m_ObjectHideFlags: 0

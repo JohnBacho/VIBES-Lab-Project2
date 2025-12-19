@@ -224,11 +224,11 @@ public class BetManager : MonoBehaviour
             for(int i = 0; i < 4; i++)
             {
                 yield return new WaitForSeconds(0.5f);
-                WinText.text = $"YOU WIN ${Payout:0.00}";
+                WinText.text = $"YOU WIN\n${Payout:0.00}";
                 yield return new WaitForSeconds(0.35f);
                 WinText.text = "";
             }
-            WinText.text = $"YOU WIN ${Payout:0.00}";
+            WinText.text = $"YOU WIN\n${Payout:0.00}";
             yield return new WaitForSeconds(.5f);
             WinningAudioSource.Stop();
             WinText.text = "";

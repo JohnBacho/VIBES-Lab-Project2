@@ -19,6 +19,7 @@ public class CustomPokeFilter : MonoBehaviour, IXRHoverFilter, IXRSelectFilter
             interactable.hoverFilters.Add(this);
             interactable.selectFilters.Add(this);
         }
+        
     }
 
     void OnDestroy()
