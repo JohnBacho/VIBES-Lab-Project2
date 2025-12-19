@@ -35,7 +35,7 @@ public class BetManager : MonoBehaviour
     public Image PlaceBetButtonImage;
     public Button PlaceBetButton;
     public Image BetSlipButtonImage;
-    public Button BetSlipButton;
+    public PokeButton BetSlipButton;
     public TextMeshProUGUI BetSlipText;
 
 
@@ -92,13 +92,13 @@ public class BetManager : MonoBehaviour
         }
         if (oddsArray.Count < 3)
         {
-            BetSlipButton.interactable = false;
+            BetSlipButton.DisableButton();
             BetSlipButtonImage.color = new Color(0.5471698f, 0.5471698f, 0.5471698f, 1f); // Gray color
             BetSlipText.text = $"Select 3 or more parlays";
         }
         else
         {
-            BetSlipButton.interactable = true;   
+            BetSlipButton.EnableButton();   
             BetSlipButtonImage.color = new Color(0.1058824f, 0.6235294f, 0.2745098f, 1f); // Green color
             BetSlipText.text = $"View Betslip";
         }
