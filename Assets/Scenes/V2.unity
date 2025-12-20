@@ -2107,6 +2107,7 @@ GameObject:
   - component: {fileID: 240897803}
   - component: {fileID: 240897802}
   - component: {fileID: 240897800}
+  - component: {fileID: 240897805}
   m_Layer: 6
   m_Name: SubmitButton
   m_TagString: Untagged
@@ -2455,6 +2456,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 158.7, y: 29.29, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &240897805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 240897793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 171ad9f3121edc14daec972eb3f3d1b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pressedScale: 0.95
+  smoothSpeed: 12
 --- !u!1001 &246862861
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11219,6 +11234,7 @@ GameObject:
   - component: {fileID: 1362147689}
   - component: {fileID: 1362147688}
   - component: {fileID: 1362147686}
+  - component: {fileID: 1362147694}
   m_Layer: 6
   m_Name: DecreaseButton
   m_TagString: Untagged
@@ -11567,6 +11583,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1362147684}
   m_CullTransparentMesh: 1
+--- !u!114 &1362147694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362147684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 171ad9f3121edc14daec972eb3f3d1b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pressedScale: 0.95
+  smoothSpeed: 12
 --- !u!114 &1363750584 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9189695549809179684, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
@@ -20444,6 +20474,7 @@ GameObject:
   - component: {fileID: 1967075281}
   - component: {fileID: 1967075280}
   - component: {fileID: 1967075278}
+  - component: {fileID: 1967075286}
   m_Layer: 6
   m_Name: IncreaseButton
   m_TagString: Untagged
@@ -20792,6 +20823,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1967075276}
   m_CullTransparentMesh: 1
+--- !u!114 &1967075286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967075276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 171ad9f3121edc14daec972eb3f3d1b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pressedScale: 0.95
+  smoothSpeed: 12
 --- !u!1 &1970160395
 GameObject:
   m_ObjectHideFlags: 0
@@ -20909,6 +20954,7 @@ MonoBehaviour:
   leaderboard: {fileID: 1970160410}
   driver: {fileID: 1970160412}
   WinningAudioSource: {fileID: 7907209383017540632}
+  AlreaydSubmitting: 0
 --- !u!114 &1970160410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20948,7 +20994,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc04ca3376ea74d4bbbeeab8509b4917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SlotFirst: 0
+  SlotFirst: 1
   SlotMachine: {fileID: 1766149070}
   Parlay: {fileID: 5211782599629783203}
   EffortTask: {fileID: 1026965197}

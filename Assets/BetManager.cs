@@ -57,6 +57,7 @@ public class BetManager : MonoBehaviour
 
     public bool TrialCompleted => trialCompleted;
     private bool trialCompleted = false;
+    public bool AlreaydSubmitting = false;
 
 
     private static float seconds = 4.5f;
@@ -159,8 +160,9 @@ public class BetManager : MonoBehaviour
 
     public void StartSubmit()
     {
-        if(currentBet == 0f)
+        if(currentBet == 0f || AlreaydSubmitting)
             return;
+        AlreaydSubmitting = true;    
         StartCoroutine(Submit());
     }
 
@@ -244,7 +246,6 @@ public class BetManager : MonoBehaviour
         decimalOddsList.Clear();
         activeToggles.Clear();
         currentParlaySelections.Clear();
-
         leaderboard.SetMoney("You", GameManager.Instance.wallet);
 
         BetslipUI.SetActive(false);
@@ -261,7 +262,7 @@ public class BetManager : MonoBehaviour
             togglePressInteractables[i].UpdateUI();
             togglePressInteractables[i].ResetToggle();
         }
-        
+        AlreaydSubmitting = false;        
 
     }
 
@@ -277,7 +278,6 @@ public class BetManager : MonoBehaviour
         }
 
     }
-
     public void ViewParlays()
     {
         BetslipUI.SetActive(false);
@@ -286,7 +286,7 @@ public class BetManager : MonoBehaviour
 
     public void IncreaseParlayBet()
     {
-        if (GameManager.Instance.wallet < 1f) return;
+        if (GameManager.Instance.wallet < 1f || AlreaydSubmitting) return;
 
         currentBet += 1f;
         GameManager.Instance.RemoveWallet(1f);
@@ -295,7 +295,7 @@ public class BetManager : MonoBehaviour
 
     public void DecreaseParlayBet()
     {
-        if (currentBet <= 0f) return;
+        if (currentBet <= 0f || AlreaydSubmitting) return;
 
         currentBet -= 1f;
         GameManager.Instance.AddWallet(1f);

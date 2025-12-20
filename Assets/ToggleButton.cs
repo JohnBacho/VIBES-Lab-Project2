@@ -6,18 +6,18 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class XRPokeToggleButton : MonoBehaviour
 {
     private XRSimpleInteractable interactable;
-    private bool hasTriggered = false;
     private bool isToggled = false;
     private bool isInteractable = true;
-
+    
+    [Header("Interaction Settings")]
+    [SerializeField] private float cooldownTime = 0.3f;
+    private float lastInteractionTime = -999f;
 
     [Header("Visuals")]
     public Image targetImage;
     public Color normalColor = Color.white;
     public Color toggledColor = Color.green;
-
     private Color disabledColor = Color.grey;
-
 
     [Header("Toggle Events")]
     public UnityEvent onToggledOn;
@@ -29,32 +29,32 @@ public class XRPokeToggleButton : MonoBehaviour
     void Start()
     {
         interactable = GetComponent<XRSimpleInteractable>();
-
-        interactable.hoverEntered.AddListener(OnPokeEntered);
-        interactable.hoverExited.AddListener(OnPokeExited);
+        interactable.selectEntered.AddListener(OnPokeSelect);
 
         if (targetImage == null)
             targetImage = GetComponent<Image>();
 
-        // Initialize to normal color
         SetNormalColor();
-        }
+    }
 
     void OnDestroy()
     {
         if (interactable != null)
         {
-            interactable.hoverEntered.RemoveListener(OnPokeEntered);
-            interactable.hoverExited.RemoveListener(OnPokeExited);
+            interactable.selectEntered.RemoveListener(OnPokeSelect);
         }
     }
 
-    private void OnPokeEntered(HoverEnterEventArgs args)
+    private void OnPokeSelect(SelectEnterEventArgs args)
     {
         if (!isInteractable) return;
-        if (args.interactorObject is XRPokeInteractor && !hasTriggered)
+
+        if (Time.time - lastInteractionTime < cooldownTime)
+            return;
+
+        if (args.interactorObject is XRPokeInteractor)
         {
-            hasTriggered = true;
+            lastInteractionTime = Time.time;
             isToggled = !isToggled;
 
             if (enableDebugLog)
@@ -72,33 +72,21 @@ public class XRPokeToggleButton : MonoBehaviour
         }
     }
 
-    private void OnPokeExited(HoverExitEventArgs args)
-    {
-        if (!interactable.enabled) return;
-
-        if (args.interactorObject is XRPokeInteractor)
-        {
-            hasTriggered = false;
-        }
-    }
-
     public bool IsToggled() => isToggled;
 
     public void SetToggledColor()
     {
         if (targetImage != null)
             targetImage.color = toggledColor;
-
-    if (interactable != null)
-        interactable.enabled = true;
+        if (interactable != null)
+            interactable.enabled = true;
     }
 
     public void SetNormalColor()
     {
         if (targetImage != null)
             targetImage.color = normalColor;
-
-    isInteractable = true;
+        isInteractable = true;
     }
 
     public void SetDisableColor()
@@ -109,6 +97,7 @@ public class XRPokeToggleButton : MonoBehaviour
         }
         isInteractable = false;
     }
+
     public void SetToggled(bool value, bool fireEvents = false)
     {
         if (isToggled == value)
@@ -127,16 +116,9 @@ public class XRPokeToggleButton : MonoBehaviour
 
     public void ForceReset()
     {
-        hasTriggered = false;
         isToggled = false;
-
+        lastInteractionTime = -999f;
         if (interactable != null)
             interactable.enabled = true;
     }
-
-    void OnDisable()
-    {
-        hasTriggered = false;
-    }
-
 }

@@ -31,6 +31,7 @@ public class Driver : MonoBehaviour
     private Coroutine offMusicCoroutine;
     private float SlotTrialTime = 30f;
     private float ParlayTrialTime = 105f;
+    private int offMusicToken = 0;
 
 
 [SerializeField] XRInteractorLineVisual rayLineVisual;
@@ -232,7 +233,8 @@ public class Driver : MonoBehaviour
             StartCoroutine(RunEffortTaskTrial(true));
             return;
         }
-        offMusicCoroutine = StartCoroutine(PlayOffMusic(SlotMachine.activeSelf ? SlotTrialTime : ParlayTrialTime));
+        offMusicToken++;
+        offMusicCoroutine = StartCoroutine(PlayOffMusic(SlotMachine.activeSelf ? SlotTrialTime : ParlayTrialTime, offMusicToken));
         Debug.Log($"Starting Slot Trial {sxr.GetTrial()}");
         StartCoroutine(RunSlotTrial(SlotOutcomes[sxr.GetTrial()], SlotOutcomeRows[sxr.GetTrial()]));
     }
@@ -280,7 +282,7 @@ public class Driver : MonoBehaviour
 
     private IEnumerator RunEffortTaskTrial(bool isSlot)
     {
-
+        CancelOffMusic();
         Debug.Log("Starting Effort Task Trial");
         sxr.SetGamblingType(GamblingType.EffortTask.ToString());
         SlotMachine.SetActive(false);
@@ -352,7 +354,8 @@ public class Driver : MonoBehaviour
             StartCoroutine(RunEffortTaskTrial(false));
             return;
         }
-        offMusicCoroutine = StartCoroutine(PlayOffMusic(SlotMachine.activeSelf ? SlotTrialTime : ParlayTrialTime));
+        offMusicToken++;
+        offMusicCoroutine = StartCoroutine(PlayOffMusic(SlotMachine.activeSelf ? SlotTrialTime : ParlayTrialTime, offMusicToken));
         Debug.Log($"Starting Parlay Trial {sxr.GetTrial()}");
         StartCoroutine(RunParlayTrial(ParlayOutcomes[sxr.GetTrial()]));
 
@@ -402,9 +405,12 @@ public class Driver : MonoBehaviour
         }
     }
 
-    IEnumerator PlayOffMusic(float delay)
+    IEnumerator PlayOffMusic(float delay, int token)
     {
         yield return new WaitForSeconds(delay);
+
+        if (token != offMusicToken)
+            yield break;
 
         if (EffortTask.activeSelf)
             yield break;
@@ -413,8 +419,11 @@ public class Driver : MonoBehaviour
     }
 
 
+
     void CancelOffMusic()
     {
+        offMusicToken++;
+
         if (offMusicCoroutine != null)
         {
             StopCoroutine(offMusicCoroutine);
@@ -422,11 +431,7 @@ public class Driver : MonoBehaviour
         }
 
         if (TimeIsUpAudioSource.isPlaying)
-        {
             TimeIsUpAudioSource.Stop();
-        }
     }
-
-    
 
 }
