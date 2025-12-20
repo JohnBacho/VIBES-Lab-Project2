@@ -44,6 +44,8 @@ public class TogglePressInteractable : MonoBehaviour
     private bool team2Selected = false;
     public int teamIndex;
     private Color TextColorNormal = new Color32(0x1F, 0x37, 0x5B, 0xFF);
+    private bool isResetting = false;
+
 
     void Start()
     {
@@ -65,6 +67,7 @@ public class TogglePressInteractable : MonoBehaviour
 
     private void OnTeamSelected(int team)
     {
+        if (isResetting) return;
         Parlay currentParlay = parlayManager.Parlays[sxr.GetTrial()];
         audioSource.Play();
 
@@ -109,6 +112,7 @@ public class TogglePressInteractable : MonoBehaviour
 
     private void OnTeamDeselected(int team)
     {
+        if (isResetting) return;
         Parlay currentParlay = parlayManager.Parlays[sxr.GetTrial()];
 
         if (team == 1)
@@ -162,15 +166,28 @@ public class TogglePressInteractable : MonoBehaviour
 
     public void ResetToggle()
     {
+        isResetting = true;
+
         team1Selected = false;
         team2Selected = false;
         teamIndex = 0;
+
         OddsTextTeam1.color = TextColorNormal;
         OddsTextTeam2.color = TextColorNormal;
+
+        if (ToggleTeam1 != null)
+            ToggleTeam1.SetToggled(false);
+        if (ToggleTeam2 != null)
+            ToggleTeam2.SetToggled(false);
+
         ToggleTeam1.SetNormalColor();
         ToggleTeam2.SetNormalColor();
+
+        isResetting = false;
+
         UpdateUI();
     }
+
 
     public int GetSelectedOdds()
     {

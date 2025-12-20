@@ -98,23 +98,11 @@ public class BetManager : MonoBehaviour
         }
         else
         {
-            BetSlipButton.EnableButton();   
             BetSlipButtonImage.color = new Color(0.1058824f, 0.6235294f, 0.2745098f, 1f); // Green color
+            BetSlipButton.EnableButton();
             BetSlipText.text = $"View Betslip";
         }
 }
-
-    void TurnOffUI()
-    {
-        MiddleUI.SetActive(false);
-        MiddleParlayUI.SetActive(false);
-    }
-
-    void TurnOnUI()
-    {
-        MiddleUI.SetActive(true);
-        MiddleParlayUI.SetActive(true);
-    }
 
     public void AddToCalculateOdds(int odds, TogglePressInteractable toggle, string teamName)
     {
@@ -185,7 +173,7 @@ public class BetManager : MonoBehaviour
     {
         if (oddsArray.Count < 3)
         {
-            TurnOffUI();
+            MiddleUI.SetActive(false);
             ErrorMessage.text = "Please select at\nleast 3 bets\nfor a parlay.";
             yield return new WaitForSeconds(seconds);
             ErrorMessage.text = "";
@@ -218,7 +206,7 @@ public class BetManager : MonoBehaviour
             Payout = CalculateParlayPayout();
             GameManager.Instance.AddWallet(Payout);
 
-            TurnOffUI();
+            MiddleUI.SetActive(false);
             WinningAudioSource.Play();
             WalletText.text = $"Wallet: ${GameManager.Instance.wallet:0.00}";
             for(int i = 0; i < 4; i++)
@@ -236,7 +224,7 @@ public class BetManager : MonoBehaviour
         }
         else
         {
-            TurnOffUI();
+            MiddleUI.SetActive(false);
             LossText.text = $"You Lose!";
             WalletText.text = $"Wallet: ${GameManager.Instance.wallet:0.00}";
             yield return new WaitForSeconds(4f);
@@ -263,23 +251,31 @@ public class BetManager : MonoBehaviour
         ParlayUI.SetActive(true);
         UpdateUI();
         UpdateOddsText();
-        for (int i = 0; i < toggleButton.Count; i++)
+        foreach (var t in toggleButton)
         {
-            toggleButton[i].SetNormalColor();
+            t.ForceReset();
+            t.SetNormalColor();
         }
         for (int i = 0; i < togglePressInteractables.Count; i++)
         {
             togglePressInteractables[i].UpdateUI();
+            togglePressInteractables[i].ResetToggle();
         }
+        
 
     }
 
     public void ViewBetslip()
     {
-        BetslipUI.SetActive(true);
-        TurnOnUI();
         ParlayUI.SetActive(false);
+        BetslipUI.SetActive(true);
+        MiddleUI.SetActive(true);
         UpdateUI();
+        foreach (var t in toggleButton)
+        {
+            t.ForceReset();
+        }
+
     }
 
     public void ViewParlays()

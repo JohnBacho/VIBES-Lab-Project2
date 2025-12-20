@@ -8,6 +8,8 @@ public class XRPokeToggleButton : MonoBehaviour
     private XRSimpleInteractable interactable;
     private bool hasTriggered = false;
     private bool isToggled = false;
+    private bool isInteractable = true;
+
 
     [Header("Visuals")]
     public Image targetImage;
@@ -49,8 +51,7 @@ public class XRPokeToggleButton : MonoBehaviour
 
     private void OnPokeEntered(HoverEnterEventArgs args)
     {
-        if (!interactable.enabled) return;
-
+        if (!isInteractable) return;
         if (args.interactorObject is XRPokeInteractor && !hasTriggered)
         {
             hasTriggered = true;
@@ -97,19 +98,45 @@ public class XRPokeToggleButton : MonoBehaviour
         if (targetImage != null)
             targetImage.color = normalColor;
 
-    if (interactable != null)
-        interactable.enabled = true;
+    isInteractable = true;
     }
 
     public void SetDisableColor()
     {
         if (targetImage != null)
+        {
             targetImage.color = disabledColor;
+        }
+        isInteractable = false;
+    }
+    public void SetToggled(bool value, bool fireEvents = false)
+    {
+        if (isToggled == value)
+            return;
 
-    if (interactable != null)
-        interactable.enabled = false;
+        isToggled = value;
+
+        if (fireEvents)
+        {
+            if (isToggled)
+                onToggledOn?.Invoke();
+            else
+                onToggledOff?.Invoke();
+        }
     }
 
-    
+    public void ForceReset()
+    {
+        hasTriggered = false;
+        isToggled = false;
+
+        if (interactable != null)
+            interactable.enabled = true;
+    }
+
+    void OnDisable()
+    {
+        hasTriggered = false;
+    }
 
 }

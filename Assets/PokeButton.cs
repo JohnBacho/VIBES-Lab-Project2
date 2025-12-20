@@ -15,7 +15,7 @@ public class PokeButton : MonoBehaviour
     [Tooltip("Triggered when the button is released")]
     public UnityEvent onButtonReleased;
 
-    void Awake()  // Changed from Start() to Awake()
+    void Awake()
     {
         interactable = GetComponent<XRSimpleInteractable>();
         interactable.hoverEntered.AddListener(OnPokeEntered);
@@ -33,8 +33,8 @@ public class PokeButton : MonoBehaviour
 
     public void OnPokeEntered(HoverEnterEventArgs args)
     {
+        Debug.Log($"PokeButton OnPokeEntered called ${interactable.enabled}");
         if (!interactable.enabled) return;
-
         if (args.interactorObject is XRPokeInteractor && !hasTriggered)
         {
             onButtonPressed?.Invoke();
@@ -57,11 +57,16 @@ public class PokeButton : MonoBehaviour
     {
         if (interactable != null)  // Added null check as extra safety
             interactable.enabled = false;
+            hasTriggered = true;
     }
 
     public void EnableButton()
     {
-        if (interactable != null)  // Added null check as extra safety
+        if (interactable != null)
+        {
             interactable.enabled = true;
+            hasTriggered = false;            
+        }
+
     }
 }
