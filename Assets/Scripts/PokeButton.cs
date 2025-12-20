@@ -33,7 +33,6 @@ public class PokeButton : MonoBehaviour
 
     public void OnPokeEntered(HoverEnterEventArgs args)
     {
-        Debug.Log($"PokeButton OnPokeEntered called ${interactable.enabled}");
         if (!interactable.enabled) return;
         if (args.interactorObject is XRPokeInteractor && !hasTriggered)
         {
@@ -55,7 +54,7 @@ public class PokeButton : MonoBehaviour
 
     public void DisableButton()
     {
-        if (interactable != null)  // Added null check as extra safety
+        if (interactable != null)
             interactable.enabled = false;
             hasTriggered = true;
     }

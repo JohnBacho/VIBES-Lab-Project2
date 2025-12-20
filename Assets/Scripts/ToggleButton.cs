@@ -10,7 +10,7 @@ public class XRPokeToggleButton : MonoBehaviour
     private bool isInteractable = true;
     
     [Header("Interaction Settings")]
-    [SerializeField] private float cooldownTime = 0.3f;
+    [SerializeField] private float cooldownTime = 1f;
     private float lastInteractionTime = -999f;
 
     [Header("Visuals")]

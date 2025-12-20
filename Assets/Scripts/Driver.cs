@@ -22,11 +22,14 @@ public enum GamblingType
 public class Driver : MonoBehaviour
 {
     public bool SlotFirst = true;
-    public GameObject SlotMachine; // used for switching GamblingType
-    public GameObject Parlay; // used for switching GamblingType
+    public GameObject SlotMachine;
+    public GameObject Parlay;
     public GameObject EffortTask;
     public BetManager betManager;
     public SlotHandler slotHandler;
+    public Bucket bucket;
+    public List<Bucket> EffortTaskBucket;
+
     public AudioSource TimeIsUpAudioSource;
     private Coroutine offMusicCoroutine;
     private float SlotTrialTime = 30f;
@@ -230,7 +233,7 @@ public class Driver : MonoBehaviour
         if(sxr.GetTrial() == 6)
         {
             Debug.Log("Running Effort Task Trial");
-            StartCoroutine(RunEffortTaskTrial(true));
+            StartCoroutine(RunEffortTaskTrial());
             return;
         }
         offMusicToken++;
@@ -266,7 +269,6 @@ public class Driver : MonoBehaviour
         sxr.NextPhase();
         SlotMachine.SetActive(!SlotMachine.activeSelf);
         Parlay.SetActive(!Parlay.activeSelf);
-        GameManager.Instance.SetWallet(100f);
         SetGamblingType();
         if (SlotMachine.activeSelf)
         {
@@ -280,13 +282,28 @@ public class Driver : MonoBehaviour
         }
     }
 
-    private IEnumerator RunEffortTaskTrial(bool isSlot)
+    private IEnumerator RunEffortTaskTrial()
     {
+        bool isSlot = SlotMachine.activeSelf;
         CancelOffMusic();
         Debug.Log("Starting Effort Task Trial");
         sxr.SetGamblingType(GamblingType.EffortTask.ToString());
         SlotMachine.SetActive(false);
         Parlay.SetActive(false);
+        if(isSlot)
+        {
+            for(int i = 0; i < EffortTaskBucket.Count; i++)
+            {
+                EffortTaskBucket[i].SetWallet(slotHandler);
+            }
+        }
+        else
+        {
+            for(int i = 0; i < EffortTaskBucket.Count; i++)
+            {
+                EffortTaskBucket[i].SetWallet(betManager);
+            }
+        }
         EffortTask.SetActive(true);
         Object.FindAnyObjectByType<BallSpawner>().StartSpawning();
         Object.FindAnyObjectByType<CountdownTimer>().StartCountdown();
@@ -305,7 +322,7 @@ public class Driver : MonoBehaviour
         else
         {
             Parlay.SetActive(true);
-            
+            betManager.UpdateLeaderboard();
             StartNextParlayTrial();
             SetGamblingType();
         }
@@ -351,7 +368,7 @@ public class Driver : MonoBehaviour
         if(sxr.GetTrial() == 6)
         {
             Debug.Log("Running Effort Task Trial");
-            StartCoroutine(RunEffortTaskTrial(false));
+            StartCoroutine(RunEffortTaskTrial());
             return;
         }
         offMusicToken++;

@@ -5,7 +5,8 @@ using TMPro;
 using UnityEngine.UI;
 using System.Linq;
 
-public class SlotHandler : MonoBehaviour
+
+public class SlotHandler : MonoBehaviour, ManageWallet
 {
     public TextMeshPro walletText;
     public TextMeshPro betText;
@@ -22,6 +23,7 @@ public class SlotHandler : MonoBehaviour
 
     private float currentBet = 0f;
     private int multiplier = 2;
+    private float wallet = 100f;
 
     [SerializeField] private Reel[] reels;
     [SerializeField] private Handle handle;
@@ -78,9 +80,9 @@ public class SlotHandler : MonoBehaviour
         if (isWin)
         {
             float winnings = currentBet * multiplier;
-            GameManager.Instance.AddWallet(winnings + currentBet);
+            AddWallet(winnings + currentBet);
             WinAudioSource.Play();
-            walletText.text = $"Wallet: ${GameManager.Instance.wallet:0.00}";
+            walletText.text = $"Wallet: ${wallet:0.00}";
             for(int i = 0; i < 4; i++)
             {
                 yield return new WaitForSeconds(0.5f);
@@ -89,13 +91,13 @@ public class SlotHandler : MonoBehaviour
                 WinText.text = "";
             }
             WinText.text = $"YOU WIN ${winnings}";
-            walletText.text = $"Wallet: ${GameManager.Instance.wallet:0.00}";
+            walletText.text = $"Wallet: ${wallet:0.00}";
         }
         else
         {
             LossText.text = $"YOU LOST ${currentBet}";
             WinText.text = "";
-            walletText.text = $"Wallet: ${GameManager.Instance.wallet:0.00}";
+            walletText.text = $"Wallet: ${wallet:0.00}";
             LoseAudioSource.Play();
             yield return new WaitForSeconds(4f);
         }
@@ -165,10 +167,10 @@ public class SlotHandler : MonoBehaviour
 
     public void IncreaseBet()
     {
-        if (GameManager.Instance.wallet < 1f) return;
+        if (wallet < 1f) return;
         handle.EnableGrab();
         currentBet += 1f;
-        GameManager.Instance.RemoveWallet(1f);
+        RemoveWallet(1f);
         betPlaced = true;
         UpdateUI();
     }
@@ -182,7 +184,7 @@ public class SlotHandler : MonoBehaviour
         }
 
         currentBet -= 1f;
-        GameManager.Instance.AddWallet(1f);
+        AddWallet(1f);
         UpdateUI();
     }
 
@@ -195,4 +197,16 @@ public class SlotHandler : MonoBehaviour
     {
         trialCompleted = false;
     }
+        public void AddWallet(float amount)
+        {
+            wallet += amount;
+            sxr.SetWallet(wallet);
+        }
+
+        public void RemoveWallet(float amount)
+        {
+            wallet -= amount;
+            wallet = Mathf.Max(0, wallet);
+            sxr.SetWallet(wallet);
+        }
 }

@@ -438,6 +438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ba1b8ed2e853fb4c8b81d2ced9c088d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cooldownTime: 1
   targetImage: {fileID: 5037872188904005504}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   toggledColor: {r: 0, g: 0.4784314, b: 0.90196085, a: 1}
@@ -511,8 +512,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 156.07, y: 28.37, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 156.07, y: 28.37, z: 34.78}
+  m_Center: {x: 0, y: 0, z: 16.96}
 --- !u!114 &4940491026361209296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1203,6 +1204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ba1b8ed2e853fb4c8b81d2ced9c088d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cooldownTime: 1
   targetImage: {fileID: 4961302929105504337}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   toggledColor: {r: 0, g: 0.47843137, b: 0.9019608, a: 1}
@@ -1276,8 +1278,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 156, y: 28.3, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 156.07, y: 28.37, z: 34.78}
+  m_Center: {x: 0, y: 0, z: 16.96}
 --- !u!114 &576601017877718548
 MonoBehaviour:
   m_ObjectHideFlags: 0

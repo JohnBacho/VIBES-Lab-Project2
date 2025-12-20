@@ -21,7 +21,7 @@ public class ParlaySelection
     }
 }
 
-public class BetManager : MonoBehaviour
+public class BetManager : MonoBehaviour, ManageWallet
 {
     private float currentBet = 0f;
     public TextMeshPro WagerText;
@@ -58,6 +58,7 @@ public class BetManager : MonoBehaviour
     public bool TrialCompleted => trialCompleted;
     private bool trialCompleted = false;
     public bool AlreaydSubmitting = false;
+    private float wallet = 100f;
 
 
     private static float seconds = 4.5f;
@@ -206,11 +207,11 @@ public class BetManager : MonoBehaviour
         if (LegWins.Sum() == decimalOddsList.Count)
         {
             Payout = CalculateParlayPayout();
-            GameManager.Instance.AddWallet(Payout);
+            AddWallet(Payout);
 
             MiddleUI.SetActive(false);
             WinningAudioSource.Play();
-            WalletText.text = $"Wallet: ${GameManager.Instance.wallet:0.00}";
+            WalletText.text = $"Wallet: ${wallet:0.00}";
             for(int i = 0; i < 4; i++)
             {
                 yield return new WaitForSeconds(0.5f);
@@ -228,7 +229,7 @@ public class BetManager : MonoBehaviour
         {
             MiddleUI.SetActive(false);
             LossText.text = $"You Lose!";
-            WalletText.text = $"Wallet: ${GameManager.Instance.wallet:0.00}";
+            WalletText.text = $"Wallet: ${wallet:0.00}";
             yield return new WaitForSeconds(4f);
             LossText.text = "";
             WalletText.text = "";
@@ -246,7 +247,7 @@ public class BetManager : MonoBehaviour
         decimalOddsList.Clear();
         activeToggles.Clear();
         currentParlaySelections.Clear();
-        leaderboard.SetMoney("You", GameManager.Instance.wallet);
+        UpdateLeaderboard();
 
         BetslipUI.SetActive(false);
         ParlayUI.SetActive(true);
@@ -286,10 +287,10 @@ public class BetManager : MonoBehaviour
 
     public void IncreaseParlayBet()
     {
-        if (GameManager.Instance.wallet < 1f || AlreaydSubmitting) return;
+        if (wallet < 1f || AlreaydSubmitting) return;
 
         currentBet += 1f;
-        GameManager.Instance.RemoveWallet(1f);
+        RemoveWallet(1f);
         UpdateUI();
     }
 
@@ -298,7 +299,7 @@ public class BetManager : MonoBehaviour
         if (currentBet <= 0f || AlreaydSubmitting) return;
 
         currentBet -= 1f;
-        GameManager.Instance.AddWallet(1f);
+        AddWallet(1f);
         UpdateUI();
     }
 
@@ -330,5 +331,21 @@ public class BetManager : MonoBehaviour
         }
         
         return parlayData;
+    }
+    public void AddWallet(float amount)
+    {
+        wallet += amount;
+        sxr.SetWallet(wallet);
+    }
+
+    public void RemoveWallet(float amount)
+    {
+        wallet -= amount;
+        wallet = Mathf.Max(0, wallet);
+        sxr.SetWallet(wallet);
+    }
+    public void UpdateLeaderboard()
+    {
+        leaderboard.SetMoney("You", wallet);
     }
 }

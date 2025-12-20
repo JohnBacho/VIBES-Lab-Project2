@@ -10,6 +10,8 @@ public class Bucket : MonoBehaviour
     public TextMeshPro label;
     private Coroutine currentFade;
     public AudioSource source;
+    private ManageWallet CurrentWalletScript;
+
     private void OnTriggerEnter(Collider other)
     {
         Ball ball = other.GetComponent<Ball>();
@@ -18,7 +20,7 @@ public class Bucket : MonoBehaviour
             if (ball.ballType == bucketType)
             {
                 Debug.Log("Correct!");
-                GameManager.Instance.AddWallet(1);
+                CurrentWalletScript.AddWallet(1);
                 ShowText("+1", Color.green, 1f);
                 source.Play();
 
@@ -26,7 +28,7 @@ public class Bucket : MonoBehaviour
             else
             {
                 Debug.Log("Wrong bucket!");
-                GameManager.Instance.RemoveWallet(1);
+                CurrentWalletScript.RemoveWallet(1);
                 ShowText("-1", Color.red, 1f);
             }
 
@@ -91,5 +93,11 @@ private IEnumerator FadeText(Color startColor, float duration)
     label.text = "";
     currentFade = null; // clear reference when done
 }
+
+public void SetWallet(ManageWallet wallet)
+{
+    CurrentWalletScript = wallet;
+}
+
 
 }
