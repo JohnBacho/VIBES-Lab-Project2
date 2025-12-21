@@ -183,14 +183,14 @@ public class Driver : MonoBehaviour
         {
             SlotMachine.SetActive(true);
             Parlay.SetActive(false);
-    
+            sxr.SetProgramName("Lilac");
             StartNextSlotTrial();
         }
         else
         {
             SlotMachine.SetActive(false);
             Parlay.SetActive(true);
-            
+            sxr.SetProgramName("Sunflower");
             StartNextParlayTrial();
         }
     }

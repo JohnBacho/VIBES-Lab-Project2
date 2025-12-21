@@ -20940,7 +20940,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc04ca3376ea74d4bbbeeab8509b4917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SlotFirst: 0
+  SlotFirst: 1
   SlotMachine: {fileID: 1766149070}
   Parlay: {fileID: 699142}
   EffortTask: {fileID: 1026965197}

@@ -18,6 +18,7 @@ namespace sxr_internal
         public float CurrentPayout;
         public float wallet;
         public string ParlaySelection;
+        public string ProgramName;
 
 
         private string experimentName = "";
@@ -109,7 +110,7 @@ namespace sxr_internal
         public void WriteHeaderToTaggedFile(string tag, string headerInfo)
         {
             if (subjectFile == "") { ParseFileNames(); }
-            headerInfo = "SubjectID,Date,LocalTime,UnityTime,Phase,TrialNumber,TrialTime,Outcome,GamblingType,CurrentBet,CurrentPayout,Wallet,Parlay1_Team,Parlay1_Odds,Parlay2_Team,Parlay2_Odds,Parlay3_Team,Parlay3_Odds,Parlay4_Team,Parlay4_Odds,Parlay5_Team,Parlay5_Odds," + headerInfo;
+            headerInfo = "ProgramName,Date,LocalTime,UnityTime,Phase,TrialNumber,TrialTime,Outcome,GamblingType,CurrentBet,CurrentPayout,Wallet,Parlay1_Team,Parlay1_Odds,Parlay2_Team,Parlay2_Odds,Parlay3_Team,Parlay3_Odds,Parlay4_Team,Parlay4_Odds,Parlay5_Team,Parlay5_Odds," + headerInfo;
             fh.AppendLine(subjectFile + "_" + tag + ".csv", headerInfo);
             if (backupFile != "") fh.AppendLine(backupFile + "_" + tag + ".csv", headerInfo); }
         
@@ -122,7 +123,7 @@ namespace sxr_internal
 
         public string timeStepToWriteInfo()
         {
-            return subjectID + "," + DateTime.Today.Month + "_" + DateTime.Today.Day + "," + DateTime.Now.Hour + "_" +
+            return ProgramName + "," + DateTime.Today.Month + "_" + DateTime.Today.Day + "," + DateTime.Now.Hour + "_" +
                    DateTime.Now.Minute + "_" + DateTime.Now.Second + "," + Time.time + "," + phase + "," +
                    trial + "," + trialTimer.GetTimePassed() + "," + OutcomeInTrial + "," + currentGamblingType +
                     "," + BetAmount + "," + CurrentPayout + "," + wallet + "," + ParlaySelection + ",";

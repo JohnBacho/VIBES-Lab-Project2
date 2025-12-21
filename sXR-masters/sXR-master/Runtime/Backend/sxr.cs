@@ -315,6 +315,8 @@ public static class sxr
 
     public static float GetWallet(){return ExperimentHandler.Instance.wallet; }
 
+    public static string GetProgramName(){ return ExperimentHandler.Instance.ProgramName; }
+
 
 
     /// <summary>
@@ -368,7 +370,7 @@ public static class sxr
     public static void SetWallet(float wallet) { ExperimentHandler.Instance.wallet = wallet; }
 
     public static void SetParlaySelection(String ParlaySelection) { ExperimentHandler.Instance.ParlaySelection = ParlaySelection; }
-
+    public static void SetProgramName(String ProgramName) { ExperimentHandler.Instance.ProgramName = ProgramName; }
 
     /// <summary>
     /// Starts a timer with the provided name. Will return "true" and the timer will be
