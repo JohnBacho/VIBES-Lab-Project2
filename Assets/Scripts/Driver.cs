@@ -223,6 +223,7 @@ public class Driver : MonoBehaviour
     public void StartNextSlotTrial()
     {
         sxr.SetParlaySelection(",,,,,,,,,,");
+        sxr.SetTotalOdds(0f);
         if (sxr.GetTrial() >= SlotOutcomeRows.Length)
         {
             Debug.Log("Slot trials complete! Starting Parlay trials...");

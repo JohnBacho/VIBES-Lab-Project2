@@ -136,6 +136,7 @@ public class BetManager : MonoBehaviour, ManageWallet
     public float CalculateParlayPayout()
     {
         float totalMultiplier = 1f;
+        float TotalOdds = 0f;
         decimalOddsList.Clear();
 
         foreach (int odds in oddsArray)
@@ -150,7 +151,9 @@ public class BetManager : MonoBehaviour, ManageWallet
             totalMultiplier *= decimalOdds;
             decimalOddsList.Add(decimalOdds);
         }
-
+        TotalOdds = (totalMultiplier - 1f) * 100f;
+        sxr.SetTotalOdds(TotalOdds);
+        Debug.Log($"Total Odds: {TotalOdds}");
         float payout = currentBet * totalMultiplier;
         sxr.SetPayout(payout);
         if (ToWinText != null)
