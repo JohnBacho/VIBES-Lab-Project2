@@ -152,6 +152,7 @@ public class BetManager : MonoBehaviour, ManageWallet
             decimalOddsList.Add(decimalOdds);
         }
         TotalOdds = (totalMultiplier - 1f) * 100f;
+        sxr.SetTotalLegs(oddsArray.Count);
         sxr.SetTotalOdds(TotalOdds);
         Debug.Log($"Total Odds: {TotalOdds}");
         float payout = currentBet * totalMultiplier;

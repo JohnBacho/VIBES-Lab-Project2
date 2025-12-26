@@ -317,6 +317,8 @@ public static class sxr
 
     public static string GetProgramName(){ return ExperimentHandler.Instance.ProgramName; }
     public static float GetTotalOdds(){ return ExperimentHandler.Instance.TotalOdds; }
+    public static int GetTotalLegs(){ return ExperimentHandler.Instance.TotalLegs; }
+
 
 
     /// <summary>
@@ -372,6 +374,7 @@ public static class sxr
     public static void SetParlaySelection(String ParlaySelection) { ExperimentHandler.Instance.ParlaySelection = ParlaySelection; }
     public static void SetProgramName(String ProgramName) { ExperimentHandler.Instance.ProgramName = ProgramName; }
     public static void SetTotalOdds(float TotalOdds) { ExperimentHandler.Instance.TotalOdds = TotalOdds; }
+    public static void SetTotalLegs(int TotalLegs) { ExperimentHandler.Instance.TotalLegs = TotalLegs; }
 
     /// <summary>
     /// Starts a timer with the provided name. Will return "true" and the timer will be
