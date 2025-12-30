@@ -50,6 +50,7 @@ public class BetManager : MonoBehaviour, ManageWallet
     public List<XRPokeToggleButton> toggleButton;
 
     public CardManager CardManager;
+    public ParlayTutorial parlayTutorial;
     public Leaderboard leaderboard;
     public Driver driver;
     public AudioSource WinningAudioSource;
@@ -110,6 +111,10 @@ public class BetManager : MonoBehaviour, ManageWallet
     {
         if (!activeToggles.ContainsKey(toggle))
         {
+            if(sxr.GetTrial() == 0)
+            {
+                parlayTutorial.HideGrabHandleTutorial();
+            }
             oddsArray.Add(odds);
             activeToggles[toggle] = odds;
             currentParlaySelections.Add(new ParlaySelection(teamName, odds, toggle));
@@ -274,6 +279,7 @@ public class BetManager : MonoBehaviour, ManageWallet
     public void ViewBetslip()
     {
         ParlayUI.SetActive(false);
+        parlayTutorial.HideSelectParlayTutorial();
         BetslipUI.SetActive(true);
         MiddleUI.SetActive(true);
         UpdateUI();

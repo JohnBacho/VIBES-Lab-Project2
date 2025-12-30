@@ -28,6 +28,8 @@ public class SlotHandler : MonoBehaviour, ManageWallet
     [SerializeField] private Reel[] reels;
     [SerializeField] private Handle handle;
     [SerializeField] private Driver driver;
+    [SerializeField] private SlotTutorial SlotTutorial;
+
 
     private int[] storedOutcome;
     public bool TrialCompleted => trialCompleted;
@@ -49,6 +51,10 @@ public class SlotHandler : MonoBehaviour, ManageWallet
         {
             Debug.LogError("No outcome set from Driver!");
             return;
+        }
+        if(sxr.GetTrial() == 0)
+        {
+            SlotTutorial.HideGrabHandleTutorial();
         }
         IncreaseBetButton.DisableButton();
         DecreaseBetButton.DisableButton();
@@ -168,6 +174,11 @@ public class SlotHandler : MonoBehaviour, ManageWallet
     public void IncreaseBet()
     {
         if (wallet < 1f) return;
+        if(sxr.GetTrial() == 0)
+        {
+            SlotTutorial.HideIncreaseBetTutorial();
+            SlotTutorial.ShowGrabHandleTutorial();
+        }
         handle.EnableGrab();
         currentBet += 1f;
         RemoveWallet(1f);
