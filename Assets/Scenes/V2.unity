@@ -22477,6 +22477,11 @@ MonoBehaviour:
   - {fileID: 1489669604}
   - {fileID: 1231419492}
   TimeIsUpAudioSource: {fileID: 1970160414}
+  slotTrialDuration: 30
+  parlayTrialDuration: 105
+  effortTaskDuration: 45
+  effortTaskTrialIndex: 6
+  lastTrialIndex: 16
   rayLineVisual: {fileID: 708422745}
 --- !u!114 &1970160413
 MonoBehaviour:
