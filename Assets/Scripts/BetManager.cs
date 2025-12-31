@@ -69,6 +69,8 @@ public class BetManager : MonoBehaviour, ManageWallet
     private List<float> decimalOddsList = new List<float>();
     private Dictionary<TogglePressInteractable, int> activeToggles = new Dictionary<TogglePressInteractable, int>();
     private List<ParlaySelection> currentParlaySelections = new List<ParlaySelection>();
+    private static readonly Color DisabledColor = new Color(0.547f, 0.547f, 0.547f, 1f); // Gray color
+    private static readonly Color EnabledColor = new Color(0.106f, 0.624f, 0.275f, 1f); // Green color
 
     public void UpdateUI()
     {
@@ -83,25 +85,25 @@ public class BetManager : MonoBehaviour, ManageWallet
             if (currentBet <= 0f)
             {
                 PlaceBetButton.DisableButton();
-                PlaceBetButtonImage.color = new Color(0.5471698f, 0.5471698f, 0.5471698f, 1f); // Gray color
+                PlaceBetButtonImage.color = DisabledColor;
                 PlaceBetText.text = $"Place a bet\nto continue";
             }
             else
             {
                 PlaceBetButton.EnableButton();   
-                PlaceBetButtonImage.color = new Color(0.1058824f, 0.6235294f, 0.2745098f, 1f); // Green color
+                PlaceBetButtonImage.color = EnabledColor;
                 PlaceBetText.text = $"Place ${currentBet:0} Bet";
             }
         }
         if (oddsArray.Count < 3)
         {
             BetSlipButton.DisableButton();
-            BetSlipButtonImage.color = new Color(0.5471698f, 0.5471698f, 0.5471698f, 1f); // Gray color
+            BetSlipButtonImage.color = DisabledColor;
             BetSlipText.text = $"Select 3 or more parlays";
         }
         else
         {
-            BetSlipButtonImage.color = new Color(0.1058824f, 0.6235294f, 0.2745098f, 1f); // Green color
+            BetSlipButtonImage.color = EnabledColor;
             BetSlipButton.EnableButton();
             BetSlipText.text = $"View Betslip";
         }

@@ -1,12 +1,12 @@
 ﻿//TODO Add gaze collider to record objects in focus
 
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 using InputDevice = UnityEngine.XR.InputDevice;
 using ViveSR.anipal.Eye;
-
 
 namespace sxr_internal
 {
@@ -32,7 +32,10 @@ namespace sxr_internal
         private Ray testRay; // used for Sranipal
         private FocusInfo focusInfo; // used for Sranipal
         private Vector3 gazeHitPoint; // used in calculating eye tracking data with collisions
-
+        
+        private List<float> TempPupilStorage = new List<float>();
+        private float rightPupilSize = 0;
+        private float leftPupilSize = 0;
 
         public void WriteEyeTrackerHeader() {
         ExperimentHandler.Instance.WriteHeaderToTaggedFile("eyetracker",
@@ -40,8 +43,8 @@ namespace sxr_internal
             "gazeFixationZ,localGazeX,localGazeY,localGazeZ,leftEyePositionX," +
             "leftEyePositionY,leftEyePositionZ,rightEyePositionX,rightEyePositionY,rightEyePositionZ," +
             "leftEyeRotationX,leftEyeRotationY,leftEyeRotationZ,rightEyeRotationX,rightEyeRotationY," +
-            "rightEyeRotationZ,leftEyePupilSize,rightEyePupilSize,leftEyeOpenAmount,rightEyeOpenAmount," +
-            "GazeHitPointX,GazeHitPointY,GazeHitPointZ,GameObjectInFocus");
+            "rightEyeRotationZ,leftEyePupilSize,rightEyePupilSize,combinedEyePupilSize,leftEyeOpenAmount,rightEyeOpenAmount," +
+            "GazeHitPointX,GazeHitPointY,GazeHitPointZ,GameObjectInFocus,TrialAveragePupilSize");
 
             headerPrinted=true;}
         
@@ -85,7 +88,7 @@ namespace sxr_internal
         public string GetFullGazeInfo(){
             return (GetScreenFixationPoint() +","+ GazeFixation() +"," + GetGazeCombinedGazeRayLocal() + "," 
                     + LeftEyePosition() +","+ RightEyePosition() +","+
-                    LeftEyeRotation() +","+ RightEyeRotation() +","+ LeftEyePupilSize() +","+ RightEyePupilSize() + ","+
+                    LeftEyeRotation() +","+ RightEyeRotation() +","+ LeftEyePupilSize() +","+ RightEyePupilSize() + "," + CombinedEyePupilSize() + ","+
                     LeftEyeOpenAmount() +","+ RightEyeOpenAmount()).Replace("(","").Replace(")","");
         }
         
@@ -94,6 +97,7 @@ namespace sxr_internal
             toWrite += ExperimentHandler.Instance.timeStepToWriteInfo() 
                        + GetFullGazeInfo() 
                        + CheckFocusedObject()
+                       + "," + null
                        + "\n";
         }
     }
@@ -179,14 +183,69 @@ namespace sxr_internal
         public float? LeftEyePupilSize() {
             UpdateGaze();
             float value = verboseData.left.pupil_diameter_mm;
+
+            if(value >=0)
+            {
+                TempPupilStorage.Add(value);
+            }
+            rightPupilSize = value;
             return value < 0 ? (float?)null : value;
         }
 
         public float? RightEyePupilSize() {
             UpdateGaze();
             float value = verboseData.right.pupil_diameter_mm;
+            if(value >=0)
+            {
+                TempPupilStorage.Add(value);
+            }
+            leftPupilSize = value;
             return value < 0 ? (float?)null : value;
         }
+
+        public float? CombinedEyePupilSize()
+        {
+            UpdateGaze();
+
+            if (rightPupilSize != 0 && leftPupilSize != 0)
+            {
+                float? combinedPupil = (rightPupilSize + leftPupilSize) / 2f;
+                return combinedPupil;
+            }
+            else if (leftPupilSize >= 0)
+            {
+                return leftPupilSize;
+            }
+            else if (rightPupilSize >= 0)
+            {
+                return rightPupilSize;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+
+        public void GrabPupilTrialAverage()
+        {
+            if (TempPupilStorage.Count == 0)
+            {
+                return;
+            }
+
+             if (sxrSettings.Instance.RecordThisFrame() && recordEyeTracker)
+                {
+                    toWrite += ExperimentHandler.Instance.timeStepToWriteInfo() 
+                            + GetFullGazeInfo() 
+                            + CheckFocusedObject() 
+                            + "," + TempPupilStorage.Average()
+                            + "\n";
+
+                    TempPupilStorage.Clear();
+                }
+        }
+
 
 
         private void OnApplicationQuit(){

@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.XR.Interaction.Toolkit;
+using sxr_internal;
 
 
 public enum OutcomeType
@@ -27,14 +28,17 @@ public class Driver : MonoBehaviour
     public GameObject EffortTask;
     public BetManager betManager;
     public SlotHandler slotHandler;
+    public GazeHandler gazeHandler;
     public Bucket bucket;
     public List<Bucket> EffortTaskBucket;
-
     public AudioSource TimeIsUpAudioSource;
     private Coroutine offMusicCoroutine;
-    private float SlotTrialTime = 30f;
-    private float ParlayTrialTime = 105f;
     private int offMusicToken = 0;
+    [SerializeField] private float slotTrialDuration = 30f;
+    [SerializeField] private float parlayTrialDuration = 105f;
+    [SerializeField] private float effortTaskDuration = 45f;
+    [SerializeField] private int effortTaskTrialIndex = 6;
+    [SerializeField] private int lastTrialIndex = 16;
 
 
 [SerializeField] XRInteractorLineVisual rayLineVisual;
@@ -231,14 +235,14 @@ public class Driver : MonoBehaviour
             return;
         }
         SetTypeOutcome();
-        if(sxr.GetTrial() == 6)
+        if(sxr.GetTrial() == effortTaskTrialIndex)
         {
             Debug.Log("Running Effort Task Trial");
             StartCoroutine(RunEffortTaskTrial());
             return;
         }
         offMusicToken++;
-        offMusicCoroutine = StartCoroutine(PlayOffMusic(SlotMachine.activeSelf ? SlotTrialTime : ParlayTrialTime, offMusicToken));
+        offMusicCoroutine = StartCoroutine(PlayOffMusic(SlotMachine.activeSelf ? slotTrialDuration : parlayTrialDuration, offMusicToken));
         Debug.Log($"Starting Slot Trial {sxr.GetTrial()}");
         StartCoroutine(RunSlotTrial(SlotOutcomes[sxr.GetTrial()], SlotOutcomeRows[sxr.GetTrial()]));
     }
@@ -258,10 +262,11 @@ public class Driver : MonoBehaviour
 
         Debug.Log($"Trial {sxr.GetTrial()} complete");
 
+        gazeHandler.GrabPupilTrialAverage();
         CancelOffMusic();
         slotHandler.StartNewTrial();
         sxr.NextTrial();
-        slotHandler.rest();
+        if(sxr.GetTrial() != lastTrialIndex) slotHandler.rest();
         StartNextSlotTrial();
     }
 
@@ -308,9 +313,10 @@ public class Driver : MonoBehaviour
         EffortTask.SetActive(true);
         Object.FindAnyObjectByType<BallSpawner>().StartSpawning();
         Object.FindAnyObjectByType<CountdownTimer>().StartCountdown();
-        yield return new WaitForSeconds(45f);
+        yield return new WaitForSeconds(effortTaskDuration);
         Object.FindAnyObjectByType<BallSpawner>().StopSpawning();
         Object.FindAnyObjectByType<BallSpawner>().DestroyAllBalls();
+        gazeHandler.GrabPupilTrialAverage();
         sxr.NextTrial();
 
         EffortTask.SetActive(false);
@@ -366,14 +372,14 @@ public class Driver : MonoBehaviour
             return;
         }
         SetTypeOutcome();
-        if(sxr.GetTrial() == 6)
+        if(sxr.GetTrial() == effortTaskTrialIndex)
         {
             Debug.Log("Running Effort Task Trial");
             StartCoroutine(RunEffortTaskTrial());
             return;
         }
         offMusicToken++;
-        offMusicCoroutine = StartCoroutine(PlayOffMusic(SlotMachine.activeSelf ? SlotTrialTime : ParlayTrialTime, offMusicToken));
+        offMusicCoroutine = StartCoroutine(PlayOffMusic(SlotMachine.activeSelf ? slotTrialDuration : parlayTrialDuration, offMusicToken));
         Debug.Log($"Starting Parlay Trial {sxr.GetTrial()}");
         StartCoroutine(RunParlayTrial(ParlayOutcomes[sxr.GetTrial()]));
 
@@ -393,11 +399,11 @@ public class Driver : MonoBehaviour
         Debug.Log($"Trial {sxr.GetTrial()} complete");
 
         yield return new WaitForSeconds(0.5f);
-
+        gazeHandler.GrabPupilTrialAverage();
         CancelOffMusic();
         betManager.StartNewTrial();
         sxr.NextTrial();
-        if(sxr.GetTrial() != 16) betManager.ResetRound();
+        if(sxr.GetTrial() != lastTrialIndex) betManager.ResetRound();
         StartNextParlayTrial();
     }
 

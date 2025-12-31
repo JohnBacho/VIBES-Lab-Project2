@@ -9145,6 +9145,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countdownText: {fileID: 813323060}
   startTime: 45
+--- !u!114 &1035072719 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7212701274430900276, guid: 34c12b16e3cad5542bd2d6f0a98ee900, type: 3}
+  m_PrefabInstance: {fileID: 1843859213}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7feffd27793c42543be61f6a6b16fdce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1047175310 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1811122272821274886, guid: 76f3439a0ae796e4b81bee3f91f888ee, type: 3}
@@ -22459,6 +22470,7 @@ MonoBehaviour:
   EffortTask: {fileID: 1026965197}
   betManager: {fileID: 1970160409}
   slotHandler: {fileID: 1970160413}
+  gazeHandler: {fileID: 1035072719}
   bucket: {fileID: 77539353}
   EffortTaskBucket:
   - {fileID: 77539353}
