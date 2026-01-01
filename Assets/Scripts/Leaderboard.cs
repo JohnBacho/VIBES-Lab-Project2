@@ -6,7 +6,6 @@ public class Leaderboard : MonoBehaviour
 {
     [SerializeField] private TextMeshPro leaderboardText;
 
-    // List of players with name, score, and money
     private List<PlayerData> players = new List<PlayerData>
     {
         new PlayerData("Thomas", 115.25f),

@@ -53,21 +53,18 @@ public class Driver : MonoBehaviour
     [SerializeField] private BetManager betManager;
     [SerializeField] private SlotHandler slotHandler;
     [SerializeField] private GazeHandler gazeHandler;
-    [SerializeField] private List<Bucket> EffortTaskBucket;
+    [SerializeField] XRInteractorLineVisual rayLineVisual;
     [SerializeField] private AudioSource TimeIsUpAudioSource;
-    [SerializeField] private Coroutine offMusicCoroutine;
-    [SerializeField] private int offMusicToken = 0;
-    [SerializeField] private const float slotTrialDuration = 30f;
-    [SerializeField] private const float parlayTrialDuration = 105f;
-    [SerializeField] private const float effortTaskDuration = 45f;
-    [SerializeField] private const int effortTaskTrialIndex = 6;
-    [SerializeField] const int lastTrialIndex = 16;
-    [SerializeField] private ParlayTrialData currentparlayTrial;
-    [SerializeField] private SlotTrialData currentSlotTrial;
-
-
-[SerializeField] XRInteractorLineVisual rayLineVisual;
-
+    [SerializeField] private List<Bucket> EffortTaskBucket;
+    private Coroutine offMusicCoroutine;
+    private int offMusicToken = 0;
+    private const float slotTrialDuration = 30f;
+    private const float parlayTrialDuration = 105f;
+    private const float effortTaskDuration = 45f;
+    private const int effortTaskTrialIndex = 6;
+    const int lastTrialIndex = 16;
+    private ParlayTrialData currentparlayTrial;
+    private SlotTrialData currentSlotTrial;
     void Start()
     {
         StartCoroutine(switchContextAfterDelay());
@@ -277,8 +274,8 @@ public class Driver : MonoBehaviour
         }
 
         Debug.Log($"Trial {sxr.GetTrial()} complete");
-
-        yield return new WaitForSeconds(0.5f);
+        const float waitAfterParlay = 0.5f;
+        yield return new WaitForSeconds(waitAfterParlay);
         gazeHandler.GrabPupilTrialAverage();
         CancelOffMusic();
         betManager.StartNewTrial();
