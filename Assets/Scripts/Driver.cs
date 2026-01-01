@@ -8,7 +8,7 @@ using sxr_internal;
 public enum OutcomeType
 {
     Win,
-    Lose,
+    Loss,
     NearMiss,
     EffortTask,
 }
@@ -19,10 +19,27 @@ public enum GamblingType
     Parlay,
     EffortTask
 }
+[System.Serializable]
+public class SlotTrialData
+{   
+    public OutcomeType outcome;
+    public int[] slotRow = new int[3];
+}
+
+[System.Serializable]
+public class ParlayTrialData
+{
+    public OutcomeType outcome;
+    public int[] leg3 = new int[3];
+    public int[] leg4 = new int[4];
+    public int[] leg5 = new int[5];
+}
 
 public class Driver : MonoBehaviour
 {
     public bool SlotFirst = true;
+    [SerializeField] private SlotTrialData[] slotTrials = new SlotTrialData[16];
+    [SerializeField] private ParlayTrialData[] parlayTrials = new ParlayTrialData[16];
     public GameObject SlotMachine;
     public GameObject Parlay;
     public GameObject EffortTask;
@@ -39,131 +56,11 @@ public class Driver : MonoBehaviour
     [SerializeField] private float effortTaskDuration = 45f;
     [SerializeField] private int effortTaskTrialIndex = 6;
     [SerializeField] private int lastTrialIndex = 16;
+    private ParlayTrialData currentparlayTrial;
+    private SlotTrialData currentSlotTrial;
 
 
 [SerializeField] XRInteractorLineVisual rayLineVisual;
-    private int[][] SlotOutcomeRows = new int[][]
-    {
-        new int[] {3, 3, 1}, // NearMiss
-        new int[] {5, 5, 5}, // Win
-        new int[] {5, 3, 8}, // Lose
-        new int[] {7, 7, 7},  // Win
-        new int[] {2, 5, 9}, // Lose
-        new int[] {5, 7, 6}, // Lose
-        new int[] {0, 0, 0}, // Dummy for Effort Task
-        new int[] {6, 7, 6}, // Lose
-        new int[] {2, 7, 5}, // Lose
-        new int[] {1, 1, 1}, // Win
-        new int[] {4, 4, 4},  // Win
-        new int[] {4, 5, 4}, // NearMiss
-        new int[] {0, 8, 3}, // Lose
-        new int[] {6, 6, 6},  // Win
-        new int[] {6, 3, 1}, // Lose
-        new int[] {0,1,1} // NearMiss
-    };
-    private int[][] Parlay3Leg = new int[][]
-    {
-        new int[] {1, 1, 0}, // NearMiss
-        new int[] {1, 1, 1}, // Win
-        new int[] {0, 0, 1}, // Lose
-        new int[] {1, 1, 1}, // Win
-        new int[] {0, 1, 0}, // Lose
-        new int[] {1, 0, 0}, // Lose
-        new int[] {0, 0, 0}, // Dummy for Effort Task
-        new int[] {0, 0, 0}, // Lose
-        new int[] {0, 0, 1}, // Lose
-        new int[] {1, 1, 1}, // Win
-        new int[] {1, 1, 1}, // Win
-        new int[] {1, 0, 1}, // NearMiss
-        new int[] {0, 0, 1}, // Lose
-        new int[] {1, 1, 1}, // Win
-        new int[] {0, 0, 0}, // Lose
-        new int[] {0, 1, 1} // NearMiss
-    };
-
-    private int[][] Parlay4Leg = new int[][]
-    {
-        new int[] {1, 1, 1, 0}, // NearMiss
-        new int[] {1, 1, 1, 1}, // Win
-        new int[] {0, 0, 1, 1}, // Lose
-        new int[] {1, 1, 1, 1}, // Win
-        new int[] {0, 1, 1, 0}, // Lose
-        new int[] {1, 0, 1, 0}, // Lose
-        new int[] {0, 0, 0, 0}, // Dummy for Effort Task
-        new int[] {0, 0, 1, 0}, // Lose
-        new int[] {0, 0, 1, 1}, // Lose
-        new int[] {1, 1, 1, 1}, // Win
-        new int[] {1, 1, 1, 1}, // Win
-        new int[] {1, 0, 1, 1}, // NearMiss
-        new int[] {0, 0, 1, 1}, // Lose
-        new int[] {1, 1, 1, 1}, // Win
-        new int[] {0, 1, 0, 0}, // Lose
-        new int[] {0, 1, 1, 1} // NearMiss
-
-    };
-
-    private int[][] Parlay5Leg = new int[][]
-    {
-        new int[] {1, 1, 1, 1, 0}, // NearMiss
-        new int[] {1, 1, 1, 1, 1}, // Win
-        new int[] {0, 0, 1, 1, 0}, // Lose
-        new int[] {1, 1, 1, 1, 1}, // Win
-        new int[] {0, 1, 1, 0, 0}, // Lose
-        new int[] {0, 0, 1, 1, 0}, // Lose
-        new int[] {0, 0, 0, 0, 0}, // Dummy for Effort Task
-        new int[] {0, 0, 0, 0, 1}, // Lose
-        new int[] {0, 0, 0, 1, 1}, // Lose
-        new int[] {1, 1, 1, 1, 1}, // Win
-        new int[] {1, 1, 1, 1, 1}, // Win
-        new int[] {1, 0, 1, 1, 1}, // NearMiss
-        new int[] {0, 0, 0, 1, 1}, // Lose
-        new int[] {1, 1, 1, 1, 1}, // Win
-        new int[] {0, 1, 0, 1, 0}, // Lose
-        new int[] {0, 1, 1, 1, 1} // NearMiss
-
-    };
-
-
-    private OutcomeType[] SlotOutcomes = new OutcomeType[]
-    {
-        OutcomeType.NearMiss, // {3, 3, 1}
-        OutcomeType.Win,      // {5, 5, 5}
-        OutcomeType.Lose,     // {5, 3, 8}
-        OutcomeType.Win,      // {7, 7, 7}
-        OutcomeType.Lose,     // {2, 5, 9}
-        OutcomeType.Lose,     // {5, 7, 6}
-        OutcomeType.EffortTask,     // {0, 0, 0} Dummy for Effort Task
-        OutcomeType.Lose,     // {6, 7, 6}
-        OutcomeType.Lose,     // {2, 7, 5}
-        OutcomeType.Win,      // {1, 1, 1}
-        OutcomeType.Win,      // {4, 4, 4}
-        OutcomeType.NearMiss, // {4, 5, 4}
-        OutcomeType.Lose,     // {0, 8, 3}
-        OutcomeType.Win,      // {6, 6, 6}
-        OutcomeType.Lose,     // {6, 3, 1}
-        OutcomeType.NearMiss,  // {0, 1, 1}
-    };
-
-        private OutcomeType[] ParlayOutcomes = new OutcomeType[]
-    {
-        OutcomeType.NearMiss, // {3, 3, 1} // Start of Parlay
-        OutcomeType.Win,      // {5, 5, 5}
-        OutcomeType.Lose,     // {5, 3, 8}
-        OutcomeType.Win,      // {7, 7, 7}
-        OutcomeType.Lose,     // {2, 5, 9}
-        OutcomeType.Lose,     // {5, 7, 6}
-        OutcomeType.EffortTask,     // {0, 0, 0} Dummy for Effort Task
-        OutcomeType.Lose,     // {6, 7, 6}
-        OutcomeType.Lose,     // {2, 7, 5}
-        OutcomeType.Win,      // {1, 1, 1}
-        OutcomeType.Win,      // {4, 4, 4}
-        OutcomeType.NearMiss, // {4, 5, 4}
-        OutcomeType.Lose,     // {0, 8, 3}
-        OutcomeType.Win,      // {6, 6, 6}
-        OutcomeType.Lose,     // {6, 3, 1}
-        OutcomeType.NearMiss  // {0, 1, 1}
-    };
-
 
     void Start()
     {
@@ -175,7 +72,7 @@ public class Driver : MonoBehaviour
     {
         yield return null;
         StartDataTrackers();
-        StartNextSlotTrial();
+        StartNextTrial();
         HideRayLine();
     }
 
@@ -188,15 +85,15 @@ public class Driver : MonoBehaviour
             SlotMachine.SetActive(true);
             Parlay.SetActive(false);
             sxr.SetProgramName("Lilac");
-            StartNextSlotTrial();
         }
         else
         {
             SlotMachine.SetActive(false);
             Parlay.SetActive(true);
             sxr.SetProgramName("Sunflower");
-            StartNextParlayTrial();
         }
+
+        StartNextTrial();
     }
 
 
@@ -224,17 +121,15 @@ public class Driver : MonoBehaviour
 
     }
 
-    public void StartNextSlotTrial()
+    public void StartNextTrial()
     {
         sxr.SetParlaySelection(",,,,,,,,,,");
         sxr.SetTotalOdds(0f);
-        if (sxr.GetTrial() >= SlotOutcomeRows.Length)
+        if (sxr.GetTrial() >= lastTrialIndex)
         {
-            Debug.Log("Slot trials complete! Starting Parlay trials...");
             SwitchGamblingtype();
             return;
         }
-        SetTypeOutcome();
         if(sxr.GetTrial() == effortTaskTrialIndex)
         {
             Debug.Log("Running Effort Task Trial");
@@ -243,8 +138,19 @@ public class Driver : MonoBehaviour
         }
         offMusicToken++;
         offMusicCoroutine = StartCoroutine(PlayOffMusic(SlotMachine.activeSelf ? slotTrialDuration : parlayTrialDuration, offMusicToken));
-        Debug.Log($"Starting Slot Trial {sxr.GetTrial()}");
-        StartCoroutine(RunSlotTrial(SlotOutcomes[sxr.GetTrial()], SlotOutcomeRows[sxr.GetTrial()]));
+        Debug.Log($"Starting Trial {sxr.GetTrial()}");
+        if (SlotMachine.activeSelf)
+        {
+            currentSlotTrial = slotTrials[sxr.GetTrial()];
+            StartCoroutine(RunSlotTrial(currentSlotTrial.outcome, currentSlotTrial.slotRow));
+        }
+        else
+        {
+            currentparlayTrial = parlayTrials[sxr.GetTrial()];
+            StartCoroutine(RunParlayTrial(currentparlayTrial.outcome));
+        }
+        SetTypeOutcome();
+
     }
 
     private IEnumerator RunSlotTrial(OutcomeType outcome, int[] outcomeRow)
@@ -267,7 +173,7 @@ public class Driver : MonoBehaviour
         slotHandler.StartNewTrial();
         sxr.NextTrial();
         if(sxr.GetTrial() != lastTrialIndex) slotHandler.rest();
-        StartNextSlotTrial();
+        StartNextTrial();
     }
 
     private void SwitchGamblingtype()
@@ -276,16 +182,7 @@ public class Driver : MonoBehaviour
         SlotMachine.SetActive(!SlotMachine.activeSelf);
         Parlay.SetActive(!Parlay.activeSelf);
         SetGamblingType();
-        if (SlotMachine.activeSelf)
-        {
-    
-            StartNextSlotTrial();
-        }
-        else
-        {
-            
-            StartNextParlayTrial();   
-        }
+        StartNextTrial();
     }
 
     private IEnumerator RunEffortTaskTrial()
@@ -323,16 +220,15 @@ public class Driver : MonoBehaviour
         if(isSlot)
         {
             SlotMachine.SetActive(true);
-            StartNextSlotTrial();
             SetGamblingType();            
         }
         else
         {
             Parlay.SetActive(true);
             betManager.UpdateLeaderboard();
-            StartNextParlayTrial();
             SetGamblingType();
         }
+        StartNextTrial();
 
     }
 
@@ -344,15 +240,15 @@ public class Driver : MonoBehaviour
         switch (legCount)
         {
             case 3:
-                Outcome = new List<int>(Parlay3Leg[index]);
+                Outcome = new List<int>(currentparlayTrial.leg3);
                 break;
 
             case 4:
-                Outcome = new List<int>(Parlay4Leg[index]);
+                Outcome = new List<int>(currentparlayTrial.leg4);
                 break;
 
             case 5:
-                Outcome = new List<int>(Parlay5Leg[index]);
+                Outcome = new List<int>(currentparlayTrial.leg5);
                 break;
 
             default:
@@ -361,28 +257,6 @@ public class Driver : MonoBehaviour
         }
 
         betManager.SetOutcome(Outcome);
-    }
-
-
-    public void StartNextParlayTrial()
-    {
-        if (sxr.GetTrial() >= Parlay4Leg.Length)
-        {
-            SwitchGamblingtype();
-            return;
-        }
-        SetTypeOutcome();
-        if(sxr.GetTrial() == effortTaskTrialIndex)
-        {
-            Debug.Log("Running Effort Task Trial");
-            StartCoroutine(RunEffortTaskTrial());
-            return;
-        }
-        offMusicToken++;
-        offMusicCoroutine = StartCoroutine(PlayOffMusic(SlotMachine.activeSelf ? slotTrialDuration : parlayTrialDuration, offMusicToken));
-        Debug.Log($"Starting Parlay Trial {sxr.GetTrial()}");
-        StartCoroutine(RunParlayTrial(ParlayOutcomes[sxr.GetTrial()]));
-
     }
 
     private IEnumerator RunParlayTrial(OutcomeType outcome)
@@ -404,7 +278,7 @@ public class Driver : MonoBehaviour
         betManager.StartNewTrial();
         sxr.NextTrial();
         if(sxr.GetTrial() != lastTrialIndex) betManager.ResetRound();
-        StartNextParlayTrial();
+        StartNextTrial();
     }
 
     void HideRayLine()
@@ -417,11 +291,11 @@ public class Driver : MonoBehaviour
     {
         if (Parlay.activeSelf)
         {
-            sxr.SetOutcome(ParlayOutcomes[sxr.GetTrial()].ToString());            
+            sxr.SetOutcome(currentparlayTrial.outcome.ToString());            
         }
         else if(SlotMachine.activeSelf)
         {
-            sxr.SetOutcome(SlotOutcomes[sxr.GetTrial()].ToString());
+            sxr.SetOutcome(currentSlotTrial.outcome.ToString());
         }
         else
         {
