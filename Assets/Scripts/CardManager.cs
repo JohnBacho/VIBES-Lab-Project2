@@ -32,50 +32,42 @@ public class CardManager : MonoBehaviour
 
         audioSource.loop = false;
         
-        // Initial setup - will be re-checked when needed
         EnsureLayoutComponentsInitialized();
     }
     
     private void EnsureLayoutComponentsInitialized()
     {
-        // Ensure CardParent is assigned
         if (CardParent == null)
         {
             Debug.LogError("CardParent is not assigned in CardManager!");
             return;
         }
         
-        // Make sure CardParent is active before trying to access components
         if (!CardParent.gameObject.activeInHierarchy)
         {
             CardParent.gameObject.SetActive(true);
         }
         
-        // Get or add GridLayoutGroup - always re-fetch to handle active/inactive transitions
         gridLayout = CardParent.GetComponent<GridLayoutGroup>();
         if (gridLayout == null)
         {
             gridLayout = CardParent.gameObject.AddComponent<GridLayoutGroup>();
         }
         
-        // Get or add ContentSizeFitter
         contentSizeFitter = CardParent.GetComponent<ContentSizeFitter>();
         if (contentSizeFitter == null)
         {
             contentSizeFitter = CardParent.gameObject.AddComponent<ContentSizeFitter>();
         }
         
-        // Configure ContentSizeFitter
         contentSizeFitter.horizontalFit = ContentSizeFitter.FitMode.PreferredSize;
         contentSizeFitter.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
         
-        // Initial grid setup
         ConfigureGridLayout();
     }
 
     private void ConfigureGridLayout()
     {
-        // Re-fetch gridLayout reference to handle active/inactive transitions
         if (CardParent != null)
         {
             gridLayout = CardParent.GetComponent<GridLayoutGroup>();
@@ -109,21 +101,19 @@ public class CardManager : MonoBehaviour
         gridLayout.spacing = new Vector2(-50, -5);
         gridLayout.padding = new RectOffset(-2, -2, -2, -2);
         
-        // Adjust cell size based on card count
+        // Adjusts the size of the cards based on the number of parlays selected by the player
         if (cardCount <= 4)
         {
             gridLayout.cellSize = new Vector2(150, 30);
         }
         else
         {
-            // Scale down the cards when there are more than 4
+            // Does a slight scale down
             float scaleFactor = Mathf.Max(0.5f, 1f - ((cardCount - 4) * 0.1f));
-            // Make width proportionally wider when shrunk
             float widthMultiplier = 1f + (1f - scaleFactor) * 0.3f;
             gridLayout.cellSize = new Vector2(150 * scaleFactor * widthMultiplier, 30 * scaleFactor);
         }
         
-        // Always use single column layout
         gridLayout.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
         gridLayout.constraintCount = 1;
         gridLayout.startAxis = GridLayoutGroup.Axis.Vertical;
@@ -133,14 +123,12 @@ public class CardManager : MonoBehaviour
 
     public void SpawnCard(string team1, int odds, TogglePressInteractable toggle)
     {
-        // Add safety check
         if (CardPrefab == null || CardParent == null)
         {
             Debug.LogError("CardPrefab or CardParent is not assigned!");
             return;
         }
         
-        // Ensure gridLayout is initialized before use
         EnsureLayoutComponentsInitialized();
         
         GameObject newCard = Instantiate(CardPrefab, CardParent);
@@ -311,41 +299,6 @@ public class CardManager : MonoBehaviour
         cardImage.color = targetColor;
 
         PlayResultSound(isGreen);
-    }
-
-    public void AnimateCardsExceptUnrevealed(List<int> legWins)
-    {
-        StartCoroutine(FlashAllHits(legWins));
-    }
-
-    private IEnumerator FlashAllHits(List<int> legWins)
-    {
-        for (int i = 0; i < activeCards.Count; i++)
-        {
-            if (legWins[i] == 1)
-            {
-                StartCoroutine(AnimateSingleCardColor(activeCards[i], true));
-            }
-            else
-            {
-                // unrevealed leg (0 so far) stays neutral color
-                Image cardImage = activeCards[i].GetComponent<Image>();
-                if (cardImage != null) cardImage.color = Color.white;
-            }
-        }
-        yield break;
-    }
-
-    // Called after player decides to Cash Out or Stay In
-    public void RevealUnrevealedCards(List<int> legWins)
-    {
-        for (int i = 0; i < activeCards.Count; i++)
-        {
-            if (legWins[i] == 0)
-            {
-                StartCoroutine(AnimateSingleCardColor(activeCards[i], false));
-            }
-        }
     }
 
     private void PlaySuspense()
