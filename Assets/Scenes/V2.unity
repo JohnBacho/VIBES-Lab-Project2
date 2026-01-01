@@ -7999,8 +7999,6 @@ GameObject:
   - component: {fileID: 866503838}
   - component: {fileID: 866503842}
   - component: {fileID: 866503841}
-  - component: {fileID: 866503840}
-  - component: {fileID: 866503839}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -8028,42 +8026,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -6.6}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &866503839
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 866503837}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7951c64acb0fa62458bf30a60089fe2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 0
-  m_CheckFor2DOcclusion: 0
-  m_CheckFor3DOcclusion: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RaycastTriggerInteraction: 1
---- !u!114 &866503840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 866503837}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!114 &866503841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8711,8 +8673,6 @@ GameObject:
   - component: {fileID: 980365008}
   - component: {fileID: 980365012}
   - component: {fileID: 980365011}
-  - component: {fileID: 980365010}
-  - component: {fileID: 980365009}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -8740,42 +8700,6 @@ RectTransform:
   m_AnchoredPosition: {x: -4.6126595, y: 13.676389}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &980365009
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 980365007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7951c64acb0fa62458bf30a60089fe2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 0
-  m_CheckFor2DOcclusion: 0
-  m_CheckFor3DOcclusion: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RaycastTriggerInteraction: 1
---- !u!114 &980365010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 980365007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!114 &980365011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22464,7 +22388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc04ca3376ea74d4bbbeeab8509b4917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SlotFirst: 1
+  SlotFirst: 0
   slotTrials:
   - outcome: 2
     slotRow: 030000000300000001000000
@@ -22575,11 +22499,6 @@ MonoBehaviour:
   - {fileID: 1489669604}
   - {fileID: 1231419492}
   TimeIsUpAudioSource: {fileID: 1970160414}
-  slotTrialDuration: 30
-  parlayTrialDuration: 105
-  effortTaskDuration: 45
-  effortTaskTrialIndex: 6
-  lastTrialIndex: 16
   rayLineVisual: {fileID: 708422745}
 --- !u!114 &1970160413
 MonoBehaviour:
