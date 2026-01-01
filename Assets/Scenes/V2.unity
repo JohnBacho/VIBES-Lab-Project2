@@ -22388,7 +22388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc04ca3376ea74d4bbbeeab8509b4917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SlotFirst: 0
+  gamblingTypeFirst: 0
   slotTrials:
   - outcome: 2
     slotRow: 030000000300000001000000
@@ -22493,12 +22493,20 @@ MonoBehaviour:
   betManager: {fileID: 1970160409}
   slotHandler: {fileID: 1970160413}
   gazeHandler: {fileID: 1035072719}
-  bucket: {fileID: 77539353}
   EffortTaskBucket:
   - {fileID: 77539353}
   - {fileID: 1489669604}
   - {fileID: 1231419492}
   TimeIsUpAudioSource: {fileID: 1970160414}
+  offMusicToken: 0
+  currentparlayTrial:
+    outcome: 0
+    leg3: 000000000000000000000000
+    leg4: 00000000000000000000000000000000
+    leg5: 0000000000000000000000000000000000000000
+  currentSlotTrial:
+    outcome: 0
+    slotRow: 000000000000000000000000
   rayLineVisual: {fileID: 708422745}
 --- !u!114 &1970160413
 MonoBehaviour:

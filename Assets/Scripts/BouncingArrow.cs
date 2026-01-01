@@ -11,7 +11,6 @@ public class BouncingArrow : MonoBehaviour
 
     void Start()
     {
-        // Cache local position relative to parent
         baseLocalPosition = transform.localPosition;
     }
 

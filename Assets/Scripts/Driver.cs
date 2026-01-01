@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.XR.Interaction.Toolkit;
 using sxr_internal;
 
-
+[System.Serializable]
 public enum OutcomeType
 {
     Win,
@@ -12,7 +12,7 @@ public enum OutcomeType
     NearMiss,
     EffortTask,
 }
-
+[System.Serializable]
 public enum GamblingType
 {
     Slot,
@@ -27,6 +27,13 @@ public class SlotTrialData
 }
 
 [System.Serializable]
+public enum GamblingTypeFirst
+{
+    Slot,
+    Parlay
+}
+
+[System.Serializable]
 public class ParlayTrialData
 {
     public OutcomeType outcome;
@@ -37,27 +44,26 @@ public class ParlayTrialData
 
 public class Driver : MonoBehaviour
 {
-    [SerializeField] private bool SlotFirst = true;
+    [SerializeField] private GamblingTypeFirst gamblingTypeFirst = GamblingTypeFirst.Slot;
     [SerializeField] private SlotTrialData[] slotTrials = new SlotTrialData[16];
     [SerializeField] private ParlayTrialData[] parlayTrials = new ParlayTrialData[16];
     [SerializeField] private GameObject SlotMachine;
     [SerializeField] private GameObject Parlay;
     [SerializeField] private GameObject EffortTask;
-    public BetManager betManager;
-    public SlotHandler slotHandler;
-    public GazeHandler gazeHandler;
-    public Bucket bucket;
-    public List<Bucket> EffortTaskBucket;
+    [SerializeField] private BetManager betManager;
+    [SerializeField] private SlotHandler slotHandler;
+    [SerializeField] private GazeHandler gazeHandler;
+    [SerializeField] private List<Bucket> EffortTaskBucket;
     [SerializeField] private AudioSource TimeIsUpAudioSource;
-    private Coroutine offMusicCoroutine;
-    private int offMusicToken = 0;
-    const float slotTrialDuration = 30f;
-    const float parlayTrialDuration = 105f;
-    const float effortTaskDuration = 45f;
-    const int effortTaskTrialIndex = 6;
-    const int lastTrialIndex = 16;
-    private ParlayTrialData currentparlayTrial;
-    private SlotTrialData currentSlotTrial;
+    [SerializeField] private Coroutine offMusicCoroutine;
+    [SerializeField] private int offMusicToken = 0;
+    [SerializeField] private const float slotTrialDuration = 30f;
+    [SerializeField] private const float parlayTrialDuration = 105f;
+    [SerializeField] private const float effortTaskDuration = 45f;
+    [SerializeField] private const int effortTaskTrialIndex = 6;
+    [SerializeField] const int lastTrialIndex = 16;
+    [SerializeField] private ParlayTrialData currentparlayTrial;
+    [SerializeField] private SlotTrialData currentSlotTrial;
 
 
 [SerializeField] XRInteractorLineVisual rayLineVisual;
@@ -80,7 +86,7 @@ public class Driver : MonoBehaviour
     {
         yield return null;
         EffortTask.SetActive(false);
-        if(SlotFirst)
+        if(gamblingTypeFirst == GamblingTypeFirst.Slot)
         {
             SlotMachine.SetActive(true);
             Parlay.SetActive(false);

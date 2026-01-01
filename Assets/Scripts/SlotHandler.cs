@@ -19,10 +19,8 @@ public class SlotHandler : MonoBehaviour, ManageWallet
     public PokeButton IncreaseBetButton;
     public PokeButton DecreaseBetButton;
 
-
-
     private float currentBet = 0f;
-    private int multiplier = 2;
+    private const int multiplier = 2;
     private float wallet = 100f;
 
     [SerializeField] private Reel[] reels;
