@@ -223,15 +223,17 @@ public class BetManager : MonoBehaviour, ManageWallet
             MiddleUI.SetActive(false);
             WinningAudioSource.Play();
             WalletText.text = $"Wallet: ${wallet:0.00}";
+            const float TextOnTime = 0.5f;
+            const float TextOffTime = 0.35f;
             for(int i = 0; i < 4; i++)
             {
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(TextOnTime);
                 WinText.text = $"YOU WIN\n${Payout:0.00}";
-                yield return new WaitForSeconds(0.35f);
+                yield return new WaitForSeconds(TextOffTime);
                 WinText.text = "";
             }
             WinText.text = $"YOU WIN\n${Payout:0.00}";
-            yield return new WaitForSeconds(.5f);
+            yield return new WaitForSeconds(TextOnTime);
             WinningAudioSource.Stop();
             WinText.text = "";
             WalletText.text = "";
@@ -241,7 +243,8 @@ public class BetManager : MonoBehaviour, ManageWallet
             MiddleUI.SetActive(false);
             LossText.text = $"You Lose!";
             WalletText.text = $"Wallet: ${wallet:0.00}";
-            yield return new WaitForSeconds(4f);
+            const float TextOffTime = 4f;
+            yield return new WaitForSeconds(TextOffTime);
             LossText.text = "";
             WalletText.text = "";
         }
@@ -250,9 +253,10 @@ public class BetManager : MonoBehaviour, ManageWallet
 
     public void ResetRound()
     {
-        currentBet = 0;
-        sxr.SetBetAmount(0);
-        sxr.SetPayout(0);
+        const int restvalue = 0;
+        currentBet = restvalue;
+        sxr.SetBetAmount(restvalue);
+        sxr.SetPayout(restvalue);
         CardManager.RemoveAllCards();
         oddsArray.Clear();
         decimalOddsList.Clear();
@@ -299,19 +303,21 @@ public class BetManager : MonoBehaviour, ManageWallet
 
     public void IncreaseParlayBet()
     {
-        if (wallet < 1f || AlreaydSubmitting) return;
+        const float increaseAmount = 1f;
+        if (wallet < increaseAmount || AlreaydSubmitting) return;
 
-        currentBet += 1f;
-        RemoveWallet(1f);
+        currentBet += increaseAmount;
+        RemoveWallet(increaseAmount);
         UpdateUI();
     }
 
     public void DecreaseParlayBet()
     {
+        const float decreaseAmount = 1f;
         if (currentBet <= 0f || AlreaydSubmitting) return;
 
-        currentBet -= 1f;
-        AddWallet(1f);
+        currentBet -= decreaseAmount;
+        AddWallet(decreaseAmount);
         UpdateUI();
     }
 

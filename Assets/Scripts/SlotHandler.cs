@@ -22,6 +22,8 @@ public class SlotHandler : MonoBehaviour, ManageWallet
     private float currentBet = 0f;
     private const int multiplier = 2;
     private float wallet = 100f;
+    private const float FirstTrial= 0f;
+    private const float ReelSpinDuration = 1f;
 
     [SerializeField] private Reel[] reels;
     [SerializeField] private Handle handle;
@@ -50,7 +52,7 @@ public class SlotHandler : MonoBehaviour, ManageWallet
             Debug.LogError("No outcome set from Driver!");
             return;
         }
-        if(sxr.GetTrial() == 0)
+        if(sxr.GetTrial() == FirstTrial)
         {
             SlotTutorial.HideGrabHandleTutorial();
         }
@@ -67,11 +69,11 @@ public class SlotHandler : MonoBehaviour, ManageWallet
     {
         for (int i = 0; i < reels.Length; i++)
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(ReelSpinDuration);
             reels[i].StopSpin(storedOutcome[i]);
         }
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(ReelSpinDuration);
 
         StartCoroutine(ResolveOutcome());
     }
@@ -87,11 +89,13 @@ public class SlotHandler : MonoBehaviour, ManageWallet
             AddWallet(winnings + currentBet);
             WinAudioSource.Play();
             walletText.text = $"Wallet: ${wallet:0.00}";
+            const float TextOnTime = 0.5f;
+            const float TextOffTime = 0.35f;
             for(int i = 0; i < 4; i++)
             {
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(TextOnTime);
                 WinText.text = $"YOU WIN ${winnings}";
-                yield return new WaitForSeconds(0.35f);
+                yield return new WaitForSeconds(TextOffTime);
                 WinText.text = "";
             }
             WinText.text = $"YOU WIN ${winnings}";
@@ -103,7 +107,8 @@ public class SlotHandler : MonoBehaviour, ManageWallet
             WinText.text = "";
             walletText.text = $"Wallet: ${wallet:0.00}";
             LoseAudioSource.Play();
-            yield return new WaitForSeconds(4f);
+            const float TextOnTime = 4f;
+            yield return new WaitForSeconds(TextOnTime);
         }
         WinAudioSource.Stop();
         LoseAudioSource.Stop();
@@ -154,46 +159,49 @@ public class SlotHandler : MonoBehaviour, ManageWallet
         yield return null;
         handle.DisableGrab();
         EstimatedPayout.text = "";
+        const float TextOnTime = 0.8f;
+        const float TextOffTime = 0.5f;
         while (!betPlaced)
         {
             if (!betPlaced)
             {
                 betText.text = "Place a bet\nto continue";                
             }
-            yield return new WaitForSeconds(0.8f);
+            yield return new WaitForSeconds(TextOnTime);
             if (!betPlaced)
             {
                 betText.text = "";                
             }
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(TextOffTime);
         }
     }
 
     public void IncreaseBet()
     {
-        if (wallet < 1f) return;
-        if(sxr.GetTrial() == 0)
+        const float increaseAmount = 1f;
+        if (wallet < increaseAmount) return;
+        if(sxr.GetTrial() == FirstTrial)
         {
             SlotTutorial.HideIncreaseBetTutorial();
             SlotTutorial.ShowGrabHandleTutorial();
         }
         handle.EnableGrab();
-        currentBet += 1f;
-        RemoveWallet(1f);
+        currentBet += increaseAmount;
+        RemoveWallet(increaseAmount);
         betPlaced = true;
         UpdateUI();
     }
 
     public void DecreaseBet()
     {
+    const float decreaseAmount = 1f;
     if (currentBet <= 0f)
         {
             handle.DisableGrab();
             return;
         }
-
-        currentBet -= 1f;
-        AddWallet(1f);
+        currentBet -= decreaseAmount;
+        AddWallet(decreaseAmount);
         UpdateUI();
     }
 

@@ -81,7 +81,6 @@ public class CardManager : MonoBehaviour
                 return;
             }
             
-            // Ensure parent is active before adding component
             bool wasInactive = !CardParent.gameObject.activeSelf;
             if (wasInactive)
             {

@@ -42,62 +42,62 @@ public class Bucket : MonoBehaviour
         StartFade(color, duration);
     }
 
-public void StartFade(Color startColor, float duration)
-{
-    if (currentFade != null)
+    public void StartFade(Color startColor, float duration)
     {
-        StopCoroutine(currentFade);
+        if (currentFade != null)
+        {
+            StopCoroutine(currentFade);
+            currentFade = null;
+        }
+
+        currentFade = StartCoroutine(FadeText(startColor, duration));
+    }
+
+    private IEnumerator FadeText(Color startColor, float duration)
+    {
+        label.ForceMeshUpdate();
+        TMP_TextInfo textInfo = label.textInfo;
+
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / duration;
+            Color32 fadeColor = Color.Lerp(startColor, new Color(0, 0, 0, 0), t);
+
+            for (int i = 0; i < textInfo.characterCount; i++)
+            {
+                TMP_CharacterInfo charInfo = textInfo.characterInfo[i];
+                if (!charInfo.isVisible) continue;
+
+                int vertexIndex = charInfo.vertexIndex;
+                int materialIndex = charInfo.materialReferenceIndex;
+                Color32[] vertexColors = textInfo.meshInfo[materialIndex].colors32;
+
+                vertexColors[vertexIndex + 0] = fadeColor;
+                vertexColors[vertexIndex + 1] = fadeColor;
+                vertexColors[vertexIndex + 2] = fadeColor;
+                vertexColors[vertexIndex + 3] = fadeColor;
+            }
+
+            for (int i = 0; i < textInfo.meshInfo.Length; i++)
+            {
+                textInfo.meshInfo[i].mesh.colors32 = textInfo.meshInfo[i].colors32;
+                label.UpdateGeometry(textInfo.meshInfo[i].mesh, i);
+            }
+
+            yield return null;
+        }
+
+        label.text = "";
         currentFade = null;
     }
 
-    currentFade = StartCoroutine(FadeText(startColor, duration));
-}
-
-private IEnumerator FadeText(Color startColor, float duration)
-{
-    label.ForceMeshUpdate();
-    TMP_TextInfo textInfo = label.textInfo;
-
-    float elapsed = 0f;
-
-    while (elapsed < duration)
+    public void SetWallet(ManageWallet wallet)
     {
-        elapsed += Time.deltaTime;
-        float t = elapsed / duration;
-        Color32 fadeColor = Color.Lerp(startColor, new Color(0, 0, 0, 0), t);
-
-        for (int i = 0; i < textInfo.characterCount; i++)
-        {
-            TMP_CharacterInfo charInfo = textInfo.characterInfo[i];
-            if (!charInfo.isVisible) continue;
-
-            int vertexIndex = charInfo.vertexIndex;
-            int materialIndex = charInfo.materialReferenceIndex;
-            Color32[] vertexColors = textInfo.meshInfo[materialIndex].colors32;
-
-            vertexColors[vertexIndex + 0] = fadeColor;
-            vertexColors[vertexIndex + 1] = fadeColor;
-            vertexColors[vertexIndex + 2] = fadeColor;
-            vertexColors[vertexIndex + 3] = fadeColor;
-        }
-
-        for (int i = 0; i < textInfo.meshInfo.Length; i++)
-        {
-            textInfo.meshInfo[i].mesh.colors32 = textInfo.meshInfo[i].colors32;
-            label.UpdateGeometry(textInfo.meshInfo[i].mesh, i);
-        }
-
-        yield return null;
+        CurrentWalletScript = wallet;
     }
-
-    label.text = "";
-    currentFade = null; // clear reference when done
-}
-
-public void SetWallet(ManageWallet wallet)
-{
-    CurrentWalletScript = wallet;
-}
 
 
 }
