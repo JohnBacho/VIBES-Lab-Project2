@@ -57,6 +57,12 @@ public class XRPokeToggleButton : MonoBehaviour
             lastInteractionTime = Time.time;
             isToggled = !isToggled;
 
+            if(targetImage.color == toggledColor && interactable.enabled)
+            {
+                isToggled = false;
+                //tbh this is hacky but it works for now
+            }
+
             if (enableDebugLog)
             {
                 Debug.Log(
