@@ -54,14 +54,16 @@ public class Driver : MonoBehaviour
     [SerializeField] private SlotHandler slotHandler;
     [SerializeField] private GazeHandler gazeHandler;
     [SerializeField] XRInteractorLineVisual rayLineVisual;
-    [SerializeField] private AudioSource TimeIsUpAudioSource;
+    [SerializeField] private PlayOffMusic playOffMusicScript;
+    [SerializeField] private EndProgram endProgramScript;
     [SerializeField] private List<Bucket> EffortTaskBucket;
-    private Coroutine offMusicCoroutine;
-    private int offMusicToken = 0;
-    private const float slotTrialDuration = 30f;
-    private const float parlayTrialDuration = 105f;
-    private const float effortTaskDuration = 45f;
+
+    int offMusicToken = 0;
+    const float slotTrialDuration = 30f;
+    const float parlayTrialDuration = 105f;
+    const float effortTaskDuration = 45f;
     const int lastTrialIndex = 16;
+    const int lastPhase = 2; 
     private ParlayTrialData currentparlayTrial;
     private SlotTrialData currentSlotTrial;
     void Start()
@@ -75,7 +77,8 @@ public class Driver : MonoBehaviour
         yield return null;
         StartDataTrackers();
         StartNextTrial();
-        HideRayLine();
+        if (rayLineVisual != null)
+            rayLineVisual.enabled = false;
     }
 
     IEnumerator switchContextAfterDelay()
@@ -104,30 +107,24 @@ public class Driver : MonoBehaviour
         SetGamblingType();
     }
 
-    void SetGamblingType()
-    {
-        if (SlotMachine.activeSelf)
-        {
-            sxr.SetGamblingType(GamblingType.Slot.ToString());
-        }
-        else if (Parlay.activeSelf)
-        {
-            sxr.SetGamblingType(GamblingType.Parlay.ToString());
-        }
-        else
-        {
-            sxr.SetGamblingType(GamblingType.EffortTask.ToString());
-        }
-
-    }
-
     public void StartNextTrial()
     {
         sxr.SetParlaySelection(",,,,,,,,,,");
         sxr.SetTotalOdds(0f);
         if (sxr.GetTrial() >= lastTrialIndex)
         {
-            SwitchGamblingtype();
+            if(sxr.GetPhase() >= lastPhase)
+            {
+                Debug.Log("All trials complete. Ending program.");
+                Parlay.SetActive(false);
+                SlotMachine.SetActive(false);
+                endProgramScript.StartProgramEnding();
+                return;
+            } 
+            else
+            {
+                SwitchGamblingtype();
+            }
             return;
         }
         Debug.Log($"Starting Trial {sxr.GetTrial()}");
@@ -160,7 +157,7 @@ public class Driver : MonoBehaviour
             }
         }
         offMusicToken++;
-        offMusicCoroutine = StartCoroutine(PlayOffMusic(SlotMachine.activeSelf ? slotTrialDuration : parlayTrialDuration, offMusicToken));
+        playOffMusicScript.StartPlayOffMusic(SlotMachine.activeSelf ? slotTrialDuration : parlayTrialDuration, offMusicToken);
         SetTypeOutcome();
 
     }
@@ -181,7 +178,7 @@ public class Driver : MonoBehaviour
         Debug.Log($"Trial {sxr.GetTrial()} complete");
 
         gazeHandler.GrabPupilTrialAverage();
-        CancelOffMusic();
+        playOffMusicScript.CancelOffMusic();
         slotHandler.StartNewTrial();
         sxr.NextTrial();
         if(sxr.GetTrial() != lastTrialIndex) slotHandler.rest();
@@ -201,7 +198,7 @@ public class Driver : MonoBehaviour
     {
         bool isSlot = SlotMachine.activeSelf;
         SetTypeOutcome();
-        CancelOffMusic();
+        playOffMusicScript.CancelOffMusic();
         Debug.Log("Starting Effort Task Trial");
         sxr.SetGamblingType(GamblingType.EffortTask.ToString());
         SlotMachine.SetActive(false);
@@ -285,17 +282,28 @@ public class Driver : MonoBehaviour
 
         Debug.Log($"Trial {sxr.GetTrial()} complete");
         gazeHandler.GrabPupilTrialAverage();
-        CancelOffMusic();
+        playOffMusicScript.CancelOffMusic();
         betManager.StartNewTrial();
         sxr.NextTrial();
         if(sxr.GetTrial() != lastTrialIndex) betManager.ResetRound();
         StartNextTrial();
     }
 
-    void HideRayLine()
+    void SetGamblingType()
     {
-        if (rayLineVisual != null)
-            rayLineVisual.enabled = false;
+        if (SlotMachine.activeSelf)
+        {
+            sxr.SetGamblingType(GamblingType.Slot.ToString());
+        }
+        else if (Parlay.activeSelf)
+        {
+            sxr.SetGamblingType(GamblingType.Parlay.ToString());
+        }
+        else
+        {
+            sxr.SetGamblingType(GamblingType.EffortTask.ToString());
+        }
+
     }
 
     void SetTypeOutcome()
@@ -313,34 +321,4 @@ public class Driver : MonoBehaviour
             sxr.SetOutcome(OutcomeType.EffortTask.ToString());
         }
     }
-
-    IEnumerator PlayOffMusic(float delay, int token)
-    {
-        yield return new WaitForSeconds(delay);
-
-        if (token != offMusicToken)
-            yield break;
-
-        if (EffortTask.activeSelf)
-            yield break;
-
-        TimeIsUpAudioSource.Play();
-    }
-
-
-
-    void CancelOffMusic()
-    {
-        offMusicToken++;
-
-        if (offMusicCoroutine != null)
-        {
-            StopCoroutine(offMusicCoroutine);
-            offMusicCoroutine = null;
-        }
-
-        if (TimeIsUpAudioSource.isPlaying)
-            TimeIsUpAudioSource.Stop();
-    }
-
 }
