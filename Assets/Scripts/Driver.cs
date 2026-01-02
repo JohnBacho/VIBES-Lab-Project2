@@ -61,7 +61,6 @@ public class Driver : MonoBehaviour
     private const float slotTrialDuration = 30f;
     private const float parlayTrialDuration = 105f;
     private const float effortTaskDuration = 45f;
-    private const int effortTaskTrialIndex = 6;
     const int lastTrialIndex = 16;
     private ParlayTrialData currentparlayTrial;
     private SlotTrialData currentSlotTrial;
@@ -95,8 +94,6 @@ public class Driver : MonoBehaviour
             Parlay.SetActive(true);
             sxr.SetProgramName("Sunflower");
         }
-
-        StartNextTrial();
     }
 
 
@@ -133,25 +130,37 @@ public class Driver : MonoBehaviour
             SwitchGamblingtype();
             return;
         }
-        if(sxr.GetTrial() == effortTaskTrialIndex)
-        {
-            Debug.Log("Running Effort Task Trial");
-            StartCoroutine(RunEffortTaskTrial());
-            return;
-        }
-        offMusicToken++;
-        offMusicCoroutine = StartCoroutine(PlayOffMusic(SlotMachine.activeSelf ? slotTrialDuration : parlayTrialDuration, offMusicToken));
         Debug.Log($"Starting Trial {sxr.GetTrial()}");
         if (SlotMachine.activeSelf)
         {
             currentSlotTrial = slotTrials[sxr.GetTrial()];
-            StartCoroutine(RunSlotTrial(currentSlotTrial.outcome, currentSlotTrial.slotRow));
+            if(currentSlotTrial.outcome == OutcomeType.EffortTask)
+            {
+                Debug.Log("Running Effort Task Trial");
+                StartCoroutine(RunEffortTaskTrial());
+                return;
+            }
+            else
+            {
+                StartCoroutine(RunSlotTrial(currentSlotTrial.outcome, currentSlotTrial.slotRow));
+            }
         }
         else
         {
             currentparlayTrial = parlayTrials[sxr.GetTrial()];
-            StartCoroutine(RunParlayTrial(currentparlayTrial.outcome));
+            if(currentparlayTrial.outcome == OutcomeType.EffortTask)
+            {
+                Debug.Log("Running Effort Task Trial");
+                StartCoroutine(RunEffortTaskTrial());
+                return;
+            }
+            else
+            {
+                StartCoroutine(RunParlayTrial(currentparlayTrial.outcome));                
+            }
         }
+        offMusicToken++;
+        offMusicCoroutine = StartCoroutine(PlayOffMusic(SlotMachine.activeSelf ? slotTrialDuration : parlayTrialDuration, offMusicToken));
         SetTypeOutcome();
 
     }
@@ -191,6 +200,7 @@ public class Driver : MonoBehaviour
     private IEnumerator RunEffortTaskTrial()
     {
         bool isSlot = SlotMachine.activeSelf;
+        SetTypeOutcome();
         CancelOffMusic();
         Debug.Log("Starting Effort Task Trial");
         sxr.SetGamblingType(GamblingType.EffortTask.ToString());
@@ -274,8 +284,6 @@ public class Driver : MonoBehaviour
         }
 
         Debug.Log($"Trial {sxr.GetTrial()} complete");
-        const float waitAfterParlay = 0.5f;
-        yield return new WaitForSeconds(waitAfterParlay);
         gazeHandler.GrabPupilTrialAverage();
         CancelOffMusic();
         betManager.StartNewTrial();
