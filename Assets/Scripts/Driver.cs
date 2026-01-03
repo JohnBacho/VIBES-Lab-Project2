@@ -110,7 +110,7 @@ public class Driver : MonoBehaviour
     public void StartNextTrial()
     {
         sxr.SetParlaySelection(",,,,,,,,,,");
-        sxr.SetTotalOdds(0f);
+        sxr.RestartTimer();
         if (sxr.GetTrial() >= lastTrialIndex)
         {
             if(sxr.GetPhase() >= lastPhase)
@@ -191,6 +191,7 @@ public class Driver : MonoBehaviour
         SlotMachine.SetActive(!SlotMachine.activeSelf);
         Parlay.SetActive(!Parlay.activeSelf);
         sxr.SetTotalLegs(0);
+        sxr.SetTotalOdds(0f);
         SetGamblingType();
         StartNextTrial();
     }
