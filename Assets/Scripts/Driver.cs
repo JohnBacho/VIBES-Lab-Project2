@@ -190,6 +190,7 @@ public class Driver : MonoBehaviour
         sxr.NextPhase();
         SlotMachine.SetActive(!SlotMachine.activeSelf);
         Parlay.SetActive(!Parlay.activeSelf);
+        sxr.SetTotalLegs(0);
         SetGamblingType();
         StartNextTrial();
     }
