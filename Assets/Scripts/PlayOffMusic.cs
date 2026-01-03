@@ -17,7 +17,6 @@ public class PlayOffMusic : MonoBehaviour
     }
     IEnumerator RunPlayOffMusic(float delay, int token)
     {
-        Debug.Log("Attempting to play off music");
         yield return new WaitForSeconds(delay);
         if (token != offMusicToken)
             yield break;
