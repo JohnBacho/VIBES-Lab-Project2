@@ -21,7 +21,7 @@ public class ParlaySelection
     }
 }
 
-public class BetManager : MonoBehaviour, ManageWallet
+public class ParlayHandler : MonoBehaviour, ManageWallet
 {
     private float currentBet = 0f;
     public TextMeshPro WagerText;
@@ -289,14 +289,11 @@ public class BetManager : MonoBehaviour, ManageWallet
         BetslipUI.SetActive(true);
         MiddleUI.SetActive(true);
         UpdateUI();
-        foreach (var t in toggleButton)
-        {
-            t.ForceReset();
-        }
-
+        TempDisableParlaySubmit();
     }
     public void ViewParlays()
     {
+        if(AlreaydSubmitting) return;
         BetslipUI.SetActive(false);
         ParlayUI.SetActive(true);
     }
@@ -365,5 +362,38 @@ public class BetManager : MonoBehaviour, ManageWallet
     public void UpdateLeaderboard()
     {
         leaderboard.SetMoney("You", wallet);
+    }
+
+    public void TempDisableParlaySubmit()
+    {
+        StartCoroutine(TemporarilyDisableSubmit());
+    }
+    
+    IEnumerator TemporarilyDisableSubmit()
+    {
+        PlaceBetButton.DisableButton();
+        const float buttonDisableTime = 1.5f;
+        yield return new WaitForSeconds(buttonDisableTime);
+        UpdateUI();
+    }
+
+    public void AtStartDisableButtons()
+    {
+        StartCoroutine(TemporarilyDisableButtons());
+    }
+    
+    IEnumerator TemporarilyDisableButtons()
+    {
+        yield return null;
+        foreach (var t in toggleButton)
+        {
+            t.DisableInteraction();
+        }
+        const float buttonDisableTime = 2f;
+        yield return new WaitForSeconds(buttonDisableTime);
+        foreach (var t in toggleButton)
+        {
+            t.EnableInteraction();
+        }
     }
 }

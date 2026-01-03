@@ -360,7 +360,6 @@ GameObject:
   - component: {fileID: 5703365846532672661}
   - component: {fileID: 4940491026361209296}
   - component: {fileID: 6841476736905210359}
-  - component: {fileID: 1987671159798655031}
   - component: {fileID: 2719792291555007354}
   m_Layer: 0
   m_Name: ButtonOdds1
@@ -638,24 +637,6 @@ MonoBehaviour:
       m_EnablePokeAngleThreshold: 1
       m_PokeAngleThreshold: 45
     m_Variable: {fileID: 0}
---- !u!114 &1987671159798655031
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 684713425953954845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 530dcdfde22df1b46994b8bb8893933c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onButtonPressed:
-    m_PersistentCalls:
-      m_Calls: []
-  onButtonReleased:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &2719792291555007354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -838,7 +819,7 @@ MonoBehaviour:
   OddsTextTeam2: {fileID: 2345777593869495405}
   Team1Text: {fileID: 2599154306477484966}
   Team2Text: {fileID: 5356058302603017462}
-  betManager: {fileID: 0}
+  parlayHandler: {fileID: 0}
   cardManager: {fileID: 0}
   audioSource: {fileID: 1620313218789719843}
   teamIndex: 0
@@ -1127,7 +1108,6 @@ GameObject:
   - component: {fileID: 352553593980715739}
   - component: {fileID: 576601017877718548}
   - component: {fileID: 4563177515776139309}
-  - component: {fileID: 8892534528405853633}
   m_Layer: 6
   m_Name: ButtonOdds2
   m_TagString: Untagged
@@ -1404,24 +1384,6 @@ MonoBehaviour:
       m_EnablePokeAngleThreshold: 1
       m_PokeAngleThreshold: 45
     m_Variable: {fileID: 0}
---- !u!114 &8892534528405853633
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2408204531872295607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 530dcdfde22df1b46994b8bb8893933c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onButtonPressed:
-    m_PersistentCalls:
-      m_Calls: []
-  onButtonReleased:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &5208872722375300842
 GameObject:
   m_ObjectHideFlags: 0

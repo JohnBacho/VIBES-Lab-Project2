@@ -60,7 +60,6 @@ public class XRPokeToggleButton : MonoBehaviour
             if(targetImage.color == toggledColor && interactable.enabled)
             {
                 isToggled = false;
-                //tbh this is hacky but it works for now
             }
 
             if (enableDebugLog)
@@ -102,6 +101,16 @@ public class XRPokeToggleButton : MonoBehaviour
             targetImage.color = disabledColor;
         }
         isInteractable = false;
+    }
+
+    public void DisableInteraction()
+    {
+        isInteractable = false;
+    }
+
+    public void EnableInteraction()
+    {
+        isInteractable = true;
     }
 
     public void SetToggled(bool value, bool fireEvents = false)

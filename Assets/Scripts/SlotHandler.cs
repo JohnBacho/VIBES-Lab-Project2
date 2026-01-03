@@ -214,16 +214,31 @@ public class SlotHandler : MonoBehaviour, ManageWallet
     {
         trialCompleted = false;
     }
-        public void AddWallet(float amount)
-        {
-            wallet += amount;
-            sxr.SetWallet(wallet);
-        }
+    public void AddWallet(float amount)
+    {
+        wallet += amount;
+        sxr.SetWallet(wallet);
+    }
 
-        public void RemoveWallet(float amount)
-        {
-            wallet -= amount;
-            wallet = Mathf.Max(0, wallet);
-            sxr.SetWallet(wallet);
-        }
+    public void RemoveWallet(float amount)
+    {
+        wallet -= amount;
+        wallet = Mathf.Max(0, wallet);
+        sxr.SetWallet(wallet);
+    }
+
+    public void AtStartDisableButtons()
+    {
+        StartCoroutine(TemporarilyDisableButtons());
+    }
+    
+    IEnumerator TemporarilyDisableButtons()
+    {
+        IncreaseBetButton.DisableButton();
+        DecreaseBetButton.DisableButton();
+        const float buttonDisableTime = 2f;
+        yield return new WaitForSeconds(buttonDisableTime);
+        IncreaseBetButton.EnableButton();
+        DecreaseBetButton.EnableButton();
+    }
 }
