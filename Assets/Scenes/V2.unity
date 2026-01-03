@@ -3312,7 +3312,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4735753089168445294, guid: ee10902f936fcae41a04432dd2e0aacd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4851825857746216352, guid: ee10902f936fcae41a04432dd2e0aacd, type: 3}
       propertyPath: m_Volume
@@ -3587,6 +3587,9 @@ PrefabInstance:
       insertIndex: 4
       addedObject: {fileID: 794404578}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9196584345299264884, guid: ee10902f936fcae41a04432dd2e0aacd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 1991661435528208516, guid: ee10902f936fcae41a04432dd2e0aacd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 656054685}
@@ -10732,7 +10735,7 @@ Transform:
   m_GameObject: {fileID: 1265610748}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.7452579, y: 0.83728606, z: -1.3604043}
+  m_LocalPosition: {x: 2.7452579, y: 0.83728606, z: -1.281}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
