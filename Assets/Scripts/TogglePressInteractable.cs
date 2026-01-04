@@ -18,6 +18,17 @@ public class Parlay
     public int Team1Odds;
     public string Team2Name;
     public int Team2Odds;
+    public string Team1WinLoss;
+    public string Team2WinLoss;
+    public TeamHealth Team1Health;
+    public TeamHealth Team2Health;
+}
+
+public enum TeamHealth
+{
+    Good,
+    Medium,
+    Bad
 }
 
 public class TogglePressInteractable : MonoBehaviour
@@ -27,12 +38,18 @@ public class TogglePressInteractable : MonoBehaviour
     [Header("XR Poke Toggles")]
     public XRPokeToggleButton ToggleTeam1;
     public XRPokeToggleButton ToggleTeam2;
+    public XRPokeToggleButton ToggleStats;
+
 
     [Header("UI Text")]
     public TextMeshPro OddsTextTeam1;
     public TextMeshPro OddsTextTeam2;
     public TextMeshPro Team1Text;
     public TextMeshPro Team2Text;
+    [Header("Stats UI Text")]
+    public TextMeshPro WinLossTeam1;
+    public TextMeshPro WinLossTeam2;
+    public GameObject Stats;
 
     [Header("Managers")]
     public ParlayHandler parlayHandler;
@@ -62,7 +79,15 @@ public class TogglePressInteractable : MonoBehaviour
             ToggleTeam2.onToggledOff.AddListener(() => OnTeamDeselected(2));
         }
 
-        UpdateUI();
+        if (ToggleStats != null)
+        {
+            ToggleStats.onToggledOn.AddListener(OnStatsSelected);
+            ToggleStats.onToggledOff.AddListener(OnStatsDeselected);
+        }
+
+        Stats.SetActive(false);
+
+
     }
 
     private void OnTeamSelected(int team)
@@ -228,5 +253,38 @@ public class TogglePressInteractable : MonoBehaviour
         }
 
         UpdateUI();
+    }
+
+    private void OnStatsSelected()
+    {
+        if (isResetting) return;
+        audioSource.Play();
+        Stats.SetActive(true);
+
+        UpdateStatsUI();
+    }
+
+    private void OnStatsDeselected()
+    {
+        if (isResetting) return;
+        audioSource.Play();
+        Stats.SetActive(false);
+    }
+
+    public void UpdateStatsUI()
+    {
+        Parlay currentParlay = parlayManager.Parlays[sxr.GetTrial()];
+
+        if (WinLossTeam1 != null)
+            WinLossTeam1.text = currentParlay.Team1WinLoss.ToString();
+
+        if (WinLossTeam2 != null)
+            WinLossTeam2.text = currentParlay.Team2WinLoss.ToString();
+
+        // if (Team1Text != null)
+        //     currentParlay.Team1Health;
+
+        // if (Team2Text != null)
+        //     currentParlay.Team2Health;
     }
 }

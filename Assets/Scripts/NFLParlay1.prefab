@@ -339,9 +339,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ba1b8ed2e853fb4c8b81d2ced9c088d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cooldownTime: 1
+  targetImage: {fileID: 3529691315180149809}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   toggledColor: {r: 0, g: 0.47843137, b: 0.9019608, a: 1}
-  targetImage: {fileID: 3529691315180149809}
+  onToggledOn:
+    m_PersistentCalls:
+      m_Calls: []
+  onToggledOff:
+    m_PersistentCalls:
+      m_Calls: []
+  enableDebugLog: 1
 --- !u!114 &277694335575078779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,7 +392,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 171ad9f3121edc14daec972eb3f3d1b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverScale: 1.05
   pressedScale: 0.95
   smoothSpeed: 12
 --- !u!1 &1977928885123793838
@@ -1167,24 +1174,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1f208133cefafd4f81fa50cbf347b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Team1Odds: a2feffffd20000006efeffff
-  Team2Odds: 5e0100002effffff98000000
-  Team1Names:
-  - Browns
-  - Cowboys
-  - Jets
-  Team2Names:
-  - Jags
-  - Lions
-  - Colts
-  ButtonTeam1: {fileID: 8531460375300010652}
-  ButtonTeam2: {fileID: 3095739153982881873}
+  parlayManager:
+    Parlays: []
+  ToggleTeam1: {fileID: 0}
+  ToggleTeam2: {fileID: 0}
   OddsTextTeam1: {fileID: 1002227204776561773}
   OddsTextTeam2: {fileID: 622743580069541069}
   Team1Text: {fileID: 2518535115860824292}
   Team2Text: {fileID: 4641772175378503868}
-  betManager: {fileID: 0}
+  parlayHandler: {fileID: 0}
   cardManager: {fileID: 0}
+  audioSource: {fileID: 0}
   teamIndex: 0
 --- !u!1 &8313192510863054293
 GameObject:
@@ -1354,9 +1354,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ba1b8ed2e853fb4c8b81d2ced9c088d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cooldownTime: 1
+  targetImage: {fileID: 2636660543383683808}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   toggledColor: {r: 0, g: 0.4784314, b: 0.90196085, a: 1}
-  targetImage: {fileID: 2636660543383683808}
+  onToggledOn:
+    m_PersistentCalls:
+      m_Calls: []
+  onToggledOff:
+    m_PersistentCalls:
+      m_Calls: []
+  enableDebugLog: 1
 --- !u!114 &5880665110841025472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1399,7 +1407,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 171ad9f3121edc14daec972eb3f3d1b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverScale: 1.05
   pressedScale: 0.95
   smoothSpeed: 12
 --- !u!1 &8319287849180815933
@@ -1501,7 +1508,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Jags
+  m_text: CowBoys
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

@@ -58,7 +58,7 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
 
     public bool TrialCompleted => trialCompleted;
     private bool trialCompleted = false;
-    public bool AlreaydSubmitting = false;
+    public bool AlreadySubmitting = false;
     private float wallet = 100f;
 
 
@@ -172,9 +172,9 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
 
     public void StartSubmit()
     {
-        if(currentBet == 0f || AlreaydSubmitting)
+        if(currentBet == 0f || AlreadySubmitting)
             return;
-        AlreaydSubmitting = true;    
+        AlreadySubmitting = true;    
         StartCoroutine(Submit());
     }
 
@@ -278,7 +278,7 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
             togglePressInteractables[i].UpdateUI();
             togglePressInteractables[i].ResetToggle();
         }
-        AlreaydSubmitting = false;        
+        AlreadySubmitting = false;        
 
     }
 
@@ -293,7 +293,7 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
     }
     public void ViewParlays()
     {
-        if(AlreaydSubmitting) return;
+        if(AlreadySubmitting) return;
         BetslipUI.SetActive(false);
         ParlayUI.SetActive(true);
     }
@@ -301,7 +301,7 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
     public void IncreaseParlayBet()
     {
         const float increaseAmount = 1f;
-        if (wallet < increaseAmount || AlreaydSubmitting) return;
+        if (wallet < increaseAmount || AlreadySubmitting) return;
 
         currentBet += increaseAmount;
         RemoveWallet(increaseAmount);
@@ -311,7 +311,7 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
     public void DecreaseParlayBet()
     {
         const float decreaseAmount = 1f;
-        if (currentBet <= 0f || AlreaydSubmitting) return;
+        if (currentBet <= 0f || AlreadySubmitting) return;
 
         currentBet -= decreaseAmount;
         AddWallet(decreaseAmount);
