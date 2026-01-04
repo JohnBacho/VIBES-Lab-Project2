@@ -23,6 +23,7 @@ public enum GamblingType
 public class SlotTrialData
 {   
     public OutcomeType outcome;
+    public float multiplier = 2f;
     public int[] slotRow = new int[3];
 }
 
@@ -139,7 +140,7 @@ public class Driver : MonoBehaviour
             }
             else
             {
-                StartCoroutine(RunSlotTrial(currentSlotTrial.outcome, currentSlotTrial.slotRow));
+                StartCoroutine(RunSlotTrial(currentSlotTrial.outcome, currentSlotTrial.slotRow, currentSlotTrial.multiplier));
             }
         }
         else
@@ -162,11 +163,12 @@ public class Driver : MonoBehaviour
 
     }
 
-    private IEnumerator RunSlotTrial(OutcomeType outcome, int[] outcomeRow)
+    private IEnumerator RunSlotTrial(OutcomeType outcome, int[] outcomeRow, float multiplier)
     {
         Debug.Log($"Starting trial {sxr.GetTrial()} with outcome: {outcome}");
 
         slotHandler.SetOutcome(outcomeRow);
+        slotHandler.SetMultiplier(multiplier);
         slotHandler.StartNewTrial();
 
 

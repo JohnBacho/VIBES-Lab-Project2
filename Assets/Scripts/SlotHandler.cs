@@ -20,7 +20,7 @@ public class SlotHandler : MonoBehaviour, ManageWallet
     public PokeButton DecreaseBetButton;
 
     private float currentBet = 0f;
-    private const int multiplier = 2;
+    private float multiplier;
     private float wallet = 100f;
     private const float FirstTrial= 0f;
     private const float ReelSpinDuration = 1f;
@@ -43,6 +43,11 @@ public class SlotHandler : MonoBehaviour, ManageWallet
     public void SetOutcome(int[] row)
     {
         storedOutcome = row;
+    }
+
+    public void SetMultiplier(float SlotMultiplier)
+    {
+        multiplier = SlotMultiplier;
     }
 
     public void SpinReceived()
