@@ -19,8 +19,8 @@ public class Parlay
     public string Team2Name;
     public int Team2Odds;
     public string Team1WinLoss;
-    public string Team2WinLoss;
     public TeamHealth Team1Health;
+    public string Team2WinLoss;
     public TeamHealth Team2Health;
 }
 
@@ -50,6 +50,9 @@ public class TogglePressInteractable : MonoBehaviour
     public TextMeshPro WinLossTeam1;
     public TextMeshPro WinLossTeam2;
     public GameObject Stats;
+    public GameObject[] Team1Health = new GameObject[3];
+    public GameObject[] Team2Health = new GameObject[3];
+
 
     [Header("Managers")]
     public ParlayHandler parlayHandler;
@@ -59,9 +62,10 @@ public class TogglePressInteractable : MonoBehaviour
 
     private bool team1Selected = false;
     private bool team2Selected = false;
-    public int teamIndex;
+    private int teamIndex;
     private Color TextColorNormal = new Color32(0x1F, 0x37, 0x5B, 0xFF);
     private bool isResetting = false;
+
 
 
     void Start()
@@ -86,7 +90,6 @@ public class TogglePressInteractable : MonoBehaviour
         }
 
         Stats.SetActive(false);
-
 
     }
 
@@ -271,20 +274,56 @@ public class TogglePressInteractable : MonoBehaviour
         Stats.SetActive(false);
     }
 
-    public void UpdateStatsUI()
+    private void UpdateStatsUI()
     {
         Parlay currentParlay = parlayManager.Parlays[sxr.GetTrial()];
 
         if (WinLossTeam1 != null)
-            WinLossTeam1.text = currentParlay.Team1WinLoss.ToString();
-
+            SetTeamsWinLoss(currentParlay.Team1WinLoss.ToString(), true);
         if (WinLossTeam2 != null)
-            WinLossTeam2.text = currentParlay.Team2WinLoss.ToString();
+            SetTeamsWinLoss(currentParlay.Team2WinLoss.ToString(), false);
 
-        // if (Team1Text != null)
-        //     currentParlay.Team1Health;
-
-        // if (Team2Text != null)
-        //     currentParlay.Team2Health;
+        if (Team1Health != null)
+        {
+            SetTeamHealth(Team1Health, currentParlay.Team1Health);
+            SetTeamHealth(Team2Health, currentParlay.Team2Health);   
+        }
     }
+
+    private void SetTeamHealth(GameObject[] healthIcons, TeamHealth health)
+    {
+        if (healthIcons == null) return;
+
+        for (int i = 0; i < healthIcons.Length; i++)
+        {
+            healthIcons[i].SetActive(i == (int)health);
+        }
+    }
+
+    private void SetTeamsWinLoss(string winLoss, bool isTeam1)
+    {
+        var sb = new System.Text.StringBuilder();
+
+        for (int i = 0; i < winLoss.Length; i++)
+        {
+            char c = winLoss[i];
+
+            if (c == 'W')
+                sb.Append("<color=green>W</color>");
+            else if (c == 'L')
+                sb.Append("<color=red>L</color>");
+            else
+                sb.Append(c);
+
+            if (i < winLoss.Length - 1)
+                sb.Append("-");
+        }
+
+        if (isTeam1)
+            WinLossTeam1.text = sb.ToString();
+        else
+            WinLossTeam2.text = sb.ToString();
+    }
+
+
 }
