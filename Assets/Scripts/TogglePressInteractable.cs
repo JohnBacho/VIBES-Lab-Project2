@@ -35,7 +35,7 @@ public class TogglePressInteractable : MonoBehaviour
     public TextMeshPro Team2Text;
 
     [Header("Managers")]
-    public BetManager betManager;
+    public ParlayHandler parlayHandler;
     public CardManager cardManager;
 
     public AudioSource audioSource;
@@ -83,7 +83,7 @@ public class TogglePressInteractable : MonoBehaviour
             OddsTextTeam2.color = Color.white;
 
             teamIndex = 1;
-            betManager.AddToCalculateOdds(currentParlay.Team1Odds, this, currentParlay.Team1Name);
+            parlayHandler.AddToCalculateOdds(currentParlay.Team1Odds, this, currentParlay.Team1Name);
             cardManager.SpawnCard(currentParlay.Team1Name, currentParlay.Team1Odds, this);
 
             Debug.Log("Team 1 Selected: " + team1Selected);
@@ -101,7 +101,7 @@ public class TogglePressInteractable : MonoBehaviour
             OddsTextTeam2.color = Color.white;
 
             teamIndex = 2;
-            betManager.AddToCalculateOdds(currentParlay.Team2Odds, this, currentParlay.Team2Name);
+            parlayHandler.AddToCalculateOdds(currentParlay.Team2Odds, this, currentParlay.Team2Name);
             cardManager.SpawnCard(currentParlay.Team2Name, currentParlay.Team2Odds, this);
 
             Debug.Log("Team 2 Selected: " + team2Selected);
@@ -123,7 +123,7 @@ public class TogglePressInteractable : MonoBehaviour
             OddsTextTeam1.color = TextColorNormal;
             OddsTextTeam2.color = TextColorNormal;
 
-            betManager.RemoveFromCalculateOdds(currentParlay.Team1Odds, this);
+            parlayHandler.RemoveFromCalculateOdds(currentParlay.Team1Odds, this);
             cardManager.RemoveCard(this);
             ToggleTeam1.SetNormalColor();
             ToggleTeam2.SetNormalColor();
@@ -137,7 +137,7 @@ public class TogglePressInteractable : MonoBehaviour
             OddsTextTeam1.color = TextColorNormal;
             OddsTextTeam2.color = TextColorNormal;
 
-            betManager.RemoveFromCalculateOdds(currentParlay.Team2Odds, this);
+            parlayHandler.RemoveFromCalculateOdds(currentParlay.Team2Odds, this);
             cardManager.RemoveCard(this);
             ToggleTeam1.SetNormalColor();
             ToggleTeam2.SetNormalColor();

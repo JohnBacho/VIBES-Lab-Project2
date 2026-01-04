@@ -171,7 +171,7 @@ public class CardManager : MonoBehaviour
             if (toggle != null)
             {
                 int selectedOdds = toggle.GetSelectedOdds();
-                toggle.betManager.RemoveFromCalculateOdds(selectedOdds, toggle);
+                toggle.parlayHandler.RemoveFromCalculateOdds(selectedOdds, toggle);
                 toggle.SetPressed(false);
             }
 
@@ -200,7 +200,7 @@ public class CardManager : MonoBehaviour
                 activeCards.Remove(card);
 
                 int selectedOdds = toggle.GetSelectedOdds();
-                toggle.betManager.RemoveFromCalculateOdds(selectedOdds, toggle);
+                toggle.parlayHandler.RemoveFromCalculateOdds(selectedOdds, toggle);
                 toggle.SetPressed(true);
                 Destroy(card);
                 cardMap.Remove(toggle);

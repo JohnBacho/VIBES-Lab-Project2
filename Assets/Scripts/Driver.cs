@@ -51,7 +51,7 @@ public class Driver : MonoBehaviour
     [SerializeField] private GameObject SlotMachine;
     [SerializeField] private GameObject Parlay;
     [SerializeField] private GameObject EffortTask;
-    [SerializeField] private BetManager betManager;
+    [SerializeField] private ParlayHandler parlayHandler;
     [SerializeField] private SlotHandler slotHandler;
     [SerializeField] private GazeHandler gazeHandler;
     [SerializeField] XRInteractorLineVisual rayLineVisual;
@@ -88,12 +88,14 @@ public class Driver : MonoBehaviour
         EffortTask.SetActive(false);
         if(gamblingTypeFirst == GamblingTypeFirst.Slot)
         {
+            slotHandler.AtStartDisableButtons();
             SlotMachine.SetActive(true);
             Parlay.SetActive(false);
             sxr.SetProgramName("Lilac");
         }
         else
         {
+            parlayHandler.AtStartDisableButtons();
             SlotMachine.SetActive(false);
             Parlay.SetActive(true);
             sxr.SetProgramName("Sunflower");
@@ -192,6 +194,8 @@ public class Driver : MonoBehaviour
         sxr.NextPhase();
         SlotMachine.SetActive(!SlotMachine.activeSelf);
         Parlay.SetActive(!Parlay.activeSelf);
+        slotHandler.AtStartDisableButtons();
+        parlayHandler.AtStartDisableButtons();
         sxr.SetTotalLegs(0);
         sxr.SetTotalOdds(0f);
         SetGamblingType();
@@ -218,7 +222,7 @@ public class Driver : MonoBehaviour
         {
             for(int i = 0; i < EffortTaskBucket.Count; i++)
             {
-                EffortTaskBucket[i].SetWallet(betManager);
+                EffortTaskBucket[i].SetWallet(parlayHandler);
             }
         }
         EffortTask.SetActive(true);
@@ -239,7 +243,7 @@ public class Driver : MonoBehaviour
         else
         {
             Parlay.SetActive(true);
-            betManager.UpdateLeaderboard();
+            parlayHandler.UpdateLeaderboard();
             SetGamblingType();
         }
         StartNextTrial();
@@ -270,16 +274,16 @@ public class Driver : MonoBehaviour
                 return;
         }
 
-        betManager.SetOutcome(Outcome);
+        parlayHandler.SetOutcome(Outcome);
     }
 
     private IEnumerator RunParlayTrial(OutcomeType outcome)
     {
         Debug.Log($"Starting trial {sxr.GetTrial()} with outcome: {outcome}");
 
-        betManager.StartNewTrial();
-        betManager.UpdateOddsText();
-        while (!betManager.TrialCompleted)
+        parlayHandler.StartNewTrial();
+        parlayHandler.UpdateOddsText();
+        while (!parlayHandler.TrialCompleted)
         {
             yield return null;
         }
@@ -287,9 +291,9 @@ public class Driver : MonoBehaviour
         Debug.Log($"Trial {sxr.GetTrial()} complete");
         gazeHandler.GrabPupilTrialAverage();
         playOffMusicScript.CancelOffMusic();
-        betManager.StartNewTrial();
+        parlayHandler.StartNewTrial();
         sxr.NextTrial();
-        if(sxr.GetTrial() != lastTrialIndex) betManager.ResetRound();
+        if(sxr.GetTrial() != lastTrialIndex) parlayHandler.ResetRound();
         StartNextTrial();
     }
 
