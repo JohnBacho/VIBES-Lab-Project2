@@ -241,7 +241,7 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
         else
         {
             MiddleUI.SetActive(false);
-            LossText.text = $"You Lose!";
+            LossText.text = $"YOU LOST\n${currentBet:0.00}";
             WalletText.text = $"Wallet: ${wallet:0.00}";
             const float TextOffTime = 4f;
             yield return new WaitForSeconds(TextOffTime);
