@@ -267,10 +267,9 @@ public class TogglePressInteractable : MonoBehaviour
         UpdateStatsUI();
     }
 
-    private void OnStatsDeselected()
+    public void OnStatsDeselected()
     {
         if (isResetting) return;
-        audioSource.Play();
         Stats.SetActive(false);
     }
 

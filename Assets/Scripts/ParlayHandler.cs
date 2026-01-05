@@ -49,6 +49,7 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
     public List<TogglePressInteractable> togglePressInteractables;
     public List<XRPokeToggleButton> toggleButton;
 
+
     public CardManager CardManager;
     public ParlayTutorial parlayTutorial;
     public Leaderboard leaderboard;
@@ -273,10 +274,12 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
             t.ForceReset();
             t.SetNormalColor();
         }
+
         for (int i = 0; i < togglePressInteractables.Count; i++)
         {
             togglePressInteractables[i].UpdateUI();
             togglePressInteractables[i].ResetToggle();
+            togglePressInteractables[i].OnStatsDeselected();
         }
         AlreadySubmitting = false;        
 
