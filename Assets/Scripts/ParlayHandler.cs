@@ -213,7 +213,11 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
     private IEnumerator ResolveBet(List<int> LegWins)
     {
         float Payout = 0f;
-
+        if(LegWins.Sum() != decimalOddsList.Count && decimalOddsList.Count != LegWins.Sum()+1)
+        {
+            Debug.LogError("Triggered");
+            LegWins = dynamicLoss(LegWins);
+        }
         CardManager.AnimateCardsColor(LegWins);
 
         yield return new WaitForSeconds(seconds);
@@ -422,6 +426,23 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
                 StatButtons[i].ForceReset();
             }
         }
+    }
+    private List<int> dynamicLoss(List<int> legWins)
+    {
+        int Outcome = 0;
+        List<int> tempLegWins = new List<int>(legWins);
+        while(legWins.Sum() != Outcome)
+        {
+            tempLegWins.Clear();
+         for (int i = 0; i < decimalOddsList.Count; i++)
+            {
+                float probability = 1f / decimalOddsList[i];
+                tempLegWins.Add(Random.value < probability ? 1 : 0);
+            }
+           Outcome = tempLegWins.Sum(); 
+        }
+
+        return tempLegWins;
     }
 
 }
