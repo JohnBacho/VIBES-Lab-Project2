@@ -4709,6 +4709,58 @@ PrefabInstance:
       propertyPath: parlayHandler
       value: 
       objectReference: {fileID: 1970160409}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team1Name
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team1Odds
+      value: -210
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team2Name
+      value: Lions
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team2Odds
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team1Name
+      value: Broncos
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team1Odds
+      value: -300
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team2Name
+      value: Chiefs
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team2Odds
+      value: 230
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team1Health
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team2Health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team1Health
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team1WinLoss
+      value: WLWWL
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team2WinLoss
+      value: WLLWL
+      objectReference: {fileID: 0}
     - target: {fileID: 1936011731812208240, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       propertyPath: m_Name
       value: NFLParlay5
@@ -4838,10 +4890,13 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4417387217738318829, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 5930927598183225224, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 8188258079952030142, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 8977049465671555929, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 5245673609257481096, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 5930927598183225224, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
@@ -4975,6 +5030,50 @@ PrefabInstance:
       propertyPath: parlayHandler
       value: 
       objectReference: {fileID: 1970160409}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team1Name
+      value: Ravens
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team1Odds
+      value: -200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team2Name
+      value: Bengals
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team2Odds
+      value: 145
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team1Name
+      value: Texans
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team2Name
+      value: Packers
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team1Health
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team2Health
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team1WinLoss
+      value: WWLLW
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team2WinLoss
+      value: LWLWL
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team1WinLoss
+      value: WWLWW
+      objectReference: {fileID: 0}
     - target: {fileID: 1936011731812208240, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       propertyPath: m_Name
       value: NFLParlay2
@@ -5104,10 +5203,13 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4417387217738318829, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 5930927598183225224, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 8188258079952030142, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 8977049465671555929, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 5245673609257481096, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 5930927598183225224, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
@@ -13062,6 +13164,62 @@ PrefabInstance:
       propertyPath: parlayHandler
       value: 
       objectReference: {fileID: 1970160409}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team1Name
+      value: Panthers
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team1Odds
+      value: -400
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team2Name
+      value: Cardinals
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team2Odds
+      value: 320
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team1Name
+      value: Patriots
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team1Odds
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team2Name
+      value: Bills
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team2Odds
+      value: -130
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team1Health
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team2Health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team1Health
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team1WinLoss
+      value: WWLWL
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team2WinLoss
+      value: LWLLL
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team2WinLoss
+      value: WWWLW
+      objectReference: {fileID: 0}
     - target: {fileID: 1936011731812208240, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       propertyPath: m_Name
       value: NFLParlay4
@@ -13191,10 +13349,13 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4417387217738318829, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 5930927598183225224, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 8188258079952030142, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 8977049465671555929, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 5245673609257481096, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 5930927598183225224, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
@@ -22427,9 +22588,10 @@ MonoBehaviour:
   - {fileID: 1660334475}
   - {fileID: 250334767}
   - {fileID: 1508427129}
+  StatButtons:
+  - {fileID: 1979377704}
   - {fileID: 4017253441074552462}
   - {fileID: 519132819}
-  - {fileID: 1979377704}
   - {fileID: 1407798126}
   - {fileID: 456774588}
   CardManager: {fileID: 1273218879}
@@ -22758,6 +22920,58 @@ PrefabInstance:
       propertyPath: parlayHandler
       value: 
       objectReference: {fileID: 1970160409}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team1Name
+      value: Titans
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team1Odds
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team2Name
+      value: Saints
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team2Odds
+      value: -120
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team1Name
+      value: Falcons
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team2Name
+      value: 49ers
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team2Odds
+      value: -230
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team1Health
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team2Health
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team1Health
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team2Health
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team1WinLoss
+      value: LLLWL
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team2WinLoss
+      value: WLLWL
+      objectReference: {fileID: 0}
     - target: {fileID: 1936011731812208240, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       propertyPath: m_Name
       value: NFLParlay3
@@ -22887,10 +23101,13 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4417387217738318829, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 5930927598183225224, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 8188258079952030142, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 8977049465671555929, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 5245673609257481096, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 5930927598183225224, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
@@ -23611,18 +23828,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1009569751}
     m_Modifications:
-    - target: {fileID: 474664642120879719, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: 'm_Colliders.Array.data[0]'
-      value: 
-      objectReference: {fileID: 4017253441074552471}
-    - target: {fileID: 790427323340525921, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.63
-      objectReference: {fileID: 0}
-    - target: {fileID: 790427323340525921, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0
-      objectReference: {fileID: 0}
     - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       propertyPath: cardManager
       value: 
@@ -23631,33 +23836,69 @@ PrefabInstance:
       propertyPath: parlayHandler
       value: 
       objectReference: {fileID: 1970160409}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team1Name
+      value: Cowboys
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[2].Team1Name
+      value: Cowboys
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[3].Team1Name
+      value: Cowboys
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[4].Team1Name
+      value: Cowboys
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[5].Team1Name
+      value: Cowboys
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[6].Team1Name
+      value: Cowboys
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[7].Team1Name
+      value: Cowboys
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[8].Team1Name
+      value: Cowboys
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[9].Team1Name
+      value: Cowboys
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[10].Team1Name
+      value: Cowboys
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[11].Team1Name
+      value: Cowboys
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[12].Team1Name
+      value: Cowboys
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[13].Team1Name
+      value: Cowboys
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[14].Team1Name
+      value: Cowboys
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[15].Team1Name
+      value: Cowboys
+      objectReference: {fileID: 0}
     - target: {fileID: 1936011731812208240, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       propertyPath: m_Name
       value: NFLParlay1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2027424249759050454, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2027424249759050454, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2027424249759050454, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2027424249759050454, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2027424249759050454, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2027424249759050454, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       propertyPath: m_Pivot.x
@@ -23739,10 +23980,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7189272768413240589, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: m_PokeCollider
-      value: 
-      objectReference: {fileID: 4017253441074552471}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23780,10 +24017,13 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4417387217738318829, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 5930927598183225224, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 8188258079952030142, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 8977049465671555929, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 5245673609257481096, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 5930927598183225224, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
@@ -23798,11 +24038,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ba1b8ed2e853fb4c8b81d2ced9c088d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &4017253441074552471 stripped
-BoxCollider:
-  m_CorrespondingSourceObject: {fileID: 2201817491846662485, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-  m_PrefabInstance: {fileID: 4017253441074552461}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4103250351461622650 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9189695549809179684, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}

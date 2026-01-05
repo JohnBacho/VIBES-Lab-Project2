@@ -49,6 +49,8 @@ public class TogglePressInteractable : MonoBehaviour
     [Header("Stats UI Text")]
     public TextMeshPro WinLossTeam1;
     public TextMeshPro WinLossTeam2;
+    public TextMeshPro Team1Abbr;
+    public TextMeshPro Team2Abbr;
     public GameObject Stats;
     public GameObject[] Team1Health = new GameObject[3];
     public GameObject[] Team2Health = new GameObject[3];
@@ -261,15 +263,17 @@ public class TogglePressInteractable : MonoBehaviour
     private void OnStatsSelected()
     {
         if (isResetting) return;
+        if(Stats.activeSelf) return;
         audioSource.Play();
         Stats.SetActive(true);
-
+        parlayHandler.TurnOffSelectStats(this);
         UpdateStatsUI();
     }
 
     public void OnStatsDeselected()
     {
         if (isResetting) return;
+        if (!Stats.activeSelf) return;
         Stats.SetActive(false);
     }
 
@@ -286,6 +290,15 @@ public class TogglePressInteractable : MonoBehaviour
         {
             SetTeamHealth(Team1Health, currentParlay.Team1Health);
             SetTeamHealth(Team2Health, currentParlay.Team2Health);   
+        }
+
+        if(Team1Abbr != null)
+        {
+            string TempTeam1Abbrev = GetTeamAbbreviation(currentParlay.Team1Name);
+            string TempTeam2Abbrev = GetTeamAbbreviation(currentParlay.Team2Name);
+
+            Team1Abbr.text = TempTeam1Abbrev;
+            Team2Abbr.text = TempTeam2Abbrev;
         }
     }
 
@@ -323,6 +336,78 @@ public class TogglePressInteractable : MonoBehaviour
         else
             WinLossTeam2.text = sb.ToString();
     }
+
+
+    private static readonly Dictionary<string, string> TeamAbbreviations =
+        new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+    {
+        // AFC North
+        { "Browns", "CLE" },
+        { "Ravens", "BAL" },
+        { "Steelers", "PIT" },
+        { "Bengals", "CIN" },
+
+        // AFC East
+        { "Jets", "NYJ" },
+        { "Patriots", "NE" },
+        { "Dolphins", "MIA" },
+        { "Bills", "BUF" },
+
+        // AFC West
+        { "Chiefs", "KC" },
+        { "Raiders", "LV" },
+        { "Broncos", "DEN" },
+        { "Chargers", "LAC" },
+        
+        // AFC South
+        { "Texans", "HOU" },
+        { "Titans", "TEN" },
+        { "Colts", "IND" },
+        { "Jaguars", "JAX" },
+
+        // NFC North
+        { "Packers", "GB" },
+        { "Bears", "CHI" },
+        { "Vikings", "MIN" },
+        { "Lions", "DET" },
+
+        // NFC East
+        { "Cowboys", "DAL" },
+        { "Giants", "NYG" },
+        { "Eagles", "PHI" },
+        { "Commanders", "WAS" },
+
+        // NFC South
+        { "Saints", "NO" },
+        { "Falcons", "ATL" },
+        { "Buccaneers", "TB" },
+        { "Panthers", "CAR" },
+
+        // NFC West
+        { "49ers", "SF" },
+        { "Seahawks", "SEA" },
+        { "Rams", "LAR" },
+        { "Cardinals", "ARI" },
+    };
+
+
+    public static string GetTeamAbbreviation(string teamName)
+    {
+        if (string.IsNullOrWhiteSpace(teamName))
+            return string.Empty;
+
+        // Trim + normalize spacing
+        teamName = teamName.Trim();
+
+        if (TeamAbbreviations.TryGetValue(teamName, out string abbreviation))
+            return abbreviation;
+
+        // Fallback: first 3 letters (prevents crashes)
+        return teamName.Length >= 3
+            ? teamName.Substring(0, 3).ToUpper()
+            : teamName.ToUpper();
+    }
+
 
 
 }

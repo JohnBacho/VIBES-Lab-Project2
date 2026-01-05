@@ -48,6 +48,8 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
 
     public List<TogglePressInteractable> togglePressInteractables;
     public List<XRPokeToggleButton> toggleButton;
+    public List<XRPokeToggleButton> StatButtons;
+
 
 
     public CardManager CardManager;
@@ -275,6 +277,12 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
             t.SetNormalColor();
         }
 
+        foreach (var s in StatButtons)
+        {
+            s.ForceReset();
+            s.SetNormalColor();
+        }
+
         for (int i = 0; i < togglePressInteractables.Count; i++)
         {
             togglePressInteractables[i].UpdateUI();
@@ -399,4 +407,17 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
             t.EnableInteraction();
         }
     }
+
+    public void TurnOffSelectStats(TogglePressInteractable selected)
+    {
+        for (int i = 0; i < togglePressInteractables.Count; i++)
+        {
+            if (togglePressInteractables[i] != selected)
+            {
+                togglePressInteractables[i].OnStatsDeselected();
+                StatButtons[i].ForceReset();
+            }
+        }
+    }
+
 }
