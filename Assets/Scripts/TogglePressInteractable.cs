@@ -18,6 +18,17 @@ public class Parlay
     public int Team1Odds;
     public string Team2Name;
     public int Team2Odds;
+    public string Team1WinLoss;
+    public TeamHealth Team1Health;
+    public string Team2WinLoss;
+    public TeamHealth Team2Health;
+}
+
+public enum TeamHealth
+{
+    Good,
+    Medium,
+    Bad
 }
 
 public class TogglePressInteractable : MonoBehaviour
@@ -27,12 +38,23 @@ public class TogglePressInteractable : MonoBehaviour
     [Header("XR Poke Toggles")]
     public XRPokeToggleButton ToggleTeam1;
     public XRPokeToggleButton ToggleTeam2;
+    public XRPokeToggleButton ToggleStats;
+
 
     [Header("UI Text")]
     public TextMeshPro OddsTextTeam1;
     public TextMeshPro OddsTextTeam2;
     public TextMeshPro Team1Text;
     public TextMeshPro Team2Text;
+    [Header("Stats UI Text")]
+    public TextMeshPro WinLossTeam1;
+    public TextMeshPro WinLossTeam2;
+    public TextMeshPro Team1Abbr;
+    public TextMeshPro Team2Abbr;
+    public GameObject Stats;
+    public GameObject[] Team1Health = new GameObject[3];
+    public GameObject[] Team2Health = new GameObject[3];
+
 
     [Header("Managers")]
     public ParlayHandler parlayHandler;
@@ -42,9 +64,10 @@ public class TogglePressInteractable : MonoBehaviour
 
     private bool team1Selected = false;
     private bool team2Selected = false;
-    public int teamIndex;
+    private int teamIndex;
     private Color TextColorNormal = new Color32(0x1F, 0x37, 0x5B, 0xFF);
     private bool isResetting = false;
+
 
 
     void Start()
@@ -62,7 +85,14 @@ public class TogglePressInteractable : MonoBehaviour
             ToggleTeam2.onToggledOff.AddListener(() => OnTeamDeselected(2));
         }
 
-        UpdateUI();
+        if (ToggleStats != null)
+        {
+            ToggleStats.onToggledOn.AddListener(OnStatsSelected);
+            ToggleStats.onToggledOff.AddListener(OnStatsDeselected);
+        }
+
+        Stats.SetActive(false);
+
     }
 
     private void OnTeamSelected(int team)
@@ -229,4 +259,155 @@ public class TogglePressInteractable : MonoBehaviour
 
         UpdateUI();
     }
+
+    private void OnStatsSelected()
+    {
+        if (isResetting) return;
+        if(Stats.activeSelf) return;
+        audioSource.Play();
+        Stats.SetActive(true);
+        parlayHandler.TurnOffSelectStats(this);
+        UpdateStatsUI();
+    }
+
+    public void OnStatsDeselected()
+    {
+        if (isResetting) return;
+        if (!Stats.activeSelf) return;
+        Stats.SetActive(false);
+    }
+
+    private void UpdateStatsUI()
+    {
+        Parlay currentParlay = parlayManager.Parlays[sxr.GetTrial()];
+
+        if (WinLossTeam1 != null)
+            SetTeamsWinLoss(currentParlay.Team1WinLoss.ToString(), true);
+        if (WinLossTeam2 != null)
+            SetTeamsWinLoss(currentParlay.Team2WinLoss.ToString(), false);
+
+        if (Team1Health != null)
+        {
+            SetTeamHealth(Team1Health, currentParlay.Team1Health);
+            SetTeamHealth(Team2Health, currentParlay.Team2Health);   
+        }
+
+        if(Team1Abbr != null)
+        {
+            string TempTeam1Abbrev = GetTeamAbbreviation(currentParlay.Team1Name);
+            string TempTeam2Abbrev = GetTeamAbbreviation(currentParlay.Team2Name);
+
+            Team1Abbr.text = TempTeam1Abbrev;
+            Team2Abbr.text = TempTeam2Abbrev;
+        }
+    }
+
+    private void SetTeamHealth(GameObject[] healthIcons, TeamHealth health)
+    {
+        if (healthIcons == null) return;
+
+        for (int i = 0; i < healthIcons.Length; i++)
+        {
+            healthIcons[i].SetActive(i == (int)health);
+        }
+    }
+
+    private void SetTeamsWinLoss(string winLoss, bool isTeam1)
+    {
+        var sb = new System.Text.StringBuilder();
+
+        for (int i = 0; i < winLoss.Length; i++)
+        {
+            char c = winLoss[i];
+
+            if (c == 'W')
+                sb.Append("<color=green>W</color>");
+            else if (c == 'L')
+                sb.Append("<color=red>L</color>");
+            else
+                sb.Append(c);
+
+            if (i < winLoss.Length - 1)
+                sb.Append("-");
+        }
+
+        if (isTeam1)
+            WinLossTeam1.text = sb.ToString();
+        else
+            WinLossTeam2.text = sb.ToString();
+    }
+
+
+    private static readonly Dictionary<string, string> TeamAbbreviations =
+        new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+    {
+        // AFC North
+        { "Browns", "CLE" },
+        { "Ravens", "BAL" },
+        { "Steelers", "PIT" },
+        { "Bengals", "CIN" },
+
+        // AFC East
+        { "Jets", "NYJ" },
+        { "Patriots", "NE" },
+        { "Dolphins", "MIA" },
+        { "Bills", "BUF" },
+
+        // AFC West
+        { "Chiefs", "KC" },
+        { "Raiders", "LV" },
+        { "Broncos", "DEN" },
+        { "Chargers", "LAC" },
+        
+        // AFC South
+        { "Texans", "HOU" },
+        { "Titans", "TEN" },
+        { "Colts", "IND" },
+        { "Jaguars", "JAX" },
+
+        // NFC North
+        { "Packers", "GB" },
+        { "Bears", "CHI" },
+        { "Vikings", "MIN" },
+        { "Lions", "DET" },
+
+        // NFC East
+        { "Cowboys", "DAL" },
+        { "Giants", "NYG" },
+        { "Eagles", "PHI" },
+        { "Commanders", "WAS" },
+
+        // NFC South
+        { "Saints", "NO" },
+        { "Falcons", "ATL" },
+        { "Buccaneers", "TB" },
+        { "Panthers", "CAR" },
+
+        // NFC West
+        { "49ers", "SF" },
+        { "Seahawks", "SEA" },
+        { "Rams", "LAR" },
+        { "Cardinals", "ARI" },
+    };
+
+
+    public static string GetTeamAbbreviation(string teamName)
+    {
+        if (string.IsNullOrWhiteSpace(teamName))
+            return string.Empty;
+
+        // Trim + normalize spacing
+        teamName = teamName.Trim();
+
+        if (TeamAbbreviations.TryGetValue(teamName, out string abbreviation))
+            return abbreviation;
+
+        // Fallback: first 3 letters (prevents crashes)
+        return teamName.Length >= 3
+            ? teamName.Substring(0, 3).ToUpper()
+            : teamName.ToUpper();
+    }
+
+
+
 }

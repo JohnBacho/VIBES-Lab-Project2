@@ -2440,165 +2440,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1001 &201673557
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1009569751}
-    m_Modifications:
-    - target: {fileID: 576601017877718548, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: m_Colliders.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 576601017877718548, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: 'm_Colliders.Array.data[0]'
-      value: 
-      objectReference: {fileID: 1363750590}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: betManager
-      value: 
-      objectReference: {fileID: 1970160409}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: cardManager
-      value: 
-      objectReference: {fileID: 1273218879}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayHandler
-      value: 
-      objectReference: {fileID: 1970160409}
-    - target: {fileID: 1936011731812208240, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: m_Name
-      value: NFLParlay1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4940491026361209296, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: m_Colliders.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4940491026361209296, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: 'm_Colliders.Array.data[0]'
-      value: 
-      objectReference: {fileID: 722172627}
-    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 160.00003
-      objectReference: {fileID: 0}
-    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.201
-      objectReference: {fileID: 0}
-    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9396927
-      objectReference: {fileID: 0}
-    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.3420201
-      objectReference: {fileID: 0}
-    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.354
-      objectReference: {fileID: 0}
-    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.097
-      objectReference: {fileID: 0}
-    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5208872722375300842, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 212335479642155369, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 319199031938529032, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 8631828040576096037, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 7932964459905996584, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 2322707887146752726, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-  m_SourcePrefab: {fileID: 100100000, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
---- !u!224 &201673558 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-  m_PrefabInstance: {fileID: 201673557}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &201673580 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 863198638175931656, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-  m_PrefabInstance: {fileID: 201673557}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ba1b8ed2e853fb4c8b81d2ced9c088d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &240897793
 GameObject:
   m_ObjectHideFlags: 0
@@ -3609,17 +3450,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ba1b8ed2e853fb4c8b81d2ced9c088d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &274681111 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-  m_PrefabInstance: {fileID: 201673557}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1f208133cefafd4f81fa50cbf347b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &314442972
@@ -4879,6 +4709,58 @@ PrefabInstance:
       propertyPath: parlayHandler
       value: 
       objectReference: {fileID: 1970160409}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team1Name
+      value: Colts
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team1Odds
+      value: -210
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team2Name
+      value: Lions
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team2Odds
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team1Name
+      value: Broncos
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team1Odds
+      value: -300
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team2Name
+      value: Chiefs
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team2Odds
+      value: 230
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team1Health
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team2Health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team1Health
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team1WinLoss
+      value: WLWWL
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team2WinLoss
+      value: WLLWL
+      objectReference: {fileID: 0}
     - target: {fileID: 1936011731812208240, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       propertyPath: m_Name
       value: NFLParlay5
@@ -4975,22 +4857,46 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5208872722375300842, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 212335479642155369, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 319199031938529032, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 8631828040576096037, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 2322707887146752726, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 7932964459905996584, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 2322707887146752726, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 8631828040576096037, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 319199031938529032, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 4958432188536389551, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 2534458298056775120, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 5208872722375300842, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 2196564350343206754, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 5292352636728126640, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 722294136713736288, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 4417387217738318829, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 8188258079952030142, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 5245673609257481096, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 5930927598183225224, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
@@ -4999,6 +4905,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
   m_PrefabInstance: {fileID: 456774586}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &456774588 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3969873026296404928, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+  m_PrefabInstance: {fileID: 456774586}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ba1b8ed2e853fb4c8b81d2ced9c088d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &456774589 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
@@ -5113,6 +5030,50 @@ PrefabInstance:
       propertyPath: parlayHandler
       value: 
       objectReference: {fileID: 1970160409}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team1Name
+      value: Ravens
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team1Odds
+      value: -200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team2Name
+      value: Bengals
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team2Odds
+      value: 145
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team1Name
+      value: Texans
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team2Name
+      value: Packers
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team1Health
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team2Health
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team1WinLoss
+      value: WWLLW
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team2WinLoss
+      value: LWLWL
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team1WinLoss
+      value: WWLWW
+      objectReference: {fileID: 0}
     - target: {fileID: 1936011731812208240, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       propertyPath: m_Name
       value: NFLParlay2
@@ -5209,22 +5170,46 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5208872722375300842, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 212335479642155369, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 319199031938529032, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 8631828040576096037, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 2322707887146752726, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 7932964459905996584, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 2322707887146752726, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 8631828040576096037, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 319199031938529032, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 4958432188536389551, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 2534458298056775120, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 5208872722375300842, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 2196564350343206754, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 5292352636728126640, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 722294136713736288, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 4417387217738318829, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 8188258079952030142, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 5245673609257481096, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 5930927598183225224, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
@@ -5233,6 +5218,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
   m_PrefabInstance: {fileID: 519132817}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &519132819 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3969873026296404928, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+  m_PrefabInstance: {fileID: 519132817}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ba1b8ed2e853fb4c8b81d2ced9c088d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &519132820 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
@@ -6992,11 +6988,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &722172627 stripped
-BoxCollider:
-  m_CorrespondingSourceObject: {fileID: 5703365846532672661, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-  m_PrefabInstance: {fileID: 201673557}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &727925867
 GameObject:
   m_ObjectHideFlags: 0
@@ -9105,7 +9096,7 @@ Transform:
   m_LocalScale: {x: 74.01398, y: 74.01397, z: 74.01399}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 201673558}
+  - {fileID: 720330929481125718}
   - {fileID: 519132818}
   - {fileID: 1979377703}
   - {fileID: 1407798125}
@@ -12787,22 +12778,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pressedScale: 0.9
   smoothSpeed: 12
---- !u!114 &1363750584 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9189695549809179684, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-  m_PrefabInstance: {fileID: 201673557}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ba1b8ed2e853fb4c8b81d2ced9c088d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!65 &1363750590 stripped
-BoxCollider:
-  m_CorrespondingSourceObject: {fileID: 352553593980715739, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-  m_PrefabInstance: {fileID: 201673557}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1370513376
 GameObject:
   m_ObjectHideFlags: 0
@@ -13189,6 +13164,62 @@ PrefabInstance:
       propertyPath: parlayHandler
       value: 
       objectReference: {fileID: 1970160409}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team1Name
+      value: Panthers
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team1Odds
+      value: -400
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team2Name
+      value: Cardinals
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team2Odds
+      value: 320
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team1Name
+      value: Patriots
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team1Odds
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team2Name
+      value: Bills
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team2Odds
+      value: -130
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team1Health
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team2Health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team1Health
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team1WinLoss
+      value: WWLWL
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team2WinLoss
+      value: LWLLL
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team2WinLoss
+      value: WWWLW
+      objectReference: {fileID: 0}
     - target: {fileID: 1936011731812208240, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       propertyPath: m_Name
       value: NFLParlay4
@@ -13285,22 +13316,46 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5208872722375300842, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 212335479642155369, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 319199031938529032, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 8631828040576096037, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 2322707887146752726, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 7932964459905996584, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 2322707887146752726, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 8631828040576096037, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 319199031938529032, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 4958432188536389551, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 2534458298056775120, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 5208872722375300842, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 2196564350343206754, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 5292352636728126640, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 722294136713736288, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 4417387217738318829, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 8188258079952030142, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 5245673609257481096, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 5930927598183225224, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
@@ -13309,6 +13364,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
   m_PrefabInstance: {fileID: 1407798124}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1407798126 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3969873026296404928, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+  m_PrefabInstance: {fileID: 1407798124}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ba1b8ed2e853fb4c8b81d2ced9c088d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1407881798
 GameObject:
   m_ObjectHideFlags: 0
@@ -22506,28 +22572,34 @@ MonoBehaviour:
   ParlayUI: {fileID: 361872594}
   BetslipUI: {fileID: 1518183433}
   togglePressInteractables:
-  - {fileID: 274681111}
+  - {fileID: 6016413935099199384}
   - {fileID: 519132820}
   - {fileID: 1979377705}
   - {fileID: 2054964938}
   - {fileID: 456774589}
   toggleButton:
-  - {fileID: 201673580}
+  - {fileID: 5513326833075163734}
   - {fileID: 464129273}
   - {fileID: 445269003}
   - {fileID: 2036069667}
   - {fileID: 470428072}
-  - {fileID: 1363750584}
+  - {fileID: 4103250351461622650}
   - {fileID: 336932431}
   - {fileID: 1660334475}
   - {fileID: 250334767}
   - {fileID: 1508427129}
+  StatButtons:
+  - {fileID: 1979377704}
+  - {fileID: 4017253441074552462}
+  - {fileID: 519132819}
+  - {fileID: 1407798126}
+  - {fileID: 456774588}
   CardManager: {fileID: 1273218879}
   parlayTutorial: {fileID: 462436332}
   leaderboard: {fileID: 1970160410}
   driver: {fileID: 1970160412}
   WinningAudioSource: {fileID: 7907209383017540632}
-  AlreaydSubmitting: 0
+  AlreadySubmitting: 0
 --- !u!114 &1970160410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22553,7 +22625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc04ca3376ea74d4bbbeeab8509b4917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gamblingTypeFirst: 0
+  gamblingTypeFirst: 1
   slotTrials:
   - outcome: 2
     multiplier: 3
@@ -22848,6 +22920,58 @@ PrefabInstance:
       propertyPath: parlayHandler
       value: 
       objectReference: {fileID: 1970160409}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team1Name
+      value: Titans
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team1Odds
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team2Name
+      value: Saints
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team2Odds
+      value: -120
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team1Name
+      value: Falcons
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team2Name
+      value: 49ers
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team2Odds
+      value: -230
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team1Health
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team2Health
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team1Health
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team2Health
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team1WinLoss
+      value: LLLWL
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[0].Team2WinLoss
+      value: WLLWL
+      objectReference: {fileID: 0}
     - target: {fileID: 1936011731812208240, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       propertyPath: m_Name
       value: NFLParlay3
@@ -22944,22 +23068,46 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5208872722375300842, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 212335479642155369, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 319199031938529032, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 8631828040576096037, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 2322707887146752726, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 7932964459905996584, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 2322707887146752726, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 8631828040576096037, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 319199031938529032, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 4958432188536389551, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 2534458298056775120, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 5208872722375300842, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 2196564350343206754, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 5292352636728126640, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 722294136713736288, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 4417387217738318829, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 8188258079952030142, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 5245673609257481096, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 5930927598183225224, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
@@ -22968,6 +23116,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
   m_PrefabInstance: {fileID: 1979377702}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1979377704 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3969873026296404928, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+  m_PrefabInstance: {fileID: 1979377702}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ba1b8ed2e853fb4c8b81d2ced9c088d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1979377705 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
@@ -23621,6 +23780,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 156.87, y: 29.1, z: 7.15}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!224 &720330929481125718 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+  m_PrefabInstance: {fileID: 4017253441074552461}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2131265443654856741
 GameObject:
   m_ObjectHideFlags: 0
@@ -23656,6 +23820,235 @@ Transform:
   - {fileID: 1553727754}
   m_Father: {fileID: 699143}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &4017253441074552461
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1009569751}
+    m_Modifications:
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: cardManager
+      value: 
+      objectReference: {fileID: 1273218879}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayHandler
+      value: 
+      objectReference: {fileID: 1970160409}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[1].Team1Name
+      value: Cowboys
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[2].Team1Name
+      value: Cowboys
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[3].Team1Name
+      value: Cowboys
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[4].Team1Name
+      value: Cowboys
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[5].Team1Name
+      value: Cowboys
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[6].Team1Name
+      value: Cowboys
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[7].Team1Name
+      value: Cowboys
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[8].Team1Name
+      value: Cowboys
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[9].Team1Name
+      value: Cowboys
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[10].Team1Name
+      value: Cowboys
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[11].Team1Name
+      value: Cowboys
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[12].Team1Name
+      value: Cowboys
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[13].Team1Name
+      value: Cowboys
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[14].Team1Name
+      value: Cowboys
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: parlayManager.Parlays.Array.data[15].Team1Name
+      value: Cowboys
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936011731812208240, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_Name
+      value: NFLParlay1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 160.00003
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.201
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9396927
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.3420201
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.354
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.097
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2322707887146752726, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 7932964459905996584, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 8631828040576096037, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 319199031938529032, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 4958432188536389551, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 2534458298056775120, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 5208872722375300842, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 2196564350343206754, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 5292352636728126640, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 722294136713736288, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 4417387217738318829, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 8188258079952030142, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 5245673609257481096, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 5930927598183225224, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+  m_SourcePrefab: {fileID: 100100000, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+--- !u!114 &4017253441074552462 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3969873026296404928, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+  m_PrefabInstance: {fileID: 4017253441074552461}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ba1b8ed2e853fb4c8b81d2ced9c088d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4103250351461622650 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9189695549809179684, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+  m_PrefabInstance: {fileID: 4017253441074552461}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ba1b8ed2e853fb4c8b81d2ced9c088d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5211782599629783203
 GameObject:
   m_ObjectHideFlags: 0
@@ -23678,6 +24071,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5513326833075163734 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 863198638175931656, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+  m_PrefabInstance: {fileID: 4017253441074552461}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ba1b8ed2e853fb4c8b81d2ced9c088d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!33 &5972587429102195580
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -23686,6 +24090,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5211782599629783203}
   m_Mesh: {fileID: -2432090755550338912, guid: 63db769718ce41442b872930ebb679db, type: 3}
+--- !u!114 &6016413935099199384 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+  m_PrefabInstance: {fileID: 4017253441074552461}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1f208133cefafd4f81fa50cbf347b71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &7907209383017540628
 MeshRenderer:
   m_ObjectHideFlags: 0
