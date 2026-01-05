@@ -118,7 +118,7 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
         {
             if(sxr.GetTrial() == 0)
             {
-                parlayTutorial.HideGrabHandleTutorial();
+                parlayTutorial.HideSelectParlayTutorial();
             }
             oddsArray.Add(odds);
             activeToggles[toggle] = odds;
@@ -410,6 +410,10 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
 
     public void TurnOffSelectStats(TogglePressInteractable selected)
     {
+        if(sxr.GetTrial() == 0)
+        {
+            parlayTutorial.HideStatTutorial();
+        }
         for (int i = 0; i < togglePressInteractables.Count; i++)
         {
             if (togglePressInteractables[i] != selected)

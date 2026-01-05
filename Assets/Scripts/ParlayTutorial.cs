@@ -4,23 +4,42 @@ using UnityEngine;
 
 public class ParlayTutorial : MonoBehaviour
 {
-    public GameObject SelectParlayTutorial;
-    public GameObject GrabHandleTutorial;
+    [SerializeField] private GameObject SelectParlayTutorial;
+    [SerializeField] private GameObject GrabHandleTutorial;
+    [SerializeField] private GameObject StatTutorial;
+    private bool hasHiddenStatTutorial = false;
 
-    public void ShowSelectParlayTutorial()
+
+    private void ShowSelectParlayTutorial()
     {
+        if (hasHiddenStatTutorial)
+        {
+            return;
+        } 
         SelectParlayTutorial.SetActive(true);
+        hasHiddenStatTutorial = true;
     }
     public void HideSelectParlayTutorial()
     {
-        Destroy(SelectParlayTutorial,0.25f);
+        Destroy(SelectParlayTutorial,0.15f);
     }
-    public void ShowGrabHandleTutorial()
+    private void ShowGrabHandleTutorial()
     {
         GrabHandleTutorial.SetActive(true);
     }
     public void HideGrabHandleTutorial()
     {
-        Destroy(GrabHandleTutorial,0.25f);
+        Destroy(GrabHandleTutorial,0.15f);
+        ShowStatTutorial();
+    }
+
+    private void ShowStatTutorial()
+    {
+        StatTutorial.SetActive(true);
+    }
+    public void HideStatTutorial()
+    {
+        Destroy(StatTutorial,0.05f);
+        ShowSelectParlayTutorial();
     }
 }
