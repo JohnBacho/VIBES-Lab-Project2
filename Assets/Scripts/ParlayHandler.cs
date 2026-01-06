@@ -66,7 +66,7 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
 
 
     private static float seconds = 4.5f;
-    private List<int> lastLegWins;
+    private List<bool> lastLegWins;
 
     private List<int> oddsArray = new List<int>();
     private List<float> decimalOddsList = new List<float>();
@@ -181,7 +181,7 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
         StartCoroutine(Submit());
     }
 
-    public void SetOutcome(List<int> legWins)
+    public void SetOutcome(List<bool> legWins)
     {
         lastLegWins = legWins;
     }
@@ -210,19 +210,18 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
         }
     }
 
-    private IEnumerator ResolveBet(List<int> LegWins)
+    private IEnumerator ResolveBet(List<bool> LegWins)
     {
         float Payout = 0f;
-        if(LegWins.Sum() != decimalOddsList.Count && decimalOddsList.Count != LegWins.Sum()+1)
+        if(LegWins.Count(b => b) != decimalOddsList.Count && decimalOddsList.Count != LegWins.Count(b => b)+1)
         {
-            Debug.LogError("Triggered");
             LegWins = dynamicLoss(LegWins);
         }
         CardManager.AnimateCardsColor(LegWins);
 
         yield return new WaitForSeconds(seconds);
 
-        if (LegWins.Sum() == decimalOddsList.Count)
+        if (LegWins.Count(b => b) == decimalOddsList.Count)
         {
             Payout = CalculateParlayPayout();
             AddWallet(Payout);
@@ -427,22 +426,62 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
             }
         }
     }
-    private List<int> dynamicLoss(List<int> legWins)
-    {
-        int Outcome = 0;
-        List<int> tempLegWins = new List<int>(legWins);
-        while(legWins.Sum() != Outcome)
+    private List<bool> dynamicLoss(List<bool> legWins)
+    {    
+        int targetWins = legWins.Count(b => b);
+        List<bool> newLegWins = new List<bool>();
+        for (int i = 0; i < decimalOddsList.Count; i++)
         {
-            tempLegWins.Clear();
-         for (int i = 0; i < decimalOddsList.Count; i++)
-            {
-                float probability = 1f / decimalOddsList[i];
-                tempLegWins.Add(Random.value < probability ? 1 : 0);
-            }
-           Outcome = tempLegWins.Sum(); 
+            float probability = 1f / decimalOddsList[i];
+            newLegWins.Add(Random.value < probability ? true : false);
         }
+        
+        int currentWins = newLegWins.Count(b => b);
 
-        return tempLegWins;
+        if (currentWins > targetWins)
+        {
+            int toFlip = currentWins - targetWins;
+            List<int> winIndices = new List<int>();
+            
+            for (int i = 0; i < newLegWins.Count(b => b); i++)
+            {
+                if (newLegWins[i] == true)
+                    winIndices.Add(i);
+            }
+            
+            for (int i = 0; i < toFlip; i++)
+            {
+                int randomIndex = Random.Range(i, winIndices.Count);
+                int temp = winIndices[i];
+                winIndices[i] = winIndices[randomIndex];
+                winIndices[randomIndex] = temp;
+                
+                newLegWins[winIndices[i]] = false;
+            }
+        }
+        else if (currentWins < targetWins)
+        {
+            int toFlip = targetWins - currentWins;
+            List<int> lossIndices = new List<int>();
+            
+            for (int i = 0; i < newLegWins.Count(b => b); i++)
+            {
+                if (newLegWins[i] == false)
+                    lossIndices.Add(i);
+            }
+            
+            for (int i = 0; i < toFlip; i++)
+            {
+                int randomIndex = Random.Range(i, lossIndices.Count);
+                int temp = lossIndices[i];
+                lossIndices[i] = lossIndices[randomIndex];
+                lossIndices[randomIndex] = temp;
+                
+                newLegWins[lossIndices[i]] = true;
+            }
+        }
+        
+        return newLegWins;
     }
 
 }

@@ -213,12 +213,12 @@ public class CardManager : MonoBehaviour
         ConfigureGridLayout();
     }
 
-    public void AnimateCardsColor(List<int> colorValues)
+    public void AnimateCardsColor(List<bool> colorValues)
     {
         StartCoroutine(AnimateCardsSequentially(colorValues));
     }
 
-    private IEnumerator AnimateCardsSequentially(List<int> colorValues)
+    private IEnumerator AnimateCardsSequentially(List<bool> colorValues)
     {
         if (colorValues.Count != activeCards.Count)
         {
@@ -233,7 +233,7 @@ public class CardManager : MonoBehaviour
             GameObject card = activeCards[i];
             if (card != null)
             {
-                bool isGreen = colorValues[i] == 1;
+                bool isGreen = colorValues[i] == true;
                 StartCoroutine(
                     AnimateSingleCardColorWithDelay(card, isGreen, i * 0.3f)
                 );
