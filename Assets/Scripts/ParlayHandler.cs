@@ -74,7 +74,7 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
     private List<ParlaySelection> currentParlaySelections = new List<ParlaySelection>();
     private static readonly Color DisabledColor = new Color(0.547f, 0.547f, 0.547f, 1f); // Gray color
     private static readonly Color EnabledColor = new Color(0.106f, 0.624f, 0.275f, 1f); // Green color
-
+    private bool hasCompletedStatsTutorial = false;
     public void UpdateUI()
     {
         if (WagerText != null)
@@ -103,6 +103,11 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
             BetSlipButton.DisableButton();
             BetSlipButtonImage.color = DisabledColor;
             BetSlipText.text = $"Select 3 or more parlays";
+
+            if(!hasCompletedStatsTutorial && sxr.GetTrial() == 0)
+            {
+                BetSlipText.text = $"Press stats button";
+            }
         }
         else
         {
@@ -410,8 +415,9 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
 
     public void TurnOffSelectStats(TogglePressInteractable selected)
     {
-        if(sxr.GetTrial() == 0)
+        if(sxr.GetTrial() == 0 && !hasCompletedStatsTutorial)
         {
+            hasCompletedStatsTutorial = true;
             parlayTutorial.HideStatTutorial();
         }
         for (int i = 0; i < togglePressInteractables.Count; i++)
