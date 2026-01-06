@@ -38,9 +38,9 @@ public enum GamblingTypeFirst
 public class ParlayTrialData
 {
     public OutcomeType outcome;
-    public int[] leg3 = new int[3];
-    public int[] leg4 = new int[4];
-    public int[] leg5 = new int[5];
+    public bool[] leg3 = new bool[3];
+    public bool[] leg4 = new bool[4];
+    public bool[] leg5 = new bool[5];
 }
 
 public class Driver : MonoBehaviour
@@ -253,20 +253,20 @@ public class Driver : MonoBehaviour
     public void ParlayOutcome(int legCount)
     {
         int index = sxr.GetTrial();
-        List<int> Outcome = null;
+        List<bool> Outcome = null;
 
         switch (legCount)
         {
             case 3:
-                Outcome = new List<int>(currentparlayTrial.leg3);
+                Outcome = new List<bool>(currentparlayTrial.leg3);
                 break;
 
             case 4:
-                Outcome = new List<int>(currentparlayTrial.leg4);
+                Outcome = new List<bool>(currentparlayTrial.leg4);
                 break;
 
             case 5:
-                Outcome = new List<int>(currentparlayTrial.leg5);
+                Outcome = new List<bool>(currentparlayTrial.leg5);
                 break;
 
             default:
