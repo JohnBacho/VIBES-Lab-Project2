@@ -112,7 +112,7 @@ namespace sxr_internal
         public void WriteHeaderToTaggedFile(string tag, string headerInfo)
         {
             if (subjectFile == "") { ParseFileNames(); }
-            headerInfo = "ProgramName,Date,LocalTime,UnityTime,Phase,TrialNumber,TrialTime,Outcome,GamblingType,CurrentBet,CurrentPayout,Wallet,Total_Odds,Total_Legs,Parlay1_Team,Parlay1_Odds,Parlay2_Team,Parlay2_Odds,Parlay3_Team,Parlay3_Odds,Parlay4_Team,Parlay4_Odds,Parlay5_Team,Parlay5_Odds," + headerInfo;
+            headerInfo = "ProgramName,Date,LocalTime,UnityTime,Phase,TrialNumber,TrialTime,Outcome,GamblingType,Bet,Payout,Wallet,Total_Odds,Total_Legs,Parlay1_Team,Parlay1_Odds,Parlay2_Team,Parlay2_Odds,Parlay3_Team,Parlay3_Odds,Parlay4_Team,Parlay4_Odds,Parlay5_Team,Parlay5_Odds," + headerInfo;
             fh.AppendLine(subjectFile + "_" + tag + ".csv", headerInfo);
             if (backupFile != "") fh.AppendLine(backupFile + "_" + tag + ".csv", headerInfo); }
         
