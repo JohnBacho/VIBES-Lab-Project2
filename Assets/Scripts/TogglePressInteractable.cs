@@ -4,6 +4,8 @@ using UnityEngine.UI;
 using System;
 using System.Collections.Generic;
 using UnityEngine.XR.Interaction.Toolkit;
+using System.Collections;
+
 
 [Serializable]
 public class ParlayManager
@@ -206,9 +208,9 @@ public class TogglePressInteractable : MonoBehaviour
         OddsTextTeam2.color = TextColorNormal;
 
         if (ToggleTeam1 != null)
-            ToggleTeam1.SetToggled(false);
+            ToggleTeam1.ForceReset();
         if (ToggleTeam2 != null)
-            ToggleTeam2.SetToggled(false);
+            ToggleTeam2.ForceReset();
 
         ToggleTeam1.SetNormalColor();
         ToggleTeam2.SetNormalColor();
@@ -274,6 +276,7 @@ public class TogglePressInteractable : MonoBehaviour
     {
         if (isResetting) return;
         if (!Stats.activeSelf) return;
+        ToggleStats.ForceReset();
         Stats.SetActive(false);
     }
 
@@ -396,16 +399,31 @@ public class TogglePressInteractable : MonoBehaviour
         if (string.IsNullOrWhiteSpace(teamName))
             return string.Empty;
 
-        // Trim + normalize spacing
         teamName = teamName.Trim();
 
         if (TeamAbbreviations.TryGetValue(teamName, out string abbreviation))
             return abbreviation;
 
-        // Fallback: first 3 letters (prevents crashes)
         return teamName.Length >= 3
             ? teamName.Substring(0, 3).ToUpper()
             : teamName.ToUpper();
+    }
+
+
+    public void AtStartDisableButtons()
+    {
+        StartCoroutine(TemporarilyDisableButtons());
+    }
+
+    private IEnumerator TemporarilyDisableButtons()
+    {
+        yield return null;
+        ToggleTeam1.DisableInteraction();
+        ToggleTeam2.DisableInteraction();
+        const float buttonDisableTime = 2f;
+        yield return new WaitForSeconds(buttonDisableTime);
+        ToggleTeam1.EnableInteraction();
+        ToggleTeam2.EnableInteraction();
     }
 
 
