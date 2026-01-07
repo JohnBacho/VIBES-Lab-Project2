@@ -47,10 +47,6 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
     public GameObject BetslipUI;
 
     public List<TogglePressInteractable> togglePressInteractables;
-    public List<XRPokeToggleButton> toggleButton;
-    public List<XRPokeToggleButton> StatButtons;
-
-
 
     public CardManager CardManager;
     public ParlayTutorial parlayTutorial;
@@ -279,18 +275,6 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
         ParlayUI.SetActive(true);
         UpdateUI();
         UpdateOddsText();
-        foreach (var t in toggleButton)
-        {
-            t.ForceReset();
-            t.SetNormalColor();
-        }
-
-        foreach (var s in StatButtons)
-        {
-            s.ForceReset();
-            s.SetNormalColor();
-        }
-
         for (int i = 0; i < togglePressInteractables.Count; i++)
         {
             togglePressInteractables[i].UpdateUI();
@@ -398,21 +382,9 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
 
     public void AtStartDisableButtons()
     {
-        StartCoroutine(TemporarilyDisableButtons());
-    }
-    
-    IEnumerator TemporarilyDisableButtons()
-    {
-        yield return null;
-        foreach (var t in toggleButton)
+        for (int i = 0; i < togglePressInteractables.Count; i++)
         {
-            t.DisableInteraction();
-        }
-        const float buttonDisableTime = 2f;
-        yield return new WaitForSeconds(buttonDisableTime);
-        foreach (var t in toggleButton)
-        {
-            t.EnableInteraction();
+            togglePressInteractables[i].AtStartDisableButtons();
         }
     }
 
@@ -428,7 +400,6 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
             if (togglePressInteractables[i] != selected)
             {
                 togglePressInteractables[i].OnStatsDeselected();
-                StatButtons[i].ForceReset();
             }
         }
     }

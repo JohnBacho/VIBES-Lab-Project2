@@ -132,7 +132,7 @@ public class XRPokeToggleButton : MonoBehaviour
     public void ForceReset()
     {
         isToggled = false;
-        lastInteractionTime = -999f;
+        lastInteractionTime = Time.time;
         if (interactable != null)
             interactable.enabled = true;
     }
