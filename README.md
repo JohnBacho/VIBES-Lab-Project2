@@ -73,7 +73,7 @@ The system captures trial-level data including:
 ### **Experimental Structure**
 - **Within-subjects design**: Each participant experiences both gambling types
 - **Counterbalanced order**: Configurable Slots→Sports or Sports→Slots
-- **Trial-based**: 15 gambling trials per session with 2 in the middle
+- **Trial-based**: 15 gambling trials per condition (slot, parlay)
 - **Financial tracking**: Separate wallet systems maintain realism for each modality
 
 ### **Measured Variables**
