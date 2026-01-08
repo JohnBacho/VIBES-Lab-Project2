@@ -258,6 +258,4 @@ Includes SimpleOmnia framework components under the same license.
 
 **Made with ❤️ by the VIBES Lab Team**
 
-*Advancing behavioral science through immersive technology*
-
 </div>
