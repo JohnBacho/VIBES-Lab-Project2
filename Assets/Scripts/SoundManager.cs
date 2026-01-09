@@ -11,6 +11,8 @@ public enum SoundType
     increaseButtonSound,
     decreaseButtonSound,
     handleSound,
+    successTone,
+    suspenseLoop,
 }
 
 [System.Serializable]
@@ -88,6 +90,19 @@ namespace SoundManager
                 .Find(sound.ToString())
                 .GetComponent<AudioSource>();
                 src.Stop();
+        }
+
+        public static void PlayLoop(SoundType sound, Vector3 position, float volume = 1, float pitch = 1)
+        {
+            AudioSource src = instance.transform
+            .Find(sound.ToString())
+            .GetComponent<AudioSource>();
+
+            src.transform.position = position;
+            src.volume = volume;
+            src.pitch = pitch;
+            src.loop = true;
+            src.Play();
         }
 
     }

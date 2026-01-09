@@ -52,7 +52,6 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
     public ParlayTutorial parlayTutorial;
     public Leaderboard leaderboard;
     public Driver driver;
-    public AudioSource WinningAudioSource;
 
 
     public bool TrialCompleted => trialCompleted;
@@ -71,6 +70,10 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
     private static readonly Color DisabledColor = new Color(0.547f, 0.547f, 0.547f, 1f); // Gray color
     private static readonly Color EnabledColor = new Color(0.106f, 0.624f, 0.275f, 1f); // Green color
     private bool hasCompletedStatsTutorial = false;
+    private static readonly float winLossVolume = 0.8f;
+    private static readonly float winPitch = 1.2f;
+    private static readonly float lossPitch = 0.8f;
+
     public void UpdateUI()
     {
         if (WagerText != null)
@@ -228,7 +231,7 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
             AddWallet(Payout);
 
             MiddleUI.SetActive(false);
-            WinningAudioSource.Play();
+            SoundManager.SoundManager.PlaySound3DOnce(SoundType.winAudio, WinText.transform.position, winLossVolume, winPitch);
             WalletText.text = $"Wallet: ${wallet:0.00}";
             const float TextOnTime = 0.5f;
             const float TextOffTime = 0.35f;
@@ -241,17 +244,19 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
             }
             WinText.text = $"YOU WIN\n${Payout:0.00}";
             yield return new WaitForSeconds(TextOnTime);
-            WinningAudioSource.Stop();
+            SoundManager.SoundManager.StopSound3D(SoundType.winAudio);
             WinText.text = "";
             WalletText.text = "";
         }
         else
         {
             MiddleUI.SetActive(false);
+            SoundManager.SoundManager.PlaySound3DOnce(SoundType.lossAudio, LossText.transform.position, winLossVolume, lossPitch);
             LossText.text = $"YOU LOST\n${currentBet:0.00}";
             WalletText.text = $"Wallet: ${wallet:0.00}";
             const float TextOffTime = 4f;
             yield return new WaitForSeconds(TextOffTime);
+            SoundManager.SoundManager.StopSound3D(SoundType.lossAudio);
             LossText.text = "";
             WalletText.text = "";
         }

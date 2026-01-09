@@ -62,8 +62,6 @@ public class TogglePressInteractable : MonoBehaviour
     public ParlayHandler parlayHandler;
     public CardManager cardManager;
 
-    public AudioSource audioSource;
-
     private bool team1Selected = false;
     private bool team2Selected = false;
     private int teamIndex;
@@ -101,12 +99,13 @@ public class TogglePressInteractable : MonoBehaviour
     {
         if (isResetting) return;
         Parlay currentParlay = parlayManager.Parlays[sxr.GetTrial()];
-        audioSource.Play();
 
         if (team == 1)
         {
             team1Selected = true;
             team2Selected = false;
+
+            ToggleTeam1.PlayUISound();
 
             ToggleTeam1.SetToggledColor();
             ToggleTeam2.SetDisableColor();
@@ -125,7 +124,8 @@ public class TogglePressInteractable : MonoBehaviour
             team2Selected = true;
             team1Selected = false;
 
-            // Disable other toggle
+            ToggleTeam2.PlayUISound();
+
             ToggleTeam1.SetDisableColor();
             ToggleTeam2.SetToggledColor();
 
@@ -266,7 +266,7 @@ public class TogglePressInteractable : MonoBehaviour
     {
         if (isResetting) return;
         if(Stats.activeSelf) return;
-        audioSource.Play();
+        ToggleStats.PlayUISound();
         Stats.SetActive(true);
         parlayHandler.TurnOffSelectStats(this);
         UpdateStatsUI();

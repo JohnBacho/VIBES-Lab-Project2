@@ -14,6 +14,8 @@ public class PokeButton : MonoBehaviour
     public UnityEvent onButtonPressed;
     [Tooltip("Triggered when the button is released")]
     public UnityEvent onButtonReleased;
+    private static readonly float volume = 0.2f;
+    private static readonly float pitch = 2.2f;
 
     void Awake()
     {
@@ -36,6 +38,7 @@ public class PokeButton : MonoBehaviour
         if (!interactable.enabled) return;
         if (args.interactorObject is XRPokeInteractor && !hasTriggered)
         {
+            SoundManager.SoundManager.PlaySound3D(SoundType.uiButton, transform.position, volume, pitch);
             onButtonPressed?.Invoke();
             hasTriggered = true;
         }

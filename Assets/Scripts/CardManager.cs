@@ -13,25 +13,13 @@ public class CardManager : MonoBehaviour
     
     private GridLayoutGroup gridLayout;
     private ContentSizeFitter contentSizeFitter;
-    [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioClip suspenseLoop;
-    [SerializeField] private AudioClip winClip;
-    [SerializeField] private AudioClip loseClip;
 
-    [Range(0f, 1f)]
-    [SerializeField] private float suspenseVolume = 0.3f;
-
-    [Range(0f, 1f)]
-    [SerializeField] private float resultVolume = 0.6f;
+    private static readonly float suspenseVolume = 0.3f;
+    private static readonly float resultVolume = 0.6f;
 
 
     void Awake()
     {
-        if (audioSource == null)
-            audioSource = GetComponent<AudioSource>();
-
-        audioSource.loop = false;
-        
         EnsureLayoutComponentsInitialized();
     }
     
@@ -209,7 +197,6 @@ public class CardManager : MonoBehaviour
         activeCards.Clear();
         cardMap.Clear();
         
-        // Reset grid layout
         ConfigureGridLayout();
     }
 
@@ -226,7 +213,7 @@ public class CardManager : MonoBehaviour
             yield break;
         }
 
-        PlaySuspense();
+        SoundManager.SoundManager.PlayLoop(SoundType.suspenseLoop, transform.position, suspenseVolume);
 
         for (int i = 0; i < activeCards.Count; i++)
         {
@@ -247,7 +234,7 @@ public class CardManager : MonoBehaviour
 
         yield return new WaitForSeconds(totalTime);
 
-        StopSuspense();
+        SoundManager.SoundManager.StopSound3D(SoundType.suspenseLoop);
     }
 
 
@@ -299,32 +286,16 @@ public class CardManager : MonoBehaviour
 
         PlayResultSound(isGreen);
     }
-
-    private void PlaySuspense()
-    {
-        if (suspenseLoop == null || audioSource.isPlaying)
-            return;
-
-        audioSource.clip = suspenseLoop;
-        audioSource.volume = suspenseVolume;
-        audioSource.loop = true;
-        audioSource.Play();
-    }
-
-    private void StopSuspense()
-    {
-        if (!audioSource.loop) return;
-
-        audioSource.Stop();
-        audioSource.loop = false;
-    }
     
     private void PlayResultSound(bool isGreen)
     {
-        AudioClip clip = isGreen ? winClip : loseClip;
-        if (clip == null) return;
-        audioSource.pitch = isGreen ? 1.2f : 0.8f;
-        audioSource.PlayOneShot(clip, resultVolume);
-        audioSource.pitch = 1f;
+        if (isGreen)
+        {
+            SoundManager.SoundManager.PlaySound3D(SoundType.successTone, transform.position, resultVolume);
+        }
+        else
+        {
+            SoundManager.SoundManager.PlaySound3D(SoundType.lossAudio, transform.position, resultVolume);
+        }
     }
 }
