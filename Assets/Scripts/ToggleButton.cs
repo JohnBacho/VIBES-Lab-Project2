@@ -26,6 +26,10 @@ public class XRPokeToggleButton : MonoBehaviour
     [Header("Debug")]
     public bool enableDebugLog = true;
 
+    private static readonly float volume = 0.2f;
+    private static readonly float pitch = 2.2f;
+
+
     void Start()
     {
         interactable = GetComponent<XRSimpleInteractable>();
@@ -113,22 +117,6 @@ public class XRPokeToggleButton : MonoBehaviour
         isInteractable = true;
     }
 
-    public void SetToggled(bool value, bool fireEvents = false)
-    {
-        if (isToggled == value)
-            return;
-
-        isToggled = value;
-
-        if (fireEvents)
-        {
-            if (isToggled)
-                onToggledOn?.Invoke();
-            else
-                onToggledOff?.Invoke();
-        }
-    }
-
     public void ForceReset()
     {
         isToggled = false;
@@ -136,4 +124,11 @@ public class XRPokeToggleButton : MonoBehaviour
         if (interactable != null)
             interactable.enabled = true;
     }
+
+    public void PlayUISound()
+    {
+        SoundManager.SoundManager.PlaySound3D(SoundType.uiButton, transform.position, volume, pitch);
+    }
+
+
 }
