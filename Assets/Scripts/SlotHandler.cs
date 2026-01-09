@@ -92,7 +92,7 @@ public class SlotHandler : MonoBehaviour, ManageWallet
         {
             float winnings = currentBet * multiplier;
             AddWallet(winnings + currentBet);
-            WinAudioSource.Play();
+            SoundManager.SoundManager.PlaySound3DOnce(SoundType.winAudio, WinText.transform.position, 0.8f, 1.2f);
             walletText.text = $"Wallet: ${wallet:0.00}";
             const float TextOnTime = 0.5f;
             const float TextOffTime = 0.35f;
@@ -111,12 +111,11 @@ public class SlotHandler : MonoBehaviour, ManageWallet
             LossText.text = $"YOU LOST ${currentBet}";
             WinText.text = "";
             walletText.text = $"Wallet: ${wallet:0.00}";
-            LoseAudioSource.Play();
+            SoundManager.SoundManager.PlaySound3D(SoundType.lossAudio, LossText.transform.position, 0.8f, 0.8f);
             const float TextOnTime = 4f;
             yield return new WaitForSeconds(TextOnTime);
         }
-        WinAudioSource.Stop();
-        LoseAudioSource.Stop();
+        SoundManager.SoundManager.StopSound3D(SoundType.winAudio);
         MarkTrialComplete();
     }
 
@@ -184,6 +183,7 @@ public class SlotHandler : MonoBehaviour, ManageWallet
     public void IncreaseBet()
     {
         const float increaseAmount = 1f;
+        SoundManager.SoundManager.PlaySound3D(SoundType.increaseButtonSound, IncreaseBetButton.transform.position, 0.5f, 3f);
         if (wallet < increaseAmount) return;
         if(sxr.GetTrial() == FirstTrial)
         {
@@ -200,6 +200,7 @@ public class SlotHandler : MonoBehaviour, ManageWallet
     public void DecreaseBet()
     {
     const float decreaseAmount = 1f;
+    SoundManager.SoundManager.PlaySound3D(SoundType.decreaseButtonSound, DecreaseBetButton.transform.position, 0.5f, 1.5f);
     if (currentBet <= 0f)
         {
             handle.DisableGrab();

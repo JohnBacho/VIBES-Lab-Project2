@@ -9,7 +9,6 @@ public class Handle : MonoBehaviour
     [SerializeField] Rigidbody rb;
     [SerializeField] Transform handleTransform;
     [SerializeField] SlotHandler slotHandler;
-    [SerializeField] AudioSource audioSource;
 
 
     bool handleDown = false;
@@ -42,7 +41,7 @@ public class Handle : MonoBehaviour
 
     if (angle <= -40f && !AudioPlayed)
     {
-        audioSource.Play();
+        SoundManager.SoundManager.PlaySound3D(SoundType.handleSound, transform.position);
         AudioPlayed = true;
     }
 
