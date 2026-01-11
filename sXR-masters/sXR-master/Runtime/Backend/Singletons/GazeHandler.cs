@@ -234,7 +234,7 @@ namespace sxr_internal
                 return;
             }
 
-             if (sxrSettings.Instance.RecordThisFrame() && recordEyeTracker)
+             if (recordEyeTracker)
                 {
                     toWrite += ExperimentHandler.Instance.timeStepToWriteInfo() 
                             + GetFullGazeInfo() 

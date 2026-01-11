@@ -174,21 +174,14 @@ public class Driver : MonoBehaviour
 
         slotHandler.SetOutcome(outcomeRow);
         slotHandler.SetMultiplier(multiplier);
-        slotHandler.StartNewTrial();
-
 
         while (!slotHandler.TrialCompleted)
         {
             yield return null;
         }
 
-        Debug.Log($"Trial {sxr.GetTrial()} complete");
-
-        gazeHandler.GrabPupilTrialAverage();
-        playOffMusicScript.CancelOffMusic();
-        slotHandler.StartNewTrial();
-        sxr.NextTrial();
-        if(sxr.GetTrial() != lastTrialIndex) slotHandler.rest();
+        AdvanceTrialCounter();
+        if(sxr.GetTrial() != lastTrialIndex) slotHandler.Reset();
         StartNextTrial();
     }
 
@@ -236,8 +229,7 @@ public class Driver : MonoBehaviour
         yield return new WaitForSeconds(effortTaskDuration);
         Object.FindAnyObjectByType<BallSpawner>().StopSpawning();
         Object.FindAnyObjectByType<BallSpawner>().DestroyAllBalls();
-        gazeHandler.GrabPupilTrialAverage();
-        sxr.NextTrial();
+        AdvanceTrialCounter();
 
         EffortTask.SetActive(false);
         if(isSlot)
@@ -287,23 +279,17 @@ public class Driver : MonoBehaviour
     {
         Debug.Log($"Starting trial {sxr.GetTrial()} with outcome: {outcome}");
 
-        parlayHandler.StartNewTrial();
         parlayHandler.UpdateOddsText();
         while (!parlayHandler.TrialCompleted)
         {
             yield return null;
         }
-
-        Debug.Log($"Trial {sxr.GetTrial()} complete");
-        gazeHandler.GrabPupilTrialAverage();
-        playOffMusicScript.CancelOffMusic();
-        parlayHandler.StartNewTrial();
-        sxr.NextTrial();
-        if(sxr.GetTrial() != lastTrialIndex) parlayHandler.ResetRound();
+        AdvanceTrialCounter();
+        if(sxr.GetTrial() != lastTrialIndex) parlayHandler.Reset();
         StartNextTrial();
     }
 
-    void SetGamblingType()
+    private void SetGamblingType()
     {
         if (SlotMachine.activeSelf)
         {
@@ -320,7 +306,7 @@ public class Driver : MonoBehaviour
 
     }
 
-    void SetTypeOutcome()
+    private void SetTypeOutcome()
     {
         if (Parlay.activeSelf)
         {
@@ -334,5 +320,16 @@ public class Driver : MonoBehaviour
         {
             sxr.SetOutcome(OutcomeType.EffortTask.ToString());
         }
+    }
+
+    private void AdvanceTrialCounter()
+    {
+        Debug.Log($"Trial {sxr.GetTrial()} complete");
+        if (!EffortTask.activeSelf)
+        {
+            playOffMusicScript.CancelOffMusic();            
+        }
+        gazeHandler.GrabPupilTrialAverage();
+        sxr.NextTrial();
     }
 }

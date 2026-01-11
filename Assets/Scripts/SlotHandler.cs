@@ -122,8 +122,9 @@ public class SlotHandler : MonoBehaviour, ManageWallet
         MarkTrialComplete();
     }
 
-    public void rest()
+    public void Reset()
     {
+        StartNewTrial();
         handle.ResetHandle();
         WinText.text = "";
         LossText.text = "";
@@ -141,7 +142,7 @@ public class SlotHandler : MonoBehaviour, ManageWallet
 
     // === UI & Betting ===
 
-    public void UpdateUI()
+    private void UpdateUI()
     {
         if (betText != null)
         {
@@ -161,7 +162,7 @@ public class SlotHandler : MonoBehaviour, ManageWallet
         } 
     }
 
-    IEnumerator PlaceBetText()
+    private IEnumerator PlaceBetText()
     {
         yield return null;
         handle.DisableGrab();
@@ -214,12 +215,12 @@ public class SlotHandler : MonoBehaviour, ManageWallet
         UpdateUI();
     }
 
-    public void MarkTrialComplete()
+    private void MarkTrialComplete()
     {
         trialCompleted = true;
     }
 
-    public void StartNewTrial()
+    private void StartNewTrial()
     {
         trialCompleted = false;
     }
@@ -241,7 +242,7 @@ public class SlotHandler : MonoBehaviour, ManageWallet
         StartCoroutine(TemporarilyDisableButtons());
     }
     
-    IEnumerator TemporarilyDisableButtons()
+    private IEnumerator TemporarilyDisableButtons()
     {
         IncreaseBetButton.DisableButton();
         DecreaseBetButton.DisableButton();
