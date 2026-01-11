@@ -16,6 +16,7 @@ public class PokeButton : MonoBehaviour
     public UnityEvent onButtonReleased;
     private static readonly float volume = 0.2f;
     private static readonly float pitch = 2.2f;
+    public bool IsUIButton =true; 
 
     void Awake()
     {
@@ -38,7 +39,10 @@ public class PokeButton : MonoBehaviour
         if (!interactable.enabled) return;
         if (args.interactorObject is XRPokeInteractor && !hasTriggered)
         {
-            SoundManager.SoundManager.PlaySound3D(SoundType.uiButton, transform.position, volume, pitch);
+            if (IsUIButton)
+            {
+                SoundManager.SoundManager.PlaySound3D(SoundType.uiButton, transform.position, volume, pitch);                
+            }
             onButtonPressed?.Invoke();
             hasTriggered = true;
         }
