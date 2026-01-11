@@ -74,7 +74,7 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
     private static readonly float winPitch = 1.2f;
     private static readonly float lossPitch = 0.8f;
 
-    public void UpdateUI()
+    private void UpdateUI()
     {
         if (WagerText != null)
             WagerText.text = $"${currentBet:0.00}";
@@ -147,7 +147,7 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
         UpdateUI();
     }
 
-    public float CalculateParlayPayout()
+    private float CalculateParlayPayout()
     {
         float totalMultiplier = 1f;
         float TotalOdds = 0f;
@@ -166,9 +166,11 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
             decimalOddsList.Add(decimalOdds);
         }
         TotalOdds = (totalMultiplier - 1f) * 100f;
-        sxr.SetTotalLegs(oddsArray.Count);
-        sxr.SetTotalOdds(TotalOdds);
-        Debug.Log($"Total Odds: {TotalOdds}");
+        if(sxr.GetTotalOdds() != TotalOdds)
+        {
+            sxr.SetTotalLegs(oddsArray.Count);
+            sxr.SetTotalOdds(TotalOdds);   
+        }
         float payout = currentBet * totalMultiplier;
         sxr.SetPayout(payout);
         if (ToWinText != null)
@@ -190,7 +192,7 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
         lastLegWins = legWins;
     }
 
-    public IEnumerator Submit()
+    private IEnumerator Submit()
     {
         if (oddsArray.Count < 3)
         {
@@ -263,8 +265,9 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
         MarkTrialComplete();
     }
 
-    public void ResetRound()
+    public void Reset()
     {
+        StartNewTrial();
         const int restvalue = 0;
         currentBet = restvalue;
         sxr.SetBetAmount(restvalue);
@@ -326,12 +329,12 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
         UpdateUI();
     }
 
-    public void MarkTrialComplete()
+    private void MarkTrialComplete()
     {
         trialCompleted = true;
     }
 
-    public void StartNewTrial()
+    private void StartNewTrial()
     {
         trialCompleted = false;
     }
@@ -372,12 +375,12 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
         leaderboard.SetMoney("You", wallet);
     }
 
-    public void TempDisableParlaySubmit()
+    private void TempDisableParlaySubmit()
     {
         StartCoroutine(TemporarilyDisableSubmit());
     }
     
-    IEnumerator TemporarilyDisableSubmit()
+    private IEnumerator TemporarilyDisableSubmit()
     {
         PlaceBetButton.DisableButton();
         const float buttonDisableTime = 1.5f;
