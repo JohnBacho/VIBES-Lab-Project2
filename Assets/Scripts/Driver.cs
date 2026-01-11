@@ -50,6 +50,7 @@ public class Driver : MonoBehaviour
     [SerializeField] private ParlayTrialData[] parlayTrials = new ParlayTrialData[16];
     [SerializeField] private GameObject SlotMachine;
     [SerializeField] private GameObject Parlay;
+    [SerializeField] private GameObject Tablet;
     [SerializeField] private GameObject EffortTask;
     [SerializeField] private ParlayHandler parlayHandler;
     [SerializeField] private SlotHandler slotHandler;
@@ -90,6 +91,7 @@ public class Driver : MonoBehaviour
         {
             slotHandler.AtStartDisableButtons();
             SlotMachine.SetActive(true);
+            Tablet.SetActive(false);
             Parlay.SetActive(false);
             sxr.SetProgramName("Lilac");
         }
@@ -97,6 +99,7 @@ public class Driver : MonoBehaviour
         {
             parlayHandler.AtStartDisableButtons();
             SlotMachine.SetActive(false);
+            Tablet.SetActive(true);
             Parlay.SetActive(true);
             sxr.SetProgramName("Sunflower");
         }
@@ -193,6 +196,7 @@ public class Driver : MonoBehaviour
     {
         sxr.NextPhase();
         SlotMachine.SetActive(!SlotMachine.activeSelf);
+        Tablet.SetActive(!Tablet.activeSelf);
         Parlay.SetActive(!Parlay.activeSelf);
         slotHandler.AtStartDisableButtons();
         parlayHandler.AtStartDisableButtons();
@@ -210,6 +214,7 @@ public class Driver : MonoBehaviour
         Debug.Log("Starting Effort Task Trial");
         sxr.SetGamblingType(GamblingType.EffortTask.ToString());
         SlotMachine.SetActive(false);
+        Tablet.SetActive(false);
         Parlay.SetActive(false);
         if(isSlot)
         {
@@ -243,6 +248,7 @@ public class Driver : MonoBehaviour
         else
         {
             Parlay.SetActive(true);
+            Tablet.SetActive(true);
             parlayHandler.UpdateLeaderboard();
             SetGamblingType();
         }
