@@ -425,11 +425,12 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
             int toFlip = currentWins - targetWins;
             List<int> winIndices = new List<int>();
             
-            for (int i = 0; i < newLegWins.Count(b => b); i++)
+            for (int i = 0; i < newLegWins.Count; i++)
             {
-                if (newLegWins[i] == true)
+                if (newLegWins[i])
                     winIndices.Add(i);
             }
+
             
             for (int i = 0; i < toFlip; i++)
             {
@@ -446,9 +447,9 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
             int toFlip = targetWins - currentWins;
             List<int> lossIndices = new List<int>();
             
-            for (int i = 0; i < newLegWins.Count(b => b); i++)
+            for (int i = 0; i < newLegWins.Count; i++)
             {
-                if (newLegWins[i] == false)
+                if (!newLegWins[i])
                     lossIndices.Add(i);
             }
             

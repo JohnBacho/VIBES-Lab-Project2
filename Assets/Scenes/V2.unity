@@ -1152,6 +1152,7 @@ MonoBehaviour:
   onButtonReleased:
     m_PersistentCalls:
       m_Calls: []
+  IsUIButton: 0
 --- !u!114 &113710543 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2043066480405472099, guid: 76f3439a0ae796e4b81bee3f91f888ee, type: 3}
@@ -2723,6 +2724,7 @@ MonoBehaviour:
   onButtonReleased:
     m_PersistentCalls:
       m_Calls: []
+  IsUIButton: 1
 --- !u!114 &240897802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5878,6 +5880,7 @@ MonoBehaviour:
   onButtonReleased:
     m_PersistentCalls:
       m_Calls: []
+  IsUIButton: 0
 --- !u!114 &598299017 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2043066480405472099, guid: 76f3439a0ae796e4b81bee3f91f888ee, type: 3}
@@ -10027,6 +10030,7 @@ MonoBehaviour:
   onButtonReleased:
     m_PersistentCalls:
       m_Calls: []
+  IsUIButton: 1
 --- !u!65 &1260350142
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12020,6 +12024,7 @@ MonoBehaviour:
   onButtonReleased:
     m_PersistentCalls:
       m_Calls: []
+  IsUIButton: 1
 --- !u!114 &1362147688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21624,6 +21629,7 @@ MonoBehaviour:
   onButtonReleased:
     m_PersistentCalls:
       m_Calls: []
+  IsUIButton: 1
 --- !u!114 &1967075280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21953,7 +21959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc04ca3376ea74d4bbbeeab8509b4917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gamblingTypeFirst: 1
+  gamblingTypeFirst: 0
   slotTrials:
   - outcome: 2
     multiplier: 2
@@ -22070,6 +22076,7 @@ MonoBehaviour:
     leg5: 0001010101
   SlotMachine: {fileID: 1766149070}
   Parlay: {fileID: 699142}
+  Tablet: {fileID: 5211782599629783203}
   EffortTask: {fileID: 1026965197}
   parlayHandler: {fileID: 1970160409}
   slotHandler: {fileID: 1970160413}
@@ -22098,9 +22105,6 @@ MonoBehaviour:
   EstimatedPayout: {fileID: 1477498921}
   WinText: {fileID: 1310645874}
   LossText: {fileID: 832459729}
-  ErrorMessage: {fileID: 0}
-  WinAudioSource: {fileID: 0}
-  LoseAudioSource: {fileID: 0}
   IncreaseBetButton: {fileID: 113710540}
   DecreaseBetButton: {fileID: 598299014}
   reels:
@@ -22941,6 +22945,7 @@ MonoBehaviour:
   onButtonReleased:
     m_PersistentCalls:
       m_Calls: []
+  IsUIButton: 1
 --- !u!114 &2111486064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23118,7 +23123,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0.7071068, z: -0, w: 0}
   m_LocalPosition: {x: -0.019135714, y: 0.012321711, z: -0.22071928}
-  m_LocalScale: {x: 0.6783901, y: 0.56387305, z: 0.5638732}
+  m_LocalScale: {x: 0.60044307, y: 0.49908406, z: 0.49908414}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8803655227906138752}
