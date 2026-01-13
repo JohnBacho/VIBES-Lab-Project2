@@ -72,7 +72,6 @@ public class TogglePressInteractable : MonoBehaviour
 
     void Start()
     {
-        // Wire XR poke toggle events
         if (ToggleTeam1 != null)
         {
             ToggleTeam1.onToggledOn.AddListener(() => OnTeamSelected(1));

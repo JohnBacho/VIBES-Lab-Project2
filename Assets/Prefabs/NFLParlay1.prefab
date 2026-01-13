@@ -190,6 +190,7 @@ GameObject:
   - component: {fileID: 4940491026361209296}
   - component: {fileID: 6841476736905210359}
   - component: {fileID: 2719792291555007354}
+  - component: {fileID: 8566523910619737954}
   m_Layer: 0
   m_Name: ButtonOdds1
   m_TagString: Untagged
@@ -272,10 +273,34 @@ MonoBehaviour:
   toggledColor: {r: 0, g: 0.4784314, b: 0.90196085, a: 1}
   onToggledOn:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8566523910619737954}
+        m_TargetAssemblyTypeName: HapticFeedback, Assembly-CSharp
+        m_MethodName: TriggerHaptic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onToggledOff:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8566523910619737954}
+        m_TargetAssemblyTypeName: HapticsManager, Assembly-CSharp
+        m_MethodName: HapticUntoggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   enableDebugLog: 1
 --- !u!114 &7080275514476321564
 MonoBehaviour:
@@ -480,6 +505,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pokeFilter: {fileID: 6841476736905210359}
+--- !u!114 &8566523910619737954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684713425953954845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6408470677a58af4c80cc54160094762, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &722294136713736288
 GameObject:
   m_ObjectHideFlags: 0
@@ -977,7 +1014,6 @@ MonoBehaviour:
   - {fileID: 5689934924081445145}
   parlayHandler: {fileID: 0}
   cardManager: {fileID: 0}
-  audioSource: {fileID: 0}
 --- !u!1 &2196564350343206754
 GameObject:
   m_ObjectHideFlags: 0
@@ -1373,6 +1409,8 @@ GameObject:
   - component: {fileID: 352553593980715739}
   - component: {fileID: 576601017877718548}
   - component: {fileID: 4563177515776139309}
+  - component: {fileID: 6346901768526260453}
+  - component: {fileID: 6663713883179917413}
   m_Layer: 6
   m_Name: ButtonOdds2
   m_TagString: Untagged
@@ -1455,10 +1493,34 @@ MonoBehaviour:
   toggledColor: {r: 0, g: 0.47843137, b: 0.9019608, a: 1}
   onToggledOn:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6346901768526260453}
+        m_TargetAssemblyTypeName: HapticFeedback, Assembly-CSharp
+        m_MethodName: TriggerHaptic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onToggledOff:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6346901768526260453}
+        m_TargetAssemblyTypeName: HapticsManager, Assembly-CSharp
+        m_MethodName: HapticUntoggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   enableDebugLog: 1
 --- !u!114 &3958412633357874331
 MonoBehaviour:
@@ -1650,6 +1712,31 @@ MonoBehaviour:
       m_EnablePokeAngleThreshold: 1
       m_PokeAngleThreshold: 45
     m_Variable: {fileID: 0}
+--- !u!114 &6346901768526260453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2408204531872295607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6408470677a58af4c80cc54160094762, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6663713883179917413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2408204531872295607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f4297b5dc9fba64da7e2fa504fba4c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pokeFilter: {fileID: 4563177515776139309}
 --- !u!1 &2534458298056775120
 GameObject:
   m_ObjectHideFlags: 0
@@ -1912,6 +1999,7 @@ GameObject:
   - component: {fileID: 474664642120879719}
   - component: {fileID: 7189272768413240589}
   - component: {fileID: 2201817491846662485}
+  - component: {fileID: 686115692302478599}
   m_Layer: 0
   m_Name: StatArrow
   m_TagString: Untagged
@@ -2003,7 +2091,19 @@ MonoBehaviour:
   toggledColor: {r: 0, g: 0.47843137, b: 0.9019608, a: 1}
   onToggledOn:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 686115692302478599}
+        m_TargetAssemblyTypeName: HapticFeedback, Assembly-CSharp
+        m_MethodName: TriggerHaptic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onToggledOff:
     m_PersistentCalls:
       m_Calls: []
@@ -2168,6 +2268,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.8931434, y: 2.22, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &686115692302478599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2921712049722336000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6408470677a58af4c80cc54160094762, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3671824184165873367
 GameObject:
   m_ObjectHideFlags: 0
