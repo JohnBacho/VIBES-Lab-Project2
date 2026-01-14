@@ -25,7 +25,6 @@ namespace sxr_internal
         private string InFocusItem;
         private bool hasExecuted = false;
         private float start;
-        private float TimeLookedAtObject;
         private bool recordEyeTracker; 
         private bool headerPrinted;
         private string FocusedGameObject = ""; // used for Sranipal
@@ -62,12 +61,11 @@ namespace sxr_internal
         private string CheckFocusedObject()
         {
 
-            // Try to get gaze focus from either eye
             if (!SRanipal_Eye.Focus(GazeIndex.COMBINE, out testRay, out focusInfo) &&
                 !SRanipal_Eye.Focus(GazeIndex.LEFT, out testRay, out focusInfo) &&
                 !SRanipal_Eye.Focus(GazeIndex.RIGHT, out testRay, out focusInfo))
             {
-                return "";
+                return "," + "" + "," + "" + "," + "" + "," + "";
             }
 
             string focusedGameObject = focusInfo.collider.gameObject.name;
@@ -183,8 +181,7 @@ namespace sxr_internal
         public float? LeftEyePupilSize() {
             UpdateGaze();
             float value = verboseData.left.pupil_diameter_mm;
-
-            if(value >=0)
+            if(value > 0)
             {
                 TempPupilStorage.Add(value);
             }
@@ -195,7 +192,7 @@ namespace sxr_internal
         public float? RightEyePupilSize() {
             UpdateGaze();
             float value = verboseData.right.pupil_diameter_mm;
-            if(value >=0)
+            if(value > 0)
             {
                 TempPupilStorage.Add(value);
             }
@@ -207,16 +204,16 @@ namespace sxr_internal
         {
             UpdateGaze();
 
-            if (rightPupilSize != 0 && leftPupilSize != 0)
+            if (rightPupilSize > 0 && leftPupilSize > 0)
             {
                 float? combinedPupil = (rightPupilSize + leftPupilSize) / 2f;
                 return combinedPupil;
             }
-            else if (leftPupilSize >= 0)
+            else if (leftPupilSize > 0)
             {
                 return leftPupilSize;
             }
-            else if (rightPupilSize >= 0)
+            else if (rightPupilSize > 0)
             {
                 return rightPupilSize;
             }
@@ -225,7 +222,6 @@ namespace sxr_internal
                 return null;
             }
         }
-
 
         public void GrabPupilTrialAverage()
         {
@@ -245,8 +241,6 @@ namespace sxr_internal
                     TempPupilStorage.Clear();
                 }
         }
-
-
 
         private void OnApplicationQuit(){
             if(headerPrinted && toWrite != "")
