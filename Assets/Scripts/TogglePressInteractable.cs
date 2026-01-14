@@ -267,8 +267,8 @@ public class TogglePressInteractable : MonoBehaviour
         if(Stats.activeSelf) return;
         ToggleStats.PlayUISound();
         Stats.SetActive(true);
-        parlayHandler.TurnOffSelectStats(this);
         UpdateStatsUI();
+        parlayHandler.TurnOffSelectStats(this);
     }
 
     public void OnStatsDeselected()
@@ -284,9 +284,9 @@ public class TogglePressInteractable : MonoBehaviour
         Parlay currentParlay = parlayManager.Parlays[sxr.GetTrial()];
 
         if (WinLossTeam1 != null)
-            SetTeamsWinLoss(currentParlay.Team1WinLoss.ToString(), true);
+            SetTeamsWinLoss(currentParlay.Team1WinLoss, true);
         if (WinLossTeam2 != null)
-            SetTeamsWinLoss(currentParlay.Team2WinLoss.ToString(), false);
+            SetTeamsWinLoss(currentParlay.Team2WinLoss, false);
 
         if (Team1Health != null)
         {
@@ -316,6 +316,11 @@ public class TogglePressInteractable : MonoBehaviour
 
     private void SetTeamsWinLoss(string winLoss, bool isTeam1)
     {
+        TextMeshPro tmp = isTeam1 ? WinLossTeam1 : WinLossTeam2;
+        if (tmp == null) return;
+
+        tmp.richText = true;
+
         var sb = new System.Text.StringBuilder();
 
         for (int i = 0; i < winLoss.Length; i++)
@@ -323,9 +328,9 @@ public class TogglePressInteractable : MonoBehaviour
             char c = winLoss[i];
 
             if (c == 'W')
-                sb.Append("<color=green>W</color>");
+                sb.Append("<color=#00FF00>W</color>");
             else if (c == 'L')
-                sb.Append("<color=red>L</color>");
+                sb.Append("<color=#FF0000>L</color>");
             else
                 sb.Append(c);
 
@@ -333,12 +338,10 @@ public class TogglePressInteractable : MonoBehaviour
                 sb.Append("-");
         }
 
-        if (isTeam1)
-            WinLossTeam1.text = sb.ToString();
-        else
-            WinLossTeam2.text = sb.ToString();
-    }
+        tmp.text = sb.ToString();
 
+        tmp.ForceMeshUpdate();
+    }
 
     private static readonly Dictionary<string, string> TeamAbbreviations =
         new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
@@ -393,7 +396,7 @@ public class TogglePressInteractable : MonoBehaviour
     };
 
 
-    public static string GetTeamAbbreviation(string teamName)
+    private static string GetTeamAbbreviation(string teamName)
     {
         if (string.IsNullOrWhiteSpace(teamName))
             return string.Empty;
