@@ -66,6 +66,8 @@ public class Driver : MonoBehaviour
     const float effortTaskDuration = 45f;
     const int lastTrialIndex = 16;
     const int lastPhase = 2; 
+    const float disableTime = 2f;
+    const float disableButtonBaseline = 1.1f;
     private ParlayTrialData currentparlayTrial;
     private SlotTrialData currentSlotTrial;
     void Start()
@@ -89,7 +91,7 @@ public class Driver : MonoBehaviour
         EffortTask.SetActive(false);
         if(gamblingTypeFirst == GamblingTypeFirst.Slot)
         {
-            slotHandler.AtStartDisableButtons();
+            slotHandler.DisableButtons(disableTime);
             SlotMachine.SetActive(true);
             Tablet.SetActive(false);
             Parlay.SetActive(false);
@@ -97,7 +99,7 @@ public class Driver : MonoBehaviour
         }
         else
         {
-            parlayHandler.AtStartDisableButtons();
+            parlayHandler.DisableButtons(disableTime);
             SlotMachine.SetActive(false);
             Tablet.SetActive(true);
             Parlay.SetActive(true);
@@ -163,9 +165,11 @@ public class Driver : MonoBehaviour
             }
         }
         offMusicToken++;
+        slotHandler.DisableButtons(disableButtonBaseline);
+        parlayHandler.DisableButtons(disableButtonBaseline);
+        gazeHandler.StartBaseline();
         playOffMusicScript.StartPlayOffMusic(SlotMachine.activeSelf ? slotTrialDuration : parlayTrialDuration, offMusicToken);
         SetTypeOutcome();
-
     }
 
     private IEnumerator RunSlotTrial(OutcomeType outcome, int[] outcomeRow, float multiplier)
@@ -191,8 +195,8 @@ public class Driver : MonoBehaviour
         SlotMachine.SetActive(!SlotMachine.activeSelf);
         Tablet.SetActive(!Tablet.activeSelf);
         Parlay.SetActive(!Parlay.activeSelf);
-        slotHandler.AtStartDisableButtons();
-        parlayHandler.AtStartDisableButtons();
+        slotHandler.DisableButtons(disableTime);
+        parlayHandler.DisableButtons(disableTime);
         sxr.SetTotalLegs(0);
         sxr.SetTotalOdds(0f);
         SetGamblingType();

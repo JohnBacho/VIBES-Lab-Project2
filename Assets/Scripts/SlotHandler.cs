@@ -237,17 +237,16 @@ public class SlotHandler : MonoBehaviour, ManageWallet
         sxr.SetWallet(wallet);
     }
 
-    public void AtStartDisableButtons()
+    public void DisableButtons(float disableTime)
     {
-        StartCoroutine(TemporarilyDisableButtons());
+        StartCoroutine(TemporarilyDisableButtons(disableTime));
     }
     
-    private IEnumerator TemporarilyDisableButtons()
+    private IEnumerator TemporarilyDisableButtons(float disableTime)
     {
         IncreaseBetButton.DisableButton();
         DecreaseBetButton.DisableButton();
-        const float buttonDisableTime = 2f;
-        yield return new WaitForSeconds(buttonDisableTime);
+        yield return new WaitForSeconds(disableTime);
         IncreaseBetButton.EnableButton();
         DecreaseBetButton.EnableButton();
     }

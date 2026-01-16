@@ -5,6 +5,7 @@ using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
+using System.Collections;
 using InputDevice = UnityEngine.XR.InputDevice;
 using ViveSR.anipal.Eye;
 
@@ -33,8 +34,10 @@ namespace sxr_internal
         private Vector3 gazeHitPoint; // used in calculating eye tracking data with collisions
         
         private List<float> TempPupilStorage = new List<float>();
+        private List<float> TempBaselinePupilStorage = new List<float>();
         private float rightPupilSize = 0;
         private float leftPupilSize = 0;
+        private float baseline = 0f;
 
         public void WriteEyeTrackerHeader() {
         ExperimentHandler.Instance.WriteHeaderToTaggedFile("eyetracker",
@@ -43,7 +46,7 @@ namespace sxr_internal
             "leftEyePositionY,leftEyePositionZ,rightEyePositionX,rightEyePositionY,rightEyePositionZ," +
             "leftEyeRotationX,leftEyeRotationY,leftEyeRotationZ,rightEyeRotationX,rightEyeRotationY," +
             "rightEyeRotationZ,leftEyePupilSize,rightEyePupilSize,combinedEyePupilSize,leftEyeOpenAmount,rightEyeOpenAmount," +
-            "GazeHitPointX,GazeHitPointY,GazeHitPointZ,GameObjectInFocus,TrialAveragePupilSize");
+            "GazeHitPointX,GazeHitPointY,GazeHitPointZ,GameObjectInFocus,TrialAveragePupilSize,TrialBaselineCorrectedPupilSize");
 
             headerPrinted=true;}
         
@@ -184,8 +187,9 @@ namespace sxr_internal
             if(value > 0)
             {
                 TempPupilStorage.Add(value);
+                TempBaselinePupilStorage.Add(value - baseline);
             }
-            rightPupilSize = value;
+            leftPupilSize = value;
             return value < 0 ? (float?)null : value;
         }
 
@@ -195,8 +199,9 @@ namespace sxr_internal
             if(value > 0)
             {
                 TempPupilStorage.Add(value);
+                TempBaselinePupilStorage.Add(value - baseline);
             }
-            leftPupilSize = value;
+            rightPupilSize = value;
             return value < 0 ? (float?)null : value;
         }
 
@@ -235,11 +240,34 @@ namespace sxr_internal
                     toWrite += ExperimentHandler.Instance.timeStepToWriteInfo() 
                             + GetFullGazeInfo() 
                             + CheckFocusedObject() 
-                            + "," + TempPupilStorage.Average()
+                            + "," + TempPupilStorage.Average() + "," + TempBaselinePupilStorage.Average()
                             + "\n";
 
                     TempPupilStorage.Clear();
+                    TempBaselinePupilStorage.Clear();
                 }
+        }
+
+        public void StartBaseline()
+        {
+            StartCoroutine(SetBaseline());
+        }
+
+        private IEnumerator SetBaseline()
+        {
+            TempPupilStorage.Clear();
+            const float waitFor = 1f;
+            yield return new WaitForSeconds(waitFor);
+            if (TempPupilStorage.Count > 0){
+                baseline = TempPupilStorage.Average();
+            }
+            else{
+                baseline = 0f;
+            }
+            
+            Debug.Log($"Baseline Set to {baseline}");
+            TempPupilStorage.Clear();
+            TempBaselinePupilStorage.Clear();
         }
 
         private void OnApplicationQuit(){
