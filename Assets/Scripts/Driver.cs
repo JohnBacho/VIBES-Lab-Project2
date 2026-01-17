@@ -140,6 +140,7 @@ public class Driver : MonoBehaviour
         if (SlotMachine.activeSelf)
         {
             currentSlotTrial = slotTrials[sxr.GetTrial()];
+            slotHandler.DisableButtons(disableButtonBaseline);
             if(currentSlotTrial.outcome == OutcomeType.EffortTask)
             {
                 Debug.Log("Running Effort Task Trial");
@@ -154,6 +155,7 @@ public class Driver : MonoBehaviour
         else
         {
             currentparlayTrial = parlayTrials[sxr.GetTrial()];
+            parlayHandler.DisableButtons(disableButtonBaseline);
             if(currentparlayTrial.outcome == OutcomeType.EffortTask)
             {
                 Debug.Log("Running Effort Task Trial");
@@ -166,10 +168,8 @@ public class Driver : MonoBehaviour
             }
         }
         offMusicToken++;
-        slotHandler.DisableButtons(disableButtonBaseline);
-        parlayHandler.DisableButtons(disableButtonBaseline);
-        gazeHandler.StartBaseline();
         playOffMusicScript.StartPlayOffMusic(SlotMachine.activeSelf ? slotTrialDuration : parlayTrialDuration, offMusicToken);
+        gazeHandler.StartBaseline();
         SetTypeOutcome();
     }
 
