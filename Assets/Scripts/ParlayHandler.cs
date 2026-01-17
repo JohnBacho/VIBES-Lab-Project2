@@ -470,4 +470,9 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
         return newLegWins;
     }
 
+    public float GetWallet()
+    {
+        return wallet;
+    }
+
 }

@@ -27,14 +27,20 @@ public class HapticsManager : MonoBehaviour
     {
         float amplitude = 0.5f;
         float duration = 0.1f;
-        InputDevice device = InputDevices.GetDeviceAtXRNode(XRNode.RightHand);
+        InputDevice rightController = InputDevices.GetDeviceAtXRNode(XRNode.RightHand);
+        InputDevice leftController = InputDevices.GetDeviceAtXRNode(XRNode.LeftHand);
 
-        if (device.isValid && device.TryGetHapticCapabilities(out HapticCapabilities capabilities))
+        if (rightController.isValid && rightController.TryGetHapticCapabilities(out HapticCapabilities capabilities))
         {
             if (capabilities.supportsImpulse)
-            {
-                device.SendHapticImpulse(0, amplitude, duration);
-            }
+                rightController.SendHapticImpulse(0, amplitude, duration);
+        }
+
+        
+        if (leftController.isValid && leftController.TryGetHapticCapabilities(out HapticCapabilities leftCapabilities))
+        {
+            if (leftCapabilities.supportsImpulse)
+                leftController.SendHapticImpulse(0, amplitude, duration);
         }
     }
 
