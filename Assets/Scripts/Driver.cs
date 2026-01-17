@@ -51,19 +51,19 @@ public class Driver : MonoBehaviour
     [SerializeField] private GameObject SlotMachine;
     [SerializeField] private GameObject Parlay;
     [SerializeField] private GameObject Tablet;
-    [SerializeField] private GameObject EffortTask;
     [SerializeField] private ParlayHandler parlayHandler;
     [SerializeField] private SlotHandler slotHandler;
+    [SerializeField] private EffortTaskHandler effortTaskHandler;
     [SerializeField] private GazeHandler gazeHandler;
-    [SerializeField] XRInteractorLineVisual rayLineVisual;
+    [SerializeField] XRInteractorLineVisual rightRayLineVisual;
+    [SerializeField] XRInteractorLineVisual leftRayLineVisual;
+
     [SerializeField] private PlayOffMusic playOffMusicScript;
     [SerializeField] private EndProgram endProgramScript;
-    [SerializeField] private List<Bucket> EffortTaskBucket;
 
     int offMusicToken = 0;
     const float slotTrialDuration = 30f;
     const float parlayTrialDuration = 105f;
-    const float effortTaskDuration = 45f;
     const int lastTrialIndex = 16;
     const int lastPhase = 2; 
     private ParlayTrialData currentparlayTrial;
@@ -79,14 +79,15 @@ public class Driver : MonoBehaviour
         yield return null;
         StartDataTrackers();
         StartNextTrial();
-        if (rayLineVisual != null)
-            rayLineVisual.enabled = false;
+        if (rightRayLineVisual != null)
+            rightRayLineVisual.enabled = false;
+            leftRayLineVisual.enabled = false;
     }
 
     IEnumerator switchContextAfterDelay()
     {
         yield return null;
-        EffortTask.SetActive(false);
+        effortTaskHandler.SetActiveEffortTask(false);
         if(gamblingTypeFirst == GamblingTypeFirst.Slot)
         {
             slotHandler.AtStartDisableButtons();
@@ -209,29 +210,13 @@ public class Driver : MonoBehaviour
         SlotMachine.SetActive(false);
         Tablet.SetActive(false);
         Parlay.SetActive(false);
-        if(isSlot)
+        effortTaskHandler.StartTutorial();
+        effortTaskHandler.setBuckets(isSlot, slotHandler, parlayHandler);
+        while (!effortTaskHandler.TrialCompleted)
         {
-            for(int i = 0; i < EffortTaskBucket.Count; i++)
-            {
-                EffortTaskBucket[i].SetWallet(slotHandler);
-            }
+            yield return null;
         }
-        else
-        {
-            for(int i = 0; i < EffortTaskBucket.Count; i++)
-            {
-                EffortTaskBucket[i].SetWallet(parlayHandler);
-            }
-        }
-        EffortTask.SetActive(true);
-        Object.FindAnyObjectByType<BallSpawner>().StartSpawning();
-        Object.FindAnyObjectByType<CountdownTimer>().StartCountdown();
-        yield return new WaitForSeconds(effortTaskDuration);
-        Object.FindAnyObjectByType<BallSpawner>().StopSpawning();
-        Object.FindAnyObjectByType<BallSpawner>().DestroyAllBalls();
         AdvanceTrialCounter();
-
-        EffortTask.SetActive(false);
         if(isSlot)
         {
             SlotMachine.SetActive(true);
@@ -325,7 +310,7 @@ public class Driver : MonoBehaviour
     private void AdvanceTrialCounter()
     {
         Debug.Log($"Trial {sxr.GetTrial()} complete");
-        if (!EffortTask.activeSelf)
+        if (!effortTaskHandler.GetActive())
         {
             playOffMusicScript.CancelOffMusic();            
         }

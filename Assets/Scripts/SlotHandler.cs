@@ -241,6 +241,11 @@ public class SlotHandler : MonoBehaviour, ManageWallet
     {
         StartCoroutine(TemporarilyDisableButtons());
     }
+
+    public float GetWallet()
+    {
+        return wallet;
+    }
     
     private IEnumerator TemporarilyDisableButtons()
     {

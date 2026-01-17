@@ -19,7 +19,6 @@ public class Bucket : MonoBehaviour
         {
             if (ball.ballType == bucketType)
             {
-                Debug.Log("Correct!");
                 CurrentWalletScript.AddWallet(1);
                 ShowText("+1", Color.green, 1f);
                 source.Play();
@@ -27,7 +26,6 @@ public class Bucket : MonoBehaviour
             }
             else
             {
-                Debug.Log("Wrong bucket!");
                 CurrentWalletScript.RemoveWallet(1);
                 ShowText("-1", Color.red, 1f);
             }
