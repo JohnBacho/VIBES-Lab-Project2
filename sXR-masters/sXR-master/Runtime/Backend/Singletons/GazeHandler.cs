@@ -1,10 +1,11 @@
-﻿//TODO Add gaze collider to record objects in focus
+//TODO Add gaze collider to record objects in focus
 
 using System;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
+using System.Collections;
 using InputDevice = UnityEngine.XR.InputDevice;
 using ViveSR.anipal.Eye;
 
@@ -33,8 +34,12 @@ namespace sxr_internal
         private Vector3 gazeHitPoint; // used in calculating eye tracking data with collisions
         
         private List<float> TempPupilStorage = new List<float>();
+        private List<float> TempBaselinePupilStorage = new List<float>();
         private float rightPupilSize = 0;
         private float leftPupilSize = 0;
+        private float baseline = 0f;
+        private bool baselineValid = false;
+        private bool baselineInProgress = false;
 
         public void WriteEyeTrackerHeader() {
         ExperimentHandler.Instance.WriteHeaderToTaggedFile("eyetracker",
@@ -42,8 +47,8 @@ namespace sxr_internal
             "gazeFixationZ,localGazeX,localGazeY,localGazeZ,leftEyePositionX," +
             "leftEyePositionY,leftEyePositionZ,rightEyePositionX,rightEyePositionY,rightEyePositionZ," +
             "leftEyeRotationX,leftEyeRotationY,leftEyeRotationZ,rightEyeRotationX,rightEyeRotationY," +
-            "rightEyeRotationZ,leftEyePupilSize,rightEyePupilSize,combinedEyePupilSize,leftEyeOpenAmount,rightEyeOpenAmount," +
-            "GazeHitPointX,GazeHitPointY,GazeHitPointZ,GameObjectInFocus,TrialAveragePupilSize");
+            "rightEyeRotationZ,leftEyePupilSize,rightEyePupilSize,baselineLeftEyePupil,baselineRightEyePupil,combinedEyePupilSize,leftEyeOpenAmount,rightEyeOpenAmount," +
+            "GazeHitPointX,GazeHitPointY,GazeHitPointZ,GameObjectInFocus,TrialAveragePupilSize,TrialBaselineCorrectedPupilSize");
 
             headerPrinted=true;}
         
@@ -86,8 +91,9 @@ namespace sxr_internal
         public string GetFullGazeInfo(){
             return (GetScreenFixationPoint() +","+ GazeFixation() +"," + GetGazeCombinedGazeRayLocal() + "," 
                     + LeftEyePosition() +","+ RightEyePosition() +","+
-                    LeftEyeRotation() +","+ RightEyeRotation() +","+ LeftEyePupilSize() +","+ RightEyePupilSize() + "," + CombinedEyePupilSize() + ","+
-                    LeftEyeOpenAmount() +","+ RightEyeOpenAmount()).Replace("(","").Replace(")","");
+                    LeftEyeRotation() +","+ RightEyeRotation() +","+ LeftEyePupilSize() +","+ RightEyePupilSize() 
+                    + "," + BaselineLeftEyePupilSize() + "," + BaselineRightEyePupilSize() + "," + CombinedEyePupilSize() 
+                    + "," + LeftEyeOpenAmount() +","+ RightEyeOpenAmount()).Replace("(","").Replace(")","");
         }
         
     public void Update() {
@@ -185,7 +191,7 @@ namespace sxr_internal
             {
                 TempPupilStorage.Add(value);
             }
-            rightPupilSize = value;
+            leftPupilSize = value;
             return value < 0 ? (float?)null : value;
         }
 
@@ -196,8 +202,40 @@ namespace sxr_internal
             {
                 TempPupilStorage.Add(value);
             }
-            leftPupilSize = value;
+            rightPupilSize = value;
             return value < 0 ? (float?)null : value;
+        }
+
+        public float? BaselineLeftEyePupilSize()
+        {
+            UpdateGaze();
+
+            if (!baselineValid || baselineInProgress)
+                return null;
+
+            float value = verboseData.left.pupil_diameter_mm;
+            if (value <= 0)
+                return null;
+
+            float corrected = value - baseline;
+            TempBaselinePupilStorage.Add(corrected);
+            return corrected;
+        }
+
+        public float? BaselineRightEyePupilSize()
+        {
+            UpdateGaze();
+
+            if (!baselineValid || baselineInProgress)
+                return null;
+
+            float value = verboseData.right.pupil_diameter_mm;
+            if (value <= 0)
+                return null;
+
+            float corrected = value - baseline;
+            TempBaselinePupilStorage.Add(corrected);
+            return corrected;
         }
 
         public float? CombinedEyePupilSize()
@@ -230,16 +268,57 @@ namespace sxr_internal
                 return;
             }
 
-             if (recordEyeTracker)
-                {
+            if (recordEyeTracker)
+            {
+                if(!baselineValid || TempBaselinePupilStorage.Count == 0){
+                    toWrite += ExperimentHandler.Instance.timeStepToWriteInfo() 
+                    + GetFullGazeInfo() 
+                    + CheckFocusedObject() 
+                    + "," + TempPupilStorage.Average() + "," + ""
+                    + "\n";
+
+                    TempPupilStorage.Clear();
+                    TempBaselinePupilStorage.Clear();
+                }
+                else{
                     toWrite += ExperimentHandler.Instance.timeStepToWriteInfo() 
                             + GetFullGazeInfo() 
                             + CheckFocusedObject() 
-                            + "," + TempPupilStorage.Average()
+                            + "," + TempPupilStorage.Average() + "," + TempBaselinePupilStorage.Average()
                             + "\n";
 
                     TempPupilStorage.Clear();
+                    TempBaselinePupilStorage.Clear();
                 }
+            }
+        }
+
+        public void StartBaseline()
+        {
+            StartCoroutine(SetBaseline());
+        }
+
+        private IEnumerator SetBaseline()
+        {
+            TempPupilStorage.Clear();
+            baselineInProgress = true;
+            baselineValid = false;
+            yield return new WaitForSeconds(1f);
+
+            if (TempPupilStorage.Count > 0)
+            {
+                baseline = TempPupilStorage.Average();
+                baselineValid = true;
+            }
+            else
+            {
+                baseline = 0f;
+                baselineValid = false;
+            }
+
+            baselineInProgress = false;
+            TempPupilStorage.Clear();
+            TempBaselinePupilStorage.Clear();
         }
 
         private void OnApplicationQuit(){

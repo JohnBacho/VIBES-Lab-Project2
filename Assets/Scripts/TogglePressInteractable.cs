@@ -412,18 +412,17 @@ public class TogglePressInteractable : MonoBehaviour
     }
 
 
-    public void AtStartDisableButtons()
+    public void AtStartDisableButtons(float disableTime)
     {
-        StartCoroutine(TemporarilyDisableButtons());
+        StartCoroutine(TemporarilyDisableButtons(disableTime));
     }
 
-    private IEnumerator TemporarilyDisableButtons()
+    private IEnumerator TemporarilyDisableButtons(float disableTime)
     {
         yield return null;
         ToggleTeam1.DisableInteraction();
         ToggleTeam2.DisableInteraction();
-        const float buttonDisableTime = 2f;
-        yield return new WaitForSeconds(buttonDisableTime);
+        yield return new WaitForSeconds(disableTime);
         ToggleTeam1.EnableInteraction();
         ToggleTeam2.EnableInteraction();
     }

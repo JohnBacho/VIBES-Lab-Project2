@@ -388,11 +388,11 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
         UpdateUI();
     }
 
-    public void AtStartDisableButtons()
+    public void DisableButtons(float disableTime)
     {
         for (int i = 0; i < togglePressInteractables.Count; i++)
         {
-            togglePressInteractables[i].AtStartDisableButtons();
+            togglePressInteractables[i].AtStartDisableButtons(disableTime);
         }
     }
 
