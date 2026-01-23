@@ -97,9 +97,9 @@ public class Driver : MonoBehaviour
     {
         yield return null;
         effortTaskHandler.SetActiveEffortTask(false);
+        bool isSlotMachine = (gamblingTypeFirst == GamblingTypeFirst.Slot);
         if(gamblingTypeFirst == GamblingTypeFirst.Slot)
         {
-            slotHandler.DisableButtons(disableTime);
             SlotMachine.SetActive(true);
             SlotMachineEnvironment.SetActive(true);
             ParlayEnvironment.SetActive(false);
@@ -109,7 +109,6 @@ public class Driver : MonoBehaviour
         }
         else
         {
-            parlayHandler.DisableButtons(disableTime);
             SlotMachine.SetActive(false);
             SlotMachineEnvironment.SetActive(false);
             ParlayEnvironment.SetActive(true);
@@ -117,6 +116,23 @@ public class Driver : MonoBehaviour
             Parlay.SetActive(true);
             sxr.SetProgramName("Sunflower");
         }
+
+        SlotMachine.SetActive(isSlotMachine);
+        SlotMachineEnvironment.SetActive(isSlotMachine);
+        ParlayEnvironment.SetActive(!isSlotMachine);
+        Tablet.SetActive(!isSlotMachine);
+        Parlay.SetActive(!isSlotMachine);
+
+        if (isSlotMachine)
+        {
+            slotHandler.DisableButtons(disableTime);
+            sxr.SetProgramName("Lilac");
+        } 
+        else
+        {
+            parlayHandler.DisableButtons(disableTime);
+            sxr.SetProgramName("Sunflower");
+        }   
     }
 
     void StartDataTrackers()
