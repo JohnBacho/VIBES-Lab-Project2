@@ -68,8 +68,8 @@ public class Driver : MonoBehaviour
     const float parlayTrialDuration = 105f;
     const int lastTrialIndex = 16;
     const int lastPhase = 2; 
-    const float disableTime = 2f;
-    const float disableButtonBaseline = 1.1f;
+    const float disableTime = 2.5f;
+    const float disableButtonBaseline = 1f;
     private ParlayTrialData currentparlayTrial;
     private SlotTrialData currentSlotTrial;
     void Start()
@@ -204,8 +204,8 @@ public class Driver : MonoBehaviour
         SlotMachine.SetActive(!SlotMachine.activeSelf);
         Tablet.SetActive(!Tablet.activeSelf);
         Parlay.SetActive(!Parlay.activeSelf);
-        SlotMachineEnvironment.SetActive(!SlotMachine.activeSelf);
-        ParlayEnvironment.SetActive(!Parlay.activeSelf);
+        SlotMachineEnvironment.SetActive(!SlotMachineEnvironment.activeSelf);
+        ParlayEnvironment.SetActive(!ParlayEnvironment.activeSelf);
         slotHandler.DisableButtons(disableTime);
         parlayHandler.DisableButtons(disableTime);
         sxr.SetTotalLegs(0);
