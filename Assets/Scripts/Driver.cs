@@ -74,8 +74,32 @@ public class Driver : MonoBehaviour
     private SlotTrialData currentSlotTrial;
     void Start()
     {
-        StartCoroutine(switchContextAfterDelay());
         StartCoroutine(DelayedStart());
+    }
+
+    void Awake()
+    {
+        effortTaskHandler.SetActiveEffortTask(false);
+        if(gamblingTypeFirst == GamblingTypeFirst.Slot)
+        {
+            SlotMachine.SetActive(true);
+            SlotMachineEnvironment.SetActive(true);
+            ParlayEnvironment.SetActive(false);
+            Tablet.SetActive(false);
+            Parlay.SetActive(false);
+            sxr.SetProgramName("Lilac");
+            slotHandler.DisableButtons(disableTime);
+        }
+        else
+        {
+            SlotMachine.SetActive(false);
+            SlotMachineEnvironment.SetActive(false);
+            ParlayEnvironment.SetActive(true);
+            Tablet.SetActive(true);
+            Parlay.SetActive(true);
+            sxr.SetProgramName("Sunflower");
+            parlayHandler.DisableButtons(disableTime);
+        }
     }
 
     IEnumerator DelayedStart()
@@ -86,32 +110,6 @@ public class Driver : MonoBehaviour
         if (rightRayLineVisual != null)
             rightRayLineVisual.enabled = false;
             leftRayLineVisual.enabled = false;
-    }
-
-    IEnumerator switchContextAfterDelay()
-    {
-        yield return null;
-        effortTaskHandler.SetActiveEffortTask(false);
-        if(gamblingTypeFirst == GamblingTypeFirst.Slot)
-        {
-            slotHandler.DisableButtons(disableTime);
-            SlotMachine.SetActive(true);
-            SlotMachineEnvironment.SetActive(true);
-            ParlayEnvironment.SetActive(false);
-            Tablet.SetActive(false);
-            Parlay.SetActive(false);
-            sxr.SetProgramName("Lilac");
-        }
-        else
-        {
-            parlayHandler.DisableButtons(disableTime);
-            SlotMachine.SetActive(false);
-            SlotMachineEnvironment.SetActive(false);
-            ParlayEnvironment.SetActive(true);
-            Tablet.SetActive(true);
-            Parlay.SetActive(true);
-            sxr.SetProgramName("Sunflower");
-        }
     }
 
 
@@ -148,7 +146,12 @@ public class Driver : MonoBehaviour
         if (SlotMachine.activeSelf)
         {
             currentSlotTrial = slotTrials[sxr.GetTrial()];
-            slotHandler.DisableButtons(disableButtonBaseline);
+
+            if(sxr.GetTrial() != 0)
+            {
+                slotHandler.DisableButtons(disableButtonBaseline);
+            }
+
             if(currentSlotTrial.outcome == OutcomeType.EffortTask)
             {
                 Debug.Log("Running Effort Task Trial");
@@ -163,7 +166,11 @@ public class Driver : MonoBehaviour
         else
         {
             currentparlayTrial = parlayTrials[sxr.GetTrial()];
-            parlayHandler.DisableButtons(disableButtonBaseline);
+            if(sxr.GetTrial() != 0)
+            {
+                parlayHandler.DisableButtons(disableButtonBaseline);
+            }
+            
             if(currentparlayTrial.outcome == OutcomeType.EffortTask)
             {
                 Debug.Log("Running Effort Task Trial");
