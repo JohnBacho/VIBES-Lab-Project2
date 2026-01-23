@@ -50,6 +50,8 @@ public class Driver : MonoBehaviour
     [SerializeField] private ParlayTrialData[] parlayTrials = new ParlayTrialData[16];
     [SerializeField] private GameObject SlotMachine;
     [SerializeField] private GameObject Parlay;
+    [SerializeField] private GameObject SlotMachineEnvironment;
+    [SerializeField] private GameObject ParlayEnvironment;
     [SerializeField] private GameObject Tablet;
     [SerializeField] private ParlayHandler parlayHandler;
     [SerializeField] private SlotHandler slotHandler;
@@ -66,8 +68,8 @@ public class Driver : MonoBehaviour
     const float parlayTrialDuration = 105f;
     const int lastTrialIndex = 16;
     const int lastPhase = 2; 
-    const float disableTime = 2f;
-    const float disableButtonBaseline = 1.1f;
+    const float disableTime = 2.5f;
+    const float disableButtonBaseline = 1f;
     private ParlayTrialData currentparlayTrial;
     private SlotTrialData currentSlotTrial;
     void Start()
@@ -82,32 +84,56 @@ public class Driver : MonoBehaviour
         StartDataTrackers();
         StartNextTrial();
         if (rightRayLineVisual != null)
-            rightRayLineVisual.enabled = false;
-            leftRayLineVisual.enabled = false;
+        {
+            rightRayLineVisual.enabled = false;            
+        }
+        if (leftRayLineVisual != null)
+        {
+            leftRayLineVisual.enabled = false;            
+        }
     }
 
     IEnumerator switchContextAfterDelay()
     {
         yield return null;
         effortTaskHandler.SetActiveEffortTask(false);
+        bool isSlotMachine = (gamblingTypeFirst == GamblingTypeFirst.Slot);
         if(gamblingTypeFirst == GamblingTypeFirst.Slot)
         {
-            slotHandler.DisableButtons(disableTime);
             SlotMachine.SetActive(true);
+            SlotMachineEnvironment.SetActive(true);
+            ParlayEnvironment.SetActive(false);
             Tablet.SetActive(false);
             Parlay.SetActive(false);
             sxr.SetProgramName("Lilac");
         }
         else
         {
-            parlayHandler.DisableButtons(disableTime);
             SlotMachine.SetActive(false);
+            SlotMachineEnvironment.SetActive(false);
+            ParlayEnvironment.SetActive(true);
             Tablet.SetActive(true);
             Parlay.SetActive(true);
             sxr.SetProgramName("Sunflower");
         }
-    }
 
+        SlotMachine.SetActive(isSlotMachine);
+        SlotMachineEnvironment.SetActive(isSlotMachine);
+        ParlayEnvironment.SetActive(!isSlotMachine);
+        Tablet.SetActive(!isSlotMachine);
+        Parlay.SetActive(!isSlotMachine);
+
+        if (isSlotMachine)
+        {
+            slotHandler.DisableButtons(disableTime);
+            sxr.SetProgramName("Lilac");
+        } 
+        else
+        {
+            parlayHandler.DisableButtons(disableTime);
+            sxr.SetProgramName("Sunflower");
+        }   
+    }
 
     void StartDataTrackers()
     {
@@ -127,12 +153,14 @@ public class Driver : MonoBehaviour
                 Debug.Log("All trials complete. Ending program.");
                 Parlay.SetActive(false);
                 SlotMachine.SetActive(false);
+                SlotMachineEnvironment.SetActive(false);
+                ParlayEnvironment.SetActive(false);
                 endProgramScript.StartProgramEnding();
                 return;
             } 
             else
             {
-                SwitchGamblingtype();
+                SwitchGamblingType();
             }
             return;
         }
@@ -140,7 +168,12 @@ public class Driver : MonoBehaviour
         if (SlotMachine.activeSelf)
         {
             currentSlotTrial = slotTrials[sxr.GetTrial()];
-            slotHandler.DisableButtons(disableButtonBaseline);
+
+            if(sxr.GetTrial() != 0)
+            {
+                slotHandler.DisableButtons(disableButtonBaseline);
+            }
+
             if(currentSlotTrial.outcome == OutcomeType.EffortTask)
             {
                 Debug.Log("Running Effort Task Trial");
@@ -155,7 +188,11 @@ public class Driver : MonoBehaviour
         else
         {
             currentparlayTrial = parlayTrials[sxr.GetTrial()];
-            parlayHandler.DisableButtons(disableButtonBaseline);
+            if(sxr.GetTrial() != 0)
+            {
+                parlayHandler.DisableButtons(disableButtonBaseline);
+            }
+            
             if(currentparlayTrial.outcome == OutcomeType.EffortTask)
             {
                 Debug.Log("Running Effort Task Trial");
@@ -190,19 +227,29 @@ public class Driver : MonoBehaviour
         StartNextTrial();
     }
 
-    private void SwitchGamblingtype()
-    {
-        sxr.NextPhase();
-        SlotMachine.SetActive(!SlotMachine.activeSelf);
-        Tablet.SetActive(!Tablet.activeSelf);
-        Parlay.SetActive(!Parlay.activeSelf);
-        slotHandler.DisableButtons(disableTime);
+    private void SwitchGamblingType()
+{
+    sxr.NextPhase();
+    bool switchingToParlay = !Parlay.activeSelf;
+
+    Parlay.SetActive(switchingToParlay);
+    ParlayEnvironment.SetActive(switchingToParlay);
+    Tablet.SetActive(switchingToParlay);
+
+    SlotMachine.SetActive(!switchingToParlay);
+    SlotMachineEnvironment.SetActive(!switchingToParlay);
+    
+    if (switchingToParlay) {
         parlayHandler.DisableButtons(disableTime);
-        sxr.SetTotalLegs(0);
-        sxr.SetTotalOdds(0f);
-        SetGamblingType();
-        StartNextTrial();
+    } else {
+        slotHandler.DisableButtons(disableTime);
     }
+
+    sxr.SetTotalLegs(0);
+    sxr.SetTotalOdds(0f);
+    SetGamblingType();
+    StartNextTrial();
+}
 
     private IEnumerator RunEffortTaskTrial()
     {
@@ -212,6 +259,8 @@ public class Driver : MonoBehaviour
         Debug.Log("Starting Effort Task Trial");
         sxr.SetGamblingType(GamblingType.EffortTask.ToString());
         SlotMachine.SetActive(false);
+        SlotMachineEnvironment.SetActive(false);
+        ParlayEnvironment.SetActive(false);
         Tablet.SetActive(false);
         Parlay.SetActive(false);
         effortTaskHandler.StartTutorial();
@@ -224,12 +273,14 @@ public class Driver : MonoBehaviour
         if(isSlot)
         {
             SlotMachine.SetActive(true);
+            SlotMachineEnvironment.SetActive(true);
             SetGamblingType();            
         }
         else
         {
             Parlay.SetActive(true);
             Tablet.SetActive(true);
+            ParlayEnvironment.SetActive(true);
             parlayHandler.UpdateLeaderboard();
             SetGamblingType();
         }

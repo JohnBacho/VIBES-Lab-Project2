@@ -24,6 +24,9 @@ public class PlayOffMusic : MonoBehaviour
         if (EffortTask.activeSelf)
             yield break;
 
+        if(sxr.GetTrial() == 0) // no off music in training
+            yield break;
+
         playOffAudioSource.Play();
     }
 
