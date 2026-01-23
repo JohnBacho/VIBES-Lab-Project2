@@ -144,7 +144,7 @@ public class Driver : MonoBehaviour
             } 
             else
             {
-                SwitchGamblingtype();
+                SwitchGamblingType();
             }
             return;
         }
@@ -211,21 +211,29 @@ public class Driver : MonoBehaviour
         StartNextTrial();
     }
 
-    private void SwitchGamblingtype()
-    {
-        sxr.NextPhase();
-        SlotMachine.SetActive(!SlotMachine.activeSelf);
-        Tablet.SetActive(!Tablet.activeSelf);
-        Parlay.SetActive(!Parlay.activeSelf);
-        SlotMachineEnvironment.SetActive(!SlotMachineEnvironment.activeSelf);
-        ParlayEnvironment.SetActive(!ParlayEnvironment.activeSelf);
-        slotHandler.DisableButtons(disableTime);
+    private void SwitchGamblingType()
+{
+    sxr.NextPhase();
+    bool switchingToParlay = !Parlay.activeSelf;
+
+    Parlay.SetActive(switchingToParlay);
+    ParlayEnvironment.SetActive(switchingToParlay);
+    Tablet.SetActive(switchingToParlay);
+
+    SlotMachine.SetActive(!switchingToParlay);
+    SlotMachineEnvironment.SetActive(!switchingToParlay);
+    
+    if (switchingToParlay) {
         parlayHandler.DisableButtons(disableTime);
-        sxr.SetTotalLegs(0);
-        sxr.SetTotalOdds(0f);
-        SetGamblingType();
-        StartNextTrial();
+    } else {
+        slotHandler.DisableButtons(disableTime);
     }
+
+    sxr.SetTotalLegs(0);
+    sxr.SetTotalOdds(0f);
+    SetGamblingType();
+    StartNextTrial();
+}
 
     private IEnumerator RunEffortTaskTrial()
     {
