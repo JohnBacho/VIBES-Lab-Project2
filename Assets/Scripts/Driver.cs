@@ -74,32 +74,8 @@ public class Driver : MonoBehaviour
     private SlotTrialData currentSlotTrial;
     void Start()
     {
+        StartCoroutine(switchContextAfterDelay());
         StartCoroutine(DelayedStart());
-    }
-
-    void Awake()
-    {
-        effortTaskHandler.SetActiveEffortTask(false);
-        if(gamblingTypeFirst == GamblingTypeFirst.Slot)
-        {
-            SlotMachine.SetActive(true);
-            SlotMachineEnvironment.SetActive(true);
-            ParlayEnvironment.SetActive(false);
-            Tablet.SetActive(false);
-            Parlay.SetActive(false);
-            sxr.SetProgramName("Lilac");
-            slotHandler.DisableButtons(disableTime);
-        }
-        else
-        {
-            SlotMachine.SetActive(false);
-            SlotMachineEnvironment.SetActive(false);
-            ParlayEnvironment.SetActive(true);
-            Tablet.SetActive(true);
-            Parlay.SetActive(true);
-            sxr.SetProgramName("Sunflower");
-            parlayHandler.DisableButtons(disableTime);
-        }
     }
 
     IEnumerator DelayedStart()
@@ -108,10 +84,40 @@ public class Driver : MonoBehaviour
         StartDataTrackers();
         StartNextTrial();
         if (rightRayLineVisual != null)
-            rightRayLineVisual.enabled = false;
-            leftRayLineVisual.enabled = false;
+        {
+            rightRayLineVisual.enabled = false;            
+        }
+        if (leftRayLineVisual != null)
+        {
+            leftRayLineVisual.enabled = false;            
+        }
     }
 
+    IEnumerator switchContextAfterDelay()
+    {
+        yield return null;
+        effortTaskHandler.SetActiveEffortTask(false);
+        if(gamblingTypeFirst == GamblingTypeFirst.Slot)
+        {
+            slotHandler.DisableButtons(disableTime);
+            SlotMachine.SetActive(true);
+            SlotMachineEnvironment.SetActive(true);
+            ParlayEnvironment.SetActive(false);
+            Tablet.SetActive(false);
+            Parlay.SetActive(false);
+            sxr.SetProgramName("Lilac");
+        }
+        else
+        {
+            parlayHandler.DisableButtons(disableTime);
+            SlotMachine.SetActive(false);
+            SlotMachineEnvironment.SetActive(false);
+            ParlayEnvironment.SetActive(true);
+            Tablet.SetActive(true);
+            Parlay.SetActive(true);
+            sxr.SetProgramName("Sunflower");
+        }
+    }
 
     void StartDataTrackers()
     {
