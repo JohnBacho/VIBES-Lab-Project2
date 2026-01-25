@@ -98,25 +98,6 @@ public class Driver : MonoBehaviour
         yield return null;
         effortTaskHandler.SetActiveEffortTask(false);
         bool isSlotMachine = (gamblingTypeFirst == GamblingTypeFirst.Slot);
-        if(gamblingTypeFirst == GamblingTypeFirst.Slot)
-        {
-            SlotMachine.SetActive(true);
-            SlotMachineEnvironment.SetActive(true);
-            ParlayEnvironment.SetActive(false);
-            Tablet.SetActive(false);
-            Parlay.SetActive(false);
-            sxr.SetProgramName("Lilac");
-        }
-        else
-        {
-            SlotMachine.SetActive(false);
-            SlotMachineEnvironment.SetActive(false);
-            ParlayEnvironment.SetActive(true);
-            Tablet.SetActive(true);
-            Parlay.SetActive(true);
-            sxr.SetProgramName("Sunflower");
-        }
-
         SlotMachine.SetActive(isSlotMachine);
         SlotMachineEnvironment.SetActive(isSlotMachine);
         ParlayEnvironment.SetActive(!isSlotMachine);
@@ -151,10 +132,7 @@ public class Driver : MonoBehaviour
             if(sxr.GetPhase() >= lastPhase)
             {
                 Debug.Log("All trials complete. Ending program.");
-                Parlay.SetActive(false);
-                SlotMachine.SetActive(false);
-                SlotMachineEnvironment.SetActive(false);
-                ParlayEnvironment.SetActive(false);
+                turnOffEnvironments();
                 endProgramScript.StartProgramEnding();
                 return;
             } 
@@ -228,28 +206,28 @@ public class Driver : MonoBehaviour
     }
 
     private void SwitchGamblingType()
-{
-    sxr.NextPhase();
-    bool switchingToParlay = !Parlay.activeSelf;
+    {
+        sxr.NextPhase();
+        bool switchingToParlay = !Parlay.activeSelf;
 
-    Parlay.SetActive(switchingToParlay);
-    ParlayEnvironment.SetActive(switchingToParlay);
-    Tablet.SetActive(switchingToParlay);
+        Parlay.SetActive(switchingToParlay);
+        ParlayEnvironment.SetActive(switchingToParlay);
+        Tablet.SetActive(switchingToParlay);
 
-    SlotMachine.SetActive(!switchingToParlay);
-    SlotMachineEnvironment.SetActive(!switchingToParlay);
-    
-    if (switchingToParlay) {
-        parlayHandler.DisableButtons(disableTime);
-    } else {
-        slotHandler.DisableButtons(disableTime);
+        SlotMachine.SetActive(!switchingToParlay);
+        SlotMachineEnvironment.SetActive(!switchingToParlay);
+        
+        if (switchingToParlay) {
+            parlayHandler.DisableButtons(disableTime);
+        } else {
+            slotHandler.DisableButtons(disableTime);
+        }
+
+        sxr.SetTotalLegs(0);
+        sxr.SetTotalOdds(0f);
+        SetGamblingType();
+        StartNextTrial();
     }
-
-    sxr.SetTotalLegs(0);
-    sxr.SetTotalOdds(0f);
-    SetGamblingType();
-    StartNextTrial();
-}
 
     private IEnumerator RunEffortTaskTrial()
     {
@@ -258,11 +236,7 @@ public class Driver : MonoBehaviour
         playOffMusicScript.CancelOffMusic();
         Debug.Log("Starting Effort Task Trial");
         sxr.SetGamblingType(GamblingType.EffortTask.ToString());
-        SlotMachine.SetActive(false);
-        SlotMachineEnvironment.SetActive(false);
-        ParlayEnvironment.SetActive(false);
-        Tablet.SetActive(false);
-        Parlay.SetActive(false);
+        turnOffEnvironments();
         effortTaskHandler.StartTutorial();
         effortTaskHandler.setBuckets(isSlot, slotHandler, parlayHandler);
         while (!effortTaskHandler.TrialCompleted)
@@ -270,22 +244,15 @@ public class Driver : MonoBehaviour
             yield return null;
         }
         AdvanceTrialCounter();
-        if(isSlot)
-        {
-            SlotMachine.SetActive(true);
-            SlotMachineEnvironment.SetActive(true);
-            SetGamblingType();            
-        }
-        else
-        {
-            Parlay.SetActive(true);
-            Tablet.SetActive(true);
-            ParlayEnvironment.SetActive(true);
-            parlayHandler.UpdateLeaderboard();
-            SetGamblingType();
-        }
-        StartNextTrial();
 
+        SlotMachine.SetActive(isSlot);
+        SlotMachineEnvironment.SetActive(isSlot);
+        Parlay.SetActive(!isSlot);
+        Tablet.SetActive(!isSlot);
+        ParlayEnvironment.SetActive(!isSlot);
+        if (!isSlot) {parlayHandler.UpdateLeaderboard();}
+        SetGamblingType();
+        StartNextTrial();
     }
 
     public void ParlayOutcome(int legCount)
@@ -371,5 +338,15 @@ public class Driver : MonoBehaviour
         }
         gazeHandler.GrabPupilTrialAverage();
         sxr.NextTrial();
+    }
+
+    private void turnOffEnvironments()
+    {
+        const bool turnOff = false;
+        SlotMachine.SetActive(turnOff);
+        SlotMachineEnvironment.SetActive(turnOff);
+        ParlayEnvironment.SetActive(turnOff);
+        Tablet.SetActive(turnOff);
+        Parlay.SetActive(turnOff);
     }
 }

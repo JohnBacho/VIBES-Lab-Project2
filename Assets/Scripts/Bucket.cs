@@ -9,25 +9,53 @@ public class Bucket : MonoBehaviour
     public BallType bucketType;
     public TextMeshPro label;
     private Coroutine currentFade;
-    public AudioSource source;
     private ManageWallet CurrentWalletScript;
+    private bool isEnabled = false;
+
+    private void OnDisable() {
+     isEnabled = false;   
+    }
+
+    private void OnEnable()
+    {
+        StartCoroutine(EnableAfterDelay());
+    }
+
+    private IEnumerator EnableAfterDelay()
+    {
+        yield return new WaitForSeconds(0.5f);
+        isEnabled = true;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         Ball ball = other.GetComponent<Ball>();
         if (ball != null)
         {
+            if(!isEnabled) return;
+
             if (ball.ballType == bucketType)
             {
                 CurrentWalletScript.AddWallet(1);
                 ShowText("+1", Color.green, 1f);
-                source.Play();
+                SoundManager.SoundManager.PlaySound3D(
+                    SoundType.minigamePointSound,
+                    transform.position,
+                    1f,
+                    1f
+                );
 
             }
             else
             {
                 CurrentWalletScript.RemoveWallet(1);
                 ShowText("-1", Color.red, 1f);
+                SoundManager.SoundManager.PlaySound3D(
+                    SoundType.lossAudio,
+                    transform.position,
+                    1f,
+                    1f
+                );
             }
 
             Destroy(other.gameObject);
