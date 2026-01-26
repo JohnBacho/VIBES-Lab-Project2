@@ -252,6 +252,7 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
         }
         else
         {
+            sxr.SetPayout(0f);
             MiddleUI.SetActive(false);
             SoundManager.SoundManager.PlaySound3DOnce(SoundType.lossAudio, LossText.transform.position, winLossVolume, lossPitch);
             LossText.text = $"YOU LOST\n${currentBet:0.00}";
