@@ -111,6 +111,7 @@ public class SlotHandler : MonoBehaviour, ManageWallet
         }
         else
         {
+            sxr.SetPayout(0f);
             LossText.text = $"YOU LOST ${currentBet}";
             WinText.text = "";
             walletText.text = $"Wallet: ${wallet:0.00}";
@@ -133,7 +134,7 @@ public class SlotHandler : MonoBehaviour, ManageWallet
         IncreaseBetButton.EnableButton();
         DecreaseBetButton.EnableButton();
         sxr.SetBetAmount(currentBet);   
-        sxr.SetPayout(currentBet * multiplier);
+        sxr.SetPayout(0f);
         UpdateUI();
         betPlaced = false;
         StartCoroutine(PlaceBetText());
