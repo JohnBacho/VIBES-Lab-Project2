@@ -20,7 +20,7 @@ public class EndProgram : MonoBehaviour
 
     IEnumerator EndingProgram()
     {
-    for(int i = 0; i < 5; i++)
+    for(int i = 0; i < 4; i++)
         {
             yield return new WaitForSeconds(TextTime);
             EndingProgramText.text = $"Program Complete!\nExiting";

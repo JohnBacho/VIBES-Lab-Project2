@@ -57,6 +57,7 @@ public class Driver : MonoBehaviour
     [SerializeField] private SlotHandler slotHandler;
     [SerializeField] private EffortTaskHandler effortTaskHandler;
     [SerializeField] private GazeHandler gazeHandler;
+    [SerializeField] private SwitchContextText switchContextText;
     [SerializeField] XRInteractorLineVisual rightRayLineVisual;
     [SerializeField] XRInteractorLineVisual leftRayLineVisual;
 
@@ -138,7 +139,7 @@ public class Driver : MonoBehaviour
             } 
             else
             {
-                SwitchGamblingType();
+                StartCoroutine(SwitchGamblingType());
             }
             return;
         }
@@ -205,15 +206,16 @@ public class Driver : MonoBehaviour
         StartNextTrial();
     }
 
-    private void SwitchGamblingType()
+    private IEnumerator SwitchGamblingType()
     {
         sxr.NextPhase();
         bool switchingToParlay = !Parlay.activeSelf;
-
+        turnOffEnvironments();
+        yield return StartCoroutine(switchContextText.StartContextSwitch(switchingToParlay));
+        
         Parlay.SetActive(switchingToParlay);
         ParlayEnvironment.SetActive(switchingToParlay);
         Tablet.SetActive(switchingToParlay);
-
         SlotMachine.SetActive(!switchingToParlay);
         SlotMachineEnvironment.SetActive(!switchingToParlay);
         
@@ -222,7 +224,6 @@ public class Driver : MonoBehaviour
         } else {
             slotHandler.DisableButtons(disableTime);
         }
-
         sxr.SetTotalLegs(0);
         sxr.SetTotalOdds(0f);
         SetGamblingType();
