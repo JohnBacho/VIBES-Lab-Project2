@@ -120,6 +120,18 @@ public class Bucket : MonoBehaviour
         currentFade = null;
     }
 
+    public void forceTextClear()
+    {
+        if (currentFade != null)
+        {
+            StopCoroutine(currentFade);
+            currentFade = null;
+        }
+        label.text = "";
+    }
+
+    
+
     public void SetWallet(ManageWallet wallet)
     {
         CurrentWalletScript = wallet;

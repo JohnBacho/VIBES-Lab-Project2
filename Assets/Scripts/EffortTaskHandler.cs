@@ -67,6 +67,10 @@ public class EffortTaskHandler : MonoBehaviour
 
     private IEnumerator endTrial()
     {
+        foreach(Bucket bucket in EffortTaskBucket)
+        {
+            bucket.forceTextClear();
+        }
         ballSpawner.StopSpawning();
         ballSpawner.DestroyAllBalls();
         Wrapper.SetActive(false);
