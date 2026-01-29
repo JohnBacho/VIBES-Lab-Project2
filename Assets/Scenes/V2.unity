@@ -18737,7 +18737,6 @@ GameObject:
   - component: {fileID: 1970160416}
   - component: {fileID: 1970160407}
   - component: {fileID: 1970160408}
-  - component: {fileID: 1970160410}
   - component: {fileID: 1970160414}
   - component: {fileID: 1970160415}
   m_Layer: 0
@@ -18830,19 +18829,6 @@ MonoBehaviour:
   parlayTutorial: {fileID: 462436332}
   driver: {fileID: 1970160412}
   AlreadySubmitting: 0
---- !u!114 &1970160410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1970160395}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edc10f0b87104a64aacbde8fd7ccbfaa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leaderboardText: {fileID: 0}
 --- !u!114 &1970160412
 MonoBehaviour:
   m_ObjectHideFlags: 0
