@@ -9,13 +9,14 @@ public class SwitchContextText : MonoBehaviour
 {
     [SerializeField] private TextMeshPro ContextSwitchText;
     [SerializeField] private GameObject ContextSwitchScene;
+    [SerializeField] private GameObject PressTriggerGraphic;
 
     const float TextTime = 0.30f;
 
     public IEnumerator StartContextSwitch(bool switchingToParlay)
     {
         ContextSwitchScene.SetActive(true);
-
+        PressTriggerGraphic.SetActive(true);
         ContextSwitchText.text =
             "<b>Gambling Task #1 Completed</b>\n\n"+ 
             "The next task is <b>separate and independent</b>.\n\n" +
@@ -23,7 +24,7 @@ public class SwitchContextText : MonoBehaviour
             "Wallet reset to <b>$100</b>.";
         yield return new WaitForSeconds(3f);
         yield return new WaitUntil(() => sxr.GetTrigger());
-
+        PressTriggerGraphic.SetActive(false);
         if (switchingToParlay)
         {
             yield return StartCoroutine(SwitchingToParlayCoroutine());

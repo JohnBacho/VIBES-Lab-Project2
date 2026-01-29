@@ -9612,6 +9612,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ContextSwitchText: {fileID: 510411508}
   ContextSwitchScene: {fileID: 900306888}
+  PressTriggerGraphic: {fileID: 2140832541}
 --- !u!4 &900306890
 Transform:
   m_ObjectHideFlags: 0
