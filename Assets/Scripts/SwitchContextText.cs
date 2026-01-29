@@ -8,14 +8,23 @@ using System.Linq;
 public class SwitchContextText : MonoBehaviour
 {
     [SerializeField] private TextMeshPro ContextSwitchText;
-    [SerializeField] private TextMeshPro WalletText;
     [SerializeField] private GameObject ContextSwitchScene;
+
     const float TextTime = 0.30f;
-    
+
     public IEnumerator StartContextSwitch(bool switchingToParlay)
     {
         ContextSwitchScene.SetActive(true);
-        if(switchingToParlay)
+
+        ContextSwitchText.text =
+            "<b>Gambling Task #1 Completed</b>\n\n"+ 
+            "The next task is <b>separate and independent</b>.\n\n" +
+            "Any money from the previous task <b>will not carry over</b>.\n\n" +
+            "Wallet reset to <b>$100</b>.";
+        yield return new WaitForSeconds(3f);
+        yield return new WaitUntil(() => sxr.GetTrigger());
+
+        if (switchingToParlay)
         {
             yield return StartCoroutine(SwitchingToParlayCoroutine());
         }
@@ -24,37 +33,35 @@ public class SwitchContextText : MonoBehaviour
             yield return StartCoroutine(SwitchingToSlotCoroutine());
         }
     }
-    
+
     private IEnumerator SwitchingToParlayCoroutine()
     {
-        WalletText.text = $"Wallet reset to $100";
-        for(int i = 0; i < 5; i++)
+        for (int i = 0; i < 2; i++)
         {
+            ContextSwitchText.text = "Switching to Parlay!\nLoading";
             yield return new WaitForSeconds(TextTime);
-            ContextSwitchText.text = $"Switching to Parlay!\nLoading";
+            ContextSwitchText.text = "Switching to Parlay!\nLoading.";
             yield return new WaitForSeconds(TextTime);
-            ContextSwitchText.text = $"Switching to Parlay!\nLoading.";
+            ContextSwitchText.text = "Switching to Parlay!\nLoading..";
             yield return new WaitForSeconds(TextTime);
-            ContextSwitchText.text = $"Switching to Parlay!\nLoading..";
+            ContextSwitchText.text = "Switching to Parlay!\nLoading...";
             yield return new WaitForSeconds(TextTime);
-            ContextSwitchText.text = $"Switching to Parlay!\nLoading...";
         }
         ContextSwitchScene.SetActive(false);
     }
-    
+
     private IEnumerator SwitchingToSlotCoroutine()
     {
-        WalletText.text = $"Wallet reset to $100";
-        for(int i = 0; i < 5; i++)
+        for (int i = 0; i < 5; i++)
         {
+            ContextSwitchText.text = "Switching to Slot!\nLoading";
             yield return new WaitForSeconds(TextTime);
-            ContextSwitchText.text = $"Switching to Slot!\nLoading";
+            ContextSwitchText.text = "Switching to Slot!\nLoading.";
             yield return new WaitForSeconds(TextTime);
-            ContextSwitchText.text = $"Switching to Slot!\nLoading.";
+            ContextSwitchText.text = "Switching to Slot!\nLoading..";
             yield return new WaitForSeconds(TextTime);
-            ContextSwitchText.text = $"Switching to Slot!\nLoading..";
+            ContextSwitchText.text = "Switching to Slot!\nLoading...";
             yield return new WaitForSeconds(TextTime);
-            ContextSwitchText.text = $"Switching to Slot!\nLoading...";
         }
         ContextSwitchScene.SetActive(false);
     }

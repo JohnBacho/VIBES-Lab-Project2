@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.XR.Interaction.Toolkit;
 using sxr_internal;
+using TMPro;
 
 [System.Serializable]
 public enum OutcomeType
@@ -53,6 +54,7 @@ public class Driver : MonoBehaviour
     [SerializeField] private GameObject SlotMachineEnvironment;
     [SerializeField] private GameObject ParlayEnvironment;
     [SerializeField] private GameObject Tablet;
+    [SerializeField] private GameObject WelcomeText;
     [SerializeField] private ParlayHandler parlayHandler;
     [SerializeField] private SlotHandler slotHandler;
     [SerializeField] private EffortTaskHandler effortTaskHandler;
@@ -60,6 +62,7 @@ public class Driver : MonoBehaviour
     [SerializeField] private SwitchContextText switchContextText;
     [SerializeField] XRInteractorLineVisual rightRayLineVisual;
     [SerializeField] XRInteractorLineVisual leftRayLineVisual;
+
 
     [SerializeField] private PlayOffMusic playOffMusicScript;
     [SerializeField] private EndProgram endProgramScript;
@@ -69,7 +72,7 @@ public class Driver : MonoBehaviour
     const float parlayTrialDuration = 105f;
     const int lastTrialIndex = 16;
     const int lastPhase = 2; 
-    const float disableTime = 2.5f;
+    const float disableTime = 0.5f;
     const float disableButtonBaseline = 1f;
     private ParlayTrialData currentparlayTrial;
     private SlotTrialData currentSlotTrial;
@@ -83,7 +86,6 @@ public class Driver : MonoBehaviour
     {
         yield return null;
         StartDataTrackers();
-        StartNextTrial();
         if (rightRayLineVisual != null)
         {
             rightRayLineVisual.enabled = false;            
@@ -97,7 +99,11 @@ public class Driver : MonoBehaviour
     IEnumerator switchContextAfterDelay()
     {
         yield return null;
-        effortTaskHandler.SetActiveEffortTask(false);
+        turnOffEnvironments();
+        WelcomeText.SetActive(true);
+        yield return new WaitForSeconds(2.5f);
+        yield return new WaitUntil(() => sxr.GetTrigger());
+        WelcomeText.SetActive(false);
         bool isSlotMachine = (gamblingTypeFirst == GamblingTypeFirst.Slot);
         SlotMachine.SetActive(isSlotMachine);
         SlotMachineEnvironment.SetActive(isSlotMachine);
@@ -114,7 +120,8 @@ public class Driver : MonoBehaviour
         {
             parlayHandler.DisableButtons(disableTime);
             sxr.SetProgramName("Sunflower");
-        }   
+        }
+        StartNextTrial();   
     }
 
     void StartDataTrackers()
@@ -238,6 +245,7 @@ public class Driver : MonoBehaviour
         Debug.Log("Starting Effort Task Trial");
         sxr.SetGamblingType(GamblingType.EffortTask.ToString());
         turnOffEnvironments();
+        effortTaskHandler.SetActiveEffortTask(true);
         effortTaskHandler.StartTutorial();
         effortTaskHandler.setBuckets(isSlot, slotHandler, parlayHandler);
         while (!effortTaskHandler.TrialCompleted)
@@ -349,5 +357,7 @@ public class Driver : MonoBehaviour
         ParlayEnvironment.SetActive(turnOff);
         Tablet.SetActive(turnOff);
         Parlay.SetActive(turnOff);
+        effortTaskHandler.SetActiveEffortTask(turnOff);
+        
     }
 }
