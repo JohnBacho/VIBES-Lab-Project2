@@ -50,7 +50,6 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
 
     public CardManager CardManager;
     public ParlayTutorial parlayTutorial;
-    public Leaderboard leaderboard;
     public Driver driver;
 
 
@@ -278,7 +277,6 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
         decimalOddsList.Clear();
         activeToggles.Clear();
         currentParlaySelections.Clear();
-        UpdateLeaderboard();
 
         BetslipUI.SetActive(false);
         ParlayUI.SetActive(true);
@@ -370,10 +368,6 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
         wallet -= amount;
         wallet = Mathf.Max(0, wallet);
         sxr.SetWallet(wallet);
-    }
-    public void UpdateLeaderboard()
-    {
-        leaderboard.SetMoney("You", wallet);
     }
 
     private void TempDisableParlaySubmit()

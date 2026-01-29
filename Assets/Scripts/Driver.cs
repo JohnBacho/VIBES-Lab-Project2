@@ -259,7 +259,6 @@ public class Driver : MonoBehaviour
         Parlay.SetActive(!isSlot);
         Tablet.SetActive(!isSlot);
         ParlayEnvironment.SetActive(!isSlot);
-        if (!isSlot) {parlayHandler.UpdateLeaderboard();}
         SetGamblingType();
         StartNextTrial();
     }
