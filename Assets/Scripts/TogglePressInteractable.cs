@@ -10,20 +10,20 @@ using System.Collections;
 [Serializable]
 public class ParlayManager
 {
-    public List<Parlay> Parlays;
+    [SerializeField] private List<Parlay> Parlays;
 }
 
 [Serializable]
 public class Parlay
 {
-    public string Team1Name;
-    public int Team1Odds;
-    public string Team2Name;
-    public int Team2Odds;
-    public string Team1WinLoss;
-    public TeamHealth Team1Health;
-    public string Team2WinLoss;
-    public TeamHealth Team2Health;
+    [SerializeField] private string Team1Name;
+    [SerializeField] private int Team1Odds;
+    [SerializeField] private string Team2Name;
+    [SerializeField] private int Team2Odds;
+    [SerializeField] private string Team1WinLoss;
+    [SerializeField] private TeamHealth Team1Health;
+    [SerializeField] private string Team2WinLoss;
+    [SerializeField] private TeamHealth Team2Health;
 }
 
 public enum TeamHealth
@@ -35,32 +35,32 @@ public enum TeamHealth
 
 public class TogglePressInteractable : MonoBehaviour
 {
-    public ParlayManager parlayManager;
+    [SerializeField] private ParlayManager parlayManager;
 
     [Header("XR Poke Toggles")]
-    public XRPokeToggleButton ToggleTeam1;
-    public XRPokeToggleButton ToggleTeam2;
-    public XRPokeToggleButton ToggleStats;
+    [SerializeField] private XRPokeToggleButton ToggleTeam1;
+    [SerializeField] private XRPokeToggleButton ToggleTeam2;
+    [SerializeField] private XRPokeToggleButton ToggleStats;
 
 
     [Header("UI Text")]
-    public TextMeshPro OddsTextTeam1;
-    public TextMeshPro OddsTextTeam2;
-    public TextMeshPro Team1Text;
-    public TextMeshPro Team2Text;
+    [SerializeField] private TextMeshPro OddsTextTeam1;
+    [SerializeField] private TextMeshPro OddsTextTeam2;
+    [SerializeField] private TextMeshPro Team1Text;
+    [SerializeField] private TextMeshPro Team2Text;
     [Header("Stats UI Text")]
-    public TextMeshPro WinLossTeam1;
-    public TextMeshPro WinLossTeam2;
-    public TextMeshPro Team1Abbr;
-    public TextMeshPro Team2Abbr;
-    public GameObject Stats;
-    public GameObject[] Team1Health = new GameObject[3];
-    public GameObject[] Team2Health = new GameObject[3];
+    [SerializeField] private TextMeshPro WinLossTeam1;
+    [SerializeField] private TextMeshPro WinLossTeam2;
+    [SerializeField] private TextMeshPro Team1Abbr;
+    [SerializeField] private TextMeshPro Team2Abbr;
+    [SerializeField] private GameObject Stats;
+    [SerializeField] private GameObject[] Team1Health = new GameObject[3];
+    [SerializeField] private GameObject[] Team2Health = new GameObject[3];
 
 
     [Header("Managers")]
-    public ParlayHandler parlayHandler;
-    public CardManager cardManager;
+    pub[SerializeField] privatelic ParlayHandler parlayHandler;
+    [SerializeField] private CardManager cardManager;
 
     private bool team1Selected = false;
     private bool team2Selected = false;

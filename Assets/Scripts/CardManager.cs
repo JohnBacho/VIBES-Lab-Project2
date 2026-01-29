@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class CardManager : MonoBehaviour
 {
-    public GameObject CardPrefab;
-    public Transform CardParent;
+    [SerializeField] private GameObject CardPrefab;
+    [SerializeField] private Transform CardParent;
     private List<GameObject> activeCards = new List<GameObject>();
     private Dictionary<TogglePressInteractable, GameObject> cardMap = new Dictionary<TogglePressInteractable, GameObject>();
     

@@ -4,8 +4,8 @@ using System.Globalization;
 
 public class GazePlotter : MonoBehaviour
 {
-    public string csvFilePath;
-    public GameObject pointPrefab;
+    [SerializeField] private string csvFilePath;
+    [SerializeField] private GameObject pointPrefab;
 
     void Start()
     {

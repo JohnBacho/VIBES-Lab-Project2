@@ -7,19 +7,19 @@ using System.Collections.Generic;
 public class BART : MonoBehaviour
 {
 
-    public Transform pumpHandle;
+    [SerializeField] private  Transform pumpHandle;
     
 
-    public Transform pumpBody;
+    [SerializeField] private  Transform pumpBody;
 
-    public GameObject[] BalloonArray;
+    [SerializeField] private GameObject[] BalloonArray;
 
-    public TextMeshPro CounterText;
+    [SerializeField] private TextMeshPro CounterText;
 
-    public float maxPumpDistance = 0.4f;
-    public float minPumpDistance = 0.2f;
-    public float pumpThreshold = 0.25f;
-    public float resetSpeed = 2f;
+    [SerializeField] private float maxPumpDistance = 0.4f;
+    [SerializeField] private float minPumpDistance = 0.2f;
+    [SerializeField] private float pumpThreshold = 0.25f;
+    [SerializeField] private float resetSpeed = 2f;
     private int pumpCount = 0;
 
     private int BlueBalloonPop = 0;
@@ -27,13 +27,13 @@ public class BART : MonoBehaviour
     private int OrangeBalloonPop = 0;
     private int arraycounter = 0;
 
-    public AudioSource pumpSound;
-    public AudioSource PopSound;
+    [SerializeField] private AudioSource pumpSound;
+    [SerializeField] private AudioSource PopSound;
 
     private GameObject Balloon;
 
     
-    public ParticleSystem airParticles;
+    [SerializeField] private ParticleSystem airParticles;
     
     private XRGrabInteractable grabInteractable;
     private Vector3 lastHandlePosition;

@@ -9,9 +9,9 @@ using System.Linq;
 [System.Serializable]
 public class ParlaySelection
 {
-    public string teamName;
-    public int odds;
-    public TogglePressInteractable toggle; 
+    [SerializeField] private string teamName;
+    [SerializeField] private int odds;
+    [SerializeField] private TogglePressInteractable toggle; 
     
     public ParlaySelection(string name, int oddsValue, TogglePressInteractable associatedToggle)
     {
@@ -24,38 +24,38 @@ public class ParlaySelection
 public class ParlayHandler : MonoBehaviour, ManageWallet
 {
     private float currentBet = 0f;
-    public TextMeshPro WagerText;
-    public TextMeshPro ToWinText;
-    public TextMeshProUGUI PlaceBetText;
-    public TextMeshPro WinText;
-    public TextMeshPro LossText;
-    public TextMeshPro ErrorMessage;
-    public TextMeshPro WalletText;
-    public TextMeshPro CashOutPayoutText;
-    public Image PlaceBetButtonImage;
-    public PokeButton PlaceBetButton;
-    public Image BetSlipButtonImage;
-    public PokeButton BetSlipButton;
-    public TextMeshProUGUI BetSlipText;
+    [SerializeField] private TextMeshPro WagerText;
+    [SerializeField] private TextMeshPro ToWinText;
+    [SerializeField] private TextMeshProUGUI PlaceBetText;
+    [SerializeField] private TextMeshPro WinText;
+    [SerializeField] private TextMeshPro LossText;
+    [SerializeField] private TextMeshPro ErrorMessage;
+    [SerializeField] private TextMeshPro WalletText;
+    [SerializeField] private TextMeshPro CashOutPayoutText;
+    [SerializeField] private Image PlaceBetButtonImage;
+    [SerializeField] private PokeButton PlaceBetButton;
+    [SerializeField] private Image BetSlipButtonImage;
+    [SerializeField] private PokeButton BetSlipButton;
+    [SerializeField] private TextMeshProUGUI BetSlipText;
 
 
-    public GameObject MiddleUI;
-    public GameObject CashOutWrapper;
-    public GameObject MiddleParlayUI;
+    [SerializeField] private GameObject MiddleUI;
+    [SerializeField] private GameObject CashOutWrapper;
+    [SerializeField] private GameObject MiddleParlayUI;
 
-    public GameObject ParlayUI;
-    public GameObject BetslipUI;
+    [SerializeField] private GameObject ParlayUI;
+    [SerializeField] private GameObject BetslipUI;
 
-    public List<TogglePressInteractable> togglePressInteractables;
+    [SerializeField] private List<TogglePressInteractable> togglePressInteractables;
 
-    public CardManager CardManager;
-    public ParlayTutorial parlayTutorial;
-    public Driver driver;
+    [SerializeField] private CardManager CardManager;
+    [SerializeField] private ParlayTutorial parlayTutorial;
+    [SerializeField] private Driver driver;
 
 
-    public bool TrialCompleted => trialCompleted;
+    [SerializeField] private bool TrialCompleted => trialCompleted;
     private bool trialCompleted = false;
-    public bool AlreadySubmitting = false;
+    [SerializeField] private bool AlreadySubmitting = false;
     private float wallet = 100f;
 
 

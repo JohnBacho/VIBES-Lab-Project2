@@ -5,10 +5,10 @@ using ViveSR.anipal.Eye;
 public class EyeTrackerManager : MonoBehaviour
 {
     [Tooltip("Auto-launch calibration when the framework is ready")]
-    public bool EyeCalibration = true;
+    [SerializeField] private bool EyeCalibration = true;
 
-    public float calibrationTimeout = 5f; // seconds
-    public bool enableRetry = true;
+    [SerializeField] private float calibrationTimeout = 5f; // seconds
+    [SerializeField] private bool enableRetry = true;
 
     void Start()
     {

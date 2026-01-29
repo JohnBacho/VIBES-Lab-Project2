@@ -4,7 +4,7 @@ public enum BallType { Red, Blue, Green }
 
 public class Ball : MonoBehaviour
 {
-    public BallType ballType; // Assign in Inspector
+    [SerializeField] private  BallType ballType; // Assign in Inspector
 
     private void Start()
     {

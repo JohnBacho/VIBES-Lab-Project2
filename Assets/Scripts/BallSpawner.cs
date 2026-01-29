@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class BallSpawner : MonoBehaviour
 {
-    public GameObject ballPrefab;
-    public Transform spawnArea;
-    public float spawnInterval = 2f;
+    [SerializeField] private  GameObject ballPrefab;
+    [SerializeField] private  Transform spawnArea;
+    [SerializeField] private  float spawnInterval = 2f;
 
-    public BallType[] ballTypes;
+    [SerializeField] private  BallType[] ballTypes;
 
-    private List<GameObject> spawnedBalls = new List<GameObject>();
+    [SerializeField] private  List<GameObject> spawnedBalls = new List<GameObject>();
 
 
     public void StopSpawning()

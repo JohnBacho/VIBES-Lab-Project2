@@ -11,12 +11,12 @@ public class PokeButton : MonoBehaviour
 
     [Header("Button Events")]
     [Tooltip("Triggered once when the button is pressed down")]
-    public UnityEvent onButtonPressed;
+    [SerializeField] private UnityEvent onButtonPressed;
     [Tooltip("Triggered when the button is released")]
-    public UnityEvent onButtonReleased;
+    [SerializeField] private UnityEvent onButtonReleased;
     private static readonly float volume = 0.2f;
     private static readonly float pitch = 2.2f;
-    public bool IsUIButton =true; 
+    [SerializeField] private bool IsUIButton =true; 
 
     void Awake()
     {

@@ -3,8 +3,8 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class XRPokeSmoothScale : MonoBehaviour
 {
-    public float pressedScale = 0.95f;
-    public float smoothSpeed = 12f;
+    [SerializeField] private float pressedScale = 0.95f;
+    [SerializeField] private float smoothSpeed = 12f;
 
     private Vector3 startScale;
     private Vector3 targetScale;
