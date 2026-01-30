@@ -20,8 +20,8 @@ public class XRPokeToggleButton : MonoBehaviour
     private Color disabledColor = Color.grey;
 
     [Header("Toggle Events")]
-    [SerializeField] private UnityEvent onToggledOn;
-    [SerializeField] private UnityEvent onToggledOff;
+    public UnityEvent onToggledOn;
+    public UnityEvent onToggledOff;
 
     [Header("Debug")]
     [SerializeField] private bool enableDebugLog = true;

@@ -7,9 +7,9 @@ public class BetCardManager : MonoBehaviour
     [System.Serializable]
     public class BetCard
     {
-        [SerializeField] private string matchup;
-        [SerializeField] private int odds;
-        [SerializeField] private GameObject uiObject;
+        public string matchup;
+        public int odds;
+        public GameObject uiObject;
     }
 
     [SerializeField] private Transform cardParent; // Assign your main Canvas panel here

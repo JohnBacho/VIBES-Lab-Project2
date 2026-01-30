@@ -6,7 +6,7 @@ using System.Collections;
 
 public class Bucket : MonoBehaviour
 {
-    [SerializeField] private BallType bucketType;
+    public  BallType bucketType;
     [SerializeField] private TextMeshPro label;
     private Coroutine currentFade;
     private ManageWallet CurrentWalletScript;

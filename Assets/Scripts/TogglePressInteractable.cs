@@ -10,20 +10,20 @@ using System.Collections;
 [Serializable]
 public class ParlayManager
 {
-    [SerializeField] private List<Parlay> Parlays;
+    public List<Parlay> Parlays;
 }
 
 [Serializable]
 public class Parlay
 {
-    [SerializeField] private string Team1Name;
-    [SerializeField] private int Team1Odds;
-    [SerializeField] private string Team2Name;
-    [SerializeField] private int Team2Odds;
-    [SerializeField] private string Team1WinLoss;
-    [SerializeField] private TeamHealth Team1Health;
-    [SerializeField] private string Team2WinLoss;
-    [SerializeField] private TeamHealth Team2Health;
+    public string Team1Name;
+    public int Team1Odds;
+    public string Team2Name;
+    public int Team2Odds;
+    public string Team1WinLoss;
+    public TeamHealth Team1Health;
+    public string Team2WinLoss;
+    public TeamHealth Team2Health;
 }
 
 public enum TeamHealth
@@ -35,7 +35,7 @@ public enum TeamHealth
 
 public class TogglePressInteractable : MonoBehaviour
 {
-    [SerializeField] private ParlayManager parlayManager;
+    public ParlayManager parlayManager;
 
     [Header("XR Poke Toggles")]
     [SerializeField] private XRPokeToggleButton ToggleTeam1;
@@ -59,8 +59,8 @@ public class TogglePressInteractable : MonoBehaviour
 
 
     [Header("Managers")]
-    pub[SerializeField] privatelic ParlayHandler parlayHandler;
-    [SerializeField] private CardManager cardManager;
+    public ParlayHandler parlayHandler;
+    public CardManager cardManager;
 
     private bool team1Selected = false;
     private bool team2Selected = false;

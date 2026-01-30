@@ -9,9 +9,9 @@ using System.Linq;
 [System.Serializable]
 public class ParlaySelection
 {
-    [SerializeField] private string teamName;
-    [SerializeField] private int odds;
-    [SerializeField] private TogglePressInteractable toggle; 
+    public string teamName;
+    public int odds;
+    public TogglePressInteractable toggle; 
     
     public ParlaySelection(string name, int oddsValue, TogglePressInteractable associatedToggle)
     {
@@ -53,7 +53,7 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
     [SerializeField] private Driver driver;
 
 
-    [SerializeField] private bool TrialCompleted => trialCompleted;
+    public bool TrialCompleted => trialCompleted;
     private bool trialCompleted = false;
     [SerializeField] private bool AlreadySubmitting = false;
     private float wallet = 100f;

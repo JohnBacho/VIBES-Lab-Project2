@@ -29,7 +29,7 @@ public class SlotHandler : MonoBehaviour, ManageWallet
 
 
     private int[] storedOutcome;
-    [SerializeField] private bool TrialCompleted => trialCompleted;
+    public bool TrialCompleted => trialCompleted;
     private bool trialCompleted = false;
     private bool betPlaced = false;
     private static readonly float winLossVolume = 0.8f;

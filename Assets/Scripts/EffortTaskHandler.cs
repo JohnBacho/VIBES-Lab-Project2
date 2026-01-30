@@ -15,7 +15,7 @@ public class EffortTaskHandler : MonoBehaviour
     [SerializeField] private TextMeshPro WinningsText;
     [SerializeField] private float startTime = 45f;
     [SerializeField] private List<Bucket> EffortTaskBucket;
-    [SerializeField] private bool TrialCompleted => trialCompleted;
+    public bool TrialCompleted => trialCompleted;
     [SerializeField] private bool trialCompleted = false;
     private ManageWallet CurrentWalletScript;
     private float PrevWalletValue;
