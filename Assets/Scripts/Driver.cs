@@ -98,6 +98,7 @@ public class Driver : MonoBehaviour
 
     IEnumerator switchContextAfterDelay()
     {
+        sxr.SetGamblingType("Introduction");
         yield return null;
         turnOffEnvironments();
         WelcomeText.SetActive(true);
@@ -110,7 +111,8 @@ public class Driver : MonoBehaviour
         ParlayEnvironment.SetActive(!isSlotMachine);
         Tablet.SetActive(!isSlotMachine);
         Parlay.SetActive(!isSlotMachine);
-
+        SetGamblingType();
+        
         if (isSlotMachine)
         {
             slotHandler.DisableButtons(disableTime);
@@ -128,7 +130,6 @@ public class Driver : MonoBehaviour
     {
         sxr.StartRecordingCameraPos();
         sxr.StartRecordingEyeTrackerInfo();
-        SetGamblingType();
     }
 
     public void StartNextTrial()
