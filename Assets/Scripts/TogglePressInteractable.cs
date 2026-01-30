@@ -38,24 +38,24 @@ public class TogglePressInteractable : MonoBehaviour
     public ParlayManager parlayManager;
 
     [Header("XR Poke Toggles")]
-    public XRPokeToggleButton ToggleTeam1;
-    public XRPokeToggleButton ToggleTeam2;
-    public XRPokeToggleButton ToggleStats;
+    [SerializeField] private XRPokeToggleButton ToggleTeam1;
+    [SerializeField] private XRPokeToggleButton ToggleTeam2;
+    [SerializeField] private XRPokeToggleButton ToggleStats;
 
 
     [Header("UI Text")]
-    public TextMeshPro OddsTextTeam1;
-    public TextMeshPro OddsTextTeam2;
-    public TextMeshPro Team1Text;
-    public TextMeshPro Team2Text;
+    [SerializeField] private TextMeshPro OddsTextTeam1;
+    [SerializeField] private TextMeshPro OddsTextTeam2;
+    [SerializeField] private TextMeshPro Team1Text;
+    [SerializeField] private TextMeshPro Team2Text;
     [Header("Stats UI Text")]
-    public TextMeshPro WinLossTeam1;
-    public TextMeshPro WinLossTeam2;
-    public TextMeshPro Team1Abbr;
-    public TextMeshPro Team2Abbr;
-    public GameObject Stats;
-    public GameObject[] Team1Health = new GameObject[3];
-    public GameObject[] Team2Health = new GameObject[3];
+    [SerializeField] private TextMeshPro WinLossTeam1;
+    [SerializeField] private TextMeshPro WinLossTeam2;
+    [SerializeField] private TextMeshPro Team1Abbr;
+    [SerializeField] private TextMeshPro Team2Abbr;
+    [SerializeField] private GameObject Stats;
+    [SerializeField] private GameObject[] Team1Health = new GameObject[3];
+    [SerializeField] private GameObject[] Team2Health = new GameObject[3];
 
 
     [Header("Managers")]

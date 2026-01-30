@@ -8,13 +8,13 @@ using System.Linq;
 
 public class SlotHandler : MonoBehaviour, ManageWallet
 {
-    public TextMeshPro walletText;
-    public TextMeshPro betText;
-    public TextMeshPro EstimatedPayout;
-    public TextMeshPro WinText;
-    public TextMeshPro LossText;
-    public PokeButton IncreaseBetButton;
-    public PokeButton DecreaseBetButton;
+    [SerializeField] private TextMeshPro walletText;
+    [SerializeField] private TextMeshPro betText;
+    [SerializeField] private TextMeshPro EstimatedPayout;
+    [SerializeField] private TextMeshPro WinText;
+    [SerializeField] private TextMeshPro LossText;
+    [SerializeField] private PokeButton IncreaseBetButton;
+    [SerializeField] private PokeButton DecreaseBetButton;
 
     private float currentBet = 0f;
     private float multiplier;

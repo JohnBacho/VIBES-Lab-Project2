@@ -4,7 +4,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class VRButtonPress : MonoBehaviour
 {
-    public Button button; // Assign your Button in inspector
+    [SerializeField] private Button button; // Assign your Button in inspector
 
 
     private void OnTriggerEnter(Collider other)

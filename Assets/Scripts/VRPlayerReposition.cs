@@ -3,9 +3,9 @@ using System.Collections;
 
 public class VRPlayerReposition : MonoBehaviour
 {
-    public Transform xrRig;             // The parent XR Rig GameObject
-    public Transform xrCamera;          // The HMD / Main Camera
-    public Transform cameraSpawnPoint;  // The desired world-space location for the camera to end up
+    [SerializeField] private Transform xrRig;             // The parent XR Rig GameObject
+    [SerializeField] private Transform xrCamera;          // The HMD / Main Camera
+    [SerializeField] private Transform cameraSpawnPoint;  // The desired world-space location for the camera to end up
 
     private void Start()
     {

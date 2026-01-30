@@ -12,8 +12,8 @@ public class BetCardManager : MonoBehaviour
         public GameObject uiObject;
     }
 
-    public Transform cardParent; // Assign your main Canvas panel here
-    public TMP_FontAsset font;   // Optional: assign a TMP font in the inspector
+    [SerializeField] private Transform cardParent; // Assign your main Canvas panel here
+    [SerializeField] private TMP_FontAsset font;   // Optional: assign a TMP font in the inspector
 
     private List<BetCard> activeBets = new List<BetCard>();
 

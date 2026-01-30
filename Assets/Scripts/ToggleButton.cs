@@ -14,9 +14,9 @@ public class XRPokeToggleButton : MonoBehaviour
     private float lastInteractionTime = -999f;
 
     [Header("Visuals")]
-    public Image targetImage;
-    public Color normalColor = Color.white;
-    public Color toggledColor = Color.green;
+    [SerializeField] private Image targetImage;
+    [SerializeField] private Color normalColor = Color.white;
+    [SerializeField] private Color toggledColor = Color.green;
     private Color disabledColor = Color.grey;
 
     [Header("Toggle Events")]
@@ -24,7 +24,7 @@ public class XRPokeToggleButton : MonoBehaviour
     public UnityEvent onToggledOff;
 
     [Header("Debug")]
-    public bool enableDebugLog = true;
+    [SerializeField] private bool enableDebugLog = true;
 
     private static readonly float volume = 0.2f;
     private static readonly float pitch = 2.2f;

@@ -3,9 +3,9 @@ using UnityEngine;
 public class BouncingArrow : MonoBehaviour
 {
     [Header("Bounce Settings")]
-    public float bounceHeight = 0.02f;
-    public float bounceSpeed = 2f;
-    public bool bounceHorizontally = false;
+    [SerializeField] private float bounceHeight = 0.02f;
+    [SerializeField] private float bounceSpeed = 2f;
+    [SerializeField] private bool bounceHorizontally = false;
 
     private Vector3 baseLocalPosition;
 

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SlotTutorial : MonoBehaviour
 {
-    public GameObject IncreaseBetTutorial;
-    public GameObject GrabHandleTutorial;
+    [SerializeField] private GameObject IncreaseBetTutorial;
+    [SerializeField] private GameObject GrabHandleTutorial;
 
     public void ShowIncreaseBetTutorial()
     {
