@@ -427,6 +427,37 @@ public class TogglePressInteractable : MonoBehaviour
         ToggleTeam2.EnableInteraction();
     }
 
+    public void TeachParlay()
+    {
+        ToggleTeam1.StartPulsing(Color.green);
+        ToggleTeam2.StartPulsing(Color.green);
+    }
+
+    public void StopTeachingParlay()
+    {
+        if (team1Selected)
+        {
+            ToggleTeam1.StopPulsing();
+            ToggleTeam1.SetToggledColor();
+            ToggleTeam2.StopPulsing();
+            ToggleTeam2.SetDisableColor();
+        }
+        else if (team2Selected)
+        {
+            ToggleTeam2.StopPulsing();
+            ToggleTeam2.SetToggledColor();
+            ToggleTeam1.StopPulsing();
+            ToggleTeam1.SetDisableColor();
+        }
+        else
+        {
+            ToggleTeam1.StopPulsing();
+            ToggleTeam1.SetNormalColor();
+            ToggleTeam2.StopPulsing();
+            ToggleTeam2.SetNormalColor();
+        }
+    }
+
 
 
 }

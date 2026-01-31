@@ -2,12 +2,15 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit;
+using System.Collections;
+using System.Collections.Generic;
 
 public class XRPokeToggleButton : MonoBehaviour
 {
     private XRSimpleInteractable interactable;
     private bool isToggled = false;
     private bool isInteractable = true;
+    private bool stop = false;
     
     [Header("Interaction Settings")]
     [SerializeField] private float cooldownTime = 1f;
@@ -28,6 +31,7 @@ public class XRPokeToggleButton : MonoBehaviour
 
     private static readonly float volume = 0.2f;
     private static readonly float pitch = 2.2f;
+    private Coroutine pulseCoroutine;
 
 
     void Start()
@@ -128,6 +132,42 @@ public class XRPokeToggleButton : MonoBehaviour
     public void PlayUISound()
     {
         SoundManager.SoundManager.PlaySound3D(SoundType.uiButton, transform.position, volume, pitch);
+    }
+    public void StartPulsing(Color targetColor)
+    {
+        if (pulseCoroutine != null)
+            StopCoroutine(pulseCoroutine);
+        
+        pulseCoroutine = StartCoroutine(PulseColor(targetColor));
+    }
+
+    public void StopPulsing()
+    {
+        stop = true;
+        if (pulseCoroutine != null)
+        {
+            StopCoroutine(pulseCoroutine);
+            pulseCoroutine = null;
+        }
+    }
+
+    public IEnumerator PulseColor(Color targetColor)
+    {
+        if (targetImage == null)
+            yield break;
+        
+        float t = 0f;
+        while (true)
+        {
+            if (stop)
+            {
+                yield break;
+            }
+            t += Time.deltaTime * 1.5f;
+            float lerp = Mathf.PingPong(t, 1f);
+            targetImage.color = Color.Lerp(normalColor, targetColor, lerp);
+            yield return null;
+        }
     }
 
 
