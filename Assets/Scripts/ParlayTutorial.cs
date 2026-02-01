@@ -20,7 +20,7 @@ public class ParlayTutorial : MonoBehaviour
     private bool isHandInside = false;
     private bool hasHiddenStatTutorial = false;
     private Coroutine pulseCoroutine;
-    public Material StatsMaterial;
+    [SerializeField] private Material StatsMaterial;
     private Color originalStatsColor;
 
 
@@ -170,6 +170,7 @@ public void OnControllerExit(Collider other)
 
         if (pulseCoroutine != null)
             StopCoroutine(pulseCoroutine);
+            
         StatsMaterial.color = originalStatsColor;
         ShowSelectParlayTutorial();
     }

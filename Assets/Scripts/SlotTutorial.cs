@@ -13,7 +13,7 @@ public class SlotTutorial : MonoBehaviour
     }
     public void HideIncreaseBetTutorial()
     {
-        Destroy(IncreaseBetTutorial, 0.25f);
+        IncreaseBetTutorial.SetActive(false);
     }
     public void ShowGrabHandleTutorial()
     {
@@ -21,6 +21,6 @@ public class SlotTutorial : MonoBehaviour
     }
     public void HideGrabHandleTutorial()
     {
-        Destroy(GrabHandleTutorial,0.25f);
+        GrabHandleTutorial.SetActive(false);
     }
 }
