@@ -14,6 +14,8 @@ public class ParlayTutorial : MonoBehaviour
     [SerializeField] private Color idleColor = new Color(1f, 1f, 1f, 0.2f);
     [SerializeField] private Color grabColor = Color.green;
     [SerializeField] private List<TogglePressInteractable> togglePressInteractables;
+    [SerializeField] private GameObject leftController;
+    [SerializeField] private GameObject rightController;
 
     private Renderer beaconRenderer;
     private Material beaconMaterial;
@@ -22,6 +24,17 @@ public class ParlayTutorial : MonoBehaviour
     private Coroutine pulseCoroutine;
     [SerializeField] private Material StatsMaterial;
     private Color originalStatsColor;
+
+    private enum TutorialState
+    {
+        Disabled,
+        GrabHandlePt1,
+        GrabHandlePt2,
+        Stats,
+        SelectParlay,
+        Completed
+    }
+    private TutorialState currentState = TutorialState.Disabled;
 
 
     private void Start()
@@ -42,9 +55,81 @@ public class ParlayTutorial : MonoBehaviour
         }
 
     }
+
+    private void SetTutorialState(TutorialState newState)
+    {
+        ExitState(currentState);
+        currentState = newState;
+        EnterState(currentState);
+    }
+
+    private void ExitState(TutorialState state)
+    {
+        switch (state)
+        {
+            case TutorialState.GrabHandlePt1:
+                pt1GrabHandleTutorial?.SetActive(false);
+                break;
+            case TutorialState.GrabHandlePt2:
+                pt2GrabHandleTutorial?.SetActive(false);
+                break;
+            case TutorialState.Stats:
+                StatTutorial?.SetActive(false);
+                StopPulsing();
+                StatsMaterial.color = originalStatsColor;
+                break;
+            case TutorialState.SelectParlay:
+                SelectParlayTutorial?.SetActive(false);
+                foreach (var interactable in togglePressInteractables)
+                    interactable.StopTeachingParlay();
+                break;
+        }
+    }
+
+    private void EnterState(TutorialState state)
+    {
+        switch (state)
+        {
+            case TutorialState.GrabHandlePt1:
+                pt1GrabHandleTutorial?.SetActive(true);
+                ToggleControllerColliders(true);
+                BeaconBox.SetActive(true);
+                break;
+                
+            case TutorialState.GrabHandlePt2:
+                pt2GrabHandleTutorial?.SetActive(true);
+                StartPulsing(beaconMaterial, 1f);
+                break;
+                
+            case TutorialState.Stats:
+                for(int i = 0; i < togglePressInteractables.Count; i++)
+                {
+                    togglePressInteractables[i].enableStatsButton();
+                }
+                StatTutorial?.SetActive(true);
+                ToggleControllerColliders(false);
+                BeaconBox.SetActive(false);
+                StartPulsing(StatsMaterial, 2f);
+                break;
+                
+            case TutorialState.SelectParlay:
+                for(int i = 0; i < togglePressInteractables.Count; i++)
+                {
+                    togglePressInteractables[i].ParlayTutorialEnableButtons();
+                }
+                SelectParlayTutorial?.SetActive(true);
+                foreach (var interactable in togglePressInteractables)
+                    interactable.TeachParlay();
+                break;
+                
+            case TutorialState.Completed:
+                break;
+        }
+    }
+
 public void OnControllerEnter(Collider other)
 {
-    if (!IsVRController(other))
+    if (!IsVRController(other) || TutorialState.Completed == currentState)
     {
         return;
     }
@@ -52,7 +137,7 @@ public void OnControllerEnter(Collider other)
     isHandInside = true;
     if (BeaconBox.activeSelf)
     {
-            ShowGrabHandleTutorialpt2();
+            SetTutorialState(TutorialState.GrabHandlePt2);
     }
 
     if (pulseCoroutine != null)
@@ -61,23 +146,25 @@ public void OnControllerEnter(Collider other)
     pulseCoroutine = StartCoroutine(PulseColor(grabColor, beaconMaterial, 1f));
 }
 
-public void OnControllerExit(Collider other)
-{
-    if (!IsVRController(other))
-        return;
-
-    isHandInside = false;
-    if (BeaconBox.activeSelf)
+    public void OnControllerExit(Collider other)
     {
-        ShowGrabHandleTutorialpt1();
+        if (!IsVRController(other) || TutorialState.Completed == currentState)
+        {
+            return;
+        }
+            
+        isHandInside = false;
+        if (BeaconBox.activeSelf)
+        {
+            SetTutorialState(TutorialState.GrabHandlePt1);
+        }
+
+        if (pulseCoroutine != null)
+            StopCoroutine(pulseCoroutine);
+
+        if (beaconMaterial != null)
+            beaconMaterial.color = idleColor;
     }
-
-    if (pulseCoroutine != null)
-        StopCoroutine(pulseCoroutine);
-
-    if (beaconMaterial != null)
-        beaconMaterial.color = idleColor;
-}
 
     private bool IsVRController(Collider other)
     {
@@ -88,6 +175,12 @@ public void OnControllerExit(Collider other)
         }
 
         return false;
+    }
+
+    private void StartPulsing(Material material, float speed)
+    {
+        StopPulsing();
+        pulseCoroutine = StartCoroutine(PulseColor(grabColor, material, speed));
     }
 
     private IEnumerator PulseColor(Color targetColor, Material Objectmaterial, float pulseSpeed)
@@ -108,20 +201,14 @@ public void OnControllerExit(Collider other)
         }
     }
 
-    private void ShowSelectParlayTutorial()
+
+    private void StopPulsing()
     {
-        if (hasHiddenStatTutorial)
-            return;
-
-        if (SelectParlayTutorial != null)
-            SelectParlayTutorial.SetActive(true);
-        
-        for (int i = 0; i < togglePressInteractables.Count; i++)
+        if (pulseCoroutine != null)
         {
-            togglePressInteractables[i].TeachParlay();
+            StopCoroutine(pulseCoroutine);
+            pulseCoroutine = null;
         }
-
-        hasHiddenStatTutorial = true;
     }
 
     public void HideSelectParlayTutorial()
@@ -133,52 +220,32 @@ public void OnControllerExit(Collider other)
         {
             togglePressInteractables[i].StopTeachingParlay();
         }
-    }
-
-    private void ShowGrabHandleTutorialpt2()
-    {
-        if (pt1GrabHandleTutorial != null)
-            pt1GrabHandleTutorial.SetActive(false);
-        if (pt2GrabHandleTutorial != null)
-            pt2GrabHandleTutorial.SetActive(true);
+        SetTutorialState(TutorialState.Completed);
     }
 
     public void HideGrabHandleTutorial()
     {
-        if (pt2GrabHandleTutorial != null)
-            pt2GrabHandleTutorial.SetActive(false);
-
-        BeaconBox.SetActive(false);
-        ShowStatTutorial();
-    }
-
-    private void ShowStatTutorial()
-    {
-        if (StatTutorial != null)
-            StatTutorial.SetActive(true);
-        
-        if (pulseCoroutine != null)
-            StopCoroutine(pulseCoroutine);
-
-        pulseCoroutine = StartCoroutine(PulseColor(grabColor, StatsMaterial, 2f));
+        SetTutorialState(TutorialState.Stats);
     }
 
     public void HideStatTutorial()
     {
-        if (StatTutorial != null)
-            StatTutorial.SetActive(false);
-
-        if (pulseCoroutine != null)
-            StopCoroutine(pulseCoroutine);
-            
-        StatsMaterial.color = originalStatsColor;
-        ShowSelectParlayTutorial();
+        SetTutorialState(TutorialState.SelectParlay);
     }
-    private void ShowGrabHandleTutorialpt1()
+
+    public void StartTutorial()
     {
-        if (pt1GrabHandleTutorial != null)
-            pt1GrabHandleTutorial.SetActive(true);
-        if (pt2GrabHandleTutorial != null)  
-            pt2GrabHandleTutorial.SetActive(false);
+        SetTutorialState(TutorialState.GrabHandlePt1);
+    }
+
+    private void ToggleControllerColliders(bool enable)
+    {
+        leftController.GetComponent<Collider>().enabled = enable;
+        rightController.GetComponent<Collider>().enabled = enable;
+    }
+
+    public void turnOffTutorials()
+    {
+        SetTutorialState(TutorialState.Completed);
     }
 }

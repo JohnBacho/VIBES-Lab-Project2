@@ -67,6 +67,7 @@ public class TogglePressInteractable : MonoBehaviour
     private int teamIndex;
     private Color TextColorNormal = new Color32(0x1F, 0x37, 0x5B, 0xFF);
     private bool isResetting = false;
+    private bool tutorialFlag = false;
 
 
 
@@ -217,6 +218,11 @@ public class TogglePressInteractable : MonoBehaviour
         isResetting = false;
 
         UpdateUI();
+
+        if(!tutorialFlag)
+        {
+           ParlayTutorialDisableButtons();
+        }
     }
 
 
@@ -253,7 +259,6 @@ public class TogglePressInteractable : MonoBehaviour
         }
         else
         {
-            // Both toggles off
             if (ToggleTeam1 != null) ToggleTeam1.SetNormalColor();
             if (ToggleTeam2 != null) ToggleTeam2.SetNormalColor();
         }
@@ -425,6 +430,26 @@ public class TogglePressInteractable : MonoBehaviour
         yield return new WaitForSeconds(disableTime);
         ToggleTeam1.EnableInteraction();
         ToggleTeam2.EnableInteraction();
+    }
+
+    private void ParlayTutorialDisableButtons()
+    {   
+        ToggleTeam1.SetDisableColor();
+        ToggleTeam2.SetDisableColor();
+        ToggleStats.DisableInteraction();
+        tutorialFlag = true;
+    }
+
+    public void ParlayTutorialEnableButtons() // called by tutorial manager
+    {
+        ToggleTeam1.EnableInteraction();
+        ToggleTeam2.EnableInteraction();
+        ToggleStats.EnableInteraction();
+    }
+
+    public void enableStatsButton()
+    {
+        ToggleStats.EnableInteraction();
     }
 
     public void TeachParlay()
