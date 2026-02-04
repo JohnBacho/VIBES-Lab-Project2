@@ -192,7 +192,6 @@ public class SlotHandler : MonoBehaviour, ManageWallet
         if (wallet < increaseAmount) return;
         if(sxr.GetTrial() == FirstTrial)
         {
-            SlotTutorial.HideIncreaseBetTutorial();
             SlotTutorial.ShowGrabHandleTutorial();
         }
         handle.EnableGrab();

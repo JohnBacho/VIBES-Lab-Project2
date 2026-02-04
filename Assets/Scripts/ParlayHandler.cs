@@ -213,6 +213,7 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
             togglePressInteractables[i].ResetToggle();
             togglePressInteractables[i].UpdateUI();
         }
+
     }
 
     private IEnumerator ResolveBet(List<bool> LegWins)
@@ -295,7 +296,6 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
     public void ViewBetslip()
     {
         ParlayUI.SetActive(false);
-        parlayTutorial.HideSelectParlayTutorial();
         BetslipUI.SetActive(true);
         MiddleUI.SetActive(true);
         UpdateUI();
@@ -468,6 +468,11 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
     public float GetWallet()
     {
         return wallet;
+    }
+
+    public void RunTutorial()
+    {
+        parlayTutorial.StartTutorial();
     }
 
 }

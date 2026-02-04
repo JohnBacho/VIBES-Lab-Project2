@@ -120,7 +120,6 @@ public class Driver : MonoBehaviour
         } 
         else
         {
-            parlayHandler.DisableButtons(disableTime);
             sxr.SetProgramName("Sunflower");
         }
         StartNextTrial();   
@@ -178,6 +177,10 @@ public class Driver : MonoBehaviour
             if(sxr.GetTrial() != 0)
             {
                 parlayHandler.DisableButtons(disableButtonBaseline);
+            }
+            else
+            {
+                parlayHandler.RunTutorial();   
             }
             
             if(currentparlayTrial.outcome == OutcomeType.EffortTask)
