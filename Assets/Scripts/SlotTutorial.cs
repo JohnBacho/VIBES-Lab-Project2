@@ -7,20 +7,62 @@ public class SlotTutorial : MonoBehaviour
     [SerializeField] private GameObject IncreaseBetTutorial;
     [SerializeField] private GameObject GrabHandleTutorial;
 
-    public void ShowIncreaseBetTutorial()
+    private enum TutorialState
     {
-        IncreaseBetTutorial.SetActive(true);
+        Disabled,
+        IncreaseBetTutorial,
+        GrabHandleTutorial,
+        Completed
     }
-    public void HideIncreaseBetTutorial()
+    private TutorialState currentState = TutorialState.IncreaseBetTutorial;
+
+
+
+
+    private void SetTutorialState(TutorialState newState)
     {
-        IncreaseBetTutorial.SetActive(false);
+        ExitState(currentState);
+        currentState = newState;
+        EnterState(currentState);
     }
+
+        private void ExitState(TutorialState state)
+    {
+        switch (state)
+        {
+            case TutorialState.IncreaseBetTutorial:
+                IncreaseBetTutorial?.SetActive(false);
+                break;
+            case TutorialState.GrabHandleTutorial:
+                GrabHandleTutorial?.SetActive(false);
+                break;
+            case TutorialState.Completed:
+                break;
+        }
+    }
+
+    private void EnterState(TutorialState state)
+    {
+        switch (state)
+        {
+            case TutorialState.IncreaseBetTutorial:
+                IncreaseBetTutorial?.SetActive(true);
+                break;
+                
+            case TutorialState.GrabHandleTutorial:
+                GrabHandleTutorial?.SetActive(true);
+                break;
+            case TutorialState.Completed:
+                break;
+        }
+    }
+
     public void ShowGrabHandleTutorial()
     {
-        GrabHandleTutorial.SetActive(true);
+        SetTutorialState(TutorialState.GrabHandleTutorial);
     }
     public void HideGrabHandleTutorial()
     {
-        GrabHandleTutorial.SetActive(false);
+        SetTutorialState(TutorialState.Completed);
     }
 }
