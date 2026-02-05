@@ -53,6 +53,8 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
     [SerializeField] private Driver driver;
 
 
+    public bool TrialSubmitting => trialSubmitting;
+    private bool trialSubmitting = false;
     public bool TrialCompleted => trialCompleted;
     private bool trialCompleted = false;
     [SerializeField] private bool AlreadySubmitting = false;
@@ -182,7 +184,8 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
     {
         if(currentBet == 0f || AlreadySubmitting)
             return;
-        AlreadySubmitting = true;    
+        AlreadySubmitting = true;
+        trialSubmitting = true;
         StartCoroutine(Submit());
     }
 
@@ -269,6 +272,7 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
     public void Reset()
     {
         StartNewTrial();
+        trialSubmitting = false;
         const int restvalue = 0;
         currentBet = restvalue;
         sxr.SetBetAmount(restvalue);

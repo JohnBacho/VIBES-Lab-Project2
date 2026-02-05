@@ -1,5 +1,3 @@
-//TODO Add gaze collider to record objects in focus
-
 using System;
 using System.Linq;
 using System.Collections.Generic;
@@ -35,11 +33,13 @@ namespace sxr_internal
         
         private List<float> TempPupilStorage = new List<float>();
         private List<float> TempBaselinePupilStorage = new List<float>();
+        private List<float> EventBaselinePupilStorage = new List<float>();
         private float rightPupilSize = 0;
         private float leftPupilSize = 0;
         private float baseline = 0f;
         private bool baselineValid = false;
         private bool baselineInProgress = false;
+        private bool captureEventBaseline = false;
 
         public void WriteEyeTrackerHeader() {
         ExperimentHandler.Instance.WriteHeaderToTaggedFile("eyetracker",
@@ -48,7 +48,7 @@ namespace sxr_internal
             "leftEyePositionY,leftEyePositionZ,rightEyePositionX,rightEyePositionY,rightEyePositionZ," +
             "leftEyeRotationX,leftEyeRotationY,leftEyeRotationZ,rightEyeRotationX,rightEyeRotationY," +
             "rightEyeRotationZ,leftEyePupilSize,rightEyePupilSize,baselineLeftEyePupil,baselineRightEyePupil,combinedEyePupilSize,leftEyeOpenAmount,rightEyeOpenAmount," +
-            "GazeHitPointX,GazeHitPointY,GazeHitPointZ,GameObjectInFocus,TrialAveragePupilSize,TrialBaselineCorrectedPupilSize");
+            "GazeHitPointX,GazeHitPointY,GazeHitPointZ,GameObjectInFocus,TrialAveragePupilSize,TrialBaselineCorrectedPupilSize,EventBaselineCorrectedPupilSize");
 
             headerPrinted=true;}
         
@@ -219,6 +219,10 @@ namespace sxr_internal
 
             float corrected = value - baseline;
             TempBaselinePupilStorage.Add(corrected);
+
+            if(captureEventBaseline){
+                EventBaselinePupilStorage.Add(corrected);
+            }
             return corrected;
         }
 
@@ -235,6 +239,10 @@ namespace sxr_internal
 
             float corrected = value - baseline;
             TempBaselinePupilStorage.Add(corrected);
+
+            if(captureEventBaseline){
+                EventBaselinePupilStorage.Add(corrected);
+            }
             return corrected;
         }
 
@@ -279,8 +287,9 @@ namespace sxr_internal
 
                     TempPupilStorage.Clear();
                     TempBaselinePupilStorage.Clear();
-                }
-                else{
+                    EventBaselinePupilStorage.Clear();
+                    captureEventBaseline = false;
+                } else if(!baselineValid || EventBaselinePupilStorage.Count ==0){
                     toWrite += ExperimentHandler.Instance.timeStepToWriteInfo() 
                             + GetFullGazeInfo() 
                             + CheckFocusedObject() 
@@ -289,6 +298,19 @@ namespace sxr_internal
 
                     TempPupilStorage.Clear();
                     TempBaselinePupilStorage.Clear();
+                    EventBaselinePupilStorage.Clear();
+                    captureEventBaseline = false;
+                } else{
+                    toWrite += ExperimentHandler.Instance.timeStepToWriteInfo() 
+                            + GetFullGazeInfo() 
+                            + CheckFocusedObject() 
+                            + "," + TempPupilStorage.Average() + "," + TempBaselinePupilStorage.Average() + "," + EventBaselinePupilStorage.Average()
+                            + "\n";
+
+                    TempPupilStorage.Clear();
+                    TempBaselinePupilStorage.Clear();
+                    EventBaselinePupilStorage.Clear();
+                    captureEventBaseline = false;
                 }
             }
         }
@@ -319,6 +341,10 @@ namespace sxr_internal
             baselineInProgress = false;
             TempPupilStorage.Clear();
             TempBaselinePupilStorage.Clear();
+        }
+
+        public void SetCaptureEventBaseline(){
+            captureEventBaseline = true;
         }
 
         private void OnApplicationQuit(){

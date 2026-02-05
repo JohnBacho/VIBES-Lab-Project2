@@ -30,7 +30,9 @@ public class SlotHandler : MonoBehaviour, ManageWallet
 
     private int[] storedOutcome;
     public bool TrialCompleted => trialCompleted;
+    public bool TrialSubmitting => trialSubmitting;
     private bool trialCompleted = false;
+    private bool trialSubmitting = false;
     private bool betPlaced = false;
     private static readonly float winLossVolume = 0.8f;
     private static readonly float winPitch = 1.2f;
@@ -64,6 +66,7 @@ public class SlotHandler : MonoBehaviour, ManageWallet
         {
             SlotTutorial.HideGrabHandleTutorial();
         }
+        trialSubmitting = true;
         IncreaseBetButton.DisableButton();
         DecreaseBetButton.DisableButton();
 
@@ -126,6 +129,7 @@ public class SlotHandler : MonoBehaviour, ManageWallet
     public void Reset()
     {
         StartNewTrial();
+        trialSubmitting = false;
         handle.ResetHandle();
         WinText.text = "";
         LossText.text = "";

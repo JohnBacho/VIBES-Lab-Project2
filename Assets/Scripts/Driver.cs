@@ -207,6 +207,12 @@ public class Driver : MonoBehaviour
         slotHandler.SetOutcome(outcomeRow);
         slotHandler.SetMultiplier(multiplier);
 
+        while (!slotHandler.TrialSubmitting)
+        {
+            yield return null;
+        }
+        gazeHandler.SetCaptureEventBaseline();
+
         while (!slotHandler.TrialCompleted)
         {
             yield return null;
@@ -299,6 +305,14 @@ public class Driver : MonoBehaviour
         Debug.Log($"Starting trial {sxr.GetTrial()} with outcome: {outcome}");
 
         parlayHandler.UpdateOddsText();
+
+        while (!parlayHandler.TrialSubmitting)
+        {
+            yield return null;
+        }
+        gazeHandler.SetCaptureEventBaseline();
+
+
         while (!parlayHandler.TrialCompleted)
         {
             yield return null;
