@@ -139,7 +139,6 @@ public class Driver : MonoBehaviour
         {
             if(sxr.GetPhase() >= lastPhase)
             {
-                Debug.Log("All trials complete. Ending program.");
                 turnOffEnvironments();
                 endProgramScript.StartProgramEnding();
                 return;
@@ -150,7 +149,6 @@ public class Driver : MonoBehaviour
             }
             return;
         }
-        Debug.Log($"Starting Trial {sxr.GetTrial()}");
         if (SlotMachine.activeSelf)
         {
             currentSlotTrial = slotTrials[sxr.GetTrial()];
@@ -162,12 +160,12 @@ public class Driver : MonoBehaviour
 
             if(currentSlotTrial.outcome == OutcomeType.EffortTask)
             {
-                Debug.Log("Running Effort Task Trial");
                 StartCoroutine(RunEffortTaskTrial());
                 return;
             }
             else
             {
+                handleBankruptcy();
                 StartCoroutine(RunSlotTrial(currentSlotTrial.outcome, currentSlotTrial.slotRow, currentSlotTrial.multiplier));
             }
         }
@@ -185,12 +183,12 @@ public class Driver : MonoBehaviour
             
             if(currentparlayTrial.outcome == OutcomeType.EffortTask)
             {
-                Debug.Log("Running Effort Task Trial");
                 StartCoroutine(RunEffortTaskTrial());
                 return;
             }
             else
             {
+                handleBankruptcy();
                 StartCoroutine(RunParlayTrial(currentparlayTrial.outcome));                
             }
         }
@@ -375,6 +373,37 @@ public class Driver : MonoBehaviour
         Tablet.SetActive(turnOff);
         Parlay.SetActive(turnOff);
         effortTaskHandler.SetActiveEffortTask(turnOff);
+    }
+
+    private float getwallet()
+    {
+        if (SlotMachine.activeSelf)
+        {
+            return slotHandler.GetWallet();
+        }
+        else if (Parlay.activeSelf)
+        {
+            return parlayHandler.GetWallet();
+        }
+        else
+        {
+            return 1f;
+        }
+    }
+
+    private void handleBankruptcy()
+    {
+        float wallet = getwallet();
         
+        if (wallet >= 0.5) return;
+        
+        if (sxr.GetPhase() >= lastPhase)
+        {
+            turnOffEnvironments();
+            endProgramScript.StartProgramEnding();
+            return;
+        }
+
+        StartCoroutine(SwitchGamblingType());
     }
 }

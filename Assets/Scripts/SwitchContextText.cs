@@ -21,7 +21,7 @@ public class SwitchContextText : MonoBehaviour
             "<b>Gambling Task #1 Completed</b>\n\n"+ 
             "The next task is <b>separate and independent</b>.\n\n" +
             "Any money from the previous task <b>will not carry over</b>.\n\n" +
-            "Wallet reset to <b>$100</b>.";
+            "Wallet reset to <b>$25</b>.";
         yield return new WaitForSeconds(3f);
         yield return new WaitUntil(() => sxr.GetTrigger());
         PressTriggerGraphic.SetActive(false);

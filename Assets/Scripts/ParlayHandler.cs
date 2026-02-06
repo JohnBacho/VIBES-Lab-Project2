@@ -315,6 +315,14 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
     public void IncreaseParlayBet()
     {
         const float increaseAmount = 1f;
+        if ((wallet > 0f && wallet < increaseAmount) && !AlreadySubmitting)
+        {
+            currentBet += wallet;
+            RemoveWallet(wallet);
+            UpdateUI();
+            return;
+        }
+
         if (wallet < increaseAmount || AlreadySubmitting) return;
 
         currentBet += increaseAmount;

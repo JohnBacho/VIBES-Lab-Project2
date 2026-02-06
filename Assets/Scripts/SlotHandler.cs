@@ -193,6 +193,15 @@ public class SlotHandler : MonoBehaviour, ManageWallet
     {
         const float increaseAmount = 1f;
         SoundManager.SoundManager.PlaySound3D(SoundType.increaseButtonSound, IncreaseBetButton.transform.position, buttonVolume, increasePitch);
+        if(wallet > 0f && wallet < increaseAmount)
+        {
+            handle.EnableGrab();
+            currentBet += wallet;
+            RemoveWallet(wallet);
+            betPlaced = true;
+            UpdateUI();
+            return;
+        }
         if (wallet < increaseAmount) return;
         if(sxr.GetTrial() == FirstTrial)
         {
