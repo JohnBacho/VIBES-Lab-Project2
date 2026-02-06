@@ -6747,9 +6747,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b>Gambling Task #1 Completed</b>\\n\\n\" \rThe next task is <b>separate
-    and independent</b>.\\n\\n\" +\rAny money from the previous task <b>will not
-    carry over</b>.\\n\\n\" +\rWallet reset to <b>$100</b>.\";"
+  m_text: "<b>Gambling Task #1 Completed</b>\\n \r\nThe next task is <b>separate
+    and independent</b>.\\n\r\nAny money from the previous task <b>will not carry
+    over</b>.\\n\r\nWallet reset to <b>$25</b>."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

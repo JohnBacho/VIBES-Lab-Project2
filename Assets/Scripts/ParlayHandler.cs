@@ -58,7 +58,7 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
     public bool TrialCompleted => trialCompleted;
     private bool trialCompleted = false;
     [SerializeField] private bool AlreadySubmitting = false;
-    private float wallet = 100f;
+    private float wallet = 25f;
 
 
     private static float seconds = 4.5f;

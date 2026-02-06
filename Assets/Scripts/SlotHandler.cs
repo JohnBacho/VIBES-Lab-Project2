@@ -18,7 +18,7 @@ public class SlotHandler : MonoBehaviour, ManageWallet
 
     private float currentBet = 0f;
     private float multiplier;
-    private float wallet = 100f;
+    private float wallet = 25f;
     private const float FirstTrial= 0f;
     private const float ReelSpinDuration = 1f;
 
