@@ -19,8 +19,6 @@ public class ParlayTutorial : MonoBehaviour
 
     private Renderer beaconRenderer;
     private Material beaconMaterial;
-    private bool isHandInside = false;
-    private bool hasHiddenStatTutorial = false;
     private Coroutine pulseCoroutine;
     [SerializeField] private Material StatsMaterial;
     private Color originalStatsColor;
@@ -134,7 +132,6 @@ public void OnControllerEnter(Collider other)
         return;
     }
 
-    isHandInside = true;
     if (BeaconBox.activeSelf)
     {
             SetTutorialState(TutorialState.GrabHandlePt2);
@@ -153,7 +150,6 @@ public void OnControllerEnter(Collider other)
             return;
         }
             
-        isHandInside = false;
         if (BeaconBox.activeSelf)
         {
             SetTutorialState(TutorialState.GrabHandlePt1);

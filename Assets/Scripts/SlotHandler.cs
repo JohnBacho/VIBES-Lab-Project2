@@ -18,7 +18,7 @@ public class SlotHandler : MonoBehaviour, ManageWallet
 
     private float currentBet = 0f;
     private float multiplier;
-    private float wallet = 100f;
+    private float wallet = 25f;
     private const float FirstTrial= 0f;
     private const float ReelSpinDuration = 1f;
 
@@ -40,6 +40,7 @@ public class SlotHandler : MonoBehaviour, ManageWallet
     private static readonly float buttonVolume = 0.5f;
     private static readonly float increasePitch = 3f;
     private static readonly float decreasePitch = 1.5f;
+    private static readonly float WaitTimeAfterReelsStop = 1.5f;
     private void Awake()
     {
         UpdateUI();
@@ -84,7 +85,7 @@ public class SlotHandler : MonoBehaviour, ManageWallet
             reels[i].StopSpin(storedOutcome[i]);
         }
 
-        yield return new WaitForSeconds(ReelSpinDuration);
+        yield return new WaitForSeconds(WaitTimeAfterReelsStop);
 
         StartCoroutine(ResolveOutcome());
     }
@@ -193,6 +194,15 @@ public class SlotHandler : MonoBehaviour, ManageWallet
     {
         const float increaseAmount = 1f;
         SoundManager.SoundManager.PlaySound3D(SoundType.increaseButtonSound, IncreaseBetButton.transform.position, buttonVolume, increasePitch);
+        if(wallet > 0f && wallet < increaseAmount)
+        {
+            handle.EnableGrab();
+            currentBet += wallet;
+            RemoveWallet(wallet);
+            betPlaced = true;
+            UpdateUI();
+            return;
+        }
         if (wallet < increaseAmount) return;
         if(sxr.GetTrial() == FirstTrial)
         {

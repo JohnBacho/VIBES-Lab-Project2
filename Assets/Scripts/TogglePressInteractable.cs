@@ -41,6 +41,8 @@ public class TogglePressInteractable : MonoBehaviour
     [SerializeField] private XRPokeToggleButton ToggleTeam1;
     [SerializeField] private XRPokeToggleButton ToggleTeam2;
     [SerializeField] private XRPokeToggleButton ToggleStats;
+    [SerializeField] private Pulse pulse;
+
 
 
     [Header("UI Text")]
@@ -349,55 +351,40 @@ public class TogglePressInteractable : MonoBehaviour
     }
 
     private static readonly Dictionary<string, string> TeamAbbreviations =
-        new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+    new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
     {
-        // AFC North
-        { "Browns", "CLE" },
-        { "Ravens", "BAL" },
-        { "Steelers", "PIT" },
-        { "Bengals", "CIN" },
+        { "Team A", "A" },
+        { "Team B", "B" },
+        { "Team C", "C" },
+        { "Team D", "D" },
+  
+        { "Team E", "E" },
+        { "Team F", "F" },
+        { "Team G", "G" },
+        { "Team H", "H" },
 
-        // AFC East
-        { "Jets", "NYJ" },
-        { "Patriots", "NE" },
-        { "Dolphins", "MIA" },
-        { "Bills", "BUF" },
-
-        // AFC West
-        { "Chiefs", "KC" },
-        { "Raiders", "LV" },
-        { "Broncos", "DEN" },
-        { "Chargers", "LAC" },
+        { "Team I", "I" },
+        { "Team J", "J" },
+        { "Team K", "K" },
+        { "Team L", "L" },
         
-        // AFC South
-        { "Texans", "HOU" },
-        { "Titans", "TEN" },
-        { "Colts", "IND" },
-        { "Jaguars", "JAX" },
+        { "Team M", "M" },
+        { "Team N", "N" },
+        { "Team O", "O" },
+        { "Team P", "P" },
 
-        // NFC North
-        { "Packers", "GB" },
-        { "Bears", "CHI" },
-        { "Vikings", "MIN" },
-        { "Lions", "DET" },
+        { "Team Q", "Q" },
+        { "Team R", "R" },
+        { "Team S", "S" },
+        { "Team T", "T" },
 
-        // NFC East
-        { "Cowboys", "DAL" },
-        { "Giants", "NYG" },
-        { "Eagles", "PHI" },
-        { "Commanders", "WAS" },
+        { "Team U", "U" },
+        { "Team V", "V" },
+        { "Team W", "W" },
+        { "Team X", "X" },
 
-        // NFC South
-        { "Saints", "NO" },
-        { "Falcons", "ATL" },
-        { "Buccaneers", "TB" },
-        { "Panthers", "CAR" },
-
-        // NFC West
-        { "49ers", "SF" },
-        { "Seahawks", "SEA" },
-        { "Rams", "LAR" },
-        { "Cardinals", "ARI" },
+        { "Team Y", "Y" },
+        { "Team Z", "Z" },
     };
 
 
@@ -481,6 +468,7 @@ public class TogglePressInteractable : MonoBehaviour
             ToggleTeam2.StopPulsing();
             ToggleTeam2.SetNormalColor();
         }
+        pulse.Setactive(true);
     }
 
 

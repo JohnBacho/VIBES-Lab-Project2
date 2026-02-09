@@ -58,7 +58,7 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
     public bool TrialCompleted => trialCompleted;
     private bool trialCompleted = false;
     [SerializeField] private bool AlreadySubmitting = false;
-    private float wallet = 100f;
+    private float wallet = 25f;
 
 
     private static float seconds = 4.5f;
@@ -222,10 +222,6 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
     private IEnumerator ResolveBet(List<bool> LegWins)
     {
         float Payout = 0f;
-        if(LegWins.Count(b => b) != decimalOddsList.Count && decimalOddsList.Count != LegWins.Count(b => b)+1)
-        {
-            LegWins = dynamicLoss(LegWins);
-        }
         CardManager.AnimateCardsColor(LegWins);
 
         yield return new WaitForSeconds(seconds);
@@ -315,6 +311,14 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
     public void IncreaseParlayBet()
     {
         const float increaseAmount = 1f;
+        if ((wallet > 0f && wallet < increaseAmount) && !AlreadySubmitting)
+        {
+            currentBet += wallet;
+            RemoveWallet(wallet);
+            UpdateUI();
+            return;
+        }
+
         if (wallet < increaseAmount || AlreadySubmitting) return;
 
         currentBet += increaseAmount;
@@ -409,64 +413,6 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
                 togglePressInteractables[i].OnStatsDeselected();
             }
         }
-    }
-    private List<bool> dynamicLoss(List<bool> legWins)
-    {    
-        int targetWins = legWins.Count(b => b);
-        List<bool> newLegWins = new List<bool>();
-        for (int i = 0; i < decimalOddsList.Count; i++)
-        {
-            float probability = 1f / decimalOddsList[i];
-            newLegWins.Add(Random.value < probability ? true : false);
-        }
-        
-        int currentWins = newLegWins.Count(b => b);
-
-        if (currentWins > targetWins)
-        {
-            int toFlip = currentWins - targetWins;
-            List<int> winIndices = new List<int>();
-            
-            for (int i = 0; i < newLegWins.Count; i++)
-            {
-                if (newLegWins[i])
-                    winIndices.Add(i);
-            }
-
-            
-            for (int i = 0; i < toFlip; i++)
-            {
-                int randomIndex = Random.Range(i, winIndices.Count);
-                int temp = winIndices[i];
-                winIndices[i] = winIndices[randomIndex];
-                winIndices[randomIndex] = temp;
-                
-                newLegWins[winIndices[i]] = false;
-            }
-        }
-        else if (currentWins < targetWins)
-        {
-            int toFlip = targetWins - currentWins;
-            List<int> lossIndices = new List<int>();
-            
-            for (int i = 0; i < newLegWins.Count; i++)
-            {
-                if (!newLegWins[i])
-                    lossIndices.Add(i);
-            }
-            
-            for (int i = 0; i < toFlip; i++)
-            {
-                int randomIndex = Random.Range(i, lossIndices.Count);
-                int temp = lossIndices[i];
-                lossIndices[i] = lossIndices[randomIndex];
-                lossIndices[randomIndex] = temp;
-                
-                newLegWins[lossIndices[i]] = true;
-            }
-        }
-        
-        return newLegWins;
     }
 
     public float GetWallet()

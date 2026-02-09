@@ -995,6 +995,7 @@ MonoBehaviour:
   ToggleTeam1: {fileID: 863198638175931656}
   ToggleTeam2: {fileID: 9189695549809179684}
   ToggleStats: {fileID: 3969873026296404928}
+  pulse: {fileID: 0}
   OddsTextTeam1: {fileID: 1489273485001641907}
   OddsTextTeam2: {fileID: 2345777593869495405}
   Team1Text: {fileID: 2599154306477484966}
@@ -2000,6 +2001,7 @@ GameObject:
   - component: {fileID: 7189272768413240589}
   - component: {fileID: 2201817491846662485}
   - component: {fileID: 686115692302478599}
+  - component: {fileID: 6401966175910554367}
   m_Layer: 0
   m_Name: StatArrow
   m_TagString: Untagged
@@ -2266,7 +2268,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.8931434, y: 2.22, z: 0}
+  m_Size: {x: 1.8931434, y: 2.22, z: 0.3}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &686115692302478599
 MonoBehaviour:
@@ -2280,6 +2282,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6408470677a58af4c80cc54160094762, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6401966175910554367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2921712049722336000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4db75c251b21fde4dbacfa6884107d46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statsMaterial: {fileID: 2100000, guid: e2c0fb96dedf0b8448bec255b1597c69, type: 2}
+  idleColor: {r: 0.2901961, g: 0.5647059, b: 0.8862745, a: 1}
+  pulseColor: {r: 0.47058824, g: 0.6862745, b: 0.92156863, a: 1}
+  pulseSpeed: 1.5
 --- !u!1 &3671824184165873367
 GameObject:
   m_ObjectHideFlags: 0

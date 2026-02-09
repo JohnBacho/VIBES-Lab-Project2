@@ -11,6 +11,7 @@ public class Bucket : MonoBehaviour
     private Coroutine currentFade;
     private ManageWallet CurrentWalletScript;
     private bool isEnabled = false;
+    private const float moneyPerBall = 0.5f;
 
     private void OnDisable() {
      isEnabled = false;   
@@ -36,8 +37,8 @@ public class Bucket : MonoBehaviour
 
             if (ball.ballType == bucketType)
             {
-                CurrentWalletScript.AddWallet(1);
-                ShowText("+1", Color.green, 1f);
+                CurrentWalletScript.AddWallet(moneyPerBall);
+                ShowText("+$0.50", Color.green, 1f);
                 SoundManager.SoundManager.PlaySound3D(
                     SoundType.minigamePointSound,
                     transform.position,
@@ -48,8 +49,8 @@ public class Bucket : MonoBehaviour
             }
             else
             {
-                CurrentWalletScript.RemoveWallet(1);
-                ShowText("-1", Color.red, 1f);
+                CurrentWalletScript.RemoveWallet(moneyPerBall);
+                ShowText("-$0.50", Color.red, 1f);
                 SoundManager.SoundManager.PlaySound3D(
                     SoundType.lossAudio,
                     transform.position,
