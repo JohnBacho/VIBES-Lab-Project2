@@ -41,6 +41,8 @@ public class TogglePressInteractable : MonoBehaviour
     [SerializeField] private XRPokeToggleButton ToggleTeam1;
     [SerializeField] private XRPokeToggleButton ToggleTeam2;
     [SerializeField] private XRPokeToggleButton ToggleStats;
+    [SerializeField] private Pulse pulse;
+
 
 
     [Header("UI Text")]
@@ -466,6 +468,7 @@ public class TogglePressInteractable : MonoBehaviour
             ToggleTeam2.StopPulsing();
             ToggleTeam2.SetNormalColor();
         }
+        pulse.Setactive(true);
     }
 
 

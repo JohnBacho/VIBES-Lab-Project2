@@ -4863,11 +4863,6 @@ BoxCollider:
   m_CorrespondingSourceObject: {fileID: 352553593980715739, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
   m_PrefabInstance: {fileID: 1407798124}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &380699741 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2394359142439270583, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-  m_PrefabInstance: {fileID: 519132817}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &381112163
 GameObject:
   m_ObjectHideFlags: 0
@@ -6009,6 +6004,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1508427135}
     - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: pulse
+      value: 
+      objectReference: {fileID: 456774588}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       propertyPath: betManager
       value: 
       objectReference: {fileID: 1970160409}
@@ -6520,6 +6519,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NFLParlay5
       objectReference: {fileID: 0}
+    - target: {fileID: 3717993447594544104, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e2c0fb96dedf0b8448bec255b1597c69, type: 2}
     - target: {fileID: 4940491026361209296, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       propertyPath: m_Colliders.Array.size
       value: 1
@@ -6660,6 +6663,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
   m_PrefabInstance: {fileID: 456774586}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &456774588 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6401966175910554367, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+  m_PrefabInstance: {fileID: 456774586}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4db75c251b21fde4dbacfa6884107d46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &456774589 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
@@ -6733,7 +6747,7 @@ MonoBehaviour:
   - {fileID: 456774589}
   leftController: {fileID: 1147037592}
   rightController: {fileID: 872732122}
-  StatsMaterial: {fileID: 2100000, guid: adc7acef0eadd1f419561e7ca1df452a, type: 2}
+  StatsMaterial: {fileID: 2100000, guid: e2c0fb96dedf0b8448bec255b1597c69, type: 2}
 --- !u!1 &510411506
 GameObject:
   m_ObjectHideFlags: 0
@@ -6923,6 +6937,10 @@ PrefabInstance:
       propertyPath: 'm_Colliders.Array.data[0]'
       value: 
       objectReference: {fileID: 1918430018}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: pulse
+      value: 
+      objectReference: {fileID: 519132819}
     - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       propertyPath: betManager
       value: 
@@ -7443,6 +7461,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NFLParlay2
       objectReference: {fileID: 0}
+    - target: {fileID: 3717993447594544104, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e2c0fb96dedf0b8448bec255b1597c69, type: 2}
     - target: {fileID: 4940491026361209296, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       propertyPath: m_Colliders.Array.size
       value: 1
@@ -7583,6 +7605,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
   m_PrefabInstance: {fileID: 519132817}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &519132819 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6401966175910554367, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+  m_PrefabInstance: {fileID: 519132817}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4db75c251b21fde4dbacfa6884107d46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &519132820 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
@@ -8586,6 +8619,11 @@ GameObject:
 BoxCollider:
   m_CorrespondingSourceObject: {fileID: 5703365846532672661, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
   m_PrefabInstance: {fileID: 1979377702}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &645094778 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2743084953555887491, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+  m_PrefabInstance: {fileID: 519132817}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &655699595
 GameObject:
@@ -10771,7 +10809,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.8018434, y: -0.75863457}
+  m_AnchoredPosition: {x: -1.802, y: -0.83}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &863533263
@@ -15913,6 +15951,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 380049659}
     - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: pulse
+      value: 
+      objectReference: {fileID: 1407798126}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       propertyPath: betManager
       value: 
       objectReference: {fileID: 1970160409}
@@ -16436,6 +16478,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NFLParlay4
       objectReference: {fileID: 0}
+    - target: {fileID: 3717993447594544104, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e2c0fb96dedf0b8448bec255b1597c69, type: 2}
     - target: {fileID: 4940491026361209296, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       propertyPath: m_Colliders.Array.size
       value: 1
@@ -16576,6 +16622,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
   m_PrefabInstance: {fileID: 1407798124}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1407798126 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6401966175910554367, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+  m_PrefabInstance: {fileID: 1407798124}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4db75c251b21fde4dbacfa6884107d46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1407881798
 GameObject:
   m_ObjectHideFlags: 0
@@ -21616,11 +21673,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1962603580014079182, guid: 74f3b8c7046d93445b1be3f209791fc9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.1388433
+      value: -2.1388
       objectReference: {fileID: 0}
     - target: {fileID: 1962603580014079182, guid: 74f3b8c7046d93445b1be3f209791fc9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.85173494
+      value: -0.8037
       objectReference: {fileID: 0}
     - target: {fileID: 1962603580014079182, guid: 74f3b8c7046d93445b1be3f209791fc9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -21724,7 +21781,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8c9349a0bc26bf47b53fbbae7c2ed09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPoint: {fileID: 380699741}
+  targetPoint: {fileID: 645094778}
   speed: 0.2
 --- !u!1 &1967075276
 GameObject:
@@ -22141,7 +22198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc04ca3376ea74d4bbbeeab8509b4917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gamblingTypeFirst: 0
+  gamblingTypeFirst: 1
   slotTrials:
   - outcome: 1
     multiplier: 2
@@ -22447,6 +22504,10 @@ PrefabInstance:
       propertyPath: 'm_Colliders.Array.data[0]'
       value: 
       objectReference: {fileID: 2005930216}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: pulse
+      value: 
+      objectReference: {fileID: 1979377704}
     - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       propertyPath: betManager
       value: 
@@ -22971,6 +23032,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NFLParlay3
       objectReference: {fileID: 0}
+    - target: {fileID: 3717993447594544104, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e2c0fb96dedf0b8448bec255b1597c69, type: 2}
     - target: {fileID: 4940491026361209296, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       propertyPath: m_Colliders.Array.size
       value: 1
@@ -23111,6 +23176,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
   m_PrefabInstance: {fileID: 1979377702}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1979377704 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6401966175910554367, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+  m_PrefabInstance: {fileID: 1979377702}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4db75c251b21fde4dbacfa6884107d46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1979377705 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
@@ -24356,6 +24432,10 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: pulse
+      value: 
+      objectReference: {fileID: 4017253441074552462}
+    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       propertyPath: cardManager
       value: 
       objectReference: {fileID: 1273218879}
@@ -24871,6 +24951,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NFLParlay1
       objectReference: {fileID: 0}
+    - target: {fileID: 3717993447594544104, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e2c0fb96dedf0b8448bec255b1597c69, type: 2}
     - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -25026,6 +25110,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+--- !u!114 &4017253441074552462 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6401966175910554367, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+  m_PrefabInstance: {fileID: 4017253441074552461}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4db75c251b21fde4dbacfa6884107d46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5211782599629783203
 GameObject:
   m_ObjectHideFlags: 0
