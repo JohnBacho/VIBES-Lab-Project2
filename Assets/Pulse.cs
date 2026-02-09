@@ -5,7 +5,7 @@ public class Pulse : MonoBehaviour
 {
     [SerializeField] private Material statsMaterial;
     [SerializeField] private Color idleColor = new Color32(74, 144, 226, 255);
-    [SerializeField] private Color pulseColor = new Color32(140, 180, 245, 255);
+    [SerializeField] private Color pulseColor = new Color32(150, 190, 255, 255);
     [SerializeField] private float pulseSpeed = 1.5f;
 
     private Coroutine pulseRoutine;
