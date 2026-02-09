@@ -800,7 +800,10 @@ MonoBehaviour:
     Each task is <b>independent</b> and will be explained before
     it begins.\n
 
-    Your performance in one task <b>does not affect</b> the other.'
+    Your performance in one task <b>does not affect</b> the other.\n
+
+    Wallet
+    set to <b>$25</b>.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -11944,7 +11947,7 @@ Transform:
   m_GameObject: {fileID: 1049163302}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.23399997, y: 1.5533257, z: 0.014792055}
+  m_LocalPosition: {x: 0.23399997, y: 1.661, z: 0.014792055}
   m_LocalScale: {x: 1.7409163, y: 2.0510476, z: -0.011771}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12373,7 +12376,7 @@ Transform:
   m_GameObject: {fileID: 1121958443}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: -0.7484564, y: 0.042258628, z: 3.8229537}
+  m_LocalPosition: {x: -0.7484564, y: -0.023, z: 3.8229537}
   m_LocalScale: {x: 0.14862524, y: 0.06531952, z: -32.093384}
   m_ConstrainProportionsScale: 0
   m_Children:

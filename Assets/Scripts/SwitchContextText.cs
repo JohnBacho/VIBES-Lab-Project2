@@ -53,7 +53,7 @@ public class SwitchContextText : MonoBehaviour
 
     private IEnumerator SwitchingToSlotCoroutine()
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 2; i++)
         {
             ContextSwitchText.text = "Switching to Slot!\nLoading";
             yield return new WaitForSeconds(TextTime);
