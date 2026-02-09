@@ -40,6 +40,7 @@ public class SlotHandler : MonoBehaviour, ManageWallet
     private static readonly float buttonVolume = 0.5f;
     private static readonly float increasePitch = 3f;
     private static readonly float decreasePitch = 1.5f;
+    private static readonly float WaitTimeAfterReelsStop = 1.5f;
     private void Awake()
     {
         UpdateUI();
@@ -84,7 +85,7 @@ public class SlotHandler : MonoBehaviour, ManageWallet
             reels[i].StopSpin(storedOutcome[i]);
         }
 
-        yield return new WaitForSeconds(ReelSpinDuration);
+        yield return new WaitForSeconds(WaitTimeAfterReelsStop);
 
         StartCoroutine(ResolveOutcome());
     }
