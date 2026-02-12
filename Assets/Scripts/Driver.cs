@@ -71,7 +71,7 @@ public class Driver : MonoBehaviour
     const float slotTrialDuration = 30f;
     const float parlayTrialDuration = 105f;
     const int lastTrialIndex = 16;
-    const int lastPhase = 2; 
+    const int lastPhase = 1; 
     const float disableTime = 0.5f;
     const float disableButtonBaseline = 1f;
     private ParlayTrialData currentparlayTrial;
