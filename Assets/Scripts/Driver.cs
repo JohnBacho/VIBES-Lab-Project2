@@ -261,7 +261,7 @@ public class Driver : MonoBehaviour
             yield return null;
         }
         AdvanceTrialCounter();
-
+        sxr.SetBallsThrown(0);
         SlotMachine.SetActive(isSlot);
         SlotMachineEnvironment.SetActive(isSlot);
         Parlay.SetActive(!isSlot);

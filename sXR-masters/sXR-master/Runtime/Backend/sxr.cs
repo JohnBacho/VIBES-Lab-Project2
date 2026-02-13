@@ -318,6 +318,8 @@ public static class sxr
     public static string GetProgramName(){ return ExperimentHandler.Instance.ProgramName; }
     public static float GetTotalOdds(){ return ExperimentHandler.Instance.TotalOdds; }
     public static int GetTotalLegs(){ return ExperimentHandler.Instance.TotalLegs; }
+    public static void IncrementBallsThrown(){ ExperimentHandler.Instance.BallsThrown = ExperimentHandler.Instance.BallsThrown + 1; }
+
 
 
 
@@ -375,7 +377,7 @@ public static class sxr
     public static void SetProgramName(String ProgramName) { ExperimentHandler.Instance.ProgramName = ProgramName; }
     public static void SetTotalOdds(float TotalOdds) { ExperimentHandler.Instance.TotalOdds = TotalOdds; }
     public static void SetTotalLegs(int TotalLegs) { ExperimentHandler.Instance.TotalLegs = TotalLegs; }
-
+    public static void SetBallsThrown(int BallsThrown) { ExperimentHandler.Instance.BallsThrown = BallsThrown; }
     /// <summary>
     /// Starts a timer with the provided name. Will return "true" and the timer will be
     /// deleted if CheckTimer() is used. If no name is provided, uses the default trial
