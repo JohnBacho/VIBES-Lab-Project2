@@ -7,6 +7,7 @@ public class BallSpawner : MonoBehaviour
     public GameObject ballPrefab;
     public Transform spawnArea;
     public float spawnInterval = 2f;
+    private int index = 0;
 
     public BallType[] ballTypes;
 
@@ -45,7 +46,9 @@ public class BallSpawner : MonoBehaviour
         spawnedBalls.Add(newBall);
 
         Ball ballScript = newBall.GetComponent<Ball>();
-        ballScript.ballType = ballTypes[Random.Range(0, ballTypes.Length)];
+
+        ballScript.ballType = ballTypes[index];
+        index = (index + 1) % ballTypes.Length;
     }
 
     public void DestroyAllBalls()

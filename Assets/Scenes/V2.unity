@@ -209,7 +209,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Select 3 or more parlays
+  m_text: 'Select 3 or
+
+    more parlays'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
   m_sharedMaterial: {fileID: -5539102107483663143, guid: c32c5ba536bc05a41a41dd2c2929ee4a, type: 2}
@@ -272,7 +274,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -5.1382446, y: -9.091987, z: -4.6796875, w: 3.9738302}
+  m_margin: {x: -46.52305, y: -9.091987, z: -34.108818, w: 3.9738302}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1454,7 +1456,7 @@ Transform:
   m_GameObject: {fileID: 70412466}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.24249026, z: -0, w: 0.97015387}
-  m_LocalPosition: {x: -23.447624, y: -22.941496, z: -56.709606}
+  m_LocalPosition: {x: -23.447624, y: -41.9, z: -56.709606}
   m_LocalScale: {x: 74.01924, y: 74.01924, z: 74.01924}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6560,7 +6562,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 160.00003
+      value: 172.4
       objectReference: {fileID: 0}
     - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       propertyPath: m_SizeDelta.y
@@ -6743,7 +6745,7 @@ MonoBehaviour:
   idleColor: {r: 1, g: 1, b: 1, a: 0.2}
   grabColor: {r: 0, g: 1, b: 0, a: 1}
   togglePressInteractables:
-  - {fileID: 6016413935099199384}
+  - {fileID: 2578109838701248075}
   - {fileID: 519132820}
   - {fileID: 1979377705}
   - {fileID: 2054964938}
@@ -7502,7 +7504,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 160.00003
+      value: 172.4
       objectReference: {fileID: 0}
     - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       propertyPath: m_SizeDelta.y
@@ -8173,17 +8175,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &569010656 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8566523910619737954, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-  m_PrefabInstance: {fileID: 4017253441074552461}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6408470677a58af4c80cc54160094762, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &569503320
 GameObject:
   m_ObjectHideFlags: 0
@@ -11726,7 +11717,7 @@ Transform:
   m_LocalScale: {x: 74.01398, y: 74.01397, z: 74.01399}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 720330929481125718}
+  - {fileID: 8738936611792031365}
   - {fileID: 519132818}
   - {fileID: 1979377703}
   - {fileID: 1407798125}
@@ -14266,17 +14257,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1311378622}
   m_CullTransparentMesh: 1
---- !u!114 &1315979013 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6346901768526260453, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-  m_PrefabInstance: {fileID: 4017253441074552461}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6408470677a58af4c80cc54160094762, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1323040613
 GameObject:
   m_ObjectHideFlags: 0
@@ -16519,7 +16499,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 160.00003
+      value: 172.4
       objectReference: {fileID: 0}
     - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       propertyPath: m_SizeDelta.y
@@ -22180,7 +22160,7 @@ MonoBehaviour:
   ParlayUI: {fileID: 361872594}
   BetslipUI: {fileID: 1518183433}
   togglePressInteractables:
-  - {fileID: 6016413935099199384}
+  - {fileID: 2578109838701248075}
   - {fileID: 519132820}
   - {fileID: 1979377705}
   - {fileID: 2054964938}
@@ -23073,7 +23053,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 160.00003
+      value: 172.4
       objectReference: {fileID: 0}
     - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       propertyPath: m_SizeDelta.y
@@ -24349,11 +24329,6 @@ Transform:
   - {fileID: 759466698}
   m_Father: {fileID: 900306890}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
---- !u!224 &720330929481125718 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-  m_PrefabInstance: {fileID: 4017253441074552461}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2131265443654856741
 GameObject:
   m_ObjectHideFlags: 0
@@ -24371,34 +24346,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3732719014956490475
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+--- !u!114 &2578109838701248075 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+  m_PrefabInstance: {fileID: 2815312701009557333}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5211782599629783203}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 0.7071068, z: -0, w: 0}
-  m_LocalPosition: {x: -0.019135714, y: 0.012321711, z: -0.22071928}
-  m_LocalScale: {x: 0.60044307, y: 0.49908406, z: 0.49908414}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 8803655227906138752}
-  - {fileID: 790892529}
-  - {fileID: 462436331}
-  - {fileID: 1553727754}
-  m_Father: {fileID: 699143}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &3736589639201940154
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8708650087545350815}
-  m_Mesh: {fileID: -8744539333144989828, guid: 7bae15a77f75b124d8c58b66493ca5c6, type: 3}
---- !u!1001 &4017253441074552461
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1f208133cefafd4f81fa50cbf347b71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &2815312701009557333
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -24406,38 +24365,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1009569751}
     m_Modifications:
-    - target: {fileID: 863198638175931656, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: onToggledOff.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 863198638175931656, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: onToggledOff.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 863198638175931656, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: onToggledOff.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 569010656}
-    - target: {fileID: 863198638175931656, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: onToggledOff.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 863198638175931656, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: onToggledOff.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: HapticUntoggle
-      objectReference: {fileID: 0}
-    - target: {fileID: 863198638175931656, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: onToggledOff.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: HapticsManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 863198638175931656, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: onToggledOff.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: pulse
-      value: 
-      objectReference: {fileID: 4017253441074552462}
     - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       propertyPath: cardManager
       value: 
@@ -24446,518 +24373,42 @@ PrefabInstance:
       propertyPath: parlayHandler
       value: 
       objectReference: {fileID: 1970160409}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.size
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[0].Team1Name
-      value: Team A
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[0].Team1Odds
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[0].Team2Name
-      value: Team B
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[0].Team2Odds
-      value: -170
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[1].Team1Name
-      value: Team K
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[1].Team1Odds
-      value: -150
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[1].Team2Name
-      value: Team L
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[1].Team2Odds
-      value: 130
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[2].Team1Name
-      value: Team U
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[2].Team1Odds
-      value: 160
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[2].Team2Name
-      value: Team V
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[2].Team2Odds
-      value: -180
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[3].Team1Name
-      value: Team E
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[3].Team1Odds
-      value: -150
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[3].Team2Name
-      value: Team F
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[3].Team2Odds
-      value: 130
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[4].Team1Name
-      value: Team O
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[4].Team1Odds
-      value: -140
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[4].Team2Name
-      value: Team P
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[4].Team2Odds
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[5].Team1Name
-      value: Team Y
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[5].Team1Odds
-      value: 140
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[5].Team2Name
-      value: Team Z
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[5].Team2Odds
-      value: -160
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[6].Team1Name
-      value: Effort
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[6].Team1Odds
-      value: 1144213
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[6].Team2Name
-      value: Team J
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[7].Team1Name
-      value: Team S
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[7].Team1Odds
-      value: -160
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[7].Team2Name
-      value: Team T
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[7].Team2Odds
-      value: 140
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[8].Team1Name
-      value: Team C
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[8].Team1Odds
-      value: -150
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[8].Team2Name
-      value: Team D
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[8].Team2Odds
-      value: 130
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[9].Team1Name
-      value: Team M
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[9].Team1Odds
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[9].Team2Name
-      value: Team N
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[9].Team2Odds
-      value: -170
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[10].Team1Name
-      value: Team W
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[10].Team1Odds
-      value: -150
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[10].Team2Name
-      value: Team X
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[10].Team2Odds
-      value: 130
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[11].Team1Name
-      value: Team G
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[11].Team1Odds
-      value: -160
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[11].Team2Name
-      value: Team H
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[11].Team2Odds
-      value: 140
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[12].Team1Name
-      value: Team Q
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[12].Team1Odds
-      value: 140
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[12].Team2Name
-      value: Team R
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[12].Team2Odds
-      value: -160
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[13].Team1Name
-      value: Team A
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[13].Team1Odds
-      value: -140
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[13].Team2Name
-      value: Team B
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[13].Team2Odds
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[14].Team1Name
-      value: Team K
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[14].Team1Odds
-      value: -150
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[14].Team2Name
-      value: Team L
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[14].Team2Odds
-      value: 130
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[15].Team1Name
-      value: Team U
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[15].Team1Odds
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[15].Team2Name
-      value: Team V
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[15].Team2Odds
-      value: -170
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[0].Team1Health
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[0].Team2Health
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[1].Team1Health
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[2].Team2Health
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[3].Team1Health
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[3].Team2Health
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[4].Team1Health
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[4].Team2Health
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[5].Team1Health
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[5].Team2Health
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[6].Team1Health
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[6].Team2Health
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[7].Team1Health
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[7].Team2Health
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[8].Team1Health
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[8].Team2Health
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[9].Team1Health
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[9].Team2Health
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[0].Team1WinLoss
-      value: LLWLL
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[0].Team2WinLoss
-      value: WWLWW
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[10].Team1Health
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[10].Team2Health
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[11].Team1Health
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[11].Team2Health
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[12].Team1Health
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[12].Team2Health
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[13].Team1Health
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[13].Team2Health
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[14].Team1Health
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[14].Team2Health
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[15].Team1Health
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[15].Team2Health
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[1].Team1WinLoss
-      value: WWLWW
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[1].Team2WinLoss
-      value: LWLWL
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[2].Team1WinLoss
-      value: LLWLL
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[2].Team2WinLoss
-      value: WLWWW
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[3].Team1WinLoss
-      value: WWWLW
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[3].Team2WinLoss
-      value: LWLWL
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[4].Team1WinLoss
-      value: WLWWW
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[4].Team2WinLoss
-      value: LLWLL
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[5].Team1WinLoss
-      value: LLWLL
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[5].Team2WinLoss
-      value: WWWLW
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[6].Team1WinLoss
-      value: WWLWW
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[6].Team2WinLoss
-      value: LLLWL
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[7].Team1WinLoss
-      value: WWWLW
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[7].Team2WinLoss
-      value: LLWLL
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[8].Team1WinLoss
-      value: WLWWW
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[8].Team2WinLoss
-      value: LWLWL
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[9].Team1WinLoss
-      value: LLWLL
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[9].Team2WinLoss
-      value: WLWWW
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[10].Team1WinLoss
-      value: WWWLW
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[10].Team2WinLoss
-      value: LWLWL
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[11].Team1WinLoss
-      value: WWWLW
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[11].Team2WinLoss
-      value: LWLWL
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[12].Team1WinLoss
-      value: LLWLL
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[12].Team2WinLoss
-      value: WWWLW
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[13].Team1WinLoss
-      value: WWWLW
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[13].Team2WinLoss
-      value: LWLWL
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[14].Team1WinLoss
-      value: WLWWW
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[14].Team2WinLoss
-      value: LWLWL
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[15].Team1WinLoss
-      value: LLWLL
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: parlayManager.Parlays.Array.data[15].Team2WinLoss
-      value: WLWWW
-      objectReference: {fileID: 0}
     - target: {fileID: 1936011731812208240, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       propertyPath: m_Name
       value: NFLParlay1
       objectReference: {fileID: 0}
-    - target: {fileID: 3717993447594544104, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: e2c0fb96dedf0b8448bec255b1597c69, type: 2}
+    - target: {fileID: 2027424249759050454, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 2027424249759050454, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2027424249759050454, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2201817491846662485, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5175049
+      objectReference: {fileID: 0}
+    - target: {fileID: 2201817491846662485, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_Size.z
+      value: 0.21664476
+      objectReference: {fileID: 0}
+    - target: {fileID: 2201817491846662485, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_Center.x
+      value: -0.00000006632322
+      objectReference: {fileID: 0}
+    - target: {fileID: 2201817491846662485, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_Center.y
+      value: -0.18996477
+      objectReference: {fileID: 0}
+    - target: {fileID: 2201817491846662485, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+      propertyPath: m_Center.z
+      value: 0.04167793
+      objectReference: {fileID: 0}
     - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -24984,7 +24435,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 160.00003
+      value: 172.4
       objectReference: {fileID: 0}
     - target: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
       propertyPath: m_SizeDelta.y
@@ -25038,34 +24489,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9189695549809179684, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: onToggledOff.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9189695549809179684, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: onToggledOff.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9189695549809179684, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: onToggledOff.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1315979013}
-    - target: {fileID: 9189695549809179684, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: onToggledOff.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9189695549809179684, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: onToggledOff.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: HapticUntoggle
-      objectReference: {fileID: 0}
-    - target: {fileID: 9189695549809179684, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: onToggledOff.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: HapticsManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 9189695549809179684, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-      propertyPath: onToggledOff.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25113,17 +24536,33 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
---- !u!114 &4017253441074552462 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6401966175910554367, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-  m_PrefabInstance: {fileID: 4017253441074552461}
+--- !u!4 &3732719014956490475
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4db75c251b21fde4dbacfa6884107d46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_GameObject: {fileID: 5211782599629783203}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7071068, y: 0.7071068, z: -0, w: 0}
+  m_LocalPosition: {x: -0.019135714, y: 0.012321711, z: -0.22071928}
+  m_LocalScale: {x: 0.60044307, y: 0.49908406, z: 0.49908414}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8803655227906138752}
+  - {fileID: 790892529}
+  - {fileID: 462436331}
+  - {fileID: 1553727754}
+  m_Father: {fileID: 699143}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &3736589639201940154
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8708650087545350815}
+  m_Mesh: {fileID: -8744539333144989828, guid: 7bae15a77f75b124d8c58b66493ca5c6, type: 3}
 --- !u!1 &5211782599629783203
 GameObject:
   m_ObjectHideFlags: 0
@@ -25169,17 +24608,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5211782599629783203}
   m_Mesh: {fileID: -2432090755550338912, guid: 63db769718ce41442b872930ebb679db, type: 3}
---- !u!114 &6016413935099199384 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1443244823695646918, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
-  m_PrefabInstance: {fileID: 4017253441074552461}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1f208133cefafd4f81fa50cbf347b71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &6314304488671380585
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25719,6 +25147,11 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -8744539333144989828, guid: 7bae15a77f75b124d8c58b66493ca5c6, type: 3}
+--- !u!224 &8738936611792031365 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5658445501930131464, guid: 3ba706085ad75244c9daa08cbd4cc68e, type: 3}
+  m_PrefabInstance: {fileID: 2815312701009557333}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8803655227906138752
 Transform:
   m_ObjectHideFlags: 0

@@ -102,7 +102,7 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
         {
             BetSlipButton.DisableButton();
             BetSlipButtonImage.color = DisabledColor;
-            BetSlipText.text = $"Select 3 or more parlays";
+            BetSlipText.text = $"Select 3 or\nmore parlays";
 
             if(!hasCompletedStatsTutorial && sxr.GetTrial() == 0)
             {
