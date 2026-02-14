@@ -7,7 +7,7 @@ public class DetectBallMovement : MonoBehaviour
     private Rigidbody rb;
     public bool HasMoved { get; private set; } = false;
     [SerializeField] private float movementThreshold = 0.2f;
-    [SerializeField] private GameObject Controller;
+    [SerializeField] private GameObject Wrapper;
     
     void Start()
     {
@@ -20,10 +20,9 @@ public class DetectBallMovement : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, lastPosition) > movementThreshold && !HasMoved)
         {
-            Debug.Log("Object moved");
             rb.constraints = RigidbodyConstraints.None;
             HasMoved = true;
-            Controller.SetActive(false);
+            Wrapper.SetActive(false);
         }
     }
     
@@ -31,6 +30,6 @@ public class DetectBallMovement : MonoBehaviour
     {
         HasMoved = false;
         lastPosition = transform.position;
-        Controller.SetActive(true);
+        Wrapper.SetActive(true);
     }
 }
