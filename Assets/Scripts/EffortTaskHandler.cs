@@ -15,10 +15,13 @@ public class EffortTaskHandler : MonoBehaviour
     [SerializeField] private TextMeshPro WinningsText;
     [SerializeField] private float startTime = 45f;
     [SerializeField] private List<Bucket> EffortTaskBucket;
+    [SerializeField] private DetectBallMovement detectBallMovement;
     public bool TrialCompleted => trialCompleted;
     [SerializeField] private bool trialCompleted = false;
+    [SerializeField] private TextMeshPro TutorialTextGreenBasket;
     private ManageWallet CurrentWalletScript;
     private float PrevWalletValue;
+    [SerializeField] private Vector3 ballStartPosition;
 
 
     private float currentTime;
@@ -30,16 +33,30 @@ public class EffortTaskHandler : MonoBehaviour
         CurrentWalletScript = null;
         EffortTask.SetActive(true);
         EffortTaskTutorial.SetActive(true);
-        StartCoroutine(InstructionSteps());
+        startInstructions();
     }
 
-    private IEnumerator InstructionSteps()
+    private void startInstructions()
     {
-        yield return null;
-        yield return new WaitUntil(() => sxr.GetTrigger());
-        EffortTaskTutorial.SetActive(false);  
-        yield return null;
-        StartCountdown();
+        StartCoroutine(WaitforBallMovement());
+    }
+
+    private IEnumerator WaitforBallMovement()
+    {
+        
+        yield return new WaitUntil(() => detectBallMovement.HasMoved);
+        TutorialTextGreenBasket.text = "Throw the ball into\nthe green basket";
+    }
+
+    public void WaitforBasketScore()
+    {
+        TutorialTextGreenBasket.text = "";
+    }
+
+    private void wrongBasket()
+    {
+        TutorialTextGreenBasket.text = "Try again!";        
+        StartCoroutine(WaitforBallMovement());
     }
 
     private void StartCountdown()
@@ -122,6 +139,27 @@ public class EffortTaskHandler : MonoBehaviour
     public bool GetActive()
     {
         return EffortTask.activeSelf;
+    }
+
+    public void ResetBallPosition(GameObject ball)
+    {        
+        ball.transform.position = ballStartPosition;
+        
+        Rigidbody rb = ball.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+        }
+        
+        DetectBallMovement detectMovement = ball.GetComponent<DetectBallMovement>();
+        if (detectMovement != null)
+        {
+            detectMovement.ResetMovement();
+        }
+
+        wrongBasket();
     }
     
 }
