@@ -5,6 +5,7 @@ public enum BallType { Red, Blue, Green }
 public class Ball : MonoBehaviour
 {
     public BallType ballType; // Assign in Inspector
+    [SerializeField] private bool isTutorialBall = false;
     private Rigidbody rb;
     private bool hasCounted = false;
 
@@ -36,7 +37,7 @@ public class Ball : MonoBehaviour
 
     private void Update() {
     {
-        if (!hasCounted &&  new Vector3(rb.velocity.x, 0, rb.velocity.z).magnitude > 1f)
+        if (!isTutorialBall && !hasCounted &&  new Vector3(rb.velocity.x, 0, rb.velocity.z).magnitude > 1f)
         {
             hasCounted = true;
             sxr.IncrementBallsThrown();

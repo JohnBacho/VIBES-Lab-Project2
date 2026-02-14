@@ -11,7 +11,9 @@ public class Bucket : MonoBehaviour
     private Coroutine currentFade;
     private ManageWallet CurrentWalletScript;
     private bool isEnabled = false;
-    private const float moneyPerBall = 0.5f;
+    [SerializeField] private float moneyPerBall = 0.5f;
+    [SerializeField] private bool isTutorial = false;
+    [SerializeField] private EffortTaskHandler EffortTaskHandler;
 
     private void OnDisable() {
      isEnabled = false;   
@@ -37,7 +39,6 @@ public class Bucket : MonoBehaviour
 
             if (ball.ballType == bucketType)
             {
-                CurrentWalletScript.AddWallet(moneyPerBall);
                 ShowText("+$0.50", Color.green, 1f);
                 SoundManager.SoundManager.PlaySound3D(
                     SoundType.minigamePointSound,
@@ -45,21 +46,41 @@ public class Bucket : MonoBehaviour
                     1f,
                     1f
                 );
+                Destroy(other.gameObject);
+                if(isTutorial)
+                {
+                    EffortTaskHandler.WaitforBasketScore();
+                    return;
+                }
+                CurrentWalletScript.AddWallet(moneyPerBall);
 
             }
             else
             {
-                CurrentWalletScript.RemoveWallet(moneyPerBall);
-                ShowText("-$0.50", Color.red, 1f);
-                SoundManager.SoundManager.PlaySound3D(
-                    SoundType.lossAudio,
-                    transform.position,
-                    1f,
-                    1f
-                );
+                if(isTutorial)
+                {
+                    ShowText("-$0.50", Color.red, 1f);
+                    SoundManager.SoundManager.PlaySound3D(
+                        SoundType.lossAudio,
+                        transform.position,
+                        1f,
+                        1f
+                    );
+                    EffortTaskHandler.ResetBallPosition(other.gameObject);
+                }
+                else
+                {
+                    CurrentWalletScript.RemoveWallet(moneyPerBall);
+                    ShowText("-$0.50", Color.red, 1f);
+                    SoundManager.SoundManager.PlaySound3D(
+                        SoundType.lossAudio,
+                        transform.position,
+                        1f,
+                        1f
+                    );
+                    Destroy(other.gameObject);
+                }
             }
-
-            Destroy(other.gameObject);
         }
     }
 
