@@ -8,14 +8,16 @@ public class EffortTaskHandler : MonoBehaviour
     [SerializeField] private GameObject EffortTask;
     [SerializeField] private BallSpawner ballSpawner;
 
-    [SerializeField] private GameObject EffortTaskTutorial;
+    [SerializeField] private GameObject Practice;
+    [SerializeField] private GameObject instructionsPanel;
     [SerializeField] private GameObject Wrapper;
 
     [SerializeField] private TextMeshPro countdownText;
-    [SerializeField] private TextMeshPro intermisionText;
+    [SerializeField] private GameObject intermisionTextpt1;
+    [SerializeField] private TextMeshPro intermisionTextpt2;
 
     [SerializeField] private TextMeshPro WinningsText;
-    [SerializeField] private float startTime = 45f;
+    private const float startTime = 45f;
     [SerializeField] private List<Bucket> EffortTaskBucket;
     [SerializeField] private DetectBallMovement detectGreenBallMovement;
     [SerializeField] private DetectBallMovement detectRedBallMovement;
@@ -45,13 +47,18 @@ public class EffortTaskHandler : MonoBehaviour
         PrevWalletValue = 0;
         CurrentWalletScript = null;
         EffortTask.SetActive(true);
-        EffortTaskTutorial.SetActive(true);
-        currentTutorialState = TutorialState.WaitingForMovement;
-        startInstructions();
+
+        StartCoroutine(startInstructions());
     }
 
-    private void startInstructions()
+    private IEnumerator startInstructions()
     {
+        instructionsPanel.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        yield return new WaitUntil(() => sxr.GetTrigger());
+        instructionsPanel.SetActive(false);
+        Practice.SetActive(true);
+        currentTutorialState = TutorialState.WaitingForMovement;
         StartCoroutine(WaitforBallMovement());
     }
 
@@ -167,21 +174,24 @@ public class EffortTaskHandler : MonoBehaviour
     private void StartCountdown()
     {
         currentTime = IntermissionTime;
-        EffortTaskTutorial.SetActive(false);
+        Practice.SetActive(false);
         StartCoroutine(CountdownToEffort());
     }
     private IEnumerator CountdownToEffort()
     {
+        intermisionTextpt1.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        intermisionTextpt1.SetActive(false);
         while (currentTime > 0)
         {
             currentTime -= Time.deltaTime;
-            intermisionText.text = $"Task starts\nin {Mathf.CeilToInt(currentTime).ToString()}";
+            intermisionTextpt2.text = $"Starting in\n{Mathf.CeilToInt(currentTime).ToString()}";
             yield return null;
         }
 
-        intermisionText.text = "GO!";
-        yield return new WaitForSeconds(0.8f);
-        intermisionText.text = "";
+        intermisionTextpt2.text = "GO!";
+        yield return new WaitForSeconds(0.6f);
+        intermisionTextpt2.text = "";
         Wrapper.SetActive(true);
         ballSpawner.StartSpawning();
         currentTime = startTime;
@@ -214,7 +224,7 @@ public class EffortTaskHandler : MonoBehaviour
         yield return new WaitForSeconds(5f);
         WinningsText.text = "";
         EffortTask.SetActive(false);
-        EffortTaskTutorial.SetActive(false);
+        Practice.SetActive(false);
         MarkTrialComplete();
     }
 
