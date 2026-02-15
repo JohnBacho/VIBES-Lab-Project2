@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using sxr_internal;
+using System.Linq;
 using Unity.VisualScripting;
 
 /// <summary>
@@ -319,7 +320,32 @@ public static class sxr
     public static float GetTotalOdds(){ return ExperimentHandler.Instance.TotalOdds; }
     public static int GetTotalLegs(){ return ExperimentHandler.Instance.TotalLegs; }
     public static void IncrementBallsThrown(){ ExperimentHandler.Instance.BallsThrown = ExperimentHandler.Instance.BallsThrown + 1; }
+    public static int GetBallsThrown(){ return ExperimentHandler.Instance.BallsThrown; }
+    public static float GetAverageThrowSpeed()
+    {
+        if (ExperimentHandler.Instance == null) return 0f;
+        var speeds = ExperimentHandler.Instance.throwSpeeds;
+        return speeds.Count > 0 ? speeds.Average() : 0f;
+    }
 
+    public static void CalculateEffortScore(int BallsThrown)
+    {
+        var speeds = ExperimentHandler.Instance.throwSpeeds;
+        if(speeds.Count == 0)
+        {
+            return;
+        }
+        else
+        {
+           float Effort = BallsThrown * speeds.Average();
+           ExperimentHandler.Instance.EffortScore = Effort;
+        }
+    }
+
+    public static void ClearThrownSpeed()
+    {
+        ExperimentHandler.Instance.throwSpeeds.Clear();
+    }
 
 
 
@@ -378,6 +404,10 @@ public static class sxr
     public static void SetTotalOdds(float TotalOdds) { ExperimentHandler.Instance.TotalOdds = TotalOdds; }
     public static void SetTotalLegs(int TotalLegs) { ExperimentHandler.Instance.TotalLegs = TotalLegs; }
     public static void SetBallsThrown(int BallsThrown) { ExperimentHandler.Instance.BallsThrown = BallsThrown; }
+    public static void AddThrowSpeed(float BallSpeed) { ExperimentHandler.Instance.throwSpeeds.Add(BallSpeed); }
+    public static void SetEffortScore(float effort) {ExperimentHandler.Instance.EffortScore = effort; }
+    
+    
     /// <summary>
     /// Starts a timer with the provided name. Will return "true" and the timer will be
     /// deleted if CheckTimer() is used. If no name is provided, uses the default trial

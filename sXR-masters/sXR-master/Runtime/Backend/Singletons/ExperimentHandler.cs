@@ -2,6 +2,8 @@
 using System.IO;
 using Unity.VisualScripting;
 using UnityEngine;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace sxr_internal
 {
@@ -22,7 +24,8 @@ namespace sxr_internal
         public float TotalOdds;
         public int TotalLegs;
         public int BallsThrown = 0;
-
+        public List<float> throwSpeeds = new List<float>();
+        public float EffortScore =0;
 
         private string experimentName = "";
         private string subjectFile = "";
@@ -113,7 +116,7 @@ namespace sxr_internal
         public void WriteHeaderToTaggedFile(string tag, string headerInfo)
         {
             if (subjectFile == "") { ParseFileNames(); }
-            headerInfo = "ProgramName,Date,LocalTime,UnityTime,Phase,TrialNumber,TrialTime,Outcome,GamblingType,Bet,Payout,Wallet,BallsThrown,Total_Odds,Total_Legs,Parlay1_Team,Parlay1_Odds,Parlay2_Team,Parlay2_Odds,Parlay3_Team,Parlay3_Odds,Parlay4_Team,Parlay4_Odds,Parlay5_Team,Parlay5_Odds," + headerInfo;
+            headerInfo = "ProgramName,Date,LocalTime,UnityTime,Phase,TrialNumber,TrialTime,Outcome,GamblingType,Bet,Payout,Wallet,BallsThrown,AvgBallSpeed,EffortScore,Total_Odds,Total_Legs,Parlay1_Team,Parlay1_Odds,Parlay2_Team,Parlay2_Odds,Parlay3_Team,Parlay3_Odds,Parlay4_Team,Parlay4_Odds,Parlay5_Team,Parlay5_Odds," + headerInfo;
             fh.AppendLine(subjectFile + "_" + tag + ".csv", headerInfo);
             if (backupFile != "") fh.AppendLine(backupFile + "_" + tag + ".csv", headerInfo); }
         
@@ -126,10 +129,14 @@ namespace sxr_internal
 
         public string timeStepToWriteInfo()
         {
+                float averageSpeed = throwSpeeds.Count > 0 
+        ? throwSpeeds.Where(s => s > 0f).DefaultIfEmpty(0f).Average() 
+        : 0f;
+
             return ProgramName + "," + DateTime.Today.Month + "_" + DateTime.Today.Day + "," + DateTime.Now.Hour + "_" +
                    DateTime.Now.Minute + "_" + DateTime.Now.Second + "," + Time.time + "," + phase + "," +
                    trial + "," + trialTimer.GetTimePassed() + "," + OutcomeInTrial + "," + currentGamblingType +
-                    "," + BetAmount + "," + CurrentPayout + "," + wallet + "," + BallsThrown + "," + TotalOdds + "," + TotalLegs + ","  + ParlaySelection;
+                    "," + BetAmount + "," + CurrentPayout + "," + wallet + "," + BallsThrown + "," + averageSpeed + "," + EffortScore + "," + TotalOdds + "," + TotalLegs + ","  + ParlaySelection;
         }
 
         // Singleton initiated on Awake()

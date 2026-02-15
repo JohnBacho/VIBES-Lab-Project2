@@ -195,6 +195,7 @@ public class EffortTaskHandler : MonoBehaviour
         Wrapper.SetActive(true);
         ballSpawner.StartSpawning();
         currentTime = startTime;
+        sxr.RestartTimer();
         StartCoroutine(TimerRoutine());
     }
 
@@ -221,9 +222,9 @@ public class EffortTaskHandler : MonoBehaviour
         ballSpawner.DestroyAllBalls();
         Wrapper.SetActive(false);
         WinningsText.text = $"${CurrentWalletScript.GetWallet() - PrevWalletValue:0.00}\nAdded to\nwallet";
+        sxr.CalculateEffortScore(sxr.GetBallsThrown());
         yield return new WaitForSeconds(5f);
         WinningsText.text = "";
-        EffortTask.SetActive(false);
         Practice.SetActive(false);
         MarkTrialComplete();
     }
@@ -285,9 +286,10 @@ public class EffortTaskHandler : MonoBehaviour
         DetectBallMovement detectMovement = ball.GetComponent<DetectBallMovement>();
         if (detectMovement != null)
         {
-            detectMovement.ResetMovement();
+            detectMovement.WrongBucketResetMovement();
         }
 
         wrongBasket();
     }
+
 }
