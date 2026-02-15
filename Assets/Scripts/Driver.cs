@@ -261,7 +261,6 @@ public class Driver : MonoBehaviour
             yield return null;
         }
         AdvanceTrialCounter();
-        sxr.SetBallsThrown(0);
         SlotMachine.SetActive(isSlot);
         SlotMachineEnvironment.SetActive(isSlot);
         Parlay.SetActive(!isSlot);
@@ -356,10 +355,20 @@ public class Driver : MonoBehaviour
     private void AdvanceTrialCounter()
     {
         Debug.Log($"Trial {sxr.GetTrial()} complete");
-        if (!effortTaskHandler.GetActive())
+if ((currentparlayTrial != null && currentparlayTrial.outcome == OutcomeType.EffortTask) ||
+    (currentSlotTrial != null && currentSlotTrial.outcome == OutcomeType.EffortTask))
+        {
+            effortTaskHandler.SetActiveEffortTask(false);
+            sxr.SetEffortScore(0f);
+            sxr.ClearThrownSpeed();
+            sxr.SetBallsThrown(0);
+            playOffMusicScript.CancelOffMusic();            
+        }
+        else
         {
             playOffMusicScript.CancelOffMusic();            
         }
+
         gazeHandler.GrabPupilTrialAverage();
         sxr.NextTrial();
     }

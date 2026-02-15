@@ -41,6 +41,7 @@ public class Ball : MonoBehaviour
         {
             hasCounted = true;
             sxr.IncrementBallsThrown();
+            sxr.AddThrowSpeed(rb.velocity.magnitude);
         }
     }
     }

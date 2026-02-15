@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class DetectBallMovement : MonoBehaviour
@@ -30,6 +32,22 @@ public class DetectBallMovement : MonoBehaviour
     {
         HasMoved = false;
         lastPosition = transform.position;
-        Wrapper.SetActive(true);
+        Wrapper.SetActive(true);            
+    }
+
+    private IEnumerator DelayActive()
+    {
+        yield return new WaitForSeconds(1f);
+        if (!HasMoved)
+        {
+            Wrapper.SetActive(true);            
+        }
+    }
+
+    public void WrongBucketResetMovement()
+    {
+        HasMoved = false;
+        lastPosition = transform.position;
+        StartCoroutine(DelayActive());
     }
 }
