@@ -8,6 +8,7 @@ public class DetectBallMovement : MonoBehaviour
     private Vector3 startPosition;
     private Rigidbody rb;
     public bool HasMoved { get; private set; } = false;
+    [SerializeField] private bool enableWrapper = false;
     [SerializeField] private float movementThreshold = 0.2f;
     [SerializeField] private GameObject Wrapper;
     
@@ -32,22 +33,11 @@ public class DetectBallMovement : MonoBehaviour
     {
         HasMoved = false;
         lastPosition = transform.position;
-        Wrapper.SetActive(true);            
-    }
-
-    private IEnumerator DelayActive()
-    {
-        yield return new WaitForSeconds(1f);
-        if (!HasMoved)
-        {
-            Wrapper.SetActive(true);            
-        }
     }
 
     public void WrongBucketResetMovement()
     {
         HasMoved = false;
         lastPosition = transform.position;
-        StartCoroutine(DelayActive());
     }
 }

@@ -46,7 +46,7 @@ public class Bucket : MonoBehaviour
                     1f,
                     1f
                 );
-                Destroy(other.gameObject);
+                ball.gameObject.SetActive(false);
                 if(isTutorial)
                 {
                     EffortTaskHandler.WaitforBasketScore();
@@ -78,7 +78,7 @@ public class Bucket : MonoBehaviour
                         1f,
                         1f
                     );
-                    Destroy(other.gameObject);
+                    ball.gameObject.SetActive(false);
                 }
             }
         }
