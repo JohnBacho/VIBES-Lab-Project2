@@ -10,7 +10,7 @@ public class DetectBallMovement : MonoBehaviour
     public bool HasMoved { get; private set; } = false;
     [SerializeField] private bool enableWrapper = false;
     [SerializeField] private float movementThreshold = 0.2f;
-    [SerializeField] private GameObject Wrapper;
+    // [SerializeField] private GameObject Wrapper;
     
     void Start()
     {
@@ -25,7 +25,7 @@ public class DetectBallMovement : MonoBehaviour
         {
             rb.constraints = RigidbodyConstraints.None;
             HasMoved = true;
-            Wrapper.SetActive(false);
+            // Wrapper.SetActive(false);
         }
     }
     

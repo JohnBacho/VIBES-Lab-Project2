@@ -26,6 +26,7 @@ public class EffortTaskHandler : MonoBehaviour
     [SerializeField] private GameObject intermisionTextpt1;
     [SerializeField] private TextMeshPro intermisionTextpt2;
     [SerializeField] private TextMeshPro WinningsText;
+    [SerializeField] private GameObject GrabTutorial;
 
     private const float startTime = 45f;
     private const float IntermissionTime = 3f;
@@ -72,9 +73,14 @@ public class EffortTaskHandler : MonoBehaviour
     private IEnumerator WaitForBallMovement()
     {
         Tutorial current = tutorialTrials[currentTutorialIndex];
+        if (currentTutorialIndex == 0)
+        {
+            GrabTutorial.SetActive(true);
+        }
         yield return new WaitUntil(() => current.detectMovement.HasMoved);
         if(currentTutorialIndex == 0)
         {
+            GrabTutorial.SetActive(false);
             StartCoroutine(PracticeTimer());
         }
     }
