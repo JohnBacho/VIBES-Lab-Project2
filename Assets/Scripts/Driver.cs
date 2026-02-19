@@ -255,7 +255,7 @@ public class Driver : MonoBehaviour
         turnOffEnvironments();
         effortTaskHandler.SetActiveEffortTask(true);
         effortTaskHandler.StartTutorial();
-        effortTaskHandler.setBuckets(isSlot, slotHandler, parlayHandler);
+        effortTaskHandler.setWallet(isSlot, slotHandler, parlayHandler);
         while (!effortTaskHandler.TrialCompleted)
         {
             yield return null;

@@ -9,21 +9,28 @@ public class Tutorial
     public GameObject Ball;
 
 }
+[System.Serializable]
+public class EffortTask
+{
+    public int EasyThrowGoal;
+    public float EasyTime;
+    public int HardThrowGoal;
+    public float HardTime;
+}
 
 public class EffortTaskHandler : MonoBehaviour
 {
-    [SerializeField] private Tutorial[] tutorialTrials = new Tutorial[5];
+    [SerializeField] private Tutorial[] tutorialTrials = new Tutorial[1];
+        [SerializeField] private EffortTask[] EffortTaskTrials = new EffortTask[1];
+
     [SerializeField] private GameObject EffortTask;
-    [SerializeField] private BallSpawner ballSpawner;
 
     [SerializeField] private GameObject Practice;
     [SerializeField] private GameObject pt1InstructionsPanel;
-    [SerializeField] private GameObject pt2InstructionsPanel;
 
     [SerializeField] private GameObject Wrapper;
 
     [SerializeField] private TextMeshPro countdownText;
-    [SerializeField] private GameObject intermisionTextpt1;
     [SerializeField] private TextMeshPro intermisionTextpt2;
     [SerializeField] private TextMeshPro WinningsText;
     [SerializeField] private GameObject GrabTutorial;
@@ -31,7 +38,7 @@ public class EffortTaskHandler : MonoBehaviour
     private const float startTime = 45f;
     private const float IntermissionTime = 3f;
 
-    [SerializeField] private List<Bucket> EffortTaskBucket;
+    [SerializeField] private Bucket EffortTaskBucket;
     [SerializeField] private Vector3 ballStartPosition;
 
     public bool TrialCompleted => trialCompleted;
@@ -43,6 +50,14 @@ public class EffortTaskHandler : MonoBehaviour
     private int currentTutorialIndex = 0;
     private float PracticeTime = 10f;
     private bool PracticeComplete = false;
+    private int counter = 0;
+    private int throwGoal = 1;
+    [SerializeField] private TextMeshPro ThrowGoalText;
+    private int TrialIndexCounter = 0;
+    [SerializeField] private GameObject ChoicePanel;
+    [SerializeField] private GameObject Ball;
+    private bool isHardMode = false;
+
 
     public void StartTutorial()
     {
@@ -59,10 +74,7 @@ public class EffortTaskHandler : MonoBehaviour
         yield return new WaitForSeconds(3f);
         yield return new WaitUntil(() => sxr.GetTrigger());
         pt1InstructionsPanel.SetActive(false);
-        pt2InstructionsPanel.SetActive(true);
-        yield return new WaitForSeconds(2f);
-        yield return new WaitUntil(() => sxr.GetTrigger());
-        pt2InstructionsPanel.SetActive(false);
+
 
         Practice.SetActive(true);
 
@@ -72,7 +84,7 @@ public class EffortTaskHandler : MonoBehaviour
 
     private IEnumerator WaitForBallMovement()
     {
-        Tutorial current = tutorialTrials[currentTutorialIndex];
+        Tutorial current = tutorialTrials[0];
         if (currentTutorialIndex == 0)
         {
             GrabTutorial.SetActive(true);
@@ -103,11 +115,11 @@ public class EffortTaskHandler : MonoBehaviour
 
         if (!PracticeComplete)
         {
-            tutorialTrials[currentTutorialIndex].Ball.SetActive(false);
+            tutorialTrials[0].Ball.SetActive(false);
             currentTutorialIndex = 0;
             PracticeTime = 10f;
-            tutorialTrials[currentTutorialIndex].Ball.SetActive(true);
-            ResetBallPositionOnly(tutorialTrials[currentTutorialIndex].Ball);
+            tutorialTrials[0].Ball.SetActive(true);
+            ResetBallPositionOnly(tutorialTrials[0].Ball);
             intermisionTextpt2.text = "Try again";
             StartCoroutine(WaitForBallMovement());
         }
@@ -116,10 +128,10 @@ public class EffortTaskHandler : MonoBehaviour
     public void WaitforBasketScore()
     {
 
-        tutorialTrials[currentTutorialIndex].Ball.SetActive(false);
+        tutorialTrials[0].Ball.SetActive(false);
         currentTutorialIndex++;
 
-        if (currentTutorialIndex < tutorialTrials.Length)
+        if (currentTutorialIndex < 5)
         {
             NextBall();
         }
@@ -132,12 +144,12 @@ public class EffortTaskHandler : MonoBehaviour
 
     private void WrongBasket()
     {
-        ResetBallPosition(tutorialTrials[currentTutorialIndex].Ball);
+        ResetBallPosition(tutorialTrials[0].Ball);
     }
 
     private void NextBall()
     {
-        Tutorial current = tutorialTrials[currentTutorialIndex];
+        Tutorial current = tutorialTrials[0];
         current.Ball.SetActive(true);
         ResetBallPositionOnly(current.Ball);
     }
@@ -162,16 +174,12 @@ public class EffortTaskHandler : MonoBehaviour
 
     private void StartCountdown()
     {
-        currentTime = IntermissionTime;
         Practice.SetActive(false);
-        StartCoroutine(CountdownToEffort());
+        ChoicePanel.SetActive(true);
     }
 
     private IEnumerator CountdownToEffort()
     {
-        intermisionTextpt1.SetActive(true);
-        yield return new WaitForSeconds(6f);
-        intermisionTextpt1.SetActive(false);
 
         while (currentTime > 0)
         {
@@ -185,7 +193,6 @@ public class EffortTaskHandler : MonoBehaviour
         intermisionTextpt2.text = "";
 
         Wrapper.SetActive(true);
-        ballSpawner.StartSpawning();
         currentTime = startTime;
         sxr.RestartTimer();
         StartCoroutine(TimerRoutine());
@@ -206,11 +213,7 @@ public class EffortTaskHandler : MonoBehaviour
 
     private IEnumerator EndTrial()
     {
-        foreach (Bucket bucket in EffortTaskBucket)
-            bucket.forceTextClear();
 
-        ballSpawner.StopSpawning();
-        ballSpawner.DestroyAllBalls();
         Wrapper.SetActive(false);
         WinningsText.text = $"${CurrentWalletScript.GetWallet() - PrevWalletValue:0.00}\nAdded to\nwallet";
         sxr.CalculateEffortScore(sxr.GetBallsThrown());
@@ -222,15 +225,19 @@ public class EffortTaskHandler : MonoBehaviour
         MarkTrialComplete();
     }
 
-    public void setBuckets(bool isSlot, SlotHandler slotHandler, ParlayHandler parlayHandler)
+    public void setWallet(bool isSlot, SlotHandler slotHandler, ParlayHandler parlayHandler)
     {
         ManageWallet wallet = isSlot ? (ManageWallet)slotHandler : parlayHandler;
-
-        foreach (Bucket bucket in EffortTaskBucket)
-            bucket.SetWallet(wallet);
-
         CurrentWalletScript = wallet;
         PrevWalletValue = wallet.GetWallet();
+    }
+
+    private void addToWallet(float Money)
+    {
+        if (CurrentWalletScript != null)
+        {
+            CurrentWalletScript.AddWallet(Money);
+        }
     }
 
     private void MarkTrialComplete()
@@ -268,6 +275,50 @@ public class EffortTaskHandler : MonoBehaviour
         DetectBallMovement detectMovement = ball.GetComponent<DetectBallMovement>();
         if (detectMovement != null)
             detectMovement.WrongBucketResetMovement();
+    }
+
+    public void AddScore()
+    {
+        counter++;
+        ThrowGoalText.text = $"Throw Goal: {throwGoal- counter}";
+        ResetBallPositionOnly(Ball);
+        Ball.SetActive(true);
+        if(counter >= throwGoal)
+        {
+            EndTrial();
+            addToWallet(10f);
+        }
+        
+    }
+
+    public void Hard()
+    {
+        isHardMode = true;
+        if (TrialIndexCounter < EffortTaskTrials.Length)
+        {
+            throwGoal = EffortTaskTrials[TrialIndexCounter].HardThrowGoal;
+            currentTime = EffortTaskTrials[TrialIndexCounter].HardTime;
+        }
+        ChoicePanel.SetActive(false);
+        Wrapper.SetActive(true);
+        ThrowGoalText.text = $"Throw Goal: {throwGoal- counter}";
+        sxr.RestartTimer();
+        StartCoroutine(TimerRoutine());
+    }
+
+    public void Easy()
+    {
+        isHardMode = false;
+        if (TrialIndexCounter < EffortTaskTrials.Length)
+        {
+            throwGoal = EffortTaskTrials[TrialIndexCounter].EasyThrowGoal;
+            currentTime = EffortTaskTrials[TrialIndexCounter].EasyTime;
+        }
+        ChoicePanel.SetActive(false);
+        Wrapper.SetActive(true);
+        ThrowGoalText.text = $"Throw Goal: {throwGoal- counter}";
+        sxr.RestartTimer();
+        StartCoroutine(TimerRoutine());
     }
 
 }
