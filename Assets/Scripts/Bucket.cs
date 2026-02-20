@@ -39,19 +39,19 @@ public class Bucket : MonoBehaviour
 
             if (ball.ballType == bucketType)
             {
-                ShowText("+$0.50", Color.green, 1f);
                 SoundManager.SoundManager.PlaySound3D(
                     SoundType.minigamePointSound,
                     transform.position,
                     1f,
                     1f
                 );
-                Destroy(other.gameObject);
+                ball.gameObject.SetActive(false);
                 if(isTutorial)
                 {
                     EffortTaskHandler.WaitforBasketScore();
                     return;
                 }
+                ShowText("+$0.50", Color.green, 1f);
                 CurrentWalletScript.AddWallet(moneyPerBall);
 
             }
@@ -59,7 +59,6 @@ public class Bucket : MonoBehaviour
             {
                 if(isTutorial)
                 {
-                    ShowText("-$0.50", Color.red, 1f);
                     SoundManager.SoundManager.PlaySound3D(
                         SoundType.lossAudio,
                         transform.position,
@@ -78,7 +77,7 @@ public class Bucket : MonoBehaviour
                         1f,
                         1f
                     );
-                    Destroy(other.gameObject);
+                    ball.gameObject.SetActive(false);
                 }
             }
         }

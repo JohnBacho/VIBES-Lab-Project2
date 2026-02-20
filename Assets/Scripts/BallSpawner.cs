@@ -56,7 +56,7 @@ public class BallSpawner : MonoBehaviour
         foreach (GameObject ball in spawnedBalls)
         {
             if (ball != null)
-                Destroy(ball);
+                ball.SetActive(false);
         }
 
         spawnedBalls.Clear();
