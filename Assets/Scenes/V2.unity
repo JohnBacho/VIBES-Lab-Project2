@@ -23316,17 +23316,17 @@ MonoBehaviour:
   practice: {fileID: 1275929863}
   pt1InstructionsPanel: {fileID: 283919491}
   pt2InstructionsPanel: {fileID: 356442248}
-  wrapper: {fileID: 0}
+  wrapper: {fileID: 2079252704}
   countdownText: {fileID: 813323060}
-  intermissionText: {fileID: 0}
+  intermissionText: {fileID: 1561708315}
   winningsText: {fileID: 1828913726}
-  pokeButtonTutorial: {fileID: 0}
-  practiceTutorialBlock: {fileID: 0}
+  pokeButtonTutorial: {fileID: 1086453139}
+  practiceTutorialBlock: {fileID: 2105702988}
   trialCompleted: 0
   goalText: {fileID: 1335624967}
   choicePanel: {fileID: 903084432}
-  hardChoiceText: {fileID: 769592146}
-  easyChoiceText: {fileID: 1274152064}
+  hardChoiceText: {fileID: 839397927}
+  easyChoiceText: {fileID: 157792999}
 --- !u!1001 &1979377702
 PrefabInstance:
   m_ObjectHideFlags: 0
