@@ -12,6 +12,8 @@ public class EffortTask
     public int HardGoal;
     public float HardTime;
     public float HardReward;
+    public int winpercent;
+    public bool isWin;
 }
 
 public class EffortTaskHandler : MonoBehaviour
@@ -53,9 +55,11 @@ public class EffortTaskHandler : MonoBehaviour
     private bool isHardMode = false;
     [SerializeField] private TextMeshPro hardChoiceText;
     [SerializeField] private TextMeshPro easyChoiceText;
+    [SerializeField] private TextMeshPro WinProcentText;
 
     private static readonly float buttonVolume = 0.5f;
     private static readonly float increasePitch = 3f;
+    private bool trialEnded = false;
 
 
     public void StartTutorial()
@@ -69,12 +73,12 @@ public class EffortTaskHandler : MonoBehaviour
 
     private IEnumerator StartInstructions()
     {
-        pt1InstructionsPanel.SetActive(true);
-        yield return new WaitForSeconds(3f);
-        yield return new WaitUntil(() => sxr.GetTrigger());
-        pt1InstructionsPanel.SetActive(false);
         if (!practiceComplete)
         {
+            pt1InstructionsPanel.SetActive(true);
+            yield return new WaitForSeconds(3f);
+            yield return new WaitUntil(() => sxr.GetTrigger());
+            pt1InstructionsPanel.SetActive(false);
             practice.SetActive(true);            
         }
         else
@@ -108,7 +112,7 @@ public class EffortTaskHandler : MonoBehaviour
             practiceTutorialBlock.SetActive(true);
             pokeButtonTutorial.SetActive(true);
             counter = 0;
-            goalText.text = $"Button Goal: {practiceGoal - counter}";
+            goalText.text = $"Button Goal:\n{practiceGoal - counter}";
         }
     }
 
@@ -135,7 +139,7 @@ public class EffortTaskHandler : MonoBehaviour
 
         wrapper.SetActive(true);
         sxr.RestartTimer();
-        goalText.text = $"Button press Goal: {goal - counter}";
+        goalText.text = $"Button press Goal:\n{goal - counter}";
         StartCoroutine(TimerRoutine());
     }
 
@@ -145,11 +149,19 @@ public class EffortTaskHandler : MonoBehaviour
         {
             currentTime -= Time.deltaTime;
             countdownText.text = Mathf.CeilToInt(currentTime).ToString();
+            if(trialEnded || counter == goal)
+            {
+                break;
+            }
             yield return null;
         }
 
         countdownText.text = "0";
-        StartCoroutine(EndTrial());
+        if (!trialEnded)
+        {
+            trialEnded = true;
+            StartCoroutine(EndTrial());
+        }
     }
 
     private IEnumerator EndTrial()
@@ -176,6 +188,7 @@ public class EffortTaskHandler : MonoBehaviour
         goalText.text = "";
         countdownText.text = "";
         intermissionText.text = "";
+        trialEnded = false;
         trialIndexCounter++;
     }
 
@@ -214,24 +227,24 @@ public class EffortTaskHandler : MonoBehaviour
         return effortTaskObject.activeSelf;
     }
 
-    public void AddScore()
+public void AddScore()
+{
+    SoundManager.SoundManager.PlaySound3D(SoundType.increaseButtonSound, practiceTutorialBlock.transform.position, buttonVolume, increasePitch);
+    counter++;
+    goalText.text = $"Button press Goal:\n{goal - counter}";
+
+    if (counter == goal && !trialEnded)
     {
-        SoundManager.SoundManager.PlaySound3D(SoundType.increaseButtonSound, practiceTutorialBlock.transform.position, buttonVolume, increasePitch);
-        counter++;
-        goalText.text = $"Button press Goal: {goal - counter}";
-
-        if (counter == goal)
+        trialEnded = true;
+        if (effortTaskTrials[trialIndexCounter].isWin)
         {
-            Debug.Log("Goal Reached");
-            if (isHardMode)
-                AddToWallet(effortTaskTrials[trialIndexCounter].HardReward);
-            else
-                AddToWallet(effortTaskTrials[trialIndexCounter].EasyReward);
-
-            goalText.text = "";
-            StartCoroutine(EndTrial());
+            AddToWallet(isHardMode ? effortTaskTrials[trialIndexCounter].HardReward 
+                                   : effortTaskTrials[trialIndexCounter].EasyReward);
         }
+        goalText.text = "";
+        StartCoroutine(EndTrial());
     }
+}
 
     private void SetChoiceText()
     {
@@ -244,6 +257,8 @@ public class EffortTaskHandler : MonoBehaviour
             int hardGoal = effortTaskTrials[trialIndexCounter].HardGoal;
             float hardReward = effortTaskTrials[trialIndexCounter].HardReward;
             hardChoiceText.text = $"<b>HARD TASK</b>\n<size=120%><color=green>${hardReward}</color></size>\n<size=80%>{hardGoal} presses • 21s</size>";
+            int winpercent = effortTaskTrials[trialIndexCounter].winpercent;
+            WinProcentText.text = $"<b>Probability to WIN </b>\n<size=120%><color=green>{winpercent}%</color></size>";
         }
     }
 
@@ -285,7 +300,7 @@ public class EffortTaskHandler : MonoBehaviour
 
         SoundManager.SoundManager.PlaySound3D(SoundType.increaseButtonSound, practiceTutorialBlock.transform.position, buttonVolume, increasePitch);
         PracticeCounter++;
-        goalText.text = $"Button Goal: {practiceGoal - PracticeCounter}";
+        goalText.text = $"Button Goal:\n{practiceGoal - PracticeCounter}";
 
         if (PracticeCounter == practiceGoal)
         {
