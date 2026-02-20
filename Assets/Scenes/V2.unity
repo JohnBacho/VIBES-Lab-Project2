@@ -23026,7 +23026,7 @@ MonoBehaviour:
   - outcome: 3
     multiplier: 2
     slotRow: 030000000600000009000000
-  - outcome: 2
+  - outcome: 3
     multiplier: 2
     slotRow: 040000000400000003000000
   - outcome: 1
@@ -23306,12 +23306,12 @@ MonoBehaviour:
     HardGoal: 60
     HardTime: 21
     HardReward: 4
-  - EasyGoal: 0
-    EasyTime: 0
-    EasyReward: 0
-    HardGoal: 0
-    HardTime: 0
-    HardReward: 0
+  - EasyGoal: 20
+    EasyTime: 7
+    EasyReward: 1
+    HardGoal: 60
+    HardTime: 21
+    HardReward: 4
   effortTaskObject: {fileID: 1026965197}
   practice: {fileID: 1275929863}
   pt1InstructionsPanel: {fileID: 283919491}

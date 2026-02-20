@@ -43,6 +43,7 @@ public class EffortTaskHandler : MonoBehaviour
     private float practiceTime = 10f;
     private bool practiceComplete = false;
     private int counter = 0;
+    private int PracticeCounter =0;
     private int goal = 1;
     private const int practiceGoal = 10;
 
@@ -63,7 +64,7 @@ public class EffortTaskHandler : MonoBehaviour
         prevWalletValue = 0;
         currentWalletScript = null;
         effortTaskObject.SetActive(true);
-        StartCoroutine(StartInstructions());
+        StartCoroutine(StartInstructions());            
     }
 
     private IEnumerator StartInstructions()
@@ -72,8 +73,15 @@ public class EffortTaskHandler : MonoBehaviour
         yield return new WaitForSeconds(3f);
         yield return new WaitUntil(() => sxr.GetTrigger());
         pt1InstructionsPanel.SetActive(false);
+        if (!practiceComplete)
+        {
+            practice.SetActive(true);            
+        }
+        else
+        {
+            StartCountdown();
+        }
 
-        practice.SetActive(true);
     }
 
     private IEnumerator PracticeTimer()
@@ -160,10 +168,10 @@ public class EffortTaskHandler : MonoBehaviour
     private void ResetTrialState()
     {
         counter = 0;
+        PracticeCounter = 0;
         goal = 1;
         currentTime = 0f;
         isHardMode = false;
-        practiceComplete = false;
         practiceTime = 10f;
         goalText.text = "";
         countdownText.text = "";
@@ -267,7 +275,7 @@ public class EffortTaskHandler : MonoBehaviour
 
     public void AddPracticeScore()
     {
-        if (counter == 0)
+        if (PracticeCounter == 0)
         {
             practiceTime = 10f;
             practiceTutorialBlock.SetActive(false);
@@ -276,10 +284,10 @@ public class EffortTaskHandler : MonoBehaviour
         }
 
         SoundManager.SoundManager.PlaySound3D(SoundType.increaseButtonSound, practiceTutorialBlock.transform.position, buttonVolume, increasePitch);
-        counter++;
-        goalText.text = $"Button Goal: {practiceGoal - counter}";
+        PracticeCounter++;
+        goalText.text = $"Button Goal: {practiceGoal - PracticeCounter}";
 
-        if (counter == practiceGoal)
+        if (PracticeCounter == practiceGoal)
         {
             Debug.Log("Practice Goal Reached");
             goalText.text = "";
