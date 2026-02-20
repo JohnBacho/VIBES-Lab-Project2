@@ -14,8 +14,10 @@ public class EffortTask
 {
     public int EasyThrowGoal;
     public float EasyTime;
+    public float EasyReward;
     public int HardThrowGoal;
     public float HardTime;
+    public float HardReward;
 }
 
 public class EffortTaskHandler : MonoBehaviour
@@ -27,6 +29,7 @@ public class EffortTaskHandler : MonoBehaviour
 
     [SerializeField] private GameObject Practice;
     [SerializeField] private GameObject pt1InstructionsPanel;
+    [SerializeField] private GameObject pt2InstructionsPanel;
 
     [SerializeField] private GameObject Wrapper;
 
@@ -57,6 +60,9 @@ public class EffortTaskHandler : MonoBehaviour
     [SerializeField] private GameObject ChoicePanel;
     [SerializeField] private GameObject Ball;
     private bool isHardMode = false;
+    [SerializeField] private TextMeshPro HardChoiceText;
+    [SerializeField] private TextMeshPro EasyChoiceText;
+
 
 
     public void StartTutorial()
@@ -74,6 +80,11 @@ public class EffortTaskHandler : MonoBehaviour
         yield return new WaitForSeconds(3f);
         yield return new WaitUntil(() => sxr.GetTrigger());
         pt1InstructionsPanel.SetActive(false);
+
+        pt2InstructionsPanel.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        yield return new WaitUntil(() => sxr.GetTrigger());
+        pt2InstructionsPanel.SetActive(false);
 
 
         Practice.SetActive(true);
@@ -176,15 +187,16 @@ public class EffortTaskHandler : MonoBehaviour
     {
         Practice.SetActive(false);
         ChoicePanel.SetActive(true);
+        setChoiceText();
     }
 
     private IEnumerator CountdownToEffort()
     {
-
-        while (currentTime > 0)
+        float CountdownToEffort = 3f;
+        while (CountdownToEffort > 0)
         {
-            currentTime -= Time.deltaTime;
-            intermisionTextpt2.text = $"Starting in\n{Mathf.CeilToInt(currentTime)}";
+            CountdownToEffort -= Time.deltaTime;
+            intermisionTextpt2.text = $"Get Ready\n{Mathf.CeilToInt(CountdownToEffort)}";            
             yield return null;
         }
 
@@ -193,7 +205,6 @@ public class EffortTaskHandler : MonoBehaviour
         intermisionTextpt2.text = "";
 
         Wrapper.SetActive(true);
-        currentTime = startTime;
         sxr.RestartTimer();
         StartCoroutine(TimerRoutine());
     }
@@ -213,7 +224,6 @@ public class EffortTaskHandler : MonoBehaviour
 
     private IEnumerator EndTrial()
     {
-
         Wrapper.SetActive(false);
         WinningsText.text = $"${CurrentWalletScript.GetWallet() - PrevWalletValue:0.00}\nAdded to\nwallet";
         sxr.CalculateEffortScore(sxr.GetBallsThrown());
@@ -283,12 +293,35 @@ public class EffortTaskHandler : MonoBehaviour
         ThrowGoalText.text = $"Throw Goal: {throwGoal- counter}";
         ResetBallPositionOnly(Ball);
         Ball.SetActive(true);
-        if(counter >= throwGoal)
+        if(counter == throwGoal)
         {
-            EndTrial();
-            addToWallet(10f);
+            Debug.Log("Goal Reached");
+            if(isHardMode)
+            {
+                addToWallet(EffortTaskTrials[TrialIndexCounter].HardReward);
+            }
+            else
+            {
+                addToWallet(EffortTaskTrials[TrialIndexCounter].EasyReward);
+            }
+
+            StartCoroutine(EndTrial());
         }
         
+    }
+
+    private void setChoiceText()
+    {
+        if (TrialIndexCounter < EffortTaskTrials.Length)
+        {
+            int easyGoal = EffortTaskTrials[TrialIndexCounter].EasyThrowGoal;
+            float easyReward = EffortTaskTrials[TrialIndexCounter].EasyReward;
+
+            EasyChoiceText.text = $"<b>EASY TASK</b>\n<size=120%><color=green>${easyReward}</color></size>\n<size=80%>{easyGoal} balls • 7s</size>";          
+            int hardGoal = EffortTaskTrials[TrialIndexCounter].HardThrowGoal;
+            float hardReward = EffortTaskTrials[TrialIndexCounter].HardReward;
+            HardChoiceText.text = $"<b>HARD TASK</b>\n<size=120%><color=green>${hardReward}</color></size>\n<size=80%>{hardGoal} balls • 21s</size>";
+        }
     }
 
     public void Hard()
@@ -300,10 +333,8 @@ public class EffortTaskHandler : MonoBehaviour
             currentTime = EffortTaskTrials[TrialIndexCounter].HardTime;
         }
         ChoicePanel.SetActive(false);
-        Wrapper.SetActive(true);
         ThrowGoalText.text = $"Throw Goal: {throwGoal- counter}";
-        sxr.RestartTimer();
-        StartCoroutine(TimerRoutine());
+        StartCoroutine(CountdownToEffort());
     }
 
     public void Easy()
@@ -315,10 +346,8 @@ public class EffortTaskHandler : MonoBehaviour
             currentTime = EffortTaskTrials[TrialIndexCounter].EasyTime;
         }
         ChoicePanel.SetActive(false);
-        Wrapper.SetActive(true);
         ThrowGoalText.text = $"Throw Goal: {throwGoal- counter}";
-        sxr.RestartTimer();
-        StartCoroutine(TimerRoutine());
+        StartCoroutine(CountdownToEffort());
     }
 
 }
