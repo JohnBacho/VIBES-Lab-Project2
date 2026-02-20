@@ -2,75 +2,67 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-[System.Serializable]
-public class Tutorial
-{
-    public DetectBallMovement detectMovement;
-    public GameObject Ball;
 
-}
 [System.Serializable]
 public class EffortTask
 {
-    public int EasyThrowGoal;
+    public int EasyGoal;
     public float EasyTime;
     public float EasyReward;
-    public int HardThrowGoal;
+    public int HardGoal;
     public float HardTime;
     public float HardReward;
 }
 
 public class EffortTaskHandler : MonoBehaviour
 {
-    [SerializeField] private Tutorial[] tutorialTrials = new Tutorial[1];
-        [SerializeField] private EffortTask[] EffortTaskTrials = new EffortTask[1];
+    [SerializeField] private EffortTask[] effortTaskTrials = new EffortTask[1];
 
-    [SerializeField] private GameObject EffortTask;
+    [SerializeField] private GameObject effortTaskObject;
 
-    [SerializeField] private GameObject Practice;
+    [SerializeField] private GameObject practice;
     [SerializeField] private GameObject pt1InstructionsPanel;
     [SerializeField] private GameObject pt2InstructionsPanel;
 
-    [SerializeField] private GameObject Wrapper;
+    [SerializeField] private GameObject wrapper;
 
     [SerializeField] private TextMeshPro countdownText;
-    [SerializeField] private TextMeshPro intermisionTextpt2;
-    [SerializeField] private TextMeshPro WinningsText;
-    [SerializeField] private GameObject GrabTutorial;
+    [SerializeField] private TextMeshPro intermissionText;
+    [SerializeField] private TextMeshPro winningsText;
+    [SerializeField] private GameObject pokeButtonTutorial;
+    [SerializeField] private GameObject practiceTutorialBlock;
 
-    private const float startTime = 45f;
     private const float IntermissionTime = 3f;
-
-    [SerializeField] private Bucket EffortTaskBucket;
-    [SerializeField] private Vector3 ballStartPosition;
 
     public bool TrialCompleted => trialCompleted;
     [SerializeField] private bool trialCompleted = false;
 
-    private ManageWallet CurrentWalletScript;
-    private float PrevWalletValue;
+    private ManageWallet currentWalletScript;
+    private float prevWalletValue;
     private float currentTime;
-    private int currentTutorialIndex = 0;
-    private float PracticeTime = 10f;
-    private bool PracticeComplete = false;
+    private float practiceTime = 10f;
+    private bool practiceComplete = false;
     private int counter = 0;
-    private int throwGoal = 1;
-    [SerializeField] private TextMeshPro ThrowGoalText;
-    private int TrialIndexCounter = 0;
-    [SerializeField] private GameObject ChoicePanel;
-    [SerializeField] private GameObject Ball;
-    private bool isHardMode = false;
-    [SerializeField] private TextMeshPro HardChoiceText;
-    [SerializeField] private TextMeshPro EasyChoiceText;
+    private int goal = 1;
+    private const int practiceGoal = 10;
 
+    [SerializeField] private TextMeshPro goalText;
+    private int trialIndexCounter = 0;
+    [SerializeField] private GameObject choicePanel;
+    private bool isHardMode = false;
+    [SerializeField] private TextMeshPro hardChoiceText;
+    [SerializeField] private TextMeshPro easyChoiceText;
+
+    private static readonly float buttonVolume = 0.5f;
+    private static readonly float increasePitch = 3f;
 
 
     public void StartTutorial()
     {
         StartNewTrial();
-        PrevWalletValue = 0;
-        CurrentWalletScript = null;
-        EffortTask.SetActive(true);
+        prevWalletValue = 0;
+        currentWalletScript = null;
+        effortTaskObject.SetActive(true);
         StartCoroutine(StartInstructions());
     }
 
@@ -81,131 +73,61 @@ public class EffortTaskHandler : MonoBehaviour
         yield return new WaitUntil(() => sxr.GetTrigger());
         pt1InstructionsPanel.SetActive(false);
 
-        pt2InstructionsPanel.SetActive(true);
-        yield return new WaitForSeconds(3f);
-        yield return new WaitUntil(() => sxr.GetTrigger());
-        pt2InstructionsPanel.SetActive(false);
-
-
-        Practice.SetActive(true);
-
-        tutorialTrials[currentTutorialIndex].Ball.SetActive(true);
-        StartCoroutine(WaitForBallMovement());
-    }
-
-    private IEnumerator WaitForBallMovement()
-    {
-        Tutorial current = tutorialTrials[0];
-        if (currentTutorialIndex == 0)
-        {
-            GrabTutorial.SetActive(true);
-        }
-        yield return new WaitUntil(() => current.detectMovement.HasMoved);
-        if(currentTutorialIndex == 0)
-        {
-            GrabTutorial.SetActive(false);
-            StartCoroutine(PracticeTimer());
-        }
+        practice.SetActive(true);
     }
 
     private IEnumerator PracticeTimer()
     {
-        while (PracticeTime > 0)
+        while (practiceTime > 0)
         {
-            PracticeTime -= 1;
-            intermisionTextpt2.text = $"{Mathf.CeilToInt(PracticeTime)}";
-            if (PracticeComplete)
+            practiceTime -= 1;
+            intermissionText.text = $"Time: {Mathf.CeilToInt(practiceTime)}";
+            if (practiceComplete)
             {
-                intermisionTextpt2.text = "";
-                PracticeTime = 0;
+                intermissionText.text = "";
+                goalText.text = "";
+                practiceTime = 0;
             }
             yield return new WaitForSeconds(1f);
         }
 
-        intermisionTextpt2.text = "";
+        intermissionText.text = "";
 
-        if (!PracticeComplete)
+        if (!practiceComplete)
         {
-            tutorialTrials[0].Ball.SetActive(false);
-            currentTutorialIndex = 0;
-            PracticeTime = 10f;
-            tutorialTrials[0].Ball.SetActive(true);
-            ResetBallPositionOnly(tutorialTrials[0].Ball);
-            intermisionTextpt2.text = "Try again";
-            StartCoroutine(WaitForBallMovement());
+            practiceTime = 10f;
+            intermissionText.text = "Try again";
+            practiceTutorialBlock.SetActive(true);
+            pokeButtonTutorial.SetActive(true);
+            counter = 0;
+            goalText.text = $"Button Goal: {practiceGoal - counter}";
         }
     }
-
-    public void WaitforBasketScore()
-    {
-
-        tutorialTrials[0].Ball.SetActive(false);
-        currentTutorialIndex++;
-
-        if (currentTutorialIndex < 5)
-        {
-            NextBall();
-        }
-        else
-        {
-            PracticeComplete = true;
-            StartCountdown();
-        }
-    }
-
-    private void WrongBasket()
-    {
-        ResetBallPosition(tutorialTrials[0].Ball);
-    }
-
-    private void NextBall()
-    {
-        Tutorial current = tutorialTrials[0];
-        current.Ball.SetActive(true);
-        ResetBallPositionOnly(current.Ball);
-    }
-
-    private void ResetBallPositionOnly(GameObject ball)
-    {
-        ball.transform.position = ballStartPosition;
-
-        Rigidbody rb = ball.GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            rb.velocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
-            rb.constraints = RigidbodyConstraints.FreezeAll;
-        }
-
-        DetectBallMovement detectMovement = ball.GetComponent<DetectBallMovement>();
-        if (detectMovement != null)
-            detectMovement.ResetMovement();
-    }
-    
 
     private void StartCountdown()
     {
-        Practice.SetActive(false);
-        ChoicePanel.SetActive(true);
-        setChoiceText();
+        practice.SetActive(false);
+        choicePanel.SetActive(true);
+        SetChoiceText();
     }
 
     private IEnumerator CountdownToEffort()
     {
-        float CountdownToEffort = 3f;
-        while (CountdownToEffort > 0)
+        float countdown = 3f;
+        while (countdown > 0)
         {
-            CountdownToEffort -= Time.deltaTime;
-            intermisionTextpt2.text = $"Get Ready\n{Mathf.CeilToInt(CountdownToEffort)}";            
+            countdown -= Time.deltaTime;
+            intermissionText.text = $"Get Ready\n{Mathf.CeilToInt(countdown)}";
             yield return null;
         }
 
-        intermisionTextpt2.text = "GO!";
+        intermissionText.text = "GO!";
         yield return new WaitForSeconds(0.6f);
-        intermisionTextpt2.text = "";
+        intermissionText.text = "";
 
-        Wrapper.SetActive(true);
+        wrapper.SetActive(true);
         sxr.RestartTimer();
+        goalText.text = $"Button press Goal: {goal - counter}";
         StartCoroutine(TimerRoutine());
     }
 
@@ -224,29 +146,43 @@ public class EffortTaskHandler : MonoBehaviour
 
     private IEnumerator EndTrial()
     {
-        Wrapper.SetActive(false);
-        WinningsText.text = $"${CurrentWalletScript.GetWallet() - PrevWalletValue:0.00}\nAdded to\nwallet";
+        wrapper.SetActive(false);
+        winningsText.text = $"${currentWalletScript.GetWallet() - prevWalletValue:0.00}\nAdded to\nwallet";
         sxr.CalculateEffortScore(sxr.GetBallsThrown());
 
         yield return new WaitForSeconds(5f);
 
-        WinningsText.text = "";
-        Practice.SetActive(false);
+        winningsText.text = "";
+        ResetTrialState();
         MarkTrialComplete();
+    }
+
+    private void ResetTrialState()
+    {
+        counter = 0;
+        goal = 1;
+        currentTime = 0f;
+        isHardMode = false;
+        practiceComplete = false;
+        practiceTime = 10f;
+        goalText.text = "";
+        countdownText.text = "";
+        intermissionText.text = "";
+        trialIndexCounter++;
     }
 
     public void setWallet(bool isSlot, SlotHandler slotHandler, ParlayHandler parlayHandler)
     {
         ManageWallet wallet = isSlot ? (ManageWallet)slotHandler : parlayHandler;
-        CurrentWalletScript = wallet;
-        PrevWalletValue = wallet.GetWallet();
+        currentWalletScript = wallet;
+        prevWalletValue = wallet.GetWallet();
     }
 
-    private void addToWallet(float Money)
+    private void AddToWallet(float money)
     {
-        if (CurrentWalletScript != null)
+        if (currentWalletScript != null)
         {
-            CurrentWalletScript.AddWallet(Money);
+            currentWalletScript.AddWallet(money);
         }
     }
 
@@ -262,92 +198,93 @@ public class EffortTaskHandler : MonoBehaviour
 
     public void SetActiveEffortTask(bool isActive)
     {
-        EffortTask.SetActive(isActive);
+        effortTaskObject.SetActive(isActive);
     }
 
     public bool GetActive()
     {
-        return EffortTask.activeSelf;
-    }
-
-    public void ResetBallPosition(GameObject ball)
-    {
-        ball.transform.position = ballStartPosition;
-
-        Rigidbody rb = ball.GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            rb.velocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
-            rb.constraints = RigidbodyConstraints.FreezeAll;
-        }
-
-        DetectBallMovement detectMovement = ball.GetComponent<DetectBallMovement>();
-        if (detectMovement != null)
-            detectMovement.WrongBucketResetMovement();
+        return effortTaskObject.activeSelf;
     }
 
     public void AddScore()
     {
+        SoundManager.SoundManager.PlaySound3D(SoundType.increaseButtonSound, practiceTutorialBlock.transform.position, buttonVolume, increasePitch);
         counter++;
-        ThrowGoalText.text = $"Throw Goal: {throwGoal- counter}";
-        ResetBallPositionOnly(Ball);
-        Ball.SetActive(true);
-        if(counter == throwGoal)
+        goalText.text = $"Button press Goal: {goal - counter}";
+
+        if (counter == goal)
         {
             Debug.Log("Goal Reached");
-            if(isHardMode)
-            {
-                addToWallet(EffortTaskTrials[TrialIndexCounter].HardReward);
-            }
+            if (isHardMode)
+                AddToWallet(effortTaskTrials[trialIndexCounter].HardReward);
             else
-            {
-                addToWallet(EffortTaskTrials[TrialIndexCounter].EasyReward);
-            }
+                AddToWallet(effortTaskTrials[trialIndexCounter].EasyReward);
 
+            goalText.text = "";
             StartCoroutine(EndTrial());
         }
-        
     }
 
-    private void setChoiceText()
+    private void SetChoiceText()
     {
-        if (TrialIndexCounter < EffortTaskTrials.Length)
+        if (trialIndexCounter < effortTaskTrials.Length)
         {
-            int easyGoal = EffortTaskTrials[TrialIndexCounter].EasyThrowGoal;
-            float easyReward = EffortTaskTrials[TrialIndexCounter].EasyReward;
+            int easyGoal = effortTaskTrials[trialIndexCounter].EasyGoal;
+            float easyReward = effortTaskTrials[trialIndexCounter].EasyReward;
+            easyChoiceText.text = $"<b>EASY TASK</b>\n<size=120%><color=green>${easyReward}</color></size>\n<size=80%>{easyGoal} presses • 7s</size>";
 
-            EasyChoiceText.text = $"<b>EASY TASK</b>\n<size=120%><color=green>${easyReward}</color></size>\n<size=80%>{easyGoal} balls • 7s</size>";          
-            int hardGoal = EffortTaskTrials[TrialIndexCounter].HardThrowGoal;
-            float hardReward = EffortTaskTrials[TrialIndexCounter].HardReward;
-            HardChoiceText.text = $"<b>HARD TASK</b>\n<size=120%><color=green>${hardReward}</color></size>\n<size=80%>{hardGoal} balls • 21s</size>";
+            int hardGoal = effortTaskTrials[trialIndexCounter].HardGoal;
+            float hardReward = effortTaskTrials[trialIndexCounter].HardReward;
+            hardChoiceText.text = $"<b>HARD TASK</b>\n<size=120%><color=green>${hardReward}</color></size>\n<size=80%>{hardGoal} presses • 21s</size>";
         }
     }
 
     public void Hard()
     {
+        SoundManager.SoundManager.PlaySound3D(SoundType.increaseButtonSound, practiceTutorialBlock.transform.position, buttonVolume, increasePitch);
         isHardMode = true;
-        if (TrialIndexCounter < EffortTaskTrials.Length)
+        if (trialIndexCounter < effortTaskTrials.Length)
         {
-            throwGoal = EffortTaskTrials[TrialIndexCounter].HardThrowGoal;
-            currentTime = EffortTaskTrials[TrialIndexCounter].HardTime;
+            goal = effortTaskTrials[trialIndexCounter].HardGoal;
+            currentTime = effortTaskTrials[trialIndexCounter].HardTime;
         }
-        ChoicePanel.SetActive(false);
-        ThrowGoalText.text = $"Throw Goal: {throwGoal- counter}";
+        choicePanel.SetActive(false);
         StartCoroutine(CountdownToEffort());
     }
 
     public void Easy()
     {
+        SoundManager.SoundManager.PlaySound3D(SoundType.increaseButtonSound, practiceTutorialBlock.transform.position, buttonVolume, increasePitch);
         isHardMode = false;
-        if (TrialIndexCounter < EffortTaskTrials.Length)
+        if (trialIndexCounter < effortTaskTrials.Length)
         {
-            throwGoal = EffortTaskTrials[TrialIndexCounter].EasyThrowGoal;
-            currentTime = EffortTaskTrials[TrialIndexCounter].EasyTime;
+            goal = effortTaskTrials[trialIndexCounter].EasyGoal;
+            currentTime = effortTaskTrials[trialIndexCounter].EasyTime;
         }
-        ChoicePanel.SetActive(false);
-        ThrowGoalText.text = $"Throw Goal: {throwGoal- counter}";
+        choicePanel.SetActive(false);
         StartCoroutine(CountdownToEffort());
     }
 
+    public void AddPracticeScore()
+    {
+        if (counter == 0)
+        {
+            practiceTime = 10f;
+            practiceTutorialBlock.SetActive(false);
+            pokeButtonTutorial.SetActive(false);
+            StartCoroutine(PracticeTimer());
+        }
+
+        SoundManager.SoundManager.PlaySound3D(SoundType.increaseButtonSound, practiceTutorialBlock.transform.position, buttonVolume, increasePitch);
+        counter++;
+        goalText.text = $"Button Goal: {practiceGoal - counter}";
+
+        if (counter == practiceGoal)
+        {
+            Debug.Log("Practice Goal Reached");
+            goalText.text = "";
+            practiceComplete = true;
+            StartCountdown();
+        }
+    }
 }

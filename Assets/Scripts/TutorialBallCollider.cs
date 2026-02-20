@@ -9,9 +9,6 @@ public class TutorialBallCollider : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Ball ball = other.GetComponent<Ball>();
-        if (ball != null)
-        {
-            EffortTaskHandler.ResetBallPosition(other.gameObject);
-        }
+
     }
 }

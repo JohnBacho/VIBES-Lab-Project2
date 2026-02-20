@@ -43,10 +43,8 @@ public class Bucket : MonoBehaviour
                 ball.gameObject.SetActive(false);
                 if(isTutorial)
                 {
-                    EffortTaskHandler.WaitforBasketScore();
                     return;
                 }
-                EffortTaskHandler.AddScore();
             }
         }
 
