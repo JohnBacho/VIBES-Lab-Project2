@@ -3,251 +3,206 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+[System.Serializable]
+public class EffortTask
+{
+    public int EasyGoal;
+    public float EasyTime;
+    public float EasyReward;
+    public int HardGoal;
+    public float HardTime;
+    public float HardReward;
+    public int winpercent;
+    public bool isWin;
+}
+
 public class EffortTaskHandler : MonoBehaviour
 {
-    [SerializeField] private GameObject EffortTask;
-    [SerializeField] private BallSpawner ballSpawner;
+    [SerializeField] private EffortTask[] effortTaskTrials = new EffortTask[1];
 
-    [SerializeField] private GameObject Practice;
-    [SerializeField] private GameObject instructionsPanel;
-    [SerializeField] private GameObject Wrapper;
+    [SerializeField] private GameObject effortTaskObject;
+
+    [SerializeField] private GameObject practice;
+    [SerializeField] private GameObject pt1InstructionsPanel;
+    [SerializeField] private GameObject pt2InstructionsPanel;
+
+    [SerializeField] private GameObject wrapper;
 
     [SerializeField] private TextMeshPro countdownText;
-    [SerializeField] private GameObject intermisionTextpt1;
-    [SerializeField] private TextMeshPro intermisionTextpt2;
+    [SerializeField] private TextMeshPro intermissionText;
+    [SerializeField] private TextMeshPro winningsText;
+    [SerializeField] private GameObject pokeButtonTutorial;
+    [SerializeField] private GameObject practiceTutorialBlock;
 
-    [SerializeField] private TextMeshPro WinningsText;
-    private const float startTime = 45f;
-    [SerializeField] private List<Bucket> EffortTaskBucket;
-    [SerializeField] private DetectBallMovement detectGreenBallMovement;
-    [SerializeField] private DetectBallMovement detectRedBallMovement;
-    [SerializeField] private DetectBallMovement detectBlueBallMovement;
+    private const float IntermissionTime = 3f;
 
     public bool TrialCompleted => trialCompleted;
     [SerializeField] private bool trialCompleted = false;
-    [SerializeField] private TextMeshPro TutorialTextGreenBasket;
-    [SerializeField] private TextMeshPro TutorialTextRedBasket;
-    [SerializeField] private TextMeshPro TutorialTextBlueBasket;
 
-    private ManageWallet CurrentWalletScript;
-    private float PrevWalletValue;
-    [SerializeField] private Vector3 ballStartPosition;
-    [SerializeField] private GameObject GreenBall;
-    [SerializeField] private GameObject RedBall;
-    [SerializeField] private GameObject BlueBall;
-    private const float IntermissionTime = 3f;
-
+    private ManageWallet currentWalletScript;
+    private float prevWalletValue;
     private float currentTime;
-    private enum TutorialState { WaitingForMovement, GreenBasket, RedBasket, BlueBasket, Complete }
-    private TutorialState currentTutorialState = TutorialState.WaitingForMovement;
+    private float practiceTime = 10f;
+    private bool practiceComplete = false;
+    private int counter = 0;
+    private int PracticeCounter =0;
+    private int goal = 1;
+    private const int practiceGoal = 10;
+
+    [SerializeField] private TextMeshPro goalText;
+    private int trialIndexCounter = 0;
+    [SerializeField] private GameObject choicePanel;
+    private bool isHardMode = false;
+    [SerializeField] private TextMeshPro hardChoiceText;
+    [SerializeField] private TextMeshPro easyChoiceText;
+    [SerializeField] private TextMeshPro WinProcentText;
+
+    private static readonly float buttonVolume = 0.5f;
+    private static readonly float increasePitch = 3f;
+    private bool trialEnded = false;
+
 
     public void StartTutorial()
     {
         StartNewTrial();
-        PrevWalletValue = 0;
-        CurrentWalletScript = null;
-        EffortTask.SetActive(true);
-
-        StartCoroutine(startInstructions());
+        prevWalletValue = 0;
+        currentWalletScript = null;
+        effortTaskObject.SetActive(true);
+        StartCoroutine(StartInstructions());            
     }
 
-    private IEnumerator startInstructions()
+    private IEnumerator StartInstructions()
     {
-        instructionsPanel.SetActive(true);
-        yield return new WaitForSeconds(3f);
-        yield return new WaitUntil(() => sxr.GetTrigger());
-        instructionsPanel.SetActive(false);
-        Practice.SetActive(true);
-        currentTutorialState = TutorialState.WaitingForMovement;
-        StartCoroutine(WaitforBallMovement());
-    }
-
-    private IEnumerator WaitforBallMovement()
-    {        
-        switch (currentTutorialState)
+        if (!practiceComplete)
         {
-            case TutorialState.WaitingForMovement:
-                yield return new WaitUntil(() => detectGreenBallMovement.HasMoved);
-                TutorialTextGreenBasket.text = "Throw the <color=green>green</color> ball into\nthe <color=green>green</color> basket";
-                currentTutorialState = TutorialState.GreenBasket;
-                break;
-            case TutorialState.GreenBasket:
-                yield return new WaitUntil(() => detectGreenBallMovement.HasMoved);
-                TutorialTextGreenBasket.text = "Throw the <color=green>green</color> ball into\nthe <color=green>green</color> basket";
-                break;
-            case TutorialState.RedBasket:
-                yield return new WaitUntil(() => detectRedBallMovement.HasMoved);
-                TutorialTextRedBasket.text = "Throw the <color=red>red</color> ball into\nthe <color=red>red</color> basket";
-                break;
-            case TutorialState.BlueBasket:
-                yield return new WaitUntil(() => detectBlueBallMovement.HasMoved);
-                TutorialTextBlueBasket.text = "Throw the <color=blue>blue</color> ball into\nthe <color=blue>blue</color> basket";
-                break;
+            pt1InstructionsPanel.SetActive(true);
+            yield return new WaitForSeconds(3f);
+            yield return new WaitUntil(() => sxr.GetTrigger());
+            pt1InstructionsPanel.SetActive(false);
+            practice.SetActive(true);            
         }
+        else
+        {
+            StartCountdown();
+        }
+
     }
 
-    public void WaitforBasketScore()
+    private IEnumerator PracticeTimer()
     {
-        ClearAllTutorialText();
-        
-        switch (currentTutorialState)
+        while (practiceTime > 0)
         {
-            case TutorialState.GreenBasket:
-                currentTutorialState = TutorialState.RedBasket;
-                SwapBall(GreenBall, RedBall);
-                StartCoroutine(WaitforBallMovement());
-                break;
-            case TutorialState.RedBasket:
-                currentTutorialState = TutorialState.BlueBasket;
-                SwapBall(RedBall, BlueBall);
-                StartCoroutine(WaitforBallMovement());
-                break;
-            case TutorialState.BlueBasket:
-                currentTutorialState = TutorialState.Complete;
-                BlueBall.SetActive(false);
-                StartCountdown();
-                break;
+            practiceTime -= 1;
+            intermissionText.text = $"Time: {Mathf.CeilToInt(practiceTime)}";
+            if (practiceComplete)
+            {
+                intermissionText.text = "";
+                goalText.text = "";
+                practiceTime = 0;
+            }
+            yield return new WaitForSeconds(1f);
         }
-    }
 
-    private void wrongBasket()
-    {
-        ClearAllTutorialText();
-        
-        switch (currentTutorialState)
-        {
-            case TutorialState.GreenBasket:
-                TutorialTextGreenBasket.text = "Try again!";
-                break;
-            case TutorialState.RedBasket:
-                TutorialTextRedBasket.text = "Try again!";
-                break;
-            case TutorialState.BlueBasket:
-                TutorialTextBlueBasket.text = "Try again!";
-                break;
-        }
-        
-        StartCoroutine(WaitforBallMovement());
-    }
+        intermissionText.text = "";
 
-    private void ClearAllTutorialText()
-    {
-        TutorialTextGreenBasket.text = "";
-        TutorialTextRedBasket.text = "";
-        TutorialTextBlueBasket.text = "";
-    }
-
-    private void SwapBall(GameObject currentBall, GameObject nextBall)
-    {
-        if (currentBall != null)
+        if (!practiceComplete)
         {
-            currentBall.SetActive(false);
-        }
-        
-        if (nextBall != null)
-        {
-            nextBall.SetActive(true);
-            ResetBallPositionOnly(nextBall);
+            practiceTime = 10f;
+            intermissionText.text = "Try again";
+            practiceTutorialBlock.SetActive(true);
+            pokeButtonTutorial.SetActive(true);
+            counter = 0;
+            goalText.text = $"Button Goal:\n{practiceGoal - counter}";
         }
     }
-
-    private void ResetBallPositionOnly(GameObject ball)
-    {
-        ball.transform.position = ballStartPosition;
-        
-        Rigidbody rb = ball.GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            rb.velocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
-            rb.constraints = RigidbodyConstraints.FreezeAll;
-        }
-        
-        DetectBallMovement detectMovement = ball.GetComponent<DetectBallMovement>();
-        if (detectMovement != null)
-        {
-            detectMovement.ResetMovement();
-        }
-    }
-    
 
     private void StartCountdown()
     {
-        currentTime = IntermissionTime;
-        Practice.SetActive(false);
-        StartCoroutine(CountdownToEffort());
+        practice.SetActive(false);
+        choicePanel.SetActive(true);
+        SetChoiceText();
     }
+
     private IEnumerator CountdownToEffort()
     {
-        intermisionTextpt1.SetActive(true);
-        yield return new WaitForSeconds(5f);
-        intermisionTextpt1.SetActive(false);
-        while (currentTime > 0)
+        float countdown = 3f;
+        while (countdown > 0)
         {
-            currentTime -= Time.deltaTime;
-            intermisionTextpt2.text = $"Starting in\n{Mathf.CeilToInt(currentTime).ToString()}";
+            countdown -= Time.deltaTime;
+            intermissionText.text = $"Get Ready\n{Mathf.CeilToInt(countdown)}";
             yield return null;
         }
 
-        intermisionTextpt2.text = "GO!";
+        intermissionText.text = "GO!";
         yield return new WaitForSeconds(0.6f);
-        intermisionTextpt2.text = "";
-        Wrapper.SetActive(true);
-        ballSpawner.StartSpawning();
-        currentTime = startTime;
+        intermissionText.text = "";
+
+        wrapper.SetActive(true);
         sxr.RestartTimer();
+        goalText.text = $"Button press Goal:\n{goal - counter}";
         StartCoroutine(TimerRoutine());
     }
 
-    IEnumerator TimerRoutine()
+    private IEnumerator TimerRoutine()
     {
         while (currentTime > 0)
         {
             currentTime -= Time.deltaTime;
             countdownText.text = Mathf.CeilToInt(currentTime).ToString();
+            if(trialEnded || counter == goal)
+            {
+                break;
+            }
             yield return null;
         }
 
         countdownText.text = "0";
-        StartCoroutine(endTrial());
+        if (!trialEnded)
+        {
+            trialEnded = true;
+            StartCoroutine(EndTrial());
+        }
     }
 
-    private IEnumerator endTrial()
+    private IEnumerator EndTrial()
     {
-        foreach(Bucket bucket in EffortTaskBucket)
-        {
-            bucket.forceTextClear();
-        }
-        ballSpawner.StopSpawning();
-        ballSpawner.DestroyAllBalls();
-        Wrapper.SetActive(false);
-        WinningsText.text = $"${CurrentWalletScript.GetWallet() - PrevWalletValue:0.00}\nAdded to\nwallet";
-        sxr.CalculateEffortScore(sxr.GetBallsThrown());
+        wrapper.SetActive(false);
+        winningsText.text = $"${currentWalletScript.GetWallet() - prevWalletValue:0.00}\nAdded to\nwallet";
+
         yield return new WaitForSeconds(5f);
-        WinningsText.text = "";
-        Practice.SetActive(false);
+
+        winningsText.text = "";
+        ResetTrialState();
         MarkTrialComplete();
     }
 
-    public void setBuckets(bool isSlot, SlotHandler slotHandler, ParlayHandler parlayHandler)
+    private void ResetTrialState()
     {
-        if(isSlot)
+        counter = 0;
+        PracticeCounter = 0;
+        goal = 1;
+        currentTime = 0f;
+        isHardMode = false;
+        practiceTime = 10f;
+        goalText.text = "";
+        countdownText.text = "";
+        intermissionText.text = "";
+        trialEnded = false;
+        trialIndexCounter++;
+    }
+
+    public void setWallet(bool isSlot, SlotHandler slotHandler, ParlayHandler parlayHandler)
+    {
+        ManageWallet wallet = isSlot ? (ManageWallet)slotHandler : parlayHandler;
+        currentWalletScript = wallet;
+        prevWalletValue = wallet.GetWallet();
+    }
+
+    private void AddToWallet(float money)
+    {
+        if (currentWalletScript != null)
         {
-            for(int i = 0; i < EffortTaskBucket.Count; i++)
-            {
-                EffortTaskBucket[i].SetWallet(slotHandler);
-            }
-            CurrentWalletScript = slotHandler;
-            PrevWalletValue = CurrentWalletScript.GetWallet();
-        }
-        else
-        {
-            for(int i = 0; i < EffortTaskBucket.Count; i++)
-            {
-                EffortTaskBucket[i].SetWallet(parlayHandler);
-            }
-            CurrentWalletScript = parlayHandler;
-            PrevWalletValue = CurrentWalletScript.GetWallet();
+            currentWalletScript.AddWallet(money);
         }
     }
 
@@ -259,49 +214,102 @@ public class EffortTaskHandler : MonoBehaviour
     private void StartNewTrial()
     {
         trialCompleted = false;
-
-        if (RedBall != null) RedBall.SetActive(false);
-        if (BlueBall != null) BlueBall.SetActive(false);
-
-        if (GreenBall != null)
-        {
-            GreenBall.SetActive(true);
-            ResetBallPositionOnly(GreenBall);
-        }
-
-        ResetBallPositionOnly(RedBall);
-        ResetBallPositionOnly(BlueBall);
     }
 
     public void SetActiveEffortTask(bool isActive)
     {
-        EffortTask.SetActive(isActive);
+        effortTaskObject.SetActive(isActive);
     }
 
     public bool GetActive()
     {
-        return EffortTask.activeSelf;
+        return effortTaskObject.activeSelf;
     }
 
-    public void ResetBallPosition(GameObject ball)
-    {        
-        ball.transform.position = ballStartPosition;
-        
-        Rigidbody rb = ball.GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            rb.velocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
-            rb.constraints = RigidbodyConstraints.FreezeAll;
-        }
-        
-        DetectBallMovement detectMovement = ball.GetComponent<DetectBallMovement>();
-        if (detectMovement != null)
-        {
-            detectMovement.WrongBucketResetMovement();
-        }
+public void AddScore()
+{
+    SoundManager.SoundManager.PlaySound3D(SoundType.increaseButtonSound, practiceTutorialBlock.transform.position, buttonVolume, increasePitch);
+    counter++;
+    sxr.SetButtonPresses(counter);
+    goalText.text = $"Button press Goal:\n{goal - counter}";
 
-        wrongBasket();
+    if (counter == goal && !trialEnded)
+    {
+        trialEnded = true;
+        if (effortTaskTrials[trialIndexCounter].isWin)
+        {
+            AddToWallet(isHardMode ? effortTaskTrials[trialIndexCounter].HardReward 
+                                   : effortTaskTrials[trialIndexCounter].EasyReward);
+        }
+        goalText.text = "";
+        StartCoroutine(EndTrial());
+    }
+}
+
+    private void SetChoiceText()
+    {
+        if (trialIndexCounter < effortTaskTrials.Length)
+        {
+            int easyGoal = effortTaskTrials[trialIndexCounter].EasyGoal;
+            float easyReward = effortTaskTrials[trialIndexCounter].EasyReward;
+            easyChoiceText.text = $"<b>EASY TASK</b>\n<size=120%><color=green>${easyReward}</color></size>\n<size=80%>{easyGoal} presses • 7s</size>";
+
+            int hardGoal = effortTaskTrials[trialIndexCounter].HardGoal;
+            float hardReward = effortTaskTrials[trialIndexCounter].HardReward;
+            hardChoiceText.text = $"<b>HARD TASK</b>\n<size=120%><color=green>${hardReward}</color></size>\n<size=80%>{hardGoal} presses • 21s</size>";
+            int winpercent = effortTaskTrials[trialIndexCounter].winpercent;
+            WinProcentText.text = $"<b>Probability to WIN </b>\n<size=120%><color=green>{winpercent}%</color></size>";
+        }
     }
 
+    public void Hard()
+    {
+        SoundManager.SoundManager.PlaySound3D(SoundType.increaseButtonSound, practiceTutorialBlock.transform.position, buttonVolume, increasePitch);
+        isHardMode = true;
+        sxr.SetHardEffortTask(isHardMode);
+        if (trialIndexCounter < effortTaskTrials.Length)
+        {
+            goal = effortTaskTrials[trialIndexCounter].HardGoal;
+            currentTime = effortTaskTrials[trialIndexCounter].HardTime;
+        }
+        choicePanel.SetActive(false);
+        StartCoroutine(CountdownToEffort());
+    }
+
+    public void Easy()
+    {
+        SoundManager.SoundManager.PlaySound3D(SoundType.increaseButtonSound, practiceTutorialBlock.transform.position, buttonVolume, increasePitch);
+        isHardMode = false;
+        sxr.SetHardEffortTask(isHardMode);
+        if (trialIndexCounter < effortTaskTrials.Length)
+        {
+            goal = effortTaskTrials[trialIndexCounter].EasyGoal;
+            currentTime = effortTaskTrials[trialIndexCounter].EasyTime;
+        }
+        choicePanel.SetActive(false);
+        StartCoroutine(CountdownToEffort());
+    }
+
+    public void AddPracticeScore()
+    {
+        if (PracticeCounter == 0)
+        {
+            practiceTime = 10f;
+            practiceTutorialBlock.SetActive(false);
+            pokeButtonTutorial.SetActive(false);
+            StartCoroutine(PracticeTimer());
+        }
+
+        SoundManager.SoundManager.PlaySound3D(SoundType.increaseButtonSound, practiceTutorialBlock.transform.position, buttonVolume, increasePitch);
+        PracticeCounter++;
+        goalText.text = $"Button Goal:\n{practiceGoal - PracticeCounter}";
+
+        if (PracticeCounter == practiceGoal)
+        {
+            Debug.Log("Practice Goal Reached");
+            goalText.text = "";
+            practiceComplete = true;
+            StartCountdown();
+        }
+    }
 }
