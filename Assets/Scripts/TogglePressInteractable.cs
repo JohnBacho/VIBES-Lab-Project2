@@ -423,6 +423,7 @@ public class TogglePressInteractable : MonoBehaviour
     {   
         ToggleTeam1.SetDisableColor();
         ToggleTeam2.SetDisableColor();
+        ToggleStats.DisableInteraction();
         tutorialFlag = true;
     }
 
@@ -430,6 +431,11 @@ public class TogglePressInteractable : MonoBehaviour
     {
         ToggleTeam1.EnableInteraction();
         ToggleTeam2.EnableInteraction();
+        ToggleStats.EnableInteraction();
+    }
+
+    public void enableStatsButton()
+    {
         ToggleStats.EnableInteraction();
     }
 
