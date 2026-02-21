@@ -168,7 +168,6 @@ public class EffortTaskHandler : MonoBehaviour
     {
         wrapper.SetActive(false);
         winningsText.text = $"${currentWalletScript.GetWallet() - prevWalletValue:0.00}\nAdded to\nwallet";
-        sxr.CalculateEffortScore(sxr.GetBallsThrown());
 
         yield return new WaitForSeconds(5f);
 
@@ -231,6 +230,7 @@ public void AddScore()
 {
     SoundManager.SoundManager.PlaySound3D(SoundType.increaseButtonSound, practiceTutorialBlock.transform.position, buttonVolume, increasePitch);
     counter++;
+    sxr.SetButtonPresses(counter);
     goalText.text = $"Button press Goal:\n{goal - counter}";
 
     if (counter == goal && !trialEnded)
@@ -266,6 +266,7 @@ public void AddScore()
     {
         SoundManager.SoundManager.PlaySound3D(SoundType.increaseButtonSound, practiceTutorialBlock.transform.position, buttonVolume, increasePitch);
         isHardMode = true;
+        sxr.SetHardEffortTask(isHardMode);
         if (trialIndexCounter < effortTaskTrials.Length)
         {
             goal = effortTaskTrials[trialIndexCounter].HardGoal;
@@ -279,6 +280,7 @@ public void AddScore()
     {
         SoundManager.SoundManager.PlaySound3D(SoundType.increaseButtonSound, practiceTutorialBlock.transform.position, buttonVolume, increasePitch);
         isHardMode = false;
+        sxr.SetHardEffortTask(isHardMode);
         if (trialIndexCounter < effortTaskTrials.Length)
         {
             goal = effortTaskTrials[trialIndexCounter].EasyGoal;

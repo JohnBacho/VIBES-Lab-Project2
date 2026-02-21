@@ -359,9 +359,8 @@ if ((currentparlayTrial != null && currentparlayTrial.outcome == OutcomeType.Eff
     (currentSlotTrial != null && currentSlotTrial.outcome == OutcomeType.EffortTask))
         {
             effortTaskHandler.SetActiveEffortTask(false);
-            sxr.SetEffortScore(0f);
-            sxr.ClearThrownSpeed();
-            sxr.SetBallsThrown(0);
+            sxr.SetHardEffortTask(false);
+            sxr.SetButtonPresses(0);
             playOffMusicScript.CancelOffMusic();            
         }
         else
