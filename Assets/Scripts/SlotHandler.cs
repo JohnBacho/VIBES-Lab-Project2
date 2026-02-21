@@ -41,7 +41,7 @@ public class SlotHandler : MonoBehaviour, ManageWallet
     private static readonly float increasePitch = 3f;
     private static readonly float decreasePitch = 1.5f;
     private static readonly float WaitTimeAfterReelsStop = 1.5f;
-    private void Awake()
+    private void Start()
     {
         UpdateUI();
     }

@@ -6345,9 +6345,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b>Gambling Task #1 Completed</b>\\n \r\nThe next task is <b>separate
-    and independent</b>.\\n\r\nAny money from the previous task <b>will not carry
-    over</b>.\\n\r\nWallet reset to <color=green><b>$25</b></color>."
+  m_text: <b>Gambling Task #1 Completed</b>\n\nThe next task is separate and independent</b>.\n\n
+    Any money from the previous task <b>will not carry over</b>.\n\nWallet reset
+    to <color=green><b>$25</b></color>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -10397,7 +10397,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &900306889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22120,18 +22120,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc04ca3376ea74d4bbbeeab8509b4917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gamblingTypeFirst: 0
+  gamblingTypeFirst: 1
   slotTrials:
   - outcome: 1
     multiplier: 2
     slotRow: 030000000600000009000000
-  - outcome: 3
+  - outcome: 2
     multiplier: 2
     slotRow: 040000000400000003000000
   - outcome: 1
     multiplier: 2
     slotRow: 050000000300000008000000
-  - outcome: 3
+  - outcome: 0
     multiplier: 2
     slotRow: 070000000700000007000000
   - outcome: 2

@@ -79,12 +79,11 @@ public class Driver : MonoBehaviour
     void Start()
     {
         StartCoroutine(switchContextAfterDelay());
-        StartCoroutine(DelayedStart());
+        DelayedStart();
     }
 
-    IEnumerator DelayedStart()
+    private void DelayedStart()
     {
-        yield return null;
         StartDataTrackers();
         if (rightRayLineVisual != null)
         {
@@ -99,7 +98,6 @@ public class Driver : MonoBehaviour
     IEnumerator switchContextAfterDelay()
     {
         sxr.SetGamblingType("Introduction");
-        yield return null;
         turnOffEnvironments();
         WelcomeText.SetActive(true);
         yield return new WaitForSeconds(2.5f);
