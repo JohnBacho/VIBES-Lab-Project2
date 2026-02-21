@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using sxr_internal;
 
 [System.Serializable]
 public class EffortTask
@@ -33,6 +34,7 @@ public class EffortTaskHandler : MonoBehaviour
     [SerializeField] private TextMeshPro winningsText;
     [SerializeField] private GameObject pokeButtonTutorial;
     [SerializeField] private GameObject practiceTutorialBlock;
+    [SerializeField] private GazeHandler gazeHandler;
 
     private const float IntermissionTime = 3f;
 
@@ -138,6 +140,7 @@ public class EffortTaskHandler : MonoBehaviour
         intermissionText.text = "";
 
         wrapper.SetActive(true);
+        gazeHandler.SetCaptureEventBaseline();
         sxr.RestartTimer();
         goalText.text = $"Button press Goal:\n{goal - counter}";
         StartCoroutine(TimerRoutine());
@@ -203,6 +206,7 @@ public class EffortTaskHandler : MonoBehaviour
         if (currentWalletScript != null)
         {
             currentWalletScript.AddWallet(money);
+            sxr.SetPayout(money);
         }
     }
 
