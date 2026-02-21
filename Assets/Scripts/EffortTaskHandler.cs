@@ -214,6 +214,18 @@ public class EffortTaskHandler : MonoBehaviour
     private void StartNewTrial()
     {
         trialCompleted = false;
+
+        if (RedBall != null) RedBall.SetActive(false);
+        if (BlueBall != null) BlueBall.SetActive(false);
+
+        if (GreenBall != null)
+        {
+            GreenBall.SetActive(true);
+            ResetBallPositionOnly(GreenBall);
+        }
+
+        ResetBallPositionOnly(RedBall);
+        ResetBallPositionOnly(BlueBall);
     }
 
     public void SetActiveEffortTask(bool isActive)
