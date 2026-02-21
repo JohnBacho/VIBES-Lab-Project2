@@ -5,17 +5,12 @@ using UnityEngine;
 public class ParlayTutorial : MonoBehaviour
 {
     [SerializeField] private GameObject SelectParlayTutorial;
-    [SerializeField] private GameObject pt1GrabHandleTutorial;
-    [SerializeField] private GameObject pt2GrabHandleTutorial;
     [SerializeField] private GameObject StatTutorial;
 
     [Header("Beacon Settings")]
-    [SerializeField] private GameObject BeaconBox;
     [SerializeField] private Color idleColor = new Color(1f, 1f, 1f, 0.2f);
     [SerializeField] private Color grabColor = Color.green;
     [SerializeField] private List<TogglePressInteractable> togglePressInteractables;
-    [SerializeField] private GameObject leftController;
-    [SerializeField] private GameObject rightController;
 
     private Renderer beaconRenderer;
     private Material beaconMaterial;
@@ -26,8 +21,6 @@ public class ParlayTutorial : MonoBehaviour
     private enum TutorialState
     {
         Disabled,
-        GrabHandlePt1,
-        GrabHandlePt2,
         Stats,
         SelectParlay,
         Completed
@@ -37,21 +30,10 @@ public class ParlayTutorial : MonoBehaviour
 
     private void Start()
     {
-        if (BeaconBox != null)
+        if(StatsMaterial != null)
         {
-            beaconRenderer = BeaconBox.GetComponent<Renderer>();
-            
-            if (beaconRenderer != null)
-            {
-                beaconMaterial = beaconRenderer.material;
-                beaconMaterial.color = idleColor;
-            }
-            if(StatsMaterial != null)
-            {
-                originalStatsColor = StatsMaterial.color;
-            }
+            originalStatsColor = StatsMaterial.color;
         }
-
     }
 
     private void SetTutorialState(TutorialState newState)
@@ -65,12 +47,6 @@ public class ParlayTutorial : MonoBehaviour
     {
         switch (state)
         {
-            case TutorialState.GrabHandlePt1:
-                pt1GrabHandleTutorial?.SetActive(false);
-                break;
-            case TutorialState.GrabHandlePt2:
-                pt2GrabHandleTutorial?.SetActive(false);
-                break;
             case TutorialState.Stats:
                 StatTutorial?.SetActive(false);
                 StopPulsing();
@@ -87,26 +63,9 @@ public class ParlayTutorial : MonoBehaviour
     private void EnterState(TutorialState state)
     {
         switch (state)
-        {
-            case TutorialState.GrabHandlePt1:
-                pt1GrabHandleTutorial?.SetActive(true);
-                ToggleControllerColliders(true);
-                BeaconBox.SetActive(true);
-                break;
-                
-            case TutorialState.GrabHandlePt2:
-                pt2GrabHandleTutorial?.SetActive(true);
-                StartPulsing(beaconMaterial, 1f);
-                break;
-                
+        {       
             case TutorialState.Stats:
-                for(int i = 0; i < togglePressInteractables.Count; i++)
-                {
-                    togglePressInteractables[i].enableStatsButton();
-                }
                 StatTutorial?.SetActive(true);
-                ToggleControllerColliders(false);
-                BeaconBox.SetActive(false);
                 StartPulsing(StatsMaterial, 2f);
                 break;
                 
@@ -123,54 +82,6 @@ public class ParlayTutorial : MonoBehaviour
             case TutorialState.Completed:
                 break;
         }
-    }
-
-public void OnControllerEnter(Collider other)
-{
-    if (!IsVRController(other) || TutorialState.Completed == currentState)
-    {
-        return;
-    }
-
-    if (BeaconBox.activeSelf)
-    {
-            SetTutorialState(TutorialState.GrabHandlePt2);
-    }
-
-    if (pulseCoroutine != null)
-        StopCoroutine(pulseCoroutine);
-
-    pulseCoroutine = StartCoroutine(PulseColor(grabColor, beaconMaterial, 1f));
-}
-
-    public void OnControllerExit(Collider other)
-    {
-        if (!IsVRController(other) || TutorialState.Completed == currentState)
-        {
-            return;
-        }
-            
-        if (BeaconBox.activeSelf)
-        {
-            SetTutorialState(TutorialState.GrabHandlePt1);
-        }
-
-        if (pulseCoroutine != null)
-            StopCoroutine(pulseCoroutine);
-
-        if (beaconMaterial != null)
-            beaconMaterial.color = idleColor;
-    }
-
-    private bool IsVRController(Collider other)
-    {
-        string objName = other.gameObject.name.ToLower();
-        if (objName.Contains("controller"))
-        {
-            return true;
-        }
-
-        return false;
     }
 
     private void StartPulsing(Material material, float speed)
@@ -231,13 +142,7 @@ public void OnControllerEnter(Collider other)
 
     public void StartTutorial()
     {
-        SetTutorialState(TutorialState.GrabHandlePt1);
-    }
-
-    private void ToggleControllerColliders(bool enable)
-    {
-        leftController.GetComponent<Collider>().enabled = enable;
-        rightController.GetComponent<Collider>().enabled = enable;
+        SetTutorialState(TutorialState.Stats);
     }
 
     public void turnOffTutorials()
