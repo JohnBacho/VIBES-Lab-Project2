@@ -21289,18 +21289,21 @@ MonoBehaviour:
   - outcome: 2
     multiplier: 2
     slotRow: 040000000400000003000000
-  - outcome: 1
-    multiplier: 2
-    slotRow: 050000000300000008000000
-  - outcome: 3
-    multiplier: 2
-    slotRow: 000000000000000000000000
   - outcome: 0
     multiplier: 2
     slotRow: 070000000700000007000000
+  - outcome: 3
+    multiplier: 2
+    slotRow: 000000000000000000000000
+  - outcome: 1
+    multiplier: 2
+    slotRow: 050000000300000008000000
   - outcome: 2
     multiplier: 2
     slotRow: 080000000800000009000000
+  - outcome: 0
+    multiplier: 2
+    slotRow: 000000000000000000000000
   - outcome: 1
     multiplier: 2
     slotRow: 050000000700000006000000
@@ -21310,30 +21313,27 @@ MonoBehaviour:
   - outcome: 3
     multiplier: 2
     slotRow: 040000000000000004000000
-  - outcome: 0
-    multiplier: 2
-    slotRow: 000000000000000000000000
   - outcome: 1
     multiplier: 2
     slotRow: 030000000800000005000000
-  - outcome: 2
-    multiplier: 2
-    slotRow: 070000000700000008000000
   - outcome: 0
     multiplier: 2
     slotRow: 040000000400000004000000
-  - outcome: 3
+  - outcome: 2
     multiplier: 2
-    slotRow: 040000000000000004000000
+    slotRow: 070000000700000008000000
   - outcome: 1
     multiplier: 2
     slotRow: 000000000800000003000000
-  - outcome: 2
+  - outcome: 3
     multiplier: 2
-    slotRow: 060000000600000005000000
+    slotRow: 040000000000000004000000
   - outcome: 0
     multiplier: 2
     slotRow: 000000000000000000000000
+  - outcome: 2
+    multiplier: 2
+    slotRow: 060000000600000005000000
   - outcome: 1
     multiplier: 2
     slotRow: 090000000600000002000000
@@ -21346,22 +21346,26 @@ MonoBehaviour:
     leg3: 010100
     leg4: 01010100
     leg5: 0101010100
-  - outcome: 1
-    leg3: 000001
-    leg4: 00000101
-    leg5: 0000010100
+  - outcome: 0
+    leg3: 010101
+    leg4: 01010101
+    leg5: 0101010101
   - outcome: 3
     leg3: 000000
     leg4: 00000000
     leg5: 0000000000
-  - outcome: 0
-    leg3: 010101
-    leg4: 01010101
-    leg5: 0101010101
+  - outcome: 1
+    leg3: 000001
+    leg4: 00000101
+    leg5: 0000010100
   - outcome: 2
     leg3: 010100
     leg4: 01010100
     leg5: 0101010100
+  - outcome: 0
+    leg3: 010101
+    leg4: 01010101
+    leg5: 0101010101
   - outcome: 1
     leg3: 000100
     leg4: 00010001
@@ -21374,38 +21378,34 @@ MonoBehaviour:
     leg3: 000100
     leg4: 00010001
     leg5: 0000010001
-  - outcome: 0
-    leg3: 010101
-    leg4: 01010101
-    leg5: 0101010101
   - outcome: 1
     leg3: 000001
     leg4: 00010001
     leg5: 0001000100
-  - outcome: 2
-    leg3: 010100
-    leg4: 01010100
-    leg5: 0101010100
   - outcome: 0
     leg3: 010101
     leg4: 01010101
     leg5: 0101010101
-  - outcome: 3
-    leg3: 000100
-    leg4: 00010001
-    leg5: 0000010001
+  - outcome: 2
+    leg3: 010100
+    leg4: 01010100
+    leg5: 0101010100
   - outcome: 1
     leg3: 000001
     leg4: 00000101
     leg5: 0000000101
-  - outcome: 2
-    leg3: 010100
-    leg4: 01010100
-    leg5: 0101010100
+  - outcome: 3
+    leg3: 000100
+    leg4: 00010001
+    leg5: 0000010001
   - outcome: 0
     leg3: 010101
     leg4: 01010101
     leg5: 0101010101
+  - outcome: 2
+    leg3: 010100
+    leg4: 01010100
+    leg5: 0101010100
   - outcome: 1
     leg3: 000100
     leg4: 00010001
