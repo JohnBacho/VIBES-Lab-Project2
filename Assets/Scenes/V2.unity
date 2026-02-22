@@ -21281,7 +21281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc04ca3376ea74d4bbbeeab8509b4917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gamblingTypeFirst: 0
+  gamblingTypeFirst: 1
   slotTrials:
   - outcome: 1
     multiplier: 2

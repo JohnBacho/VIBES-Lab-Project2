@@ -223,7 +223,7 @@ public class TogglePressInteractable : MonoBehaviour
 
         if(!tutorialFlag)
         {
-           ParlayTutorialDisableButtons();
+           StartCoroutine(ParlayTutorialDisableButtons());
         }
     }
 
@@ -419,8 +419,9 @@ public class TogglePressInteractable : MonoBehaviour
         ToggleTeam2.EnableInteraction();
     }
 
-    private void ParlayTutorialDisableButtons()
+    private IEnumerator ParlayTutorialDisableButtons()
     {   
+        yield return null;
         ToggleTeam1.SetDisableColor();
         ToggleTeam2.SetDisableColor();
         tutorialFlag = true;
