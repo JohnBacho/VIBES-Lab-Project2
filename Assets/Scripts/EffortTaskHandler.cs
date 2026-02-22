@@ -4,28 +4,12 @@ using UnityEngine;
 using TMPro;
 using sxr_internal;
 
-[System.Serializable]
-public class EffortTask
-{
-    public int EasyGoal;
-    public float EasyTime;
-    public float EasyReward;
-    public int HardGoal;
-    public float HardTime;
-    public float HardReward;
-    public int winpercent;
-    public bool isWin;
-}
-
 public class EffortTaskHandler : MonoBehaviour
 {
-    [SerializeField] private EffortTask[] effortTaskTrials = new EffortTask[1];
-
     [SerializeField] private GameObject effortTaskObject;
 
     [SerializeField] private GameObject practice;
     [SerializeField] private GameObject pt1InstructionsPanel;
-    [SerializeField] private GameObject pt2InstructionsPanel;
 
     [SerializeField] private GameObject wrapper;
 
@@ -62,6 +46,14 @@ public class EffortTaskHandler : MonoBehaviour
     private static readonly float buttonVolume = 0.5f;
     private static readonly float increasePitch = 3f;
     private bool trialEnded = false;
+
+
+    private const int EasyGoal = 20;
+    private const float EasyTime = 7f;
+    private  const float EasyReward = 1f;
+    private const int HardGoal = 90;
+    private const float HardTime = 21f;
+    private const float HardReward = 3f;
 
 
     public void StartTutorial()
@@ -163,6 +155,7 @@ public class EffortTaskHandler : MonoBehaviour
         if (!trialEnded)
         {
             trialEnded = true;
+            goalText.text = "";
             StartCoroutine(EndTrial());
         }
     }
@@ -240,11 +233,7 @@ public void AddScore()
     if (counter == goal && !trialEnded)
     {
         trialEnded = true;
-        if (effortTaskTrials[trialIndexCounter].isWin)
-        {
-            AddToWallet(isHardMode ? effortTaskTrials[trialIndexCounter].HardReward 
-                                   : effortTaskTrials[trialIndexCounter].EasyReward);
-        }
+        AddToWallet(isHardMode ? HardReward : EasyReward);
         goalText.text = "";
         StartCoroutine(EndTrial());
     }
@@ -252,18 +241,11 @@ public void AddScore()
 
     private void SetChoiceText()
     {
-        if (trialIndexCounter < effortTaskTrials.Length)
-        {
-            int easyGoal = effortTaskTrials[trialIndexCounter].EasyGoal;
-            float easyReward = effortTaskTrials[trialIndexCounter].EasyReward;
-            easyChoiceText.text = $"<b>EASY TASK</b>\n<size=120%><color=green>${easyReward}</color></size>\n<size=80%>{easyGoal} presses • 7s</size>";
 
-            int hardGoal = effortTaskTrials[trialIndexCounter].HardGoal;
-            float hardReward = effortTaskTrials[trialIndexCounter].HardReward;
-            hardChoiceText.text = $"<b>HARD TASK</b>\n<size=120%><color=green>${hardReward}</color></size>\n<size=80%>{hardGoal} presses • 21s</size>";
-            int winpercent = effortTaskTrials[trialIndexCounter].winpercent;
-            WinProcentText.text = $"<b>Probability to WIN </b>\n<size=120%><color=green>{winpercent}%</color></size>";
-        }
+    easyChoiceText.text = $"<b>EASY TASK</b>\n<size=120%><color=green>${EasyReward}</color></size>\n<size=80%>{EasyGoal} presses • 7s</size>";
+
+    hardChoiceText.text = $"<b>HARD TASK</b>\n<size=120%><color=green>${HardReward}</color></size>\n<size=80%>{HardGoal} presses • 21s</size>";
+
     }
 
     public void Hard()
@@ -271,11 +253,8 @@ public void AddScore()
         SoundManager.SoundManager.PlaySound3D(SoundType.increaseButtonSound, practiceTutorialBlock.transform.position, buttonVolume, increasePitch);
         isHardMode = true;
         sxr.SetHardEffortTask(isHardMode);
-        if (trialIndexCounter < effortTaskTrials.Length)
-        {
-            goal = effortTaskTrials[trialIndexCounter].HardGoal;
-            currentTime = effortTaskTrials[trialIndexCounter].HardTime;
-        }
+        goal = HardGoal;
+        currentTime = HardTime;
         choicePanel.SetActive(false);
         StartCoroutine(CountdownToEffort());
     }
@@ -285,11 +264,8 @@ public void AddScore()
         SoundManager.SoundManager.PlaySound3D(SoundType.increaseButtonSound, practiceTutorialBlock.transform.position, buttonVolume, increasePitch);
         isHardMode = false;
         sxr.SetHardEffortTask(isHardMode);
-        if (trialIndexCounter < effortTaskTrials.Length)
-        {
-            goal = effortTaskTrials[trialIndexCounter].EasyGoal;
-            currentTime = effortTaskTrials[trialIndexCounter].EasyTime;
-        }
+        goal = EasyGoal;
+        currentTime = EasyTime;
         choicePanel.SetActive(false);
         StartCoroutine(CountdownToEffort());
     }
