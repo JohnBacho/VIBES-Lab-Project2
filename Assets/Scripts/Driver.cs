@@ -69,7 +69,7 @@ public class Driver : MonoBehaviour
 
     int offMusicToken = 0;
     const float slotTrialDuration = 30f;
-    const float parlayTrialDuration = 105f;
+    const float parlayTrialDuration = 100f;
     const int lastTrialIndex = 16;
     const int lastPhase = 1; 
     const float disableTime = 0.5f;
