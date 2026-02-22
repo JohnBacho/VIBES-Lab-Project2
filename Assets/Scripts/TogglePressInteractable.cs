@@ -414,9 +414,12 @@ public class TogglePressInteractable : MonoBehaviour
         yield return null;
         ToggleTeam1.DisableInteraction();
         ToggleTeam2.DisableInteraction();
-        yield return new WaitForSeconds(disableTime);
-        ToggleTeam1.EnableInteraction();
-        ToggleTeam2.EnableInteraction();
+        if (tutorialFlag)
+        {
+            yield return new WaitForSeconds(disableTime);
+            ToggleTeam1.EnableInteraction();
+            ToggleTeam2.EnableInteraction();   
+        }
     }
 
     private IEnumerator ParlayTutorialDisableButtons()

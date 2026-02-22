@@ -232,9 +232,7 @@ public class Driver : MonoBehaviour
         SlotMachine.SetActive(!switchingToParlay);
         SlotMachineEnvironment.SetActive(!switchingToParlay);
         
-        if (switchingToParlay) {
-            parlayHandler.DisableButtons(disableTime);
-        } else {
+        if (!switchingToParlay) {
             slotHandler.DisableButtons(disableTime);
         }
         sxr.SetTotalLegs(0);
