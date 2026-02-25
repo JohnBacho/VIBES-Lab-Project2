@@ -19,6 +19,11 @@ public class EffortTaskHandler : MonoBehaviour
     [SerializeField] private GameObject pokeButtonTutorial;
     [SerializeField] private GameObject practiceTutorialBlock;
     [SerializeField] private GazeHandler gazeHandler;
+    [SerializeField] private PokeButton PracticeButton;
+
+    [SerializeField] private PokeButton EasyButton;
+    [SerializeField] private PokeButton HardButton;
+
 
     private const float IntermissionTime = 3f;
 
@@ -41,7 +46,6 @@ public class EffortTaskHandler : MonoBehaviour
     private bool isHardMode = false;
     [SerializeField] private TextMeshPro hardChoiceText;
     [SerializeField] private TextMeshPro easyChoiceText;
-    [SerializeField] private TextMeshPro WinProcentText;
 
     private static readonly float buttonVolume = 0.5f;
     private static readonly float increasePitch = 3f;
@@ -73,7 +77,8 @@ public class EffortTaskHandler : MonoBehaviour
             yield return new WaitForSeconds(3f);
             yield return new WaitUntil(() => sxr.GetTrigger());
             pt1InstructionsPanel.SetActive(false);
-            practice.SetActive(true);            
+            practice.SetActive(true);
+            DisableButtons(true);            
         }
         else
         {
@@ -105,8 +110,8 @@ public class EffortTaskHandler : MonoBehaviour
             intermissionText.text = "Try again";
             practiceTutorialBlock.SetActive(true);
             pokeButtonTutorial.SetActive(true);
-            counter = 0;
-            goalText.text = $"Button Goal:\n{practiceGoal - counter}";
+            PracticeCounter = 0;
+            goalText.text = $"Button Goal:\n{practiceGoal - PracticeCounter}";
         }
     }
 
@@ -114,6 +119,7 @@ public class EffortTaskHandler : MonoBehaviour
     {
         practice.SetActive(false);
         choicePanel.SetActive(true);
+        DisableButtons(false);
         SetChoiceText();
     }
 
@@ -291,5 +297,26 @@ public void AddScore()
             practiceComplete = true;
             StartCountdown();
         }
+    }
+
+    private void DisableButtons(bool practice)
+    {
+        StartCoroutine(TemporarilyDisableButtons(practice));
+    }
+    private IEnumerator TemporarilyDisableButtons(bool practice)
+    {
+        if (practice)
+        {
+            PracticeButton.DisableButton();
+        }
+        EasyButton.DisableButton();
+        HardButton.DisableButton();
+        yield return new WaitForSeconds(0.5f);
+        if (practice)
+        {
+            PracticeButton.EnableButton();
+        }
+        EasyButton.EnableButton();
+        HardButton.EnableButton();
     }
 }

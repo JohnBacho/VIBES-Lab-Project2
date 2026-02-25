@@ -21583,12 +21583,14 @@ MonoBehaviour:
   pokeButtonTutorial: {fileID: 1086453139}
   practiceTutorialBlock: {fileID: 2105702988}
   gazeHandler: {fileID: 1035072719}
+  PracticeButton: {fileID: 1095820560}
+  EasyButton: {fileID: 1541067565}
+  HardButton: {fileID: 2017564712}
   trialCompleted: 0
   goalText: {fileID: 1335624967}
   choicePanel: {fileID: 903084432}
   hardChoiceText: {fileID: 839397927}
   easyChoiceText: {fileID: 157792999}
-  WinProcentText: {fileID: 0}
 --- !u!1001 &1979377702
 PrefabInstance:
   m_ObjectHideFlags: 0
