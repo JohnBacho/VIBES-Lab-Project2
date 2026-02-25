@@ -174,8 +174,9 @@ public class EffortTaskHandler : MonoBehaviour
         yield return new WaitForSeconds(5f);
 
         winningsText.text = "";
-        ResetTrialState();
         MarkTrialComplete();
+        yield return null;
+        ResetTrialState();
     }
 
     private void ResetTrialState()
