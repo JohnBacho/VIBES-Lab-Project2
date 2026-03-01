@@ -14,7 +14,6 @@ public class VRPlayerReposition : MonoBehaviour
 
     private IEnumerator WaitAndRecenter()
 {
-    // Wait a few frames to ensure tracking has fully initialized
     yield return new WaitForSeconds(1.5f);
 
     if (xrRig == null || xrCamera == null || cameraSpawnPoint == null)
@@ -23,18 +22,40 @@ public class VRPlayerReposition : MonoBehaviour
         yield break;
     }
 
-    // Step 1: Get the real-world tracked camera position
     Vector3 currentCameraWorldPos = xrCamera.position;
 
-    // Step 2: Compute how far off it is from where we want the camera to be
     Vector3 offset = cameraSpawnPoint.position - currentCameraWorldPos;
 
-
-
-    // Step 4: Apply the offset to the XR Rig
     xrRig.position += offset;
 
     Debug.Log($"[VRPlayerReposition] Moved XR Rig by offset (X,Z only): {offset}");
+    yield return new WaitForSeconds(3.5f);
+    StartCoroutine(CheckCameraPosition());
 }
+
+    private IEnumerator CheckCameraPosition()
+        {
+            Vector3 currentCameraWorldPos = xrCamera.position;
+            Vector3 offset = cameraSpawnPoint.position - currentCameraWorldPos;
+            float currentZ = xrCamera.position.z;
+            float targetZ = cameraSpawnPoint.position.z;
+            if(Vector3.Distance(cameraSpawnPoint.position, currentCameraWorldPos) > 0.35f)
+            {
+                offset = cameraSpawnPoint.position - currentCameraWorldPos;
+                xrRig.position += offset;
+            }
+
+            if(Mathf.Abs(targetZ - currentZ) > 0.25f)
+            {
+                float offsetZ = targetZ - currentZ;
+
+                Vector3 newPos = xrRig.position;
+                newPos.z += offsetZ;
+                xrRig.position = newPos;
+            }
+            yield return new WaitForSeconds(4f);
+            StartCoroutine(CheckCameraPosition());
+        }
+
 
 }
