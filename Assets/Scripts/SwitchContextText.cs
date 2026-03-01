@@ -10,6 +10,7 @@ public class SwitchContextText : MonoBehaviour
     [SerializeField] private TextMeshPro ContextSwitchText;
     [SerializeField] private GameObject ContextSwitchScene;
     [SerializeField] private GameObject PressTriggerGraphic;
+    [SerializeField] private ParlayInstructions parlayInstructions;
 
     const float TextTime = 0.30f;
 
@@ -37,6 +38,7 @@ public class SwitchContextText : MonoBehaviour
 
     private IEnumerator SwitchingToParlayCoroutine()
     {
+        yield return StartCoroutine(parlayInstructions.ShowParlayInstructions());
         for (int i = 0; i < 2; i++)
         {
             ContextSwitchText.text = "Switching to Parlay!\nLoading";

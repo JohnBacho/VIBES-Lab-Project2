@@ -60,6 +60,7 @@ public class Driver : MonoBehaviour
     [SerializeField] private EffortTaskHandler effortTaskHandler;
     [SerializeField] private GazeHandler gazeHandler;
     [SerializeField] private SwitchContextText switchContextText;
+    [SerializeField] private ParlayInstructions parlayInstructions;
     [SerializeField] XRInteractorLineVisual rightRayLineVisual;
     [SerializeField] XRInteractorLineVisual leftRayLineVisual;
 
@@ -95,7 +96,7 @@ public class Driver : MonoBehaviour
         }
     }
 
-    IEnumerator switchContextAfterDelay()
+    private IEnumerator switchContextAfterDelay()
     {
         sxr.SetGamblingType("Introduction");
         turnOffEnvironments();
@@ -104,6 +105,10 @@ public class Driver : MonoBehaviour
         yield return new WaitUntil(() => sxr.GetTrigger());
         WelcomeText.SetActive(false);
         bool isSlotMachine = (gamblingTypeFirst == GamblingTypeFirst.Slot);
+        if(!isSlotMachine)
+        {
+            yield return StartCoroutine(parlayInstructions.ShowParlayInstructions());
+        }
         SlotMachine.SetActive(isSlotMachine);
         SlotMachineEnvironment.SetActive(isSlotMachine);
         ParlayEnvironment.SetActive(!isSlotMachine);
