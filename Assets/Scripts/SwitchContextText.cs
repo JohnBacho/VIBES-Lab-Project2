@@ -9,6 +9,7 @@ public class SwitchContextText : MonoBehaviour
 {
     [SerializeField] private TextMeshPro ContextSwitchText;
     [SerializeField] private GameObject ContextSwitchScene;
+    [SerializeField] private GameObject Backdrop;
     [SerializeField] private GameObject PressTriggerGraphic;
     [SerializeField] private ParlayInstructions parlayInstructions;
 
@@ -38,7 +39,9 @@ public class SwitchContextText : MonoBehaviour
 
     private IEnumerator SwitchingToParlayCoroutine()
     {
+        Backdrop.SetActive(false);
         yield return StartCoroutine(parlayInstructions.ShowParlayInstructions());
+        Backdrop.SetActive(true);
         for (int i = 0; i < 2; i++)
         {
             ContextSwitchText.text = "Switching to Parlay!\nLoading";

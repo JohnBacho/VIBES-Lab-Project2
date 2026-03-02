@@ -101,7 +101,7 @@ public class Driver : MonoBehaviour
         sxr.SetGamblingType("Introduction");
         turnOffEnvironments();
         WelcomeText.SetActive(true);
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(4f);
         yield return new WaitUntil(() => sxr.GetTrigger());
         WelcomeText.SetActive(false);
         bool isSlotMachine = (gamblingTypeFirst == GamblingTypeFirst.Slot);

@@ -24,6 +24,7 @@ public class ParlayInstructions : MonoBehaviour
     {
         Pt2InstructionsPanel.SetActive(true);
         yield return new WaitForSeconds(3f);
+        yield return new WaitUntil(() => sxr.GetTrigger());
         Pt2InstructionsPanel.SetActive(false);
         yield return Pt3(); 
     }
@@ -31,7 +32,7 @@ public class ParlayInstructions : MonoBehaviour
     {
         Pt3InstructionsPanel.SetActive(true);
         yield return new WaitForSeconds(3f);
+        yield return new WaitUntil(() => sxr.GetTrigger());
         Pt3InstructionsPanel.SetActive(false);
-        yield return Pt3(); 
     }
 }
