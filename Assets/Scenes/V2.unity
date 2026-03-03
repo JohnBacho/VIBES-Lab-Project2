@@ -4467,12 +4467,21 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b><size=120%>Study Overview</size></b>\n\nYou will complete <b>two independent
-    gambling tasks</b> (Condition 1 & Condition 2).\nEarnings are tracked <b>separately</b>
-    \u2014 progress in one <i>does not carry over</i> to the other.\n\n<b><size=110%>Bonus
-    Opportunity</size></b>\n\nThe <b>top 3 participants</b> in <i>each</i> condition
-    will receive an additional <color=#4CAF50><b>$10 amazon \ngift card bonus</b></color>.\nWinners
-    will be announced at the conclusion of the study."
+  m_text: '<b><size=110%>Bonus Opportunity</size></b>\n
+
+    Your <b>earnings</b>
+    are tracked independently for each condition.\n
+
+    <b>Bonus:</b> The <b>top
+    3 participants</b> in <b>Condition 1</b> and the <b>top 3</b> in <b>Condition
+    2</b> will each receive an additional <color=green><b>$10 Amazon gift card</b></color>.\n
+
+    Rankings
+    are based on <b>total money earned</b> during each <b>condition</b>.
+
+
+    Winners
+    will be announced after all participants have completed the study.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
