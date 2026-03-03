@@ -80,6 +80,7 @@ public class Driver : MonoBehaviour
     void Start()
     {
         StartCoroutine(switchContextAfterDelay());
+        AudioListener.volume = 0.75f;
         DelayedStart();
     }
 
