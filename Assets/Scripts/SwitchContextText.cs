@@ -40,6 +40,7 @@ public class SwitchContextText : MonoBehaviour
     private IEnumerator SwitchingToParlayCoroutine()
     {
         Backdrop.SetActive(false);
+        ContextSwitchText.text = "";
         yield return StartCoroutine(parlayInstructions.ShowParlayInstructions());
         Backdrop.SetActive(true);
         for (int i = 0; i < 2; i++)
