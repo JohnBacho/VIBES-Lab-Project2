@@ -55,6 +55,7 @@ public class Driver : MonoBehaviour
     [SerializeField] private GameObject ParlayEnvironment;
     [SerializeField] private GameObject Tablet;
     [SerializeField] private GameObject WelcomeText;
+    [SerializeField] private GameObject PaymentInstructions;
     [SerializeField] private ParlayHandler parlayHandler;
     [SerializeField] private SlotHandler slotHandler;
     [SerializeField] private EffortTaskHandler effortTaskHandler;
@@ -105,6 +106,10 @@ public class Driver : MonoBehaviour
         yield return new WaitForSeconds(4f);
         yield return new WaitUntil(() => sxr.GetTrigger());
         WelcomeText.SetActive(false);
+        PaymentInstructions.SetActive(true);
+        yield return new WaitForSeconds(4f);
+        yield return new WaitUntil(() => sxr.GetTrigger());
+        PaymentInstructions.SetActive(false);
         bool isSlotMachine = (gamblingTypeFirst == GamblingTypeFirst.Slot);
         if(!isSlotMachine)
         {
