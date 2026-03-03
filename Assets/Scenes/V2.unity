@@ -1932,6 +1932,7 @@ GameObject:
   m_Component:
   - component: {fileID: 101987022}
   - component: {fileID: 101987024}
+  - component: {fileID: 101987023}
   m_Layer: 0
   m_Name: Backdrop
   m_TagString: Untagged
