@@ -1949,8 +1949,8 @@ Transform:
   m_GameObject: {fileID: 101987021}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.23399988, y: 2.52, z: 0.014792025}
-  m_LocalScale: {x: 1.7409163, y: 2.1060157, z: -0.011771}
+  m_LocalPosition: {x: 0.37899998, y: 2.481, z: 0.014792025}
+  m_LocalScale: {x: 2.0897958, y: 2.1060157, z: -0.011771}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 908879267}
@@ -4444,7 +4444,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.2959999, y: -2.4399998}
+  m_AnchoredPosition: {x: -0.441, y: -2.518}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &235389429
@@ -4467,7 +4467,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Placeholder
+  m_text: "<b><size=120%>Study Overview</size></b>\n\nYou will complete <b>two independent
+    gambling tasks</b> (Condition 1 & Condition 2).\nEarnings are tracked <b>separately</b>
+    \u2014 progress in one <i>does not carry over</i> to the other.\n\n<b><size=110%>Bonus
+    Opportunity</size></b>\n\nThe <b>top 3 participants</b> in <i>each</i> condition
+    will receive an additional <color=#4CAF50><b>$10 amazon \ngift card bonus</b></color>.\nWinners
+    will be announced at the conclusion of the study."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4530,7 +4535,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 9.440864, y: -0.9276514, z: 8.971989, w: 3.9475813}
+  m_margin: {x: 9.440864, y: -0.9276514, z: 8.669435, w: 3.9475813}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -16811,8 +16816,8 @@ Transform:
   m_GameObject: {fileID: 908879266}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: -0.7484564, y: -0.18639578, z: 3.822951}
-  m_LocalScale: {x: 0.14862522, y: 0.06361465, z: -32.093384}
+  m_LocalPosition: {x: -0.6235059, y: -0.13084055, z: 3.822951}
+  m_LocalScale: {x: 0.123813085, y: 0.06361465, z: -32.093384}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 162370712}
