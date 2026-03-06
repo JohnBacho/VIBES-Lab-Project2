@@ -312,7 +312,7 @@ public void AddScore()
         }
         EasyButton.DisableButton();
         HardButton.DisableButton();
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.25f);
         if (practice)
         {
             PracticeButton.EnableButton();
