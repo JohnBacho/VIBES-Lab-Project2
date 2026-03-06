@@ -1445,14 +1445,14 @@ MonoBehaviour:
       m_Calls: []
   m_text: '<size=110%><b>Welcome\n</b></size>
 
-    You will complete <b>two separate
-    gambling tasks</b> in this session.\n
+    You will complete <b>two separate\ngambling
+    tasks</b> in this session.\n
 
-    Each task is <b>independent</b> and
-    will be explained before it begins.\n
+    Each task is <b>independent</b> and will be\nexplained
+    before it begins.\n
 
-    Your performance in one task <b>does
-    not affect</b> the other.\n
+    Your performance in one task\n<b>does not affect</b>
+    the other.\n
 
     Wallet set to <color=green><b>$25</b></color>.'
   m_isRightToLeft: 0
@@ -13900,7 +13900,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: (Press trigger to continue)
+  m_text: "(Press trigger \nto continue)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -32878,9 +32878,9 @@ MonoBehaviour:
     <color=#00FFFF><b>parlay</b></color> is a single bet that links together multiple
     individual wagers (referred to as <b>legs</b>). For each leg you will choose
     between two competing teams. \n\n\u2022 <b><color=#00FF00>Selection:</color></b>
-    For this study you must select between <b>3 and 5</b> legs to build your parlay\n\u2022
-    <b><color=#FFCC00>Winning Criteria:</color></b> For the parlay to win, all of
-    the individual legs need to win."
+    For this study you must select between <b>3 and\\n  5</b> legs to build your
+    parlay\n\u2022 <b><color=#FFCC00>Winning Criteria:</color></b> For the parlay
+    to win, all of the \\n   individual legs need to win."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 47f2c0f0583de32429aa7dedceaf03fe, type: 2}
   m_sharedMaterial: {fileID: 5052451612889956222, guid: 47f2c0f0583de32429aa7dedceaf03fe, type: 2}
@@ -34527,7 +34527,7 @@ MonoBehaviour:
     the less likely it is for the team to win. As this wage is higher risk, if the
     team you select wins the payout is much higher compared to that of lower negative
     odds- but it is riskier.\r\n\r\n<size=110%><color=#FFD700>\u2022 <b>Positive
-    Odds are higher risk, larger reward</b></color></size>"
+    Odds are higher risk, \n  larger reward</b></color></size>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 47f2c0f0583de32429aa7dedceaf03fe, type: 2}
   m_sharedMaterial: {fileID: 5052451612889956222, guid: 47f2c0f0583de32429aa7dedceaf03fe, type: 2}
@@ -35966,7 +35966,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc04ca3376ea74d4bbbeeab8509b4917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gamblingTypeFirst: 1
+  gamblingTypeFirst: 0
   slotTrials:
   - outcome: 1
     multiplier: 2
@@ -37887,7 +37887,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4291611852
   m_fontColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -38152,7 +38152,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: (Press trigger to continue)
+  m_text: "(Press trigger \nto continue)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
