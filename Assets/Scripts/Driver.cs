@@ -273,8 +273,11 @@ public class Driver : MonoBehaviour
         Parlay.SetActive(!isSlot);
         Tablet.SetActive(!isSlot);
         ParlayEnvironment.SetActive(!isSlot);
+        effortTaskHandler.SetActiveEffortTask(false);
         SetGamblingType();
         StartNextTrial();
+        sxr.SetHardEffortTask(false);
+        sxr.SetButtonPresses(0);
     }
 
     public void ParlayOutcome(int legCount)
@@ -362,19 +365,7 @@ public class Driver : MonoBehaviour
     private void AdvanceTrialCounter()
     {
         Debug.Log($"Trial {sxr.GetTrial()} complete");
-if ((currentparlayTrial != null && currentparlayTrial.outcome == OutcomeType.EffortTask) ||
-    (currentSlotTrial != null && currentSlotTrial.outcome == OutcomeType.EffortTask))
-        {
-            effortTaskHandler.SetActiveEffortTask(false);
-            sxr.SetHardEffortTask(false);
-            sxr.SetButtonPresses(0);
-            playOffMusicScript.CancelOffMusic();            
-        }
-        else
-        {
-            playOffMusicScript.CancelOffMusic();            
-        }
-
+        playOffMusicScript.CancelOffMusic();            
         gazeHandler.GrabPupilTrialAverage();
         sxr.NextTrial();
     }
