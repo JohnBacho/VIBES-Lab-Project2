@@ -63,6 +63,14 @@ public class SlotHandler : MonoBehaviour, ManageWallet
             Debug.LogError("No outcome set from Driver!");
             return;
         }
+        
+        if(currentBet <= 0f)
+        {
+            handle.ResetHandle();
+            handle.DisableGrab();
+            return;
+        }
+
         if(sxr.GetTrial() == FirstTrial)
         {
             SlotTutorial.HideGrabHandleTutorial();
@@ -219,14 +227,13 @@ public class SlotHandler : MonoBehaviour, ManageWallet
     {
     const float decreaseAmount = 1f;
     SoundManager.SoundManager.PlaySound3D(SoundType.decreaseButtonSound, DecreaseBetButton.transform.position, buttonVolume, decreasePitch);
-    if (currentBet <= 0f)
+    if((currentBet - decreaseAmount) <= 0f)
         {
-            handle.DisableGrab();
             return;
         }
-        currentBet -= decreaseAmount;
-        AddWallet(decreaseAmount);
-        UpdateUI();
+    currentBet -= decreaseAmount;
+    AddWallet(decreaseAmount);
+    UpdateUI();
     }
 
     private void MarkTrialComplete()

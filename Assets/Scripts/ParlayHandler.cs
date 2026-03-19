@@ -182,7 +182,7 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
 
     public void StartSubmit()
     {
-        if(currentBet == 0f || AlreadySubmitting)
+        if(currentBet <= 0f || AlreadySubmitting)
             return;
         AlreadySubmitting = true;
         trialSubmitting = true;
@@ -329,7 +329,7 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
     public void DecreaseParlayBet()
     {
         const float decreaseAmount = 1f;
-        if (currentBet <= 0f || AlreadySubmitting) return;
+        if ((currentBet - decreaseAmount) <= 0f || AlreadySubmitting) return;
 
         currentBet -= decreaseAmount;
         AddWallet(decreaseAmount);
