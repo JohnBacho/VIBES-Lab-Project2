@@ -34,7 +34,7 @@ public class EyeTrackerManager : MonoBehaviour
         if (SRanipal_Eye_Framework.Instance == null)
         {
             Debug.LogError("[EyeTrackerManager] SRanipal_Eye_Framework instance never appeared. Is the framework object in the scene?");
-            sxr.DisplayImage("EyeError");
+
             yield break;
         }
 
@@ -47,7 +47,7 @@ public class EyeTrackerManager : MonoBehaviour
                 SRanipal_Eye_Framework.Status == SRanipal_Eye_Framework.FrameworkStatus.STOP)
             {
                 Debug.LogError($"[EyeTrackerManager] Framework entered terminal state: {SRanipal_Eye_Framework.Status}");
-                sxr.DisplayImage("EyeError");
+    
                 yield break;
             }
 
@@ -58,7 +58,7 @@ public class EyeTrackerManager : MonoBehaviour
         if (SRanipal_Eye_Framework.Status != SRanipal_Eye_Framework.FrameworkStatus.WORKING)
         {
             Debug.LogError($"[EyeTrackerManager] SRanipal did not become WORKING after {calibrationTimeout}s. Status: {SRanipal_Eye_Framework.Status}");
-            sxr.DisplayImage("EyeError");
+
             yield break;
         }
 
@@ -114,7 +114,7 @@ public class EyeTrackerManager : MonoBehaviour
         if (SRanipal_Eye_Framework.Instance == null)
         {
             Debug.LogError("[EyeTrackerManager] Framework instance lost during calibration wait.");
-            sxr.DisplayImage("EyeError");
+
             yield break;
         }
 
@@ -139,14 +139,14 @@ public class EyeTrackerManager : MonoBehaviour
         catch (System.Exception e)
         {
             Debug.LogError($"[EyeTrackerManager] Exception reading eye data: {e.Message}");
-            sxr.DisplayImage("EyeError");
+
             yield break;
         }
 
         if (!valid)
         {
             Debug.LogError("[EyeTrackerManager] Eye data invalid after calibration.");
-            sxr.DisplayImage("EyeError");
+
         }
         else
         {
