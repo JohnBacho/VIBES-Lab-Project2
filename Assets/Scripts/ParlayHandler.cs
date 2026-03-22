@@ -244,7 +244,6 @@ public class ParlayHandler : MonoBehaviour, ManageWallet
                 WinText.text = "";
             }
             WinText.text = $"YOU WIN\n${Payout:0.00}";
-            yield return new WaitForSeconds(TextOnTime);
             SoundManager.SoundManager.StopSound3D(SoundType.winAudio);
             WinText.text = "";
             WalletText.text = "";
