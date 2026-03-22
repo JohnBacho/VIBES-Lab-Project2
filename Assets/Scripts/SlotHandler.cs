@@ -120,6 +120,9 @@ public class SlotHandler : MonoBehaviour, ManageWallet
             }
             WinText.text = $"YOU WIN ${winnings}";
             walletText.text = $"Wallet: ${wallet:0.00}";
+            yield return new WaitForSeconds(0.6f);
+            WinText.text = "";
+            walletText.text = "";
         }
         else
         {
@@ -130,6 +133,9 @@ public class SlotHandler : MonoBehaviour, ManageWallet
             SoundManager.SoundManager.PlaySound3D(SoundType.lossAudio, LossText.transform.position, winLossVolume, lossPitch);
             const float TextOnTime = 4f;
             yield return new WaitForSeconds(TextOnTime);
+            walletText.text = "";
+            LossText.text = "";
+
         }
         SoundManager.SoundManager.StopSound3D(SoundType.winAudio);
         MarkTrialComplete();
