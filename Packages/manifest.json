@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.htc.upm.vive.openxr": "https://github.com/ViveSoftware/VIVE-OpenXR.git?path=com.htc.upm.vive.openxr",
     "com.simpleomnia.simplexr": "file:../sXR-masters/sXR-master",
     "com.unity.collab-proxy": "2.7.1",
     "com.unity.feature.development": "1.0.2",
