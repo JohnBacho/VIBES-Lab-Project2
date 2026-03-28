@@ -64,6 +64,29 @@ MonoBehaviour:
   required: 0
   <IsAllowSpectatorCameraCapture360Image>k__BackingField: 0
   <IsEnableDebugLog>k__BackingField: 0
+--- !u!114 &-6841966216132678074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 773cfc63f8eb6744cb2c69c6d6a4cbf8, type: 3}
+  m_Name: MeshingTeapotFeature Standalone
+  m_EditorClassIdentifier: 
+  m_enabled: 0
+  nameUi: Meshing Subsystem
+  version: 0.0.1
+  featureIdInternal: com.unity.openxr.feature.example.meshing
+  openxrExtensionStrings: 
+  company: HTC
+  priority: 0
+  required: 0
+  m_XrInstance: 0
+  m_XrSession: 0
+  m_systemid: 0
 --- !u!114 &-6816451464510493799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,6 +167,29 @@ MonoBehaviour:
   company: Unity
   priority: 0
   required: 0
+--- !u!114 &-5720051606985610988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 773cfc63f8eb6744cb2c69c6d6a4cbf8, type: 3}
+  m_Name: MeshingTeapotFeature Android
+  m_EditorClassIdentifier: 
+  m_enabled: 0
+  nameUi: Meshing Subsystem
+  version: 0.0.1
+  featureIdInternal: com.unity.openxr.feature.example.meshing
+  openxrExtensionStrings: 
+  company: HTC
+  priority: 0
+  required: 0
+  m_XrInstance: 0
+  m_XrSession: 0
+  m_systemid: 0
 --- !u!114 &-5599798550471373881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -778,6 +824,7 @@ MonoBehaviour:
   - {fileID: -4957855355202483000}
   - {fileID: 3959213752245317503}
   - {fileID: 3633846692868084516}
+  - {fileID: -6841966216132678074}
   - {fileID: -5812777971221648933}
   - {fileID: -1845920481262638053}
   - {fileID: -5377466670471682420}
@@ -1179,7 +1226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 946578d91fd159a47b2ef0d5f4524fdb, type: 3}
   m_Name: ViveHandTracking Standalone
   m_EditorClassIdentifier: 
-  m_enabled: 0
+  m_enabled: 1
   nameUi: VIVE XR Hand Tracking
   version: 4.0.0
   featureIdInternal: vive.openxr.feature.hand.tracking
@@ -1280,49 +1327,50 @@ MonoBehaviour:
   m_Name: Android
   m_EditorClassIdentifier: 
   features:
-  - {fileID: 7951921361233762874}
-  - {fileID: 2872963642244316111}
-  - {fileID: 6941546245323927333}
-  - {fileID: 5105188034561119623}
-  - {fileID: 2784878886557247364}
-  - {fileID: 5692625080247195561}
-  - {fileID: -8681099893200416141}
-  - {fileID: 5643910367694204981}
-  - {fileID: -5118885036604419308}
-  - {fileID: 9012119273033441137}
-  - {fileID: -2740350803352231435}
-  - {fileID: -4242866893879650598}
-  - {fileID: 8518290149314374777}
-  - {fileID: -5599798550471373881}
-  - {fileID: 669617816447510837}
-  - {fileID: 8795435774275430653}
-  - {fileID: 6923381274438383385}
-  - {fileID: -3636240169633689166}
-  - {fileID: -3242038816655762194}
-  - {fileID: -4918232000179623868}
-  - {fileID: 4797438731767894701}
-  - {fileID: -9090025147872756744}
-  - {fileID: 5624504949112674055}
-  - {fileID: -1707712440878661639}
-  - {fileID: 1057030247377612100}
-  - {fileID: 600153845797722851}
-  - {fileID: -3336674779798939046}
-  - {fileID: 6527891172261122830}
-  - {fileID: -942412943889645096}
-  - {fileID: 1282184939434917795}
-  - {fileID: 2237708406934041475}
   - {fileID: 6795637451986346050}
+  - {fileID: 8462386461232413589}
+  - {fileID: 3701648254767618827}
+  - {fileID: -6816451464510493799}
+  - {fileID: 147750146598240456}
+  - {fileID: -2004161890496214503}
+  - {fileID: -5720051606985610988}
+  - {fileID: 2237708406934041475}
+  - {fileID: -5337307486385479087}
   - {fileID: -2122609480625320942}
+  - {fileID: 5616952680246593364}
+  - {fileID: 1282184939434917795}
+  - {fileID: -942412943889645096}
   - {fileID: -2290986895203406552}
   - {fileID: -1747571117668205818}
+  - {fileID: 6527891172261122830}
+  - {fileID: -5118885036604419308}
+  - {fileID: -4242866893879650598}
+  - {fileID: 669617816447510837}
+  - {fileID: 2872963642244316111}
+  - {fileID: 2784878886557247364}
+  - {fileID: 4797438731767894701}
+  - {fileID: -4918232000179623868}
+  - {fileID: 8795435774275430653}
+  - {fileID: -9090025147872756744}
+  - {fileID: 7951921361233762874}
+  - {fileID: 1057030247377612100}
+  - {fileID: 8518290149314374777}
+  - {fileID: -3242038816655762194}
+  - {fileID: -3636240169633689166}
+  - {fileID: 5643910367694204981}
+  - {fileID: -2740350803352231435}
+  - {fileID: -1707712440878661639}
+  - {fileID: 6923381274438383385}
+  - {fileID: 5692625080247195561}
+  - {fileID: -5599798550471373881}
+  - {fileID: 5105188034561119623}
+  - {fileID: -8681099893200416141}
+  - {fileID: 600153845797722851}
+  - {fileID: 6941546245323927333}
+  - {fileID: 9012119273033441137}
+  - {fileID: 5624504949112674055}
+  - {fileID: -3336674779798939046}
   - {fileID: -2424670960402094523}
-  - {fileID: 3701648254767618827}
-  - {fileID: 8462386461232413589}
-  - {fileID: -6816451464510493799}
-  - {fileID: 5616952680246593364}
-  - {fileID: 147750146598240456}
-  - {fileID: -5337307486385479087}
-  - {fileID: -2004161890496214503}
   m_renderMode: 1
   m_autoColorSubmissionMode: 1
   m_colorSubmissionModes:
