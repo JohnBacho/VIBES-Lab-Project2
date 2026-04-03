@@ -5,6 +5,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 using sxr_internal;
 using TMPro;
 
+
 [System.Serializable]
 public enum OutcomeType
 {
@@ -58,6 +59,7 @@ public class Driver : MonoBehaviour
     [SerializeField] private GameObject PaymentInstructions;
     [SerializeField] private ParlayHandler parlayHandler;
     [SerializeField] private SlotHandler slotHandler;
+[SerializeField] private VIVE.OpenXR.Samples.FacialTracking.GazeHandler2 GazeHandler2;
     [SerializeField] private EffortTaskHandler effortTaskHandler;
     [SerializeField] private GazeHandler gazeHandler;
     [SerializeField] private SwitchContextText switchContextText;
@@ -138,6 +140,7 @@ public class Driver : MonoBehaviour
     {
         sxr.StartRecordingCameraPos();
         sxr.StartRecordingEyeTrackerInfo();
+        GazeHandler2.StartRecording();
     }
 
     public void StartNextTrial()

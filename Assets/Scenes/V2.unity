@@ -36317,7 +36317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e970551b854b39141aab753344a1b70a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EyeCalibration: 0
+  EyeCalibration: 1
   calibrationTimeout: 10
   enableRetry: 1
 --- !u!114 &1970160408
@@ -36522,6 +36522,7 @@ MonoBehaviour:
   PaymentInstructions: {fileID: 41502024}
   parlayHandler: {fileID: 1970160409}
   slotHandler: {fileID: 1970160413}
+  GazeHandler2: {fileID: 272285039}
   effortTaskHandler: {fileID: 1970160416}
   gazeHandler: {fileID: 1035072719}
   switchContextText: {fileID: 900306889}

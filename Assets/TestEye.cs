@@ -9,11 +9,12 @@ using VIVE.OpenXR.FacialTracking;
 
 namespace VIVE.OpenXR.Samples.FacialTracking
 {
-    public class GazeHandler : MonoBehaviour
+    public class GazeHandler2 : MonoBehaviour
     {
-        public static GazeHandler Instance;
+        public static GazeHandler2 Instance;
 
         private Camera vrCamera;
+        private float flushTimer = 0f;
 
         private string toWrite = "";
         private bool recordEyeTracker;
@@ -41,23 +42,25 @@ namespace VIVE.OpenXR.Samples.FacialTracking
         private bool captureEventBaseline = false;
 
         // -------- INIT --------
-        void Awake()
-        {
-            if (Instance == null)
-            {
-                Instance = this;
-                DontDestroyOnLoad(gameObject.transform.root);
-            }
-            else Destroy(gameObject);
+void Awake()
+{
+    if (Instance == null)
+    {
+        Instance = this;
+        DontDestroyOnLoad(gameObject.transform.root);
+    }
+    else Destroy(gameObject);
 
-            string folderPath = Path.Combine(Application.dataPath, "Experiments");
+    string folderPath = "/sdcard/Download/Experiments";
 
-            if (!Directory.Exists(folderPath))
-                Directory.CreateDirectory(folderPath);
+    if (!Directory.Exists(folderPath))
+        Directory.CreateDirectory(folderPath);
 
-            string timestamp = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
-            filePath = Path.Combine(folderPath, $"eyetracker_{timestamp}.csv");
-        }
+    string timestamp = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
+    filePath = Path.Combine(folderPath, $"eyetracker_{timestamp}.csv");
+
+    Debug.Log("Saving to: " + filePath); // optional, to confirm path in log
+}
 
         void Start()
         {
@@ -140,6 +143,9 @@ string GetFacialData()
             {
                 toWrite += Time.time.ToString("F4") + "," + GetDataString() + "\n";
             }
+
+            flushTimer += Time.deltaTime;
+            if (flushTimer >= 5f) { FlushToFile(); flushTimer = 0f; } // flush every 5s
         }
 
         // -------- GAZE --------

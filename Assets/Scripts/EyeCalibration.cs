@@ -7,7 +7,7 @@ public class EyeTrackerManager : MonoBehaviour
     [Tooltip("Auto-launch calibration when the framework is ready")]
     [SerializeField] private bool EyeCalibration = true;
 
-    [SerializeField] private float calibrationTimeout = 5f; // seconds
+    [SerializeField] private float calibrationTimeout = 15f; // seconds
     [SerializeField] private bool enableRetry = true;
 
     void Start()
