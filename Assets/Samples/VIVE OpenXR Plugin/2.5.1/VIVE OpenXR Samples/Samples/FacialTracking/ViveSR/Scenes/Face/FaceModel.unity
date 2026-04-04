@@ -1380,7 +1380,7 @@ MonoBehaviour:
       outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 0
+    m_RotationOrder: 4
   EyebrowAnimationCurveLower:
     serializedVersion: 2
     m_Curve:
@@ -1404,7 +1404,7 @@ MonoBehaviour:
       outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 0
+    m_RotationOrder: 4
   EyebrowAnimationCurveHorizontal:
     serializedVersion: 2
     m_Curve:
@@ -1428,7 +1428,7 @@ MonoBehaviour:
       outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 0
+    m_RotationOrder: 4
   NeededToGetData: 1
 --- !u!4 &1373643204 stripped
 Transform:

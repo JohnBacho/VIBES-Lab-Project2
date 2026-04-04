@@ -434,7 +434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17b6a897c202288439905d3efb0e006f, type: 3}
   m_Name: ViveFoveation Android
   m_EditorClassIdentifier: 
-  m_enabled: 0
+  m_enabled: 1
   nameUi: VIVE XR Foveation
   version: 1.0.0
   featureIdInternal: vive.openxr.feature.foveation
