@@ -7,6 +7,7 @@ using System.Text;
 using UnityEngine;
 using VIVE.OpenXR.EyeTracker;
 using VIVE.OpenXR.FacialTracking;
+using sxr_internal;
 
 namespace VIVE.OpenXR.Samples.FacialTracking
 {
@@ -17,10 +18,8 @@ namespace VIVE.OpenXR.Samples.FacialTracking
         private Camera vrCamera;
         private float flushTimer = 0f;
 
-        // ── Replaced string toWrite += ... with a StringBuilder ──
-        // StringBuilder.Append is O(1) amortized vs O(n) for string +=
-        private readonly StringBuilder writeBuffer = new StringBuilder(1024 * 64); // 64 KB initial cap
-        private StreamWriter writer;   // kept open for the lifetime of the session
+        private readonly StringBuilder writeBuffer = new StringBuilder(1024 * 64);
+        private StreamWriter writer;
 
         private bool recordEyeTracker;
         private bool headerPrinted;
@@ -34,23 +33,21 @@ namespace VIVE.OpenXR.Samples.FacialTracking
         private RaycastHit hit;
 
         // -------- PUPIL / BASELINE --------
-        private List<float> TempPupilStorage        = new List<float>();
-        private List<float> TempBaselinePupilStorage = new List<float>();
+        private List<float> TempPupilStorage         = new List<float>();
+        private List<float> TempBaselinePupilStorage  = new List<float>();
         private List<float> EventBaselinePupilStorage = new List<float>();
 
         private float leftPupilSize  = 0;
         private float rightPupilSize = 0;
 
-        private float baseline          = 0f;
-        private bool  baselineValid     = false;
+        private float baseline           = 0f;
+        private bool  baselineValid      = false;
         private bool  baselineInProgress = false;
         private bool  captureEventBaseline = false;
 
-        // ── Pre-allocated facial expression arrays to avoid per-frame float locals ──
         private readonly float[] eyeExp = new float[14];
         private readonly float[] lipExp = new float[37];
 
-        // ── Cached XrEyeExpression and XrLipExpression enum values ──
         private static readonly XrEyeExpressionHTC[] EyeExprEnums =
         {
             XrEyeExpressionHTC.XR_EYE_EXPRESSION_LEFT_BLINK_HTC,
@@ -131,7 +128,6 @@ namespace VIVE.OpenXR.Samples.FacialTracking
             string timestamp = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
             filePath = Path.Combine(folderPath, $"eyetracker_{timestamp}.csv");
 
-            // ── Open StreamWriter once; keep it open. AutoFlush off for speed. ──
             writer = new StreamWriter(filePath, append: false, encoding: Encoding.UTF8, bufferSize: 65536);
             writer.AutoFlush = false;
 
@@ -146,9 +142,10 @@ namespace VIVE.OpenXR.Samples.FacialTracking
         void WriteHeader()
         {
             writer.WriteLine(
-                "time," +
+                "programName,date,localTime,unityTime,phase,trial,trialTimePassed,outcome,gamblingType,bet,payout,wallet," +
+                "hardEffortTask,buttonPresses,totalOdds,totalLegs,parlaySelection," +
                 "gazeOriginX,gazeOriginY,gazeOriginZ," +
-                "gazeDirX,gazeDirY,gazeDirZ," +
+                "gazeDirectionX,gazeDirectionY,gazeDirectionZ," +
                 "leftPupil,rightPupil,combinedPupil," +
                 "baselineCorrected,eventBaselineCorrected," +
                 "hitX,hitY,hitZ,objectName," +
@@ -182,7 +179,6 @@ namespace VIVE.OpenXR.Samples.FacialTracking
             headerPrinted = true;
         }
 
-        // ── Flush the in-memory StringBuilder to the StreamWriter, then flush the stream ──
         void FlushToFile()
         {
             if (writeBuffer.Length == 0) return;
@@ -191,14 +187,11 @@ namespace VIVE.OpenXR.Samples.FacialTracking
             writeBuffer.Clear();
         }
 
-        // ── Writes facial data directly into the shared StringBuilder — zero string allocation ──
         void AppendFacialData(StringBuilder sb)
         {
-            // Sample all eye expressions into pre-allocated array
             for (int i = 0; i < EyeExprEnums.Length; i++)
                 eyeExp[i] = FacialTrackingData.EyeExpression(EyeExprEnums[i]);
 
-            // Sample all lip expressions into pre-allocated array
             for (int i = 0; i < LipExprEnums.Length; i++)
                 lipExp[i] = FacialTrackingData.LipExpression(LipExprEnums[i]);
 
@@ -248,61 +241,90 @@ namespace VIVE.OpenXR.Samples.FacialTracking
             }
         }
 
-        // ── Single code path for writing a data row, reused by Update and GrabPupilTrialAverage ──
         void AppendDataRow(float? trialAvg)
         {
             UpdatePupil();
 
+            var eh = ExperimentHandler.Instance;
+            if (eh != null)
+            {
+                writeBuffer.Append(eh.ProgramName);        writeBuffer.Append(',');
+                writeBuffer.Append(DateTime.Today.Month + "_" + DateTime.Today.Day); writeBuffer.Append(',');
+                writeBuffer.Append(DateTime.Now.Hour + "_" + DateTime.Now.Minute + "_" + DateTime.Now.Second); writeBuffer.Append(',');
+                writeBuffer.Append(Time.time.ToString("F4")); writeBuffer.Append(',');
+                writeBuffer.Append(eh.phase);              writeBuffer.Append(',');
+                writeBuffer.Append(eh.trial);              writeBuffer.Append(',');
+                writeBuffer.Append(eh.GetTimePassed());    writeBuffer.Append(',');
+                writeBuffer.Append(eh.OutcomeInTrial);     writeBuffer.Append(',');
+                writeBuffer.Append(eh.currentGamblingType);writeBuffer.Append(',');
+                writeBuffer.Append(eh.BetAmount);          writeBuffer.Append(',');
+                writeBuffer.Append(eh.CurrentPayout);      writeBuffer.Append(',');
+                writeBuffer.Append(eh.wallet);             writeBuffer.Append(',');
+                writeBuffer.Append(eh.HardEffortTask);     writeBuffer.Append(',');
+                writeBuffer.Append(eh.ButtonPresses);      writeBuffer.Append(',');
+                writeBuffer.Append(eh.TotalOdds);          writeBuffer.Append(',');
+                writeBuffer.Append(eh.TotalLegs);          writeBuffer.Append(',');
+                writeBuffer.Append('"'); writeBuffer.Append(eh.ParlaySelection); writeBuffer.Append('"'); writeBuffer.Append(',');
+            }
+            else
+            {
+                for (int i = 0; i < 17; i++) writeBuffer.Append(','); // was 15, now 17 columns
+            }
+
+            // ── cols 17-19: gaze origin ──
+            writeBuffer.Append(combinedGazeOrigin.x); writeBuffer.Append(',');
+            writeBuffer.Append(combinedGazeOrigin.y); writeBuffer.Append(',');
+            writeBuffer.Append(combinedGazeOrigin.z); writeBuffer.Append(',');
+
+            // ── cols 20-22: gaze direction ──
+            writeBuffer.Append(combinedGazeDirection.x); writeBuffer.Append(',');
+            writeBuffer.Append(combinedGazeDirection.y); writeBuffer.Append(',');
+            writeBuffer.Append(combinedGazeDirection.z); writeBuffer.Append(',');
+
+            // ── cols 23-25: pupils ──
             float? combined          = CombinedPupil();
             float? baselineCorrected = combined.HasValue ? BaselineCorrected(combined.Value) : null;
             float? eventBaseline     = (captureEventBaseline && baselineCorrected.HasValue)
                                            ? baselineCorrected
                                            : (float?)null;
 
-            string hitX = "", hitY = "", hitZ = "", hitName = "";
-                if (combinedGazeDirection != Vector3.zero)
-                {
-                    // Transform gaze from camera-local space into world space
-                    Vector3 worldOrigin    = vrCamera.transform.TransformPoint(combinedGazeOrigin);
-                    Vector3 worldDirection = vrCamera.transform.TransformDirection(combinedGazeDirection);
-
-                    gazeRay = new Ray(worldOrigin, worldDirection);
-                    if (Physics.Raycast(gazeRay, out hit))
-                    {
-                        hitX    = hit.point.x.ToString("F4");
-                        hitY    = hit.point.y.ToString("F4");
-                        hitZ    = hit.point.z.ToString("F4");
-                        hitName = hit.collider.gameObject.name;
-                    }
-                }
-
-            // ── Build the row directly into writeBuffer — no intermediate strings ──
-            writeBuffer.Append(Time.time.ToString("F4")); writeBuffer.Append(',');
-
-            writeBuffer.Append(combinedGazeOrigin.x);  writeBuffer.Append(',');
-            writeBuffer.Append(combinedGazeOrigin.y);  writeBuffer.Append(',');
-            writeBuffer.Append(combinedGazeOrigin.z);  writeBuffer.Append(',');
-            writeBuffer.Append(combinedGazeDirection.x); writeBuffer.Append(',');
-            writeBuffer.Append(combinedGazeDirection.y); writeBuffer.Append(',');
-            writeBuffer.Append(combinedGazeDirection.z); writeBuffer.Append(',');
-
             writeBuffer.Append(leftPupilSize);  writeBuffer.Append(',');
             writeBuffer.Append(rightPupilSize); writeBuffer.Append(',');
-
             if (combined.HasValue) { writeBuffer.Append(combined.Value); }
             writeBuffer.Append(',');
+
+            // ── cols 26-27: baseline-corrected pupils ──
             if (baselineCorrected.HasValue) { writeBuffer.Append(baselineCorrected.Value); }
             writeBuffer.Append(',');
             if (eventBaseline.HasValue) { writeBuffer.Append(eventBaseline.Value); }
             writeBuffer.Append(',');
 
-            writeBuffer.Append(hitX); writeBuffer.Append(',');
-            writeBuffer.Append(hitY); writeBuffer.Append(',');
-            writeBuffer.Append(hitZ); writeBuffer.Append(',');
+            // ── cols 28-31: raycast hit ──
+            string hitX = "", hitY = "", hitZ = "", hitName = "";
+            if (combinedGazeDirection != Vector3.zero)
+            {
+                Vector3 worldOrigin    = vrCamera.transform.TransformPoint(combinedGazeOrigin);
+                Vector3 worldDirection = vrCamera.transform.TransformDirection(combinedGazeDirection);
+
+                gazeRay = new Ray(worldOrigin, worldDirection);
+                if (Physics.Raycast(gazeRay, out hit))
+                {
+                    hitX    = hit.point.x.ToString("F4");
+                    hitY    = hit.point.y.ToString("F4");
+                    hitZ    = hit.point.z.ToString("F4");
+                    hitName = hit.collider.gameObject.name;
+                }
+            }
+
+            writeBuffer.Append(hitX);    writeBuffer.Append(',');
+            writeBuffer.Append(hitY);    writeBuffer.Append(',');
+            writeBuffer.Append(hitZ);    writeBuffer.Append(',');
             writeBuffer.Append(hitName); writeBuffer.Append(',');
 
+            // ── cols 32-82: facial expressions (14 eye + 37 lip) ──
             AppendFacialData(writeBuffer);
 
+            // ── col 83: trial average pupil ──
             writeBuffer.Append(',');
             if (trialAvg.HasValue) writeBuffer.Append(trialAvg.Value);
 
