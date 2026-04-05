@@ -1,5 +1,5 @@
 # ninja log v5
-283	440	7968805455850337	C:/Users/Kevin/OneDrive/Desktop/VIBES-Lab-Project2/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/733l2t6v/obj/arm64-v8a/libswappywrapper.so	72e7ee298869574e
-0	282	7968805454670158	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	e73be6b241ba7608
 2	229	7970395741768321	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	e73be6b241ba7608
 229	498	7970395744024404	C:/Users/Kevin/OneDrive/Desktop/VIBES-Lab-Project2/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/733l2t6v/obj/arm64-v8a/libswappywrapper.so	72e7ee298869574e
+0	247	7971212837255174	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	e73be6b241ba7608
+247	544	7971212839804088	C:/Users/Kevin/OneDrive/Desktop/VIBES-Lab-Project2/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/733l2t6v/obj/arm64-v8a/libswappywrapper.so	72e7ee298869574e

@@ -56,16 +56,22 @@ public class Driver : MonoBehaviour
     [SerializeField] private GameObject ParlayEnvironment;
     [SerializeField] private GameObject Tablet;
     [SerializeField] private GameObject WelcomeText;
+    [SerializeField] private GameObject Hand;
     [SerializeField] private GameObject PaymentInstructions;
     [SerializeField] private ParlayHandler parlayHandler;
     [SerializeField] private SlotHandler slotHandler;
-[SerializeField] private VIVE.OpenXR.Samples.FacialTracking.GazeHandler2 GazeHandler2;
+    [SerializeField] private VIVE.OpenXR.Samples.FacialTracking.GazeHandler2 GazeHandler2;
     [SerializeField] private EffortTaskHandler effortTaskHandler;
-    [SerializeField] private GazeHandler gazeHandler;
     [SerializeField] private SwitchContextText switchContextText;
     [SerializeField] private ParlayInstructions parlayInstructions;
     [SerializeField] XRInteractorLineVisual rightRayLineVisual;
     [SerializeField] XRInteractorLineVisual leftRayLineVisual;
+    [SerializeField] private GameObject LeftControllerpt1;
+    [SerializeField] private GameObject LeftControllerpt2;
+    [SerializeField] private GameObject RightControllerpt1;
+    [SerializeField] private GameObject RightControllerpt2;
+
+
 
 
     [SerializeField] private PlayOffMusic playOffMusicScript;
@@ -78,11 +84,14 @@ public class Driver : MonoBehaviour
     const int lastPhase = 1; 
     const float disableTime = 0.5f;
     const float disableButtonBaseline = 1f;
+    private static readonly float buttonVolume = 0.5f;
+    private static readonly float increasePitch = 3f;
     private ParlayTrialData currentparlayTrial;
     private SlotTrialData currentSlotTrial;
+
     void Start()
     {
-        StartCoroutine(switchContextAfterDelay());
+        GetDominateHand();
         AudioListener.volume = 0.75f;
         DelayedStart();
     }
@@ -100,10 +109,32 @@ public class Driver : MonoBehaviour
         }
     }
 
-    private IEnumerator switchContextAfterDelay()
+    public void Right()
+    {
+        SoundManager.SoundManager.PlaySound3D(SoundType.increaseButtonSound, Hand.transform.position, buttonVolume, increasePitch);
+        LeftControllerpt1.SetActive(false);
+        LeftControllerpt2.SetActive(false);
+        StartCoroutine(switchContextAfterDelay());
+    }
+
+    public void Left()
+    {
+        SoundManager.SoundManager.PlaySound3D(SoundType.increaseButtonSound, Hand.transform.position, buttonVolume, increasePitch);
+        RightControllerpt1.SetActive(false);
+        RightControllerpt2.SetActive(false);
+        StartCoroutine(switchContextAfterDelay());
+    }
+
+    private void GetDominateHand()
     {
         sxr.SetGamblingType("Introduction");
         turnOffEnvironments();
+        Hand.SetActive(true);
+    }
+
+    private IEnumerator switchContextAfterDelay()
+    {
+        Hand.SetActive(false);   
         WelcomeText.SetActive(true);
         yield return new WaitForSeconds(4f);
         yield return new WaitUntil(() => sxr.GetTrigger());
@@ -206,7 +237,7 @@ public class Driver : MonoBehaviour
         }
         offMusicToken++;
         playOffMusicScript.StartPlayOffMusic(SlotMachine.activeSelf ? slotTrialDuration : parlayTrialDuration, offMusicToken);
-        gazeHandler.StartBaseline();
+        GazeHandler2.StartBaseline();
         SetTypeOutcome();
     }
 
@@ -221,7 +252,7 @@ public class Driver : MonoBehaviour
         {
             yield return null;
         }
-        gazeHandler.SetCaptureEventBaseline();
+        GazeHandler2.SetCaptureEventBaseline();
 
         while (!slotHandler.TrialCompleted)
         {
@@ -320,7 +351,7 @@ public class Driver : MonoBehaviour
         {
             yield return null;
         }
-        gazeHandler.SetCaptureEventBaseline();
+        GazeHandler2.SetCaptureEventBaseline();
 
 
         while (!parlayHandler.TrialCompleted)
@@ -369,7 +400,7 @@ public class Driver : MonoBehaviour
     {
         Debug.Log($"Trial {sxr.GetTrial()} complete");
         playOffMusicScript.CancelOffMusic();            
-        gazeHandler.GrabPupilTrialAverage();
+        GazeHandler2.GrabPupilTrialAverage();
         sxr.NextTrial();
     }
 

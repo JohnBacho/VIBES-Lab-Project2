@@ -1,58 +1,38 @@
 using UnityEngine;
 using UnityEngine.XR;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class HapticsManager : MonoBehaviour
 {
+    private InputDevice controller;
+
+    void Start()
+    {
+        GetComponent<XRSimpleInteractable>().selectEntered.AddListener(OnSelectEntered);
+    }
+
+    private void OnSelectEntered(SelectEnterEventArgs args)
+    {
+        bool isRight = args.interactorObject.transform.name.ToLower().Contains("right");
+        controller = InputDevices.GetDeviceAtXRNode(isRight ? XRNode.RightHand : XRNode.LeftHand);
+    }
+
+    public void setHandHaptics(bool isRightHand)
+    {
+        controller = InputDevices.GetDeviceAtXRNode(isRightHand ? XRNode.RightHand : XRNode.LeftHand);
+        TriggerHaptic();
+    }
 
     public void CustomTriggerHaptic(float amplitude, float duration)
     {
-        InputDevice rightController = InputDevices.GetDeviceAtXRNode(XRNode.RightHand);
-        InputDevice leftController = InputDevices.GetDeviceAtXRNode(XRNode.LeftHand);
-
-        if (rightController.isValid && rightController.TryGetHapticCapabilities(out HapticCapabilities capabilities))
-        {
+        if (controller.isValid && controller.TryGetHapticCapabilities(out HapticCapabilities capabilities))
             if (capabilities.supportsImpulse)
-                rightController.SendHapticImpulse(0, amplitude, duration);
-        }
-
-        
-        if (leftController.isValid && leftController.TryGetHapticCapabilities(out HapticCapabilities leftCapabilities))
-        {
-            if (leftCapabilities.supportsImpulse)
-                leftController.SendHapticImpulse(0, amplitude, duration);
-        }
+                controller.SendHapticImpulse(0, amplitude, duration);
     }
 
-        public void TriggerHaptic()
-    {
-        float amplitude = 0.5f;
-        float duration = 0.1f;
-        InputDevice rightController = InputDevices.GetDeviceAtXRNode(XRNode.RightHand);
-        InputDevice leftController = InputDevices.GetDeviceAtXRNode(XRNode.LeftHand);
-
-        if (rightController.isValid && rightController.TryGetHapticCapabilities(out HapticCapabilities capabilities))
-        {
-            if (capabilities.supportsImpulse)
-                rightController.SendHapticImpulse(0, amplitude, duration);
-        }
-
-        
-        if (leftController.isValid && leftController.TryGetHapticCapabilities(out HapticCapabilities leftCapabilities))
-        {
-            if (leftCapabilities.supportsImpulse)
-                leftController.SendHapticImpulse(0, amplitude, duration);
-        }
-    }
-
-    public void HapticIncreaseBet()
-    {
-        CustomTriggerHaptic(0.7f, 0.1f);
-    }
-
-    public void HapticDecreaseBet()
-    {
-        CustomTriggerHaptic(0.5f, 0.15f);
-    }
+    public void TriggerHaptic()      => CustomTriggerHaptic(0.5f, 0.1f);
+    public void HapticIncreaseBet()  => CustomTriggerHaptic(0.7f, 0.1f);
+    public void HapticDecreaseBet()  => CustomTriggerHaptic(0.5f, 0.15f);
 
     public void HapticUntoggle()
     {
@@ -60,9 +40,5 @@ public class HapticsManager : MonoBehaviour
         Invoke(nameof(SecondUntogglePulse), 0.07f);
     }
 
-    private void SecondUntogglePulse()
-    {
-        CustomTriggerHaptic(0.5f, 0.05f);
-    }
+    private void SecondUntogglePulse() => CustomTriggerHaptic(0.5f, 0.05f);
 }
-
