@@ -174,7 +174,7 @@ namespace VIVE.OpenXR.Samples.FacialTracking
                 "tongueLongstep2," +
                 "tongueUprightMorph,tongueUpleftMorph," +
                 "tongueDownrightMorph,tongueDownleftMorph," +
-                "trialAvgPupil"
+                "trialAvgPupil,trialBaselineCorrectedPupil,eventBaselineCorrectedPupil"
             );
             headerPrinted = true;
         }
@@ -241,7 +241,7 @@ namespace VIVE.OpenXR.Samples.FacialTracking
             }
         }
 
-        void AppendDataRow(float? trialAvg)
+        void AppendDataRow(float? trialAvg, float? baselineTrialAvg = null, float? eventBaselineTrialAvg = null)
         {
             UpdatePupil();
 
@@ -324,9 +324,13 @@ namespace VIVE.OpenXR.Samples.FacialTracking
             // ── cols 32-82: facial expressions (14 eye + 37 lip) ──
             AppendFacialData(writeBuffer);
 
-            // ── col 83: trial average pupil ──
+            // ── col 83-85: trial average pupils ──
             writeBuffer.Append(',');
-            if (trialAvg.HasValue) writeBuffer.Append(trialAvg.Value);
+            if (trialAvg.HasValue)          writeBuffer.Append(trialAvg.Value);
+            writeBuffer.Append(',');
+            if (baselineTrialAvg.HasValue)  writeBuffer.Append(baselineTrialAvg.Value);
+            writeBuffer.Append(',');
+            if (eventBaselineTrialAvg.HasValue) writeBuffer.Append(eventBaselineTrialAvg.Value);
 
             writeBuffer.Append('\n');
         }
@@ -389,8 +393,15 @@ namespace VIVE.OpenXR.Samples.FacialTracking
         {
             if (TempPupilStorage.Count == 0) return;
 
-            float avg = TempPupilStorage.Average();
-            AppendDataRow(trialAvg: avg);
+            float  trialAvg          = TempPupilStorage.Average();
+            float? baselineAvg       = (!baselineValid || TempBaselinePupilStorage.Count == 0)
+                                        ? (float?)null
+                                        : TempBaselinePupilStorage.Average();
+            float? eventBaselineAvg  = (!baselineValid || EventBaselinePupilStorage.Count == 0)
+                                        ? (float?)null
+                                        : EventBaselinePupilStorage.Average();
+
+            AppendDataRow(trialAvg: trialAvg, baselineTrialAvg: baselineAvg, eventBaselineTrialAvg: eventBaselineAvg);
 
             TempPupilStorage.Clear();
             TempBaselinePupilStorage.Clear();
