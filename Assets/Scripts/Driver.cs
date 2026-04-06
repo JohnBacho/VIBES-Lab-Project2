@@ -114,6 +114,12 @@ public class Driver : MonoBehaviour
         SoundManager.SoundManager.PlaySound3D(SoundType.increaseButtonSound, Hand.transform.position, buttonVolume, increasePitch);
         LeftControllerpt1.SetActive(false);
         LeftControllerpt2.SetActive(false);
+
+        foreach (HapticsManager haptics in FindObjectsByType<HapticsManager>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            haptics.setDominateHand(true);
+        }
+
         StartCoroutine(switchContextAfterDelay());
     }
 
@@ -122,6 +128,12 @@ public class Driver : MonoBehaviour
         SoundManager.SoundManager.PlaySound3D(SoundType.increaseButtonSound, Hand.transform.position, buttonVolume, increasePitch);
         RightControllerpt1.SetActive(false);
         RightControllerpt2.SetActive(false);
+
+        foreach (HapticsManager haptics in FindObjectsByType<HapticsManager>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+        {
+            haptics.setDominateHand(false);
+        }
+
         StartCoroutine(switchContextAfterDelay());
     }
 
