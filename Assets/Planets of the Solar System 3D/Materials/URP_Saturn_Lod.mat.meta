@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: b50a4cf008d5346299340465ad3583f7
+timeCreated: 1518493010
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 90219
+  packageName: Planets of the Solar System 3D
+  packageVersion: 2.0
+  assetPath: Assets/Planets of the Solar System 3D/Materials/URP_Saturn_Lod.mat
+  uploadId: 483801

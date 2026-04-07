@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 82479439eac344631aaef1977dcaf8eb
+timeCreated: 1518492543
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 90219
+  packageName: Planets of the Solar System 3D
+  packageVersion: 2.0
+  assetPath: Assets/Planets of the Solar System 3D/Materials/Sun FX.mat
+  uploadId: 483801

@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: b5ead511677a448758f7cd3c61b8e557
+timeCreated: 1518537175
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 90219
+  packageName: Planets of the Solar System 3D
+  packageVersion: 2.0
+  assetPath: Assets/Planets of the Solar System 3D/Materials/URP_Asteroid.mat
+  uploadId: 483801
