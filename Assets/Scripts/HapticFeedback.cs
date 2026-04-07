@@ -3,51 +3,37 @@ using UnityEngine.XR;
 
 public class HapticsManager : MonoBehaviour
 {
-    InputDevice Controller;
+    private bool isRightHanded = true;
 
-    void Awake()
+    private InputDevice GetController()
     {
-        Controller = InputDevices.GetDeviceAtXRNode(XRNode.RightHand);
+        return InputDevices.GetDeviceAtXRNode(
+            isRightHanded ? XRNode.RightHand : XRNode.LeftHand
+        );
     }
 
-    public void setDominateHand(bool isRightHanded)
+    public void setDominateHand(bool rightHanded)
     {
-        if (!isRightHanded)
-        {
-            Controller = InputDevices.GetDeviceAtXRNode(XRNode.LeftHand);
-        }
+        isRightHanded = rightHanded;
     }
+
     public void CustomTriggerHaptic(float amplitude, float duration)
     {
-
-        if (Controller.isValid && Controller.TryGetHapticCapabilities(out HapticCapabilities capabilities))
+        InputDevice controller = GetController();
+        if (controller.isValid && controller.TryGetHapticCapabilities(out HapticCapabilities capabilities))
         {
             if (capabilities.supportsImpulse)
-                Controller.SendHapticImpulse(0, amplitude, duration);
+                controller.SendHapticImpulse(0, amplitude, duration);
         }
     }
 
-        public void TriggerHaptic()
+    public void TriggerHaptic()
     {
-        float amplitude = 0.5f;
-        float duration = 0.1f;
-
-        if (Controller.isValid && Controller.TryGetHapticCapabilities(out HapticCapabilities capabilities))
-        {
-            if (capabilities.supportsImpulse)
-                Controller.SendHapticImpulse(0, amplitude, duration);
-        }
+        CustomTriggerHaptic(0.5f, 0.1f);
     }
 
-    public void HapticIncreaseBet()
-    {
-        CustomTriggerHaptic(0.7f, 0.1f);
-    }
-
-    public void HapticDecreaseBet()
-    {
-        CustomTriggerHaptic(0.5f, 0.15f);
-    }
+    public void HapticIncreaseBet()  { CustomTriggerHaptic(0.7f, 0.1f); }
+    public void HapticDecreaseBet()  { CustomTriggerHaptic(0.5f, 0.15f); }
 
     public void HapticUntoggle()
     {

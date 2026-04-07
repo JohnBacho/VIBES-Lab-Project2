@@ -15,6 +15,14 @@ namespace VIVE.OpenXR.Samples.FacialTracking
     {
         public static GazeHandler2 Instance;
 
+        public enum ProgramName
+        {
+            Lilac,
+            Sunflower
+        }
+        [SerializeField] private ProgramName programName = ProgramName.Lilac;
+
+
         private Camera vrCamera;
         private float flushTimer = 0f;
 
@@ -121,12 +129,47 @@ namespace VIVE.OpenXR.Samples.FacialTracking
                 return;
             }
 
-            string folderPath = "/sdcard/Download/Experiments";
-            if (!Directory.Exists(folderPath))
-                Directory.CreateDirectory(folderPath);
+            // try sdcard2 first
+            string storageRoot = "/sdcard2";
+            try
+            {
+                string testPath = Path.Combine(storageRoot, "Download", "Experiments");
+                if (!Directory.Exists(testPath))
+                    Directory.CreateDirectory(testPath);
+            }
+            catch
+            {
+                storageRoot = "/sdcard";
+            }
 
+            string experimentsRoot = Path.Combine(storageRoot, "Download", "Experiments");
+            if (!Directory.Exists(experimentsRoot))
+                Directory.CreateDirectory(experimentsRoot);
+
+            // ── 2. Pick subfolder name from program name ──
+            string folderName = programName == ProgramName.Lilac ? "Lilac" : "Sunflower";
+
+            string subfolderBase = folderName.ToLowerInvariant().Contains("lilac")
+                ? "lilac"
+                : "sunflower";
+
+            // ── 3. Increment if folder already exists: lilac → lilac(1) → lilac(2) … ──
+            string subfolderName = subfolderBase;
+            string subfolderPath = Path.Combine(experimentsRoot, subfolderName);
+
+            int suffix = 1;
+            while (Directory.Exists(subfolderPath))
+            {
+                subfolderName = $"{subfolderBase}({suffix})";
+                subfolderPath = Path.Combine(experimentsRoot, subfolderName);
+                suffix++;
+            }
+
+            Directory.CreateDirectory(subfolderPath);
+
+            // ── 4. Build final file path ──
             string timestamp = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
-            filePath = Path.Combine(folderPath, $"eyetracker_{timestamp}.csv");
+            filePath = Path.Combine(subfolderPath, $"eyetracker_{timestamp}.csv");
 
             writer = new StreamWriter(filePath, append: false, encoding: Encoding.UTF8, bufferSize: 65536);
             writer.AutoFlush = false;
