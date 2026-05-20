@@ -24,7 +24,7 @@ Building on the VR research infrastructure established in Project 1, this projec
 
 ---
 
-## 🎮 Key Features
+## Key Features
 
 ### **Dual Gambling Modality System**
 - **Sports Parlay Betting**: Multi-leg parlay construction with realistic odds and detailed stat cards
@@ -53,7 +53,7 @@ The system captures trial-level data including:
 
 ---
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 | Component | Technology |
 |-----------|-----------|
@@ -67,7 +67,7 @@ The system captures trial-level data including:
 
 ---
 
-## 📊 Research Design
+## Research Design
 
 ### **Experimental Structure**
 - **Within-subjects design**: Each participant experiences both gambling types
@@ -120,7 +120,7 @@ cd VIBES-Lab-Project2
 
 ---
 
-## 📈 Data Output & Processing
+## Data Output & Processing
 
 ### **CSV Structure**
 Each session generates a CSV with the following columns:
@@ -155,7 +155,7 @@ The processor automatically:
 
 ---
 
-## 👥 Core Team
+## Core Team
 
 | Name | Department |
 |------|-----------|
@@ -175,7 +175,7 @@ The processor automatically:
 
 ---
 
-## 🔬 Research Applications
+## Research Applications
 
 This platform enables investigation of:
 - **Comparative gambling psychology**: Sports betting vs. chance-based gambling
@@ -186,7 +186,7 @@ This platform enables investigation of:
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - **Justin Kasowski** – SimpleOmnia framework development
 - **HTC Corporation** – VIVE Pro Eye and SRanipal SDK
@@ -203,7 +203,7 @@ Includes SimpleOmnia framework components under the same license.
 
 ---
 
-## 📧 Contact
+## Contact
 
 - **Lead Developer:** [jbacho22@bw.edu](mailto:jbacho22@bw.edu)
 - **Lab Inquiries:** [Dr. Brian Thomas](mailto:bthomas@bw.edu)
@@ -211,7 +211,7 @@ Includes SimpleOmnia framework components under the same license.
 
 ---
 
-## 🔗 Related Repositories
+## Related Repositories
 
 - **CSV Data Processor**: [VIBES-Lab-Project2-CSV-Processor](https://github.com/JohnBacho/Vibes-Lab-Project2-CSV-Processor)
 - **Project 1 (Foundation)**: [Link to Project 1 repository](https://github.com/JohnBacho/VIBES-Lab-Project1)
